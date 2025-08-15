@@ -1,0 +1,17 @@
+# dependencies & build artifacts
+node_modules/
+.next/
+out/
+dist/
+.vercel/
+.bolt/
+
+# env, logs, caches
+.env
+.env.*
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# misc
+.DS_Store
