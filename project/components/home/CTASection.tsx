@@ -23,14 +23,13 @@ export function CTASection() {
             </Link>
           </Button>
 
-          {/* Call Now */}
-           <Button asChild size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
-            <Link href="/contact" className="flex items-center space-x-2">
+          {/* Start with DMIT */}
+          <Button asChild size="lg" className="bg-gray-900 text-white hover:bg-gray-800">
+            <Link href="/programs/dmit" className="flex items-center space-x-2">
               <Phone className="h-5 w-5" />
-              <span> Call now</span>
+              <span>Start with DMIT</span>
             </Link>
           </Button>
-          
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">

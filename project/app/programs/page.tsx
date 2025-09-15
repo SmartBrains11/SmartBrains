@@ -265,7 +265,7 @@ export default function ProgramsPage() {
             <Button asChild size="lg" variant="secondary">
               <Link href="/contact">Book Free Consultation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
               <Link href="/programs/dmit">Start with DMIT Assessment</Link>
             </Button>
           </div>

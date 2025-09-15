@@ -214,9 +214,9 @@ export default function TrainingPage() {
             {trainingFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card 
-                  key={index} 
-                  className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                <Card
+                  key={index}
+                  className="bg-white border border-gray-100 rounded-xl shadow-sm transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1"
                 >
                   <CardHeader>
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600 mb-4">
@@ -250,14 +250,16 @@ export default function TrainingPage() {
             {trainingPrograms.map((program, index) => (
               <Card 
                 key={program.id} 
-                className="overflow-hidden hover:shadow-xl transition-all duration-500"
+                className="overflow-hidden bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <div className="relative h-64 lg:h-auto">
+                  <div className="relative h-64 lg:h-80">
                     <img
                       src={program.image}
-                      alt={program.title}
+                      alt={`${program.title} training program image`}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="p-8 lg:p-12">

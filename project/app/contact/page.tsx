@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -11,9 +11,10 @@ import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 // Fallback to your provided IDs if env vars are missing (handy for quick testing)
-const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? 'service_vch5w5c';
+const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? 'service_yv2p4rh';
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? 'template_srxnagn';
 const PUBLIC_KEY  = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  ?? 'soJLwCs94fCTltPBi';
+const TO_EMAIL   = 'smartbrainsindia11@gmail.com';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -27,6 +28,17 @@ export default function ContactPage() {
   });
 
   const [submitting, setSubmitting] = useState(false);
+
+  // Initialize EmailJS on mount
+  useEffect(() => {
+    try {
+      if (PUBLIC_KEY) {
+        emailjs.init({ publicKey: PUBLIC_KEY });
+      }
+    } catch (e) {
+      console.error('EmailJS init error:', e);
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,6 +64,8 @@ export default function ContactPage() {
           program: formData.program,
           childAge: formData.childAge,
           query: formData.query,
+          // Ensure your template uses reply_to for direct replies
+          reply_to: formData.email || TO_EMAIL,
         },
         PUBLIC_KEY // Your Public Key
       );
@@ -72,9 +86,18 @@ export default function ContactPage() {
         console.error('EmailJS non-200:', res);
         alert('Sorry, we could not send your message. Please try again.');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('EmailJS Error:', error);
-      alert('Sorry, something went wrong. Please try again.');
+      const message =
+        (error?.text || error?.message || '').toString() ||
+        'Unknown error from EmailJS';
+
+      // Common misconfig hints
+      const configHint = !SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY
+        ? '\nHint: Missing EmailJS config (service, template, or public key).'
+        : '';
+
+      alert(`Sorry, we could not send your message.\n${message}${configHint}`);
     } finally {
       setSubmitting(false);
     }
