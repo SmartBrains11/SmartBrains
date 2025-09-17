@@ -69,6 +69,71 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Smart Brains India',
+              url: 'https://www.smartbrainsindia.com',
+              logo: 'https://www.smartbrainsindia.com/logo.png',
+              sameAs: [
+                'https://www.facebook.com/',
+                'https://www.instagram.com/',
+                'https://www.youtube.com/'
+              ],
+              contactPoint: [
+                {
+                  '@type': 'ContactPoint',
+                  telephone: '+91 7396447470',
+                  contactType: 'customer service',
+                  areaServed: 'IN',
+                  availableLanguage: ['en', 'hi', 'te']
+                },
+                {
+                  '@type': 'ContactPoint',
+                  telephone: '+91 7386209090',
+                  contactType: 'customer service',
+                  areaServed: 'IN',
+                  availableLanguage: ['en', 'hi', 'te']
+                }
+              ],
+              department: [
+                {
+                  '@type': 'LocalBusiness',
+                  name: 'Smart Brains India - Vizianagaram',
+                  address: {
+                    '@type': 'PostalAddress',
+                    streetAddress: 'Dakkini Street, Backside of Ramamandir, 3-1/4-12/2',
+                    addressLocality: 'Vizianagaram',
+                    addressRegion: 'Andhra Pradesh',
+                    postalCode: '535002',
+                    addressCountry: 'IN'
+                  },
+                  telephone: '+91 7396447470',
+                  areaServed: 'Vizianagaram',
+                  url: 'https://www.smartbrainsindia.com/contact'
+                },
+                {
+                  '@type': 'LocalBusiness',
+                  name: 'Smart Brains India - Hyderabad',
+                  address: {
+                    '@type': 'PostalAddress',
+                    streetAddress: 'Prasanth Nagar Colony, Kondapur',
+                    addressLocality: 'Hyderabad',
+                    addressRegion: 'Telangana',
+                    postalCode: '500084',
+                    addressCountry: 'IN'
+                  },
+                  telephone: '+91 7386209090',
+                  areaServed: 'Hyderabad',
+                  url: 'https://www.smartbrainsindia.com/contact'
+                }
+              ]
+            })
+          }}
+        />
         <Header />
         <main className="min-h-screen">
           {children}

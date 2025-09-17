@@ -326,8 +326,8 @@ export default function ContactPage() {
                     <h4 className="font-medium text-gray-900 mb-2">Vizianagaram Center</h4>
                     <p className="text-sm text-gray-600">
                       Dakkini Street, Backside of Ramamandir, 3-1/4-12/2<br />
-                      Vizianagaram, Andhra Pradesh 53500<br />
-                      <a href="tel:+918942345678" className="text-blue-600 hover:underline">+91 89423 45678</a>
+                      Vizianagaram, Andhra Pradesh 535002<br />
+                      <a href="tel:+917396447470" className="text-blue-600 hover:underline">+91 73964 47470</a>
                     </p>
                   </div>
                   <div>
@@ -335,7 +335,7 @@ export default function ContactPage() {
                     <p className="text-sm text-gray-600">
                       kondapur, Prasanth Nagar Colony<br />
                       Hyderabad, Telangana 500084<br />
-                      <a href="tel:+914012345678" className="text-blue-600 hover:underline">+91 40 1234 5678</a>
+                      <a href="tel:+917386209090" className="text-blue-600 hover:underline">+91 73862 09090</a>
                     </p>
                   </div>
                 </CardContent>

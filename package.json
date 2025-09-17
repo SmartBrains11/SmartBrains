@@ -1,8 +1,9 @@
 {
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-  "start": "next start"
+    "dev": "npm --prefix project run dev",
+    "build": "npm --prefix project run build",
+    "start": "npm --prefix project run start",
+    "postinstall": "npm --prefix project install"
   },
   "dependencies": {
     "next": "^15.4.6",

@@ -493,3 +493,26 @@ export default function ProgramPage({ params }: { params: { program: string } })
 
   return <ProgramDetailsView programData={programData} />;
 }
+
+export const dynamicParams = false;
+
+export async function generateMetadata({ params }: { params: { program: string } }) {
+  const key = params.program as keyof typeof programsData;
+  const data = (programsData as any)[key];
+  const readable = params.program.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  const title = `${data?.title || readable} in Hyderabad & Vizianagaram | Smart Brains India`;
+  const description = `${data?.description || 'Brain training program'} offered by Smart Brains India in Hyderabad and Vizianagaram. Call +91 7396447470 or +91 7386209090.`;
+  const url = `https://www.smartbrainsindia.com/programs/${params.program}`;
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      url,
+      title,
+      description,
+      images: data?.image ? [{ url: data.image, width: 1200, height: 630, alt: `${readable} - Smart Brains India` }] : undefined
+    },
+    twitter: { card: 'summary_large_image' }
+  } as any;
+}
