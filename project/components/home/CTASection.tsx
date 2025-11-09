@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { Phone, Calendar, Users } from 'lucide-react';
 import Link from 'next/link';
@@ -24,7 +26,7 @@ export function CTASection() {
           </Button>
 
           {/* Start with DMIT */}
-          <Button asChild size="lg" className="bg-gray-900 text-white hover:bg-gray-800">
+          <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
             <Link href="/programs/dmit" className="flex items-center space-x-2">
               <Phone className="h-5 w-5" />
               <span>Start with DMIT</span>

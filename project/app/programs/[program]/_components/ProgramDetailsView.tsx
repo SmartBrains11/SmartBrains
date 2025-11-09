@@ -33,9 +33,14 @@ interface ProgramData {
 
 interface ProgramDetailsViewProps {
   programData: ProgramData;
+  relatedPrograms?: Array<{
+    slug: string;
+    title: string;
+    description: string;
+  }>;
 }
 
-export function ProgramDetailsView({ programData }: ProgramDetailsViewProps) {
+export function ProgramDetailsView({ programData, relatedPrograms = [] }: ProgramDetailsViewProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -256,27 +261,27 @@ export function ProgramDetailsView({ programData }: ProgramDetailsViewProps) {
               </Card>
 
               {/* Related Programs */}
-              <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '700ms' }}>
-                <CardHeader>
-                  <CardTitle>Related Programs</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <Link href="/programs/dmit" className="block p-3 rounded-lg hover:bg-gray-50 hover:scale-105 transition-all duration-300">
-                      <div className="font-medium text-gray-900">DMIT Assessment</div>
-                      <div className="text-sm text-gray-600">Understand learning potential</div>
-                    </Link>
-                    <Link href="/programs/photographic-memory" className="block p-3 rounded-lg hover:bg-gray-50 hover:scale-105 transition-all duration-300">
-                      <div className="font-medium text-gray-900">Photographic Memory</div>
-                      <div className="text-sm text-gray-600">Enhance memory skills</div>
-                    </Link>
-                    <Link href="/programs/speed-reading" className="block p-3 rounded-lg hover:bg-gray-50 hover:scale-105 transition-all duration-300">
-                      <div className="font-medium text-gray-900">Speed Reading</div>
-                      <div className="text-sm text-gray-600">Read faster with comprehension</div>
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
+              {relatedPrograms.length > 0 && (
+                <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '700ms' }}>
+                  <CardHeader>
+                    <CardTitle>Related Programs</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      {relatedPrograms.map((related) => (
+                        <Link 
+                          key={related.slug}
+                          href={`/programs/${related.slug}`} 
+                          className="block p-3 rounded-lg hover:bg-gray-50 hover:scale-105 transition-all duration-300"
+                        >
+                          <div className="font-medium text-gray-900">{related.title}</div>
+                          <div className="text-sm text-gray-600">{related.description}</div>
+                        </Link>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </div>
         </div>

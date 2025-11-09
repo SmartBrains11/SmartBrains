@@ -473,46 +473,296 @@ const defaultProgramData = {
   testimonials: []
 };
 
-export async function generateStaticParams() {
-  return Object.keys(programsData).map((program) => ({
-    program: program,
+// Mapping between URL slugs and data keys
+const slugToDataKey: Record<string, keyof typeof programsData> = {
+  'dmit': 'dmit',
+  'midbrain-activation': 'midbrain-activation',
+  'photographic-memory': 'photographic-memory',
+  'enhancement': 'enhancement',
+  'quantum-speed-reading': 'quantum-speed-reading',
+  'abacus': 'abacus-math',
+  'vedic-math': 'vedic-math',
+  'speed-reading': 'speed-reading',
+  'handwriting': 'handwriting',
+  'midbrain-for-adults': 'midbrain-adults',
+  'drawing-and-skill-development': 'drawing-skills'
+};
+
+// Valid slugs for static generation
+const validSlugs = [
+  'dmit',
+  'midbrain-activation',
+  'photographic-memory',
+  'enhancement',
+  'quantum-speed-reading',
+  'abacus',
+  'vedic-math',
+  'speed-reading',
+  'handwriting',
+  'midbrain-for-adults',
+  'drawing-and-skill-development'
+];
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return validSlugs.map((slug) => ({
+    program: slug,
   }));
 }
 
 export default function ProgramPage({ params }: { params: { program: string } }) {
-  const programData = programsData[params.program as keyof typeof programsData] || {
-    ...defaultProgramData,
-    title: params.program.split('-').map(word => 
-      word.charAt(0).toUpperCase() + word.slice(1)
-    ).join(' ')
-  };
-
-  if (!programData && !params.program) {
+  // Check if slug is valid
+  if (!validSlugs.includes(params.program)) {
     notFound();
   }
 
-  return <ProgramDetailsView programData={programData} />;
+  // Get the data key from slug mapping
+  const dataKey = slugToDataKey[params.program];
+  const programData = dataKey ? programsData[dataKey] : null;
+
+  if (!programData) {
+    notFound();
+  }
+
+  const url = `https://www.smartbrainsindia.com/programs/${params.program}`;
+
+  // Define related programs mapping
+  const relatedProgramsMap: Record<string, Array<{ slug: string; title: string; description: string }>> = {
+    'dmit': [
+      { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'Enhance intuitive abilities' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Develop perfect recall' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall cognitive development' }
+    ],
+    'midbrain-activation': [
+      { slug: 'dmit', title: 'DMIT Assessment', description: 'Understand learning potential' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Enhance memory skills' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Comprehensive brain development' }
+    ],
+    'photographic-memory': [
+      { slug: 'speed-reading', title: 'Speed Reading', description: 'Read faster with comprehension' },
+      { slug: 'dmit', title: 'DMIT Assessment', description: 'Identify learning style' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall cognitive boost' }
+    ],
+    'enhancement': [
+      { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'Enhance intuition' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Perfect memory recall' },
+      { slug: 'dmit', title: 'DMIT Assessment', description: 'Discover potential' }
+    ],
+    'quantum-speed-reading': [
+      { slug: 'speed-reading', title: 'Speed Reading', description: 'Traditional speed reading' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Enhance memory' },
+      { slug: 'abacus', title: 'Abacus Math', description: 'Mental mathematics' }
+    ],
+    'abacus': [
+      { slug: 'vedic-math', title: 'Vedic Math', description: 'Ancient calculation techniques' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall development' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Memory improvement' }
+    ],
+    'vedic-math': [
+      { slug: 'abacus', title: 'Abacus Math', description: 'Mental math mastery' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Cognitive development' },
+      { slug: 'speed-reading', title: 'Speed Reading', description: 'Reading skills' }
+    ],
+    'speed-reading': [
+      { slug: 'quantum-speed-reading', title: 'Quantum Speed Reading', description: 'Advanced reading technique' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Memory enhancement' },
+      { slug: 'handwriting', title: 'Handwriting', description: 'Writing skills' }
+    ],
+    'handwriting': [
+      { slug: 'drawing-and-skill-development', title: 'Drawing & Skill Development', description: 'Artistic skills' },
+      { slug: 'speed-reading', title: 'Speed Reading', description: 'Reading improvement' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall development' }
+    ],
+    'midbrain-for-adults': [
+      { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'For children and teens' },
+      { slug: 'dmit', title: 'DMIT Assessment', description: 'Career guidance' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Cognitive boost' }
+    ],
+    'drawing-and-skill-development': [
+      { slug: 'handwriting', title: 'Handwriting', description: 'Writing skills' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall development' },
+      { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'Creativity boost' }
+    ]
+  };
+
+  const relatedPrograms = relatedProgramsMap[params.program] || [];
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://www.smartbrainsindia.com'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Programs',
+                item: 'https://www.smartbrainsindia.com/programs'
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: programData.title,
+                item: url
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Course',
+            name: programData.title,
+            description: programData.longDescription || programData.description,
+            provider: {
+              '@type': 'Organization',
+              name: 'Smart Brains India',
+              url: 'https://www.smartbrainsindia.com',
+              telephone: ['+91 7396447470', '+91 7386209090']
+            },
+            courseCode: params.program,
+            educationalLevel: programData.targetAge,
+            timeRequired: programData.duration,
+            inLanguage: 'en',
+            teaches: programData.benefits,
+            coursePrerequisites: {
+              '@type': 'EducationalOccupationalCredential',
+              credentialCategory: 'None required'
+            },
+            aggregateRating: programData.testimonials.length > 0 ? {
+              '@type': 'AggregateRating',
+              ratingValue: '4.8',
+              reviewCount: programData.testimonials.length.toString()
+            } : undefined
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: `What is ${programData.title}?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: programData.longDescription || programData.description
+                }
+              },
+              {
+                '@type': 'Question',
+                name: `Who is ${programData.title} suitable for?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `${programData.title} is suitable for ${programData.targetAge}. ${programData.description}`
+                }
+              },
+              {
+                '@type': 'Question',
+                name: `How long does ${programData.title} take?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `The ${programData.title} program duration is ${programData.duration}. The class format is ${programData.classFormat}.`
+                }
+              },
+              {
+                '@type': 'Question',
+                name: `What are the benefits of ${programData.title}?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `Key benefits include: ${programData.benefits.slice(0, 3).join(', ')}. ${programData.results[0] || ''}`
+                }
+              },
+              {
+                '@type': 'Question',
+                name: `Where is ${programData.title} available?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `${programData.title} is available at Smart Brains India centers in Hyderabad (Kondapur) and Vizianagaram. Call +91 7396447470 for Hyderabad or +91 7386209090 for Vizianagaram to book a free demo.`
+                }
+              }
+            ]
+          })
+        }}
+      />
+      <ProgramDetailsView programData={programData} relatedPrograms={relatedPrograms} />
+    </>
+  );
 }
 
-export const dynamicParams = false;
-
 export async function generateMetadata({ params }: { params: { program: string } }) {
-  const key = params.program as keyof typeof programsData;
-  const data = (programsData as any)[key];
+  // Use slug mapping to get correct data key
+  const dataKey = slugToDataKey[params.program];
+  const data = dataKey ? (programsData as any)[dataKey] : null;
   const readable = params.program.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-  const title = `${data?.title || readable} in Hyderabad & Vizianagaram | Smart Brains India`;
-  const description = `${data?.description || 'Brain training program'} offered by Smart Brains India in Hyderabad and Vizianagaram. Call +91 7396447470 or +91 7386209090.`;
+  const programTitle = data?.title || readable;
+  const title = `${programTitle} Training in Hyderabad & Vizianagaram | Smart Brains India`;
+  const description = `${data?.longDescription || data?.description || 'Brain training program'} offered by Smart Brains India in Hyderabad and Vizianagaram. ${data?.targetAge ? `For ${data.targetAge}.` : ''} ${data?.duration ? `Duration: ${data.duration}.` : ''} Book free demo: +91 7396447470 or +91 7386209090.`;
   const url = `https://www.smartbrainsindia.com/programs/${params.program}`;
+  
+  // Enhanced keywords for better SEO
+  const keywords = [
+    programTitle.toLowerCase(),
+    `${programTitle} training`,
+    `${programTitle} course`,
+    `${programTitle} in Hyderabad`,
+    `${programTitle} in Vizianagaram`,
+    'brain training',
+    'cognitive development',
+    data?.targetAge ? `${programTitle} for ${data.targetAge}` : '',
+  ].filter(Boolean);
+
   return {
     title,
     description,
+    keywords,
     alternates: { canonical: url },
     openGraph: {
       url,
       title,
       description,
-      images: data?.image ? [{ url: data.image, width: 1200, height: 630, alt: `${readable} - Smart Brains India` }] : undefined
+      type: 'website',
+      siteName: 'Smart Brains India',
+      images: data?.image ? [{ 
+        url: data.image, 
+        width: 1200, 
+        height: 630, 
+        alt: `${programTitle} - Smart Brains India` 
+      }] : undefined,
+      locale: 'en_IN',
     },
-    twitter: { card: 'summary_large_image' }
+    twitter: { 
+      card: 'summary_large_image',
+      title,
+      description,
+      images: data?.image ? [data.image] : undefined
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   } as any;
 }
