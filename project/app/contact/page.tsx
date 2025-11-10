@@ -343,7 +343,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Maps placeholder left as-is */}
+          {/* Maps Section */}
           <div className="mt-12">
             <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <CardHeader>
@@ -352,17 +352,62 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Hyderabad Center Map */}
                   <div>
-                    <h4 className="font-medium mb-3">Hyderabad Center</h4>
-                    <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Google Maps Embed - Hyderabad</p>
+                    <h4 className="font-medium mb-3 text-gray-900">Hyderabad Center</h4>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Kondapur, Prasanth Nagar Colony, Hyderabad, Telangana 500084
+                    </p>
+                    <div className="w-full h-64 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                      <iframe
+                        src="https://www.google.com/maps?q=17.4621222,78.3655057&hl=en&z=15&output=embed"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Smart Brains India - Hyderabad Center"
+                      />
                     </div>
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=17.4621222,78.3655057"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center text-sm text-blue-600 hover:text-blue-700 hover:underline"
+                    >
+                      <MapPin className="h-4 w-4 mr-1" />
+                      Get Directions
+                    </a>
                   </div>
+
+                  {/* Vizianagaram Center Map */}
                   <div>
-                    <h4 className="font-medium mb-3">Vizianagaram Center</h4>
-                    <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                      <p className="text-gray-500">Google Maps Embed - Vizianagaram</p>
+                    <h4 className="font-medium mb-3 text-gray-900">Vizianagaram Center</h4>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Dakkini Street, Backside of Ramamandir, 3-1/4-12/2, Vizianagaram, Andhra Pradesh 535002
+                    </p>
+                    <div className="w-full h-64 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                      <iframe
+                        src="https://www.google.com/maps?q=18.1197982,83.4060136&hl=en&z=15&output=embed"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Smart Brains India - Vizianagaram Center"
+                      />
                     </div>
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=18.1197982,83.4060136"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center text-sm text-blue-600 hover:text-blue-700 hover:underline"
+                    >
+                      <MapPin className="h-4 w-4 mr-1" />
+                      Get Directions
+                    </a>
                   </div>
                 </div>
               </CardContent>

@@ -480,12 +480,12 @@ const slugToDataKey: Record<string, keyof typeof programsData> = {
   'photographic-memory': 'photographic-memory',
   'enhancement': 'enhancement',
   'quantum-speed-reading': 'quantum-speed-reading',
-  'abacus': 'abacus-math',
+  'abacus-math': 'abacus-math',
   'vedic-math': 'vedic-math',
   'speed-reading': 'speed-reading',
   'handwriting': 'handwriting',
-  'midbrain-for-adults': 'midbrain-adults',
-  'drawing-and-skill-development': 'drawing-skills'
+  'midbrain-adults': 'midbrain-adults',
+  'drawing-skills': 'drawing-skills'
 };
 
 // Valid slugs for static generation
@@ -495,17 +495,17 @@ const validSlugs = [
   'photographic-memory',
   'enhancement',
   'quantum-speed-reading',
-  'abacus',
+  'abacus-math',
   'vedic-math',
   'speed-reading',
   'handwriting',
-  'midbrain-for-adults',
-  'drawing-and-skill-development'
+  'midbrain-adults',
+  'drawing-skills'
 ];
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ program: string }[]> {
   return validSlugs.map((slug) => ({
     program: slug,
   }));
@@ -552,15 +552,15 @@ export default function ProgramPage({ params }: { params: { program: string } })
     'quantum-speed-reading': [
       { slug: 'speed-reading', title: 'Speed Reading', description: 'Traditional speed reading' },
       { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Enhance memory' },
-      { slug: 'abacus', title: 'Abacus Math', description: 'Mental mathematics' }
+      { slug: 'abacus-math', title: 'Abacus Math', description: 'Mental mathematics' }
     ],
-    'abacus': [
+    'abacus-math': [
       { slug: 'vedic-math', title: 'Vedic Math', description: 'Ancient calculation techniques' },
       { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall development' },
       { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Memory improvement' }
     ],
     'vedic-math': [
-      { slug: 'abacus', title: 'Abacus Math', description: 'Mental math mastery' },
+      { slug: 'abacus-math', title: 'Abacus Math', description: 'Mental math mastery' },
       { slug: 'enhancement', title: 'Enhancement Program', description: 'Cognitive development' },
       { slug: 'speed-reading', title: 'Speed Reading', description: 'Reading skills' }
     ],
@@ -570,16 +570,16 @@ export default function ProgramPage({ params }: { params: { program: string } })
       { slug: 'handwriting', title: 'Handwriting', description: 'Writing skills' }
     ],
     'handwriting': [
-      { slug: 'drawing-and-skill-development', title: 'Drawing & Skill Development', description: 'Artistic skills' },
+      { slug: 'drawing-skills', title: 'Drawing & Skill Development', description: 'Artistic skills' },
       { slug: 'speed-reading', title: 'Speed Reading', description: 'Reading improvement' },
       { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall development' }
     ],
-    'midbrain-for-adults': [
+    'midbrain-adults': [
       { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'For children and teens' },
       { slug: 'dmit', title: 'DMIT Assessment', description: 'Career guidance' },
       { slug: 'enhancement', title: 'Enhancement Program', description: 'Cognitive boost' }
     ],
-    'drawing-and-skill-development': [
+    'drawing-skills': [
       { slug: 'handwriting', title: 'Handwriting', description: 'Writing skills' },
       { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall development' },
       { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'Creativity boost' }

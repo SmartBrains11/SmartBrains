@@ -4,6 +4,7 @@ import { ProgramsShowcase } from '../components/home/ProgramsShowcase';
 import { WhySmartBrains } from '../components/home/WhySmartBrains';
 import { TestimonialSlider } from '../components/home/TestimonialSlider';
 import { CTASection } from '../components/home/CTASection';
+import { MediaGallery } from '../components/home/MediaGallery';
 
 export const metadata: Metadata = {
   title: 'Smart Brains India | Brain Training & Cognitive Development in Hyderabad & Vizianagaram',
@@ -104,6 +105,7 @@ export default function Home() {
       />
       <HeroSection />
       <ProgramsShowcase />
+      <MediaGallery />
       <WhySmartBrains />
       <TestimonialSlider />
       <CTASection />

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Only use static export for production builds, not dev server
+  ...(process.env.NODE_ENV === 'production' ? { output: 'export' } : {}),
   eslint: {
     ignoreDuringBuilds: true,
   },
