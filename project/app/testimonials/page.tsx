@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Star, Quote, Play, Users, Award, Heart, MapPin } from 'lucide-react';
+import Link from "next/link";
+
 
 const testimonialCategories = [
   { id: 'all', name: 'All Testimonials', count: 12 },
@@ -560,14 +562,16 @@ export default function TestimonialsPage() {
             Join hundreds of families who have already experienced the transformation. 
             Book a free demo session and see how our programs can benefit your child.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-              Book Free Demo Session
-            </Button>
-            <Button variant="outline" size="lg">
-              View All Programs
-            </Button>
-          </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <Link href="/contact">Book Free Demo Session</Link>
+              </Button>
+
+              <Button asChild variant="outline" size="lg">
+                <Link href="/programs">View All Programs</Link>
+              </Button>
+            </div>
         </div>
       </section>
 
