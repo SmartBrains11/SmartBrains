@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { HeroSection } from '../components/home/HeroSection';
+import HeroSection from '../components/home/HeroSection';
 import { ProgramsShowcase } from '../components/home/ProgramsShowcase';
 import { WhySmartBrains } from '../components/home/WhySmartBrains';
 import { TestimonialSlider } from '../components/home/TestimonialSlider';
