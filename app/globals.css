@@ -81,12 +81,7 @@
   }
 }
 
-/* Desktop padding for all pages */
-@media (min-width: 1024px) {
-  .container {
-    @apply px-16;
-  }
-}
+
 
 /* Smooth animations */
 @keyframes fadeInUp {

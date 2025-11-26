@@ -44,7 +44,7 @@ export function TestimonialSlider() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
@@ -61,8 +61,8 @@ export function TestimonialSlider() {
   };
 
   return (
-    <section className="py-20 bg-blue-50">
-      <div className="container mx-auto px-4">
+    <section className="py-28 bg-blue-50">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             What Parents Say About Us
@@ -75,7 +75,7 @@ export function TestimonialSlider() {
         <div className="relative max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <Quote className="h-12 w-12 text-blue-600 mb-6" />
-            
+
             <div className="mb-6">
               <div className="flex mb-4">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
@@ -97,7 +97,7 @@ export function TestimonialSlider() {
                   Program: {testimonials[currentIndex].program}
                 </div>
               </div>
-              
+
               <div className="flex space-x-2">
                 <Button
                   variant="outline"
@@ -124,9 +124,8 @@ export function TestimonialSlider() {
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  currentIndex === index ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
+                className={`w-3 h-3 rounded-full transition-colors ${currentIndex === index ? 'bg-blue-600' : 'bg-gray-300'
+                  }`}
                 onClick={() => setCurrentIndex(index)}
               />
             ))}

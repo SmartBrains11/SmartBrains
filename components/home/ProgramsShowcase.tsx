@@ -44,14 +44,14 @@ const featuredPrograms = [
 
 export function ProgramsShowcase() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-28 bg-white">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our Featured Programs
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Discover Smart Brains India’s scientifically proven brain training courses, designed to unlock potential and boost memory, focus, math skills, and creativity for all ages.
+            Discover Smart Brains India's scientifically proven brain training courses, designed to unlock potential and boost memory, focus, math skills, and creativity for all ages.
           </p>
         </div>
 
@@ -87,16 +87,16 @@ export function ProgramsShowcase() {
                   transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 group`}
               >
                 <CardHeader className="text-center">
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full ${colorClasses[program.color as keyof typeof colorClasses]} mb-4`}>
-                    <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-105" />
+                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-full ${colorClasses[program.color as keyof typeof colorClasses]} mb-4`}>
+                    <Icon className="h-7 w-7 transition-transform duration-300 group-hover:scale-105" />
                   </div>
-                  <CardTitle className="text-xl">{program.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold">{program.title}</CardTitle>
                   <CardDescription className="text-sm text-gray-500">
                     Age: {program.ages}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4 text-center">
+                  <p className="text-gray-600 mb-4 text-center text-base">
                     {program.description}
                   </p>
                   <Button
