@@ -1,159 +1,118 @@
-'use client';
-
-import Link from 'next/link'; // <--- FIX: Import the Link component
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Brain, Eye, BookOpen, Calculator, Zap, PenTool, Users, Palette, Clock, Target, Award } from 'lucide-react';
+import { Brain, Eye, BookOpen, Calculator, Zap, PenTool, Palette } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Brain Training Programs for Kids | DMIT, Midbrain, Photographic Memory, Abacus',
+  description: 'Explore all Smart Brains India programs for children, including DMIT fingerprint intelligence test, midbrain activation, photographic memory, abacus and Vedic maths, speed reading, handwriting improvement and drawing skill development. Designed to boost focus, memory and confidence.',
+  keywords: ['brain training programs for kids', 'memory classes', 'abacus', 'midbrain activation'],
+  openGraph: {
+    title: 'Brain Training Programs for Kids | DMIT, Midbrain, Photographic Memory, Abacus',
+    description: 'Explore all Smart Brains India programs for children, including DMIT fingerprint intelligence test, midbrain activation, photographic memory, abacus and Vedic maths.',
+    url: 'https://www.smartbrainsindia.com/programs',
+    siteName: 'Smart Brains India',
+    images: [{ url: 'https://www.smartbrainsindia.com/og-programs.jpg', width: 1200, height: 630, alt: 'Brain Training Programs' }],
+    locale: 'en_IN',
+    type: 'website'
+  },
+  alternates: { canonical: 'https://www.smartbrainsindia.com/programs' },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Brain Training Programs for Kids | DMIT, Midbrain, Photographic Memory, Abacus',
+    description: 'Explore all Smart Brains India programs for children, including DMIT fingerprint intelligence test, midbrain activation, photographic memory, abacus and Vedic maths.',
+    images: ['https://www.smartbrainsindia.com/og-programs.jpg']
+  },
+  robots: { index: true, follow: true }
+};
 
 const programs = [
   {
     id: 'dmit',
-    title: 'DMIT',
-    subtitle: 'Dermatoglyphics Multiple Intelligence Test',
-    description: 'Scientific fingerprint analysis to understand innate potential and learning styles',
+    title: 'DMIT – Fingerprint Intelligence Test',
+    description: [
+      'DMIT (Dermatoglyphics Multiple Intelligence Test) is a scientific assessment suitable for all ages that reveals an individual\'s inborn potential, personality traits, and learning style through fingerprint analysis. By understanding these innate strengths, parents can make informed decisions about their child\'s education and career path.',
+      'This test identifies the distribution of brain neurons and multiple intelligences, helping to discover hidden talents. It provides a comprehensive report that serves as a lifelong guide for personal and professional development.'
+    ],
     icon: Brain,
     color: 'blue',
     ages: 'All ages',
-    duration: '1 session + consultation',
-    benefits: ['Identify learning style', 'Career guidance', 'Personality insights'],
-    href: '/programs/dmit'
+    href: '/programs/dmit-test-kids'
   },
   {
-    id: 'midbrain-activation',
-    title: 'Midbrain Activation',
-    subtitle: 'Enhance Intuitive Abilities',
-    description: 'Stimulate the midbrain to enhance intuition, creativity, and mental abilities',
+    id: 'midbrain',
+    title: 'Midbrain Activation Training',
+    description: [
+      'Midbrain Activation is a unique training program for children aged 5-15 years that stimulates the middle brain to act as a bridge between the left (logical) and right (creative) hemispheres. This activation leads to a significant improvement in learning efficiency and emotional stability.',
+      'Children who undergo this training demonstrate enhanced intuition, better concentration, and the ability to process information faster. It is a fun, non-medical method to awaken the sleeping potential of the brain.'
+    ],
     icon: Eye,
     color: 'purple',
     ages: '5-15 years',
-    duration: '2 days workshop + 6 Follow ups',
-    benefits: ['Enhanced intuition', 'Better concentration', 'Improved creativity'],
-    href: '/programs/midbrain-activation'
+    href: '/programs/midbrain-activation-kids'
   },
   {
     id: 'photographic-memory',
-    title: 'Photographic Memory',
-    subtitle: 'Develop Eidetic Memory',
-    description: 'Master techniques for enhanced memory retention and recall abilities',
+    title: 'Photographic Memory Program',
+    description: [
+      'Our Photographic Memory program is designed for children aged 6+ years to help them capture and recall information as clear mental images. This skill is invaluable for academic success, allowing students to memorize textbooks, diagrams, and formulas with ease.',
+      'The training involves specific visualization exercises that strengthen the brain\'s ability to store visual data. Students report reduced exam stress and a newfound confidence in their ability to learn anything quickly.'
+    ],
     icon: BookOpen,
     color: 'green',
     ages: '6+ years',
-    duration: '20 sessions',
-    benefits: ['Perfect recall', 'Better academic performance', 'Increased confidence'],
-    href: '/programs/photographic-memory'
+    href: '/programs/photographic-memory-training'
   },
   {
-    id: 'enhancement',
-    title: 'Enhancement',
-    subtitle: 'Overall Cognitive Development',
-    description: 'Comprehensive program for overall cognitive enhancement and brain development',
-    icon: Zap,
-    color: 'yellow',
-    ages: '5-16 years',
-    duration: '2 days workshop + 6 Follow up sessions',
-    benefits: ['Improved focus', 'Better problem solving', 'Enhanced learning'],
-    href: '/programs/enhancement'
-  },
-  {
-    id: 'quantum-speed-reading',
-    title: 'Quantum Speed Reading',
-    subtitle: 'Revolutionary Reading Technique',
-    description: 'Advanced speed reading technique using quantum methods for rapid comprehension',
-    icon: Zap,
-    color: 'indigo',
-    ages: '8+ years',
-    duration: '15 sessions',
-    benefits: ['Ultra-fast reading', 'Complete comprehension', 'Information processing'],
-    href: '/programs/quantum-speed-reading'
-  },
-  {
-    id: 'abacus-math',
-    title: 'Abacus Math',
-    subtitle: 'Mental Mathematics Mastery',
-    description: 'Master mental mathematics and improve calculation speed with abacus training',
+    id: 'abacus-vedic',
+    title: 'Abacus & Vedic Math Classes',
+    description: [
+      'We offer combined Abacus and Vedic Math classes for children aged 4-14 years to master mental calculations and overcome the fear of mathematics. Abacus training builds a strong foundation in arithmetic using a physical tool that is eventually visualized mentally.',
+      'Vedic Math complements this by teaching ancient sutras for solving complex problems in seconds. Together, these programs enhance speed, accuracy, concentration, and overall brain development.'
+    ],
     icon: Calculator,
     color: 'orange',
     ages: '4-14 years',
-    duration: '8 levels program',
-    benefits: ['Mental calculation', 'Number sense', 'Mathematical confidence'],
-    href: '/programs/abacus-math'
-  },
-  {
-    id: 'vedic-math',
-    title: 'Vedic Math',
-    subtitle: 'Ancient Mathematical Techniques',
-    description: 'Learn ancient Vedic mathematical techniques for faster calculations',
-    icon: Target,
-    color: 'red',
-    ages: '8+ years',
-    duration: '12 sessions',
-    benefits: ['Faster calculations', 'Mathematical tricks', 'Improved accuracy'],
-    href: '/programs/vedic-math'
+    href: '/programs/abacus-vedic-math-classes'
   },
   {
     id: 'speed-reading',
-    title: 'Speed Reading',
-    subtitle: 'Rapid Reading Skills',
-    description: 'Develop speed reading skills while maintaining comprehension and retention',
-    icon: Clock,
-    color: 'teal',
+    title: 'Speed Reading for Students',
+    description: [
+      'Speed Reading is an essential skill for students aged 8+ years, enabling them to read and comprehend text 3-5 times faster than average. This program focuses on expanding the eye span and reducing sub-vocalization.',
+      'By processing information more efficiently, students can cover more study material in less time, leaving more room for revision and other activities. It transforms reading from a chore into a rapid information-gathering process.'
+    ],
+    icon: Zap,
+    color: 'indigo',
     ages: '8+ years',
-    duration: '10 sessions',
-    benefits: ['Faster reading', 'Better comprehension', 'Time efficiency'],
-    href: '/programs/speed-reading'
+    href: '/programs/speed-reading-course'
   },
   {
     id: 'handwriting',
-    title: 'Handwriting',
-    subtitle: 'Beautiful & Legible Writing',
-    description: 'Improve handwriting skills, speed, and legibility for better academic performance',
+    title: 'Handwriting Improvement',
+    description: [
+      'Our Handwriting Improvement course helps children aged 5+ years develop legible, neat, and faster writing skills. Good handwriting is crucial for exam presentation and reflects a disciplined mind.',
+      'Through structured practice and scientific techniques, we correct grip, posture, and letter formation. The result is beautiful handwriting that boosts a child\'s self-esteem and academic grades.'
+    ],
     icon: PenTool,
     color: 'pink',
     ages: '5+ years',
-    duration: '15 sessions',
-    benefits: ['Neat handwriting', 'Improved speed', 'Better grades'],
-    href: '/programs/handwriting'
+    href: '/programs/handwriting-improvement'
   },
   {
-    id: 'midbrain-adults',
-    title: 'Midbrain for Adults',
-    subtitle: 'Adult Cognitive Enhancement',
-    description: 'Midbrain activation program specially designed for adults and professionals',
-    icon: Users,
-    color: 'gray',
-    ages: '18+ years',
-    duration: '3 days workshop + 6 Follow up',
-    benefits: ['Enhanced intuition', 'Better decision making', 'Stress reduction'],
-    href: '/programs/midbrain-adults'
-  },
-  {
-    id: 'drawing-skills',
+    id: 'drawing',
     title: 'Drawing & Skill Development',
-    subtitle: 'Artistic & Motor Skills',
-    description: 'Develop artistic abilities and fine motor skills through structured drawing programs',
+    description: [
+      'The Drawing & Skill Development program nurtures creativity and fine motor skills in children aged 4+ years. Art is a powerful medium for brain development, encouraging self-expression and visual-spatial intelligence.',
+      'We guide students through various techniques and mediums, helping them build patience, focus, and an appreciation for aesthetics. It is a relaxing yet stimulating activity that complements academic learning.'
+    ],
     icon: Palette,
     color: 'emerald',
     ages: '4+ years',
-    duration: '20 sessions',
-    benefits: ['Artistic skills', 'Motor development', 'Creative expression'],
-    href: '/programs/drawing-skills'
+    href: '/programs/drawing-skill-development'
   }
 ];
-
-const colorClasses = {
-  blue: 'text-blue-600 bg-blue-50 border-blue-200',
-  purple: 'text-purple-600 bg-purple-50 border-purple-200',
-  green: 'text-green-600 bg-green-50 border-green-200',
-  yellow: 'text-yellow-600 bg-yellow-50 border-yellow-200',
-  indigo: 'text-indigo-600 bg-indigo-50 border-indigo-200',
-  orange: 'text-orange-600 bg-orange-50 border-orange-200',
-  red: 'text-red-600 bg-red-50 border-red-200',
-  teal: 'text-teal-600 bg-teal-50 border-teal-200',
-  pink: 'text-pink-600 bg-pink-50 border-pink-200',
-  gray: 'text-gray-600 bg-gray-50 border-gray-200',
-  emerald: 'text-emerald-600 bg-emerald-50 border-emerald-200'
-};
 
 export default function ProgramsPage() {
   return (
@@ -162,143 +121,58 @@ export default function ProgramsPage() {
       <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
-              Our Brain Training Programs
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
+              Brain Training Programs for Kids – DMIT, Midbrain, Photographic Memory, Abacus & More
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay">
-              Discover our comprehensive range of scientifically designed programs 
-              that cater to different age groups and learning objectives. Each program 
-              is crafted to unlock specific cognitive abilities and enhance overall brain function.
+              Explore our comprehensive range of scientifically designed programs that cater to different age groups and learning objectives.
             </p>
-            <div className="flex justify-center">
-              <Badge variant="secondary" className="text-sm animate-fade-in-delay-2">
-                11 Specialized Programs Available
-              </Badge>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Programs Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 lg:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {programs.map((program) => {
-              const Icon = program.icon;
-              const colorClass = colorClasses[program.color as keyof typeof colorClasses];
+      {/* Programs List */}
+      <section className="py-12">
+        <div className="container mx-auto px-4 lg:px-16 space-y-12">
+          {programs.map((program, index) => {
+            const Icon = program.icon;
+            // Dynamic color classes
+            const bgClass = program.color === 'blue' ? 'bg-blue-100 text-blue-600' :
+              program.color === 'purple' ? 'bg-purple-100 text-purple-600' :
+                program.color === 'green' ? 'bg-green-100 text-green-600' :
+                  program.color === 'orange' ? 'bg-orange-100 text-orange-600' :
+                    program.color === 'indigo' ? 'bg-indigo-100 text-indigo-600' :
+                      program.color === 'pink' ? 'bg-pink-100 text-pink-600' :
+                        'bg-emerald-100 text-emerald-600';
 
-              return (
-                <Card 
-                  key={program.id} 
-                  className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-blue-200 transform hover:-translate-y-3 animate-slide-in-up"
-                  style={{ animationDelay: `${programs.indexOf(program) * 100}ms` }}
-                >
-                  <CardHeader className="text-center pb-4">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${colorClass} mb-4 mx-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
-                      <Icon className="h-8 w-8 transition-transform duration-300 group-hover:scale-110" />
+            return (
+              <div key={program.id} className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow p-8 md:p-10 border border-gray-100">
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center ${bgClass}`}>
+                    <Icon className="w-8 h-8" />
+                  </div>
+                  <div className="flex-grow">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{program.title}</h2>
+                    <div className="mb-4">
+                      <Badge variant="secondary" className="text-sm font-medium">
+                        Age: {program.ages}
+                      </Badge>
                     </div>
-                    <CardTitle className="text-xl mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                      {program.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
-                      {program.subtitle}
-                    </CardDescription>
-                  </CardHeader>
-                  
-                  <CardContent className="pt-0 flex flex-col h-[calc(100%-150px)]">
-                    <p className="text-gray-600 mb-4 text-center leading-relaxed">
-                      {program.description}
-                    </p>
-                    
-                    <div className="space-y-3 mb-6">
-                      <div className="flex justify-between text-sm">
-                        <span className="font-medium">Age Group:</span>
-                        <Badge variant="outline" className="group-hover:bg-blue-50 group-hover:border-blue-300 transition-colors duration-300">
-                          {program.ages}
-                        </Badge>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="font-medium">Duration:</span>
-                        <span className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
-                          {program.duration}
-                        </span>
-                      </div>
+                    <div className="space-y-4 text-gray-600 text-lg leading-relaxed mb-6">
+                      {program.description.map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
                     </div>
-
-                    <div className="mb-6">
-                      <h4 className="font-medium text-sm mb-3 text-gray-900">Key Benefits:</h4>
-                      <ul className="text-sm text-gray-600 space-y-2">
-                        {program.benefits.map((benefit, index) => (
-                          <li key={index} className="flex items-start group-hover:text-gray-700 transition-colors duration-300">
-                            <Award className="h-3 w-3 text-green-500 mr-2 flex-shrink-0 mt-0.5 group-hover:text-green-600 transition-colors duration-300" />
-                            <span>{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-auto">
-                        <Button asChild className="w-full group-hover:bg-blue-700 transition-all duration-300 transform group-hover:scale-105">
-                           {/* FIX: Uncommented the Link and added text */}
-                           <Link href={program.href}>Learn More</Link>
-                        </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+                    <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8">
+                      <Link href={program.href}>Learn More</Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="container mx-auto px-4 lg:px-16 text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Not Sure Which Program is Right for Your Child?
-          </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Our experts can help you choose the perfect program based on your child's 
-            age, interests, and learning goals. Book a free consultation today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" variant="secondary">
-              <Link href="/contact">Book Free Consultation</Link>
-            </Button>
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-              <Link href="/programs/dmit">Start with DMIT Assessment</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slide-in-up {
-          from { opacity: 0; transform: translateY(40px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-out;
-        }
-        
-        .animate-fade-in-delay {
-          animation: fade-in 0.8s ease-out 0.2s both;
-        }
-        
-        .animate-fade-in-delay-2 {
-          animation: fade-in 0.8s ease-out 0.4s both;
-        }
-        
-        .animate-slide-in-up {
-          animation: slide-in-up 0.6s ease-out both;
-        }
-      `}</style>
     </div>
   );
 }

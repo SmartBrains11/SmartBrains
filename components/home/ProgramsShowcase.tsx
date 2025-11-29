@@ -6,39 +6,39 @@ import { Brain, Eye, Calculator, BookOpen } from 'lucide-react';
 const featuredPrograms = [
   {
     id: 'dmit',
-    title: 'DMIT',
-    description: 'Dermatoglyphics Multiple Intelligence Test to understand your child\'s innate potential',
+    title: 'DMIT Test',
+    description: 'DMIT (Dermatoglyphics Multiple Intelligence Test) is a scientific fingerprint analysis that reveals a child\'s inborn potential, personality, and learning style. Suitable for all ages, it helps parents understand their child\'s strengths and weaknesses. Benefits include personalized learning strategies and career guidance.',
     icon: Brain,
     color: 'blue',
     ages: 'All ages',
-    href: '/programs/dmit'
+    href: '/programs/dmit-test-kids'
   },
   {
     id: 'midbrain-activation',
     title: 'Midbrain Activation',
-    description: 'Enhance intuition, creativity, and mental abilities through midbrain stimulation',
+    description: 'Midbrain Activation is a specialized training program for children aged 5-15 years designed to stimulate the middle brain. This course enhances intuitive abilities, improves focus, and balances the left and right brain. Key benefits include better concentration, increased creativity, and emotional stability.',
     icon: Eye,
     color: 'purple',
     ages: '5-15 years',
-    href: '/programs/midbrain-activation'
+    href: '/programs/midbrain-activation-kids'
   },
   {
     id: 'photographic-memory',
     title: 'Photographic Memory',
-    description: 'Help your child remember and recall information instantly and boosts exam performance.',
+    description: 'Our Photographic Memory training helps children aged 6+ years develop the ability to recall information instantly and accurately. By mastering visualization techniques, students can remember lessons faster and retain them longer. This program significantly boosts exam performance and academic confidence.',
     icon: BookOpen,
     color: 'green',
     ages: '6+ years',
-    href: '/programs/photographic-memory'
+    href: '/programs/photographic-memory-training'
   },
   {
     id: 'abacus-math',
     title: 'Abacus Math',
-    description: 'Master mental mathematics and improve calculation speed with abacus training',
+    description: 'Abacus Math is a brain development program for children aged 4-14 years that uses the ancient abacus tool to teach mental calculations. It improves speed, accuracy, and concentration. Students gain a strong foundation in mathematics, enhanced memory, and superior logical thinking skills.',
     icon: Calculator,
     color: 'orange',
     ages: '4-14 years',
-    href: '/programs/abacus-math'
+    href: '/programs/abacus-vedic-math-classes'
   }
 ];
 

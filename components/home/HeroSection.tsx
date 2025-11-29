@@ -19,7 +19,7 @@ type Slide = {
 const slides: Slide[] = [
   {
     id: 1,
-    title: 'Play · Learn · Grow',
+    title: 'Brain Training & Memory Development Classes for Kids in Hyderabad & Vizianagaram',
     subtitle: 'Interactive programs to boost memory, focus, creativity and confidence.',
     img: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=1600',
     cta: { text: 'Book Free Demo', href: '/contact' },

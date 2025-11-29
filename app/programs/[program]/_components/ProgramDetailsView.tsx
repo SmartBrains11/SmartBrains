@@ -2,27 +2,28 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import {
-  Clock, Users, Target, Award, CheckCircle, Star,
-  Calendar, Phone, Mail, ArrowLeft, Brain, BookOpen
+  Calendar, Phone, Mail, ArrowLeft, Star, CheckCircle
 } from 'lucide-react';
 
-interface ProgramData {
+export interface Section {
+  title: string;
+  content: string | string[];
+}
+
+export interface ProgramData {
   title: string;
   subtitle: string;
-  description: string;
-  longDescription: string;
+  description: string; // Keep for fallback or summary
+  sections: Section[];
   targetAge: string;
   duration: string;
   classFormat: string;
   price: string;
   image: string;
-  benefits: string[];
-  structure: string[];
-  results: string[];
   testimonials: Array<{
     name: string;
     role: string;
@@ -72,7 +73,7 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
                 {programData.subtitle}
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed animate-fade-in-delay-2">
-                {programData.longDescription}
+                {programData.description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -102,73 +103,31 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
-              {/* Overview */}
-              <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <BookOpen className="h-6 w-6 mr-2 text-blue-600" />
-                    Program Overview
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-lg leading-relaxed">
-                    {programData.description}
-                  </p>
-                </CardContent>
-              </Card>
 
-              {/* Structure */}
-              <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                <CardHeader>
-                  <CardTitle>Program Structure</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {programData.structure.map((item, index) => (
-                      <div key={index} className="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors duration-300">
-                        <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-medium hover:bg-blue-200 transition-colors duration-300">
-                          {index + 1}
-                        </div>
-                        <span className="text-gray-700">{item}</span>
+              {/* Dynamic Sections */}
+              {programData.sections.map((section, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-gray-900">{section.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    {Array.isArray(section.content) ? (
+                      <ul className="space-y-3">
+                        {section.content.map((item, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-700 text-lg">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="text-gray-600 text-lg leading-relaxed whitespace-pre-line">
+                        {section.content}
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Benefits */}
-              <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                <CardHeader>
-                  <CardTitle>Key Benefits</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {programData.benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors duration-300">
-                        <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-700">{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Results */}
-              <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                <CardHeader>
-                  <CardTitle>Real Results</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {programData.results.map((result, index) => (
-                      <div key={index} className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors duration-300">
-                        <Award className="h-5 w-5 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-700 font-medium">{result}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
 
               {/* Testimonials */}
               {programData.testimonials.length > 0 && (
@@ -245,13 +204,13 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
                       </Link>
                     </Button>
                     <Button asChild variant="outline" className="w-full hover:scale-105 transition-transform duration-300">
-                      <Link href="tel:+919876543210" className="flex items-center justify-center space-x-2">
+                      <Link href="tel:+917396447470" className="flex items-center justify-center space-x-2">
                         <Phone className="h-4 w-4" />
                         <span>Call Now</span>
                       </Link>
                     </Button>
                     <Button asChild variant="ghost" className="w-full hover:scale-105 transition-transform duration-300">
-                      <Link href="mailto:info@smartbrains.in" className="flex items-center justify-center space-x-2">
+                      <Link href="mailto:info@smartbrainsindia.com" className="flex items-center justify-center space-x-2">
                         <Mail className="h-4 w-4" />
                         <span>Email Us</span>
                       </Link>
@@ -282,72 +241,22 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
                   </CardContent>
                 </Card>
               )}
-
-              {/* Visual Showcase */}
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
-                <div className="relative h-[410px] w-full">
-                  <img
-                    src="https://images.pexels.com/photos/5905704/pexels-photo-5905704.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Students learning"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-                    <div className="text-white">
-                      <h3 className="font-bold text-lg mb-1">Unlock Potential</h3>
-                      <p className="text-sm text-white/90">Empowering minds through scientific brain training.</p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
             </div>
           </div>
         </div>
       </section>
 
       <style jsx>{`
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slide-in-left {
-          from { opacity: 0; transform: translateX(-30px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slide-in-right {
-          from { opacity: 0; transform: translateX(30px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-out;
-        }
-        
-        .animate-fade-in-delay {
-          animation: fade-in 0.8s ease-out 0.2s both;
-        }
-        
-        .animate-fade-in-delay-2 {
-          animation: fade-in 0.8s ease-out 0.4s both;
-        }
-        
-        .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out both;
-        }
-        
-        .animate-slide-in-left {
-          animation: slide-in-left 0.8s ease-out;
-        }
-        
-        .animate-slide-in-right {
-          animation: slide-in-right 0.8s ease-out;
-        }
+        @keyframes fade-in { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fade-in-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slide-in-left { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slide-in-right { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+        .animate-fade-in { animation: fade-in 0.8s ease-out; }
+        .animate-fade-in-delay { animation: fade-in 0.8s ease-out 0.2s both; }
+        .animate-fade-in-delay-2 { animation: fade-in 0.8s ease-out 0.4s both; }
+        .animate-fade-in-up { animation: fade-in-up 0.6s ease-out both; }
+        .animate-slide-in-left { animation: slide-in-left 0.8s ease-out; }
+        .animate-slide-in-right { animation: slide-in-right 0.8s ease-out; }
       `}</style>
     </div>
   );

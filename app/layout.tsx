@@ -5,7 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingCTA } from '@/components/ui/FloatingCTA';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   preload: true,
@@ -22,30 +22,79 @@ export const metadata: Metadata = {
   keywords: [
     'Smart Brains India',
     'brain training institute',
-    'brain training center Hyderabad',
+    'brain development center',
+    'cognitive development institute',
     'brain training center Vizianagaram',
+    'DMIT test in Vizianagaram',
+    'midbrain activation Vizianagaram',
+    'abacus classes Vizianagaram',
+    'vedic math classes Vizianagaram',
+    'memory training Vizianagaram',
+    'Dakkini Street brain development',
+    'best brain training institute Vizianagaram',
+    'photographic memory training Vizianagaram',
+    'speed reading Vizianagaram',
+    'brain training center Hyderabad',
+    'DMIT test in Hyderabad',
+    'midbrain activation Hyderabad',
+    'brain development Kondapur',
+    'Prasanth Nagar brain training',
+    'cognitive training Hyderabad',
+    'abacus classes Kondapur',
+    'brain training Andhra Pradesh',
+    'best brain development center Andhra Pradesh',
+    'DMIT center Andhra Pradesh',
+    'child development programs AP',
+    'brain training Srikakulam',
+    'brain development Visakhapatnam',
+    'DMIT test Visakhapatnam',
     'DMIT test',
     'DMIT assessment',
+    'Dermatoglyphics Multiple Intelligence Test',
     'Midbrain Activation',
     'Midbrain Activation training',
     'Photographic Memory',
     'Photographic Memory training',
-    'Speed Reading',
+    'Quantum Speed Reading',
     'Speed Reading course',
-    'Abacus Math',
     'Abacus Math classes',
-    'Vedic Math',
     'Vedic Math training',
-    'brain development programs',
-    'cognitive development',
-    'memory improvement',
+    'handwriting improvement classes',
+    'drawing skill development',
+    'brain development institute near me',
+    'where to get DMIT test in Vizianagaram',
+    'best midbrain activation center near me',
+    'memory power training for kids',
+    'how to improve child memory and concentration',
+    'brain training programs for children',
+    'abacus math training near me',
+    'DMIT test near me',
+    'brain training near me Vizianagaram',
+    'midbrain activation near Dakkini Street',
     'kids brain training',
+    'child brain development',
     'adult brain training',
+    'brain training for students',
+    'academic performance improvement',
+    'memory improvement for kids',
+    'concentration improvement programs',
+    'cognitive skills for children',
+    'help my child focus better',
+    'improve child concentration naturally',
+    'boost child confidence',
+    'child memory improvement program',
+    'how to make my child smarter',
     'Hyderabad',
     'Vizianagaram',
     'Kondapur',
+    'Telangana',
+    'Andhra Pradesh',
     'brain training near me',
-    'best brain training institute',
+    'best brain training institute India',
+    'trusted brain training institute',
+    'certified DMIT center',
+    'experienced brain trainers',
+    '1000+ students trained',
   ],
   openGraph: {
     title: 'Smart Brains India | Brain Training & Cognitive Development',
@@ -166,7 +215,21 @@ export default function RootLayout({
                     name: 'Hyderabad'
                   },
                   url: 'https://www.smartbrainsindia.com/contact',
-                  priceRange: '$$'
+                  priceRange: '$$',
+                  openingHoursSpecification: [
+                    {
+                      '@type': 'OpeningHoursSpecification',
+                      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                      opens: '09:00',
+                      closes: '18:00'
+                    }
+                  ],
+                  geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: '17.4569',
+                    longitude: '78.3659'
+                  },
+                  image: 'https://www.smartbrainsindia.com/logo.png'
                 },
                 {
                   '@type': 'LocalBusiness',
@@ -189,7 +252,21 @@ export default function RootLayout({
                     name: 'Vizianagaram'
                   },
                   url: 'https://www.smartbrainsindia.com/contact',
-                  priceRange: '$$'
+                  priceRange: '$$',
+                  openingHoursSpecification: [
+                    {
+                      '@type': 'OpeningHoursSpecification',
+                      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                      opens: '09:00',
+                      closes: '18:00'
+                    }
+                  ],
+                  geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: '18.1124',
+                    longitude: '83.3953'
+                  },
+                  image: 'https://www.smartbrainsindia.com/logo.png'
                 },
                 {
                   '@type': 'EducationalOrganization',
