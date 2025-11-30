@@ -17,8 +17,12 @@ export interface Section {
 export interface ProgramData {
   title: string;
   subtitle: string;
-  description: string; // Keep for fallback or summary
-  sections: Section[];
+  description: string;
+  longDescription?: string;
+  sections?: Section[];
+  benefits?: string[];
+  structure?: string[];
+  results?: string[];
   targetAge: string;
   duration: string;
   classFormat: string;
@@ -73,7 +77,7 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
                 {programData.subtitle}
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed animate-fade-in-delay-2">
-                {programData.description}
+                {programData.longDescription || programData.description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -104,30 +108,90 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
 
-              {/* Dynamic Sections */}
-              {programData.sections.map((section, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                  <CardHeader>
-                    <CardTitle className="text-2xl text-gray-900">{section.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    {Array.isArray(section.content) ? (
-                      <ul className="space-y-3">
-                        {section.content.map((item, i) => (
-                          <li key={i} className="flex items-start">
-                            <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-700 text-lg">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <div className="text-gray-600 text-lg leading-relaxed whitespace-pre-line">
-                        {section.content}
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
+              {/* Dynamic Sections - Support both old and new data structures */}
+              {programData.sections ? (
+                // Old structure with sections
+                programData.sections.map((section, index) => (
+                  <Card key={index} className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                    <CardHeader>
+                      <CardTitle className="text-2xl text-gray-900">{section.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      {Array.isArray(section.content) ? (
+                        <ul className="space-y-3">
+                          {section.content.map((item, i) => (
+                            <li key={i} className="flex items-start">
+                              <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                              <span className="text-gray-700 text-lg">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="text-gray-600 text-lg leading-relaxed whitespace-pre-line">
+                          {section.content}
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                ))
+              ) : (
+                // New structure with benefits, structure, and results
+                <>
+                  {programData.benefits && programData.benefits.length > 0 && (
+                    <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+                      <CardHeader>
+                        <CardTitle className="text-2xl text-gray-900">Key Benefits</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-3">
+                          {programData.benefits.map((benefit, i) => (
+                            <li key={i} className="flex items-start">
+                              <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                              <span className="text-gray-700 text-lg">{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {programData.structure && programData.structure.length > 0 && (
+                    <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                      <CardHeader>
+                        <CardTitle className="text-2xl text-gray-900">Program Structure</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-3">
+                          {programData.structure.map((item, i) => (
+                            <li key={i} className="flex items-start">
+                              <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0 mt-0.5" />
+                              <span className="text-gray-700 text-lg">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {programData.results && programData.results.length > 0 && (
+                    <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                      <CardHeader>
+                        <CardTitle className="text-2xl text-gray-900">Expected Results</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-3">
+                          {programData.results.map((result, i) => (
+                            <li key={i} className="flex items-start">
+                              <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0 mt-0.5" />
+                              <span className="text-gray-700 text-lg">{result}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  )}
+                </>
+              )}
 
               {/* Testimonials */}
               {programData.testimonials.length > 0 && (

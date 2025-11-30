@@ -11,7 +11,7 @@ const featuredPrograms = [
     icon: Brain,
     color: 'blue',
     ages: 'All ages',
-    href: '/programs/dmit-test-kids'
+    href: '/programs/dmit'
   },
   {
     id: 'midbrain-activation',
@@ -20,7 +20,7 @@ const featuredPrograms = [
     icon: Eye,
     color: 'purple',
     ages: '5-15 years',
-    href: '/programs/midbrain-activation-kids'
+    href: '/programs/midbrain-activation'
   },
   {
     id: 'photographic-memory',
@@ -29,7 +29,7 @@ const featuredPrograms = [
     icon: BookOpen,
     color: 'green',
     ages: '6+ years',
-    href: '/programs/photographic-memory-training'
+    href: '/programs/photographic-memory'
   },
   {
     id: 'abacus-math',
@@ -38,7 +38,7 @@ const featuredPrograms = [
     icon: Calculator,
     color: 'orange',
     ages: '4-14 years',
-    href: '/programs/abacus-vedic-math-classes'
+    href: '/programs/abacus-math'
   }
 ];
 

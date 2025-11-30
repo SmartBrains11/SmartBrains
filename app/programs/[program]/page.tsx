@@ -2,361 +2,472 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProgramDetailsView, ProgramData } from './_components/ProgramDetailsView';
 
+// Valid program slugs - now 11 programs
 const validSlugs = [
-  'dmit-test-kids',
-  'midbrain-activation-kids',
-  'photographic-memory-training',
-  'abacus-vedic-math-classes',
-  'speed-reading-course',
-  'handwriting-improvement',
-  'drawing-skill-development'
+  'dmit',
+  'midbrain-activation',
+  'photographic-memory',
+  'enhancement',
+  'quantum-speed-reading',
+  'abacus-math',
+  'vedic-math',
+  'speed-reading',
+  'handwriting',
+  'midbrain-adults',
+  'drawing-skills'
 ];
 
-interface ProgramSEO {
-  metaTitle: string;
-  metaDescription: string;
-  keywords: string[];
-}
-
-const programsSEO: Record<string, ProgramSEO> = {
-  'dmit-test-kids': {
-    metaTitle: 'DMIT Test for Kids in Hyderabad & Vizianagaram | Fingerprint Intelligence Analysis',
-    metaDescription: 'Smart Brains India provides DMIT fingerprint intelligence tests for kids, students and teenagers in Hyderabad and Vizianagaram. Understand your child’s inborn talents, learning style, personality traits and career strengths to plan the right education path.',
-    keywords: ['DMIT test for kids', 'fingerprint intelligence test', 'career guidance Hyderabad', 'DMIT Vizianagaram']
-  },
-  'midbrain-activation-kids': {
-    metaTitle: 'Midbrain Activation Training for Kids in Hyderabad & Vizianagaram | Smart Brains India',
-    metaDescription: 'Enroll your child in Smart Brains India’s midbrain activation classes to improve focus, memory, intuition and confidence. Safe, non‑medical brain training program for kids aged 5–15 years with online and offline batches in Hyderabad and Vizianagaram.',
-    keywords: ['midbrain activation training', 'midbrain classes for kids', 'Hyderabad', 'Vizianagaram']
-  },
-  'photographic-memory-training': {
-    metaTitle: 'Photographic Memory Classes for Kids | Improve Recall & Exam Performance',
-    metaDescription: 'Smart Brains India’s photographic memory program trains children to store and recall visual information quickly, helping them revise faster, remember lessons longer and perform better in exams. Suitable for kids aged 6+ years.',
-    keywords: ['photographic memory training', 'memory classes for kids', 'exam memory']
-  },
-  'abacus-vedic-math-classes': {
-    metaTitle: 'Abacus and Vedic Math Classes for Kids | Online & Offline Batches',
-    metaDescription: 'Give your child an edge in maths with Smart Brains India’s abacus and Vedic math classes. Kids learn super‑fast mental calculation, sharp focus and strong number sense through structured levels and fun practice activities.',
-    keywords: ['abacus classes for kids', 'Vedic maths', 'mental math India']
-  },
-  'speed-reading-course': {
-    metaTitle: 'Speed Reading Course for Students | 3x Faster Reading with Comprehension',
-    metaDescription: 'Smart Brains India’s speed reading program helps students read 3–5x faster without losing comprehension, saving time in studies and reducing exam stress. Ideal for school and college students preparing for exams.',
-    keywords: ['speed reading for students', 'read faster with comprehension']
-  },
-  'handwriting-improvement': {
-    metaTitle: 'Handwriting Improvement Classes for Kids | Neat & Fast Exam Writing',
-    metaDescription: 'Improve your child’s handwriting speed and clarity with Smart Brains India’s handwriting improvement classes. Structured practice sheets, letter formation drills and posture correction designed for better exam presentation.',
-    keywords: ['handwriting improvement classes', 'neat handwriting for exams']
-  },
-  'drawing-skill-development': {
-    metaTitle: 'Drawing & Creativity Classes for Kids | Skill Development Program',
-    metaDescription: 'Smart Brains India’s drawing and skill development program helps children express creativity, develop motor skills and build confidence through guided art activities and projects. Suitable for kids of different age groups.',
-    keywords: ['drawing classes for kids', 'creativity development', 'art for brain development']
-  }
-};
-
+// Program data with new structure
 const programsData: Record<string, ProgramData> = {
-  'dmit-test-kids': {
-    title: 'DMIT Test for Kids – Fingerprint Intelligence Analysis',
-    subtitle: 'Discover Your Child\'s Inborn Potential',
-    description: 'DMIT (Dermatoglyphics Multiple Intelligence Test) is a scientific method to identify a person\'s inborn potential, personality, and learning style through fingerprint analysis.',
-    targetAge: 'All Ages',
-    duration: '1 Session + Consultation',
-    classFormat: 'Offline / Online',
-    price: 'Contact for Pricing',
-    image: 'https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    sections: [
-      {
-        title: 'What Is DMIT and How It Works',
-        content: 'DMIT (Dermatoglyphics Multiple Intelligence Test) is a scientific study of fingerprint patterns. Scientists have discovered a connection between fingerprints and the brain lobes. By analyzing fingerprints, we can understand the distribution of brain neurons and identify an individual\'s innate intelligence, personality traits, and learning styles.'
-      },
-      {
-        title: 'How DMIT Helps Parents and Children',
-        content: [
-          'Identify inborn strengths and weaknesses.',
-          'Understand the child\'s preferred learning style (Visual, Auditory, or Kinesthetic).',
-          'Discover hidden talents and potential career paths.',
-          'Improve parent-child communication by understanding personality traits.',
-          'Reduce academic stress by adopting the right learning methods.'
-        ]
-      },
-      {
-        title: 'Who Should Take the DMIT Test',
-        content: 'DMIT is suitable for everyone - toddlers (to understand potential), children (for learning styles), teenagers (for career guidance), and adults (for self-discovery and relationship management). It is a one-time test that provides lifelong insights.'
-      },
-      {
-        title: 'DMIT Process at Smart Brains India',
-        content: [
-          'Step 1: Fingerprint Scanning (takes 10-15 minutes).',
-          'Step 2: Report Generation (comprehensive analysis).',
-          'Step 3: Counseling Session (expert guidance for parents/individuals).'
-        ]
-      },
-      {
-        title: 'FAQs on DMIT Test for Children',
-        content: [
-          'Q: Is DMIT scientific? A: Yes, it is based on Genetics, Embryology, and Neuroscience.',
-          'Q: Is it safe? A: Yes, it is non-invasive and only involves scanning fingerprints.',
-          'Q: Can fingerprints change? A: No, fingerprints are permanent and do not change over a lifetime.'
-        ]
-      }
+  'dmit': {
+    title: 'DMIT',
+    subtitle: 'Dermatoglyphics Multiple Intelligence Test',
+    description: 'A scientific method of understanding human potential through fingerprint analysis',
+    longDescription: 'DMIT (Dermatoglyphics Multiple Intelligence Test) is a scientific study of fingerprint patterns that helps identify an individual\'s potential, personality traits, and learning styles. This assessment provides valuable insights into the best career paths, learning methods, and areas for development.',
+    targetAge: 'All ages (Children, Teens, Adults)',
+    duration: '1 Session + Detailed Consultation',
+    classFormat: 'Individual Assessment',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Identify innate talents and potential',
+      'Understand learning styles and preferences',
+      'Get career guidance and suggestions',
+      'Discover personality traits',
+      'Optimize educational approaches',
+      'Improve parent-child relationships'
+    ],
+    structure: [
+      'Fingerprint collection and analysis',
+      'Brain mapping assessment',
+      'Personality profiling',
+      'Learning style identification',
+      'Career guidance consultation',
+      'Detailed report with recommendations'
+    ],
+    results: [
+      '95% accuracy in personality assessment',
+      'Clear career path identification',
+      'Improved academic performance',
+      'Better understanding of child\'s needs'
     ],
     testimonials: [
-      { name: 'Ravi Kumar', role: 'Parent', content: 'The DMIT report was an eye-opener. We realized why our son struggled with rote learning and excelled in practical tasks. Highly recommended!', rating: 5 }
+      {
+        name: 'Dr. Venkat Rao',
+        role: 'Pediatrician & Parent',
+        content: 'DMIT provided incredible insights into my child\'s potential. The career guidance was spot-on and helped us make informed decisions about his education path.',
+        rating: 5
+      }
     ]
   },
-  'midbrain-activation-kids': {
-    title: 'Midbrain Activation Classes for Kids (5–15 Years)',
-    subtitle: 'Unlock the Hidden Potential of the Brain',
-    description: 'Midbrain Activation is a specialized program designed to stimulate the middle brain, acting as a bridge between the left and right brain hemispheres.',
-    targetAge: '5-15 Years',
-    duration: '2 Days Workshop + Follow-ups',
-    classFormat: 'Offline / Online',
-    price: 'Contact for Pricing',
-    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    sections: [
-      {
-        title: 'What Is Midbrain Activation Training',
-        content: 'Midbrain Activation is a technique to activate the "interbrain" or midbrain, which connects the left and right hemispheres. This activation allows for better communication between the logical and creative sides of the brain, leading to "Whole Brain Development".'
-      },
-      {
-        title: 'Benefits of Midbrain Activation for Children',
-        content: [
-          'Improved concentration and focus.',
-          'Enhanced memory and retention power.',
-          'Better creativity and imagination.',
-          'Emotional stability and confidence.',
-          'Development of intuitive abilities (blindfold reading).'
-        ]
-      },
-      {
-        title: 'Age Group, Batch Details and Class Format',
-        content: 'This program is strictly for children aged 5 to 15 years. The brain is most plastic during this phase, making it the ideal time for activation. We offer weekend workshops followed by regular practice sessions to sustain the results.'
-      },
-      {
-        title: 'Home Practice Ideas to Support Training',
-        content: 'We provide specific brain gym exercises and meditation techniques that children should practice at home for 10-15 minutes daily. Consistency is key to maintaining the activated state of the midbrain.'
-      },
-      {
-        title: 'Is Midbrain Activation Safe? (FAQs)',
-        content: [
-          'Q: Is it safe? A: Yes, it is 100% safe and involves fun activities like music, dance, and brain exercises.',
-          'Q: Is it magic? A: No, it is a scientific method of brain stimulation.',
-          'Q: How long do results last? A: With regular practice, the benefits are lifelong.'
-        ]
-      }
+  'midbrain-activation': {
+    title: 'Midbrain Activation',
+    subtitle: 'Enhance Intuitive Abilities',
+    description: 'Stimulate the midbrain to enhance intuition, creativity, and mental abilities',
+    longDescription: 'Midbrain Activation is a proven method to stimulate the midbrain, which acts as a bridge between the left and right brain. When activated, it enhances intuitive abilities, improves concentration, boosts creativity, and develops a better connection between conscious and subconscious mind.',
+    targetAge: '5-15 years',
+    duration: '2 Days Intensive Workshop',
+    classFormat: 'Group Workshop (Max 15 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Enhanced intuitive abilities',
+      'Improved concentration and focus',
+      'Increased creativity and imagination',
+      'Better emotional balance',
+      'Heightened sensory perception',
+      'Improved academic performance'
+    ],
+    structure: [
+      'Pre-workshop assessment',
+      'Midbrain stimulation techniques',
+      'Blindfold activities and games',
+      'Concentration building exercises',
+      'Creative thinking activities',
+      'Post-workshop practice guidelines'
+    ],
+    results: [
+      '85% of children show improved concentration',
+      'Enhanced creativity in 90% participants',
+      'Better academic scores reported',
+      'Increased confidence and self-esteem'
     ],
     testimonials: [
-      { name: 'S. Lakshmi', role: 'Mother', content: 'My daughter\'s concentration has improved drastically. She can now memorize answers much faster.', rating: 5 }
+      {
+        name: 'Anitha Reddy',
+        role: 'Parent of twins',
+        content: 'Both my children completed midbrain activation and the results are amazing. Their intuition, creativity, and problem-solving skills have improved significantly.',
+        rating: 5
+      }
     ]
   },
-  'photographic-memory-training': {
-    title: 'Photographic Memory Training for Kids',
-    subtitle: 'Boost Recall and Exam Performance',
-    description: 'Master the art of capturing and recalling information instantly with our Photographic Memory training.',
-    targetAge: '6+ Years',
-    duration: '20 Sessions',
-    classFormat: 'Offline / Online',
-    price: 'Contact for Pricing',
-    image: 'https://images.pexels.com/photos/4144224/pexels-photo-4144224.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    sections: [
-      {
-        title: 'How Photographic Memory Training Works',
-        content: 'Photographic memory training involves techniques to convert textual or auditory information into mental images. Since the brain processes images much faster than text, this method allows for rapid storage and retrieval of information.'
-      },
-      {
-        title: 'Benefits for School and Exams',
-        content: [
-          'Memorize long answers, essays, and formulas quickly.',
-          'Retain information for longer periods without rote memorization.',
-          'Reduce exam anxiety and boost confidence.',
-          'Save study time and improve grades.'
-        ]
-      },
-      {
-        title: 'Ideal Age Group and Student Profile',
-        content: 'This program is ideal for students aged 6 years and above who face difficulties in remembering lessons or want to excel in competitive exams. It is particularly beneficial for visual learners.'
-      },
-      {
-        title: 'Class Structure and Activities',
-        content: 'Classes include visualization exercises, memory games, association techniques, and practical application of these skills to school subjects.'
-      },
-      {
-        title: 'FAQs About Photographic Memory for Children',
-        content: [
-          'Q: Can any child learn this? A: Yes, with practice, any child can improve their visual memory.',
-          'Q: Will it help in all subjects? A: Yes, it applies to all subjects including languages, science, and social studies.'
-        ]
-      }
+  'photographic-memory': {
+    title: 'Photographic Memory',
+    subtitle: 'Develop Eidetic Memory',
+    description: 'Master techniques for enhanced memory retention and recall abilities',
+    longDescription: 'The Photographic Memory program teaches students advanced memory techniques to develop near-perfect recall abilities. Students learn visualization methods, association techniques, and memory palace concepts to dramatically improve their ability to remember and recall information.',
+    targetAge: '6+ years',
+    duration: '20 Sessions (2 months)',
+    classFormat: 'Small Groups (Max 8 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Near-perfect memory recall',
+      'Enhanced learning speed',
+      'Better academic performance',
+      'Increased confidence in exams',
+      'Improved concentration',
+      'Long-term retention skills'
+    ],
+    structure: [
+      'Memory assessment and baseline',
+      'Visualization techniques training',
+      'Association method learning',
+      'Memory palace construction',
+      'Practice with academic content',
+      'Speed memory challenges'
+    ],
+    results: [
+      '300% improvement in recall ability',
+      '95% student satisfaction rate',
+      'Significant academic improvement',
+      'Enhanced exam performance'
     ],
     testimonials: [
-      { name: 'Anil Kumar', role: 'Father', content: 'My son used to forget what he studied the next day. Now he remembers everything clearly. Amazing program!', rating: 5 }
+      {
+        name: 'Priya Sharma',
+        role: 'Parent of 8-year-old',
+        content: 'My daughter\'s memory and concentration have improved dramatically. She now remembers her lessons effortlessly and her confidence has soared.',
+        rating: 5
+      }
     ]
   },
-  'abacus-vedic-math-classes': {
-    title: 'Abacus & Vedic Math Classes for Kids',
-    subtitle: 'Super‑Fast Mental Calculation Training',
-    description: 'Enhance mathematical skills, speed, and accuracy with our combined Abacus and Vedic Math program.',
-    targetAge: '4-14 Years',
-    duration: 'Level-based / 12 Sessions',
-    classFormat: 'Offline / Online',
-    price: 'Contact for Pricing',
-    image: 'https://images.pexels.com/photos/4145047/pexels-photo-4145047.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    sections: [
-      {
-        title: 'Why Abacus Training Helps Brain Development',
-        content: 'Abacus is not just about math; it is a complete brain development tool. Moving the beads stimulates the nerve endings in the fingertips, which connect to the brain. It enhances visualization, concentration, and listening skills.'
-      },
-      {
-        title: 'Abacus and Vedic Math Program Structure',
-        content: [
-          'Abacus: Foundation levels for basic operations (Addition, Subtraction, Multiplication, Division).',
-          'Vedic Math: Advanced techniques and sutras for complex calculations (Square roots, Cubes, Algebra) for older kids.'
-        ]
-      },
-      {
-        title: 'Age Groups and Levels',
-        content: 'Abacus is best started between 4-14 years. Vedic Math is recommended for children aged 8+ years. We offer multiple levels, from beginner to advanced.'
-      },
-      {
-        title: 'Skills Children Gain with Abacus & Vedic Math',
-        content: [
-          'Lightning-fast mental calculations.',
-          'Improved number sense and logical thinking.',
-          'Enhanced photographic memory for numbers.',
-          'Greater confidence in mathematics.'
-        ]
-      },
-      {
-        title: 'Parent FAQs About Abacus Classes',
-        content: [
-          'Q: Will it confuse with school math? A: No, it complements school math by providing a faster way to verify answers.',
-          'Q: How much practice is needed? A: 10-15 minutes of daily practice is recommended.'
-        ]
-      }
+  'abacus-math': {
+    title: 'Abacus Math',
+    subtitle: 'Mental Mathematics Mastery',
+    description: 'Master mental mathematics and improve calculation speed with abacus training',
+    longDescription: 'The Abacus Math program teaches children to perform complex mathematical calculations mentally using visualization of the abacus. This ancient tool, when properly learned, develops incredible mental math abilities and enhances overall cognitive function.',
+    targetAge: '4-14 years',
+    duration: '8 Levels Program (2 years)',
+    classFormat: 'Small Groups (Max 10 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Lightning-fast mental calculations',
+      'Enhanced number sense',
+      'Improved concentration',
+      'Better problem-solving skills',
+      'Increased mathematical confidence',
+      'Enhanced memory and visualization'
+    ],
+    structure: [
+      'Basic abacus introduction',
+      'Fundamental operations',
+      'Mental abacus visualization',
+      'Speed calculation training',
+      'Competition preparation',
+      'Advanced calculation techniques'
+    ],
+    results: [
+      '500% improvement in calculation speed',
+      '92% students excel in math exams',
+      'Enhanced logical thinking',
+      'Improved academic performance overall'
     ],
     testimonials: [
-      { name: 'Priya S.', role: 'Parent', content: 'My daughter no longer fears math. She calculates faster than a calculator!', rating: 5 }
+      {
+        name: 'Rajesh Kumar',
+        role: 'Parent of 10-year-old',
+        content: 'The Abacus Math program has transformed my son\'s relationship with mathematics. He now solves complex calculations mentally and actually enjoys math class!',
+        rating: 5
+      }
     ]
   },
-  'speed-reading-course': {
-    title: 'Speed Reading Classes for Students',
-    subtitle: 'Read Faster with Better Understanding',
-    description: 'Learn to read 3-5x faster while maintaining or improving comprehension with our Speed Reading course.',
-    targetAge: '8+ Years',
-    duration: '10 Sessions',
-    classFormat: 'Offline / Online',
-    price: 'Contact for Pricing',
-    image: 'https://images.pexels.com/photos/4144291/pexels-photo-4144291.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    sections: [
-      {
-        title: 'What Is Speed Reading Training',
-        content: 'Speed reading involves techniques to increase the rate at which you read text without compromising understanding. It trains the eyes to move smoothly and capture more words at a glance.'
-      },
-      {
-        title: 'Benefits for School and Competitive Exams',
-        content: [
-          'Cover syllabus in less time.',
-          'Improve focus and reduce distraction while reading.',
-          'Quickly scan and locate key information.',
-          'Crucial for competitive exams with time limits.'
-        ]
-      },
-      {
-        title: 'Class Format and Techniques We Teach',
-        content: 'We teach techniques like skimming, scanning, chunking, and eliminating sub-vocalization. Classes are practical and involve reading drills with various texts.'
-      },
-      {
-        title: 'Who Can Join the Speed Reading Program',
-        content: 'Students aged 8 years and above, college students, and professionals who need to process large amounts of information daily.'
-      },
-      {
-        title: 'FAQs on Speed Reading for Kids',
-        content: [
-          'Q: Will comprehension drop? A: No, our techniques ensure comprehension actually improves as focus increases.',
-          'Q: Is it suitable for dyslexic students? A: It can be helpful, but we recommend a consultation first.'
-        ]
-      }
+  'enhancement': {
+    title: 'Enhancement',
+    subtitle: 'Overall Cognitive Development',
+    description: 'Comprehensive program for overall cognitive enhancement and brain development',
+    longDescription: 'The Enhancement program is a comprehensive cognitive development course that focuses on improving multiple aspects of brain function simultaneously. This program combines various techniques from memory training, concentration building, creative thinking, and problem-solving to provide holistic brain development.',
+    targetAge: '5-16 years',
+    duration: '30 Sessions (3 months)',
+    classFormat: 'Small Groups (Max 12 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Improved focus and concentration',
+      'Enhanced problem-solving abilities',
+      'Better academic performance',
+      'Increased creativity and imagination',
+      'Stronger memory retention',
+      'Improved learning speed'
+    ],
+    structure: [
+      'Initial cognitive assessment',
+      'Concentration building exercises',
+      'Memory enhancement techniques',
+      'Creative thinking activities',
+      'Problem-solving challenges',
+      'Progress tracking and evaluation'
+    ],
+    results: [
+      '80% improvement in concentration levels',
+      'Enhanced academic performance',
+      'Better problem-solving skills',
+      'Increased confidence and self-esteem'
     ],
     testimonials: [
-      { name: 'Karthik', role: 'Student', content: 'I can now finish a book in a few hours. It has helped me so much in my board exams.', rating: 5 }
+      {
+        name: 'Meera Patel',
+        role: 'Parent of 12-year-old',
+        content: 'The Enhancement program has been a game-changer for my daughter. Her focus, creativity, and overall academic performance have improved significantly.',
+        rating: 5
+      }
     ]
   },
-  'handwriting-improvement': {
-    title: 'Handwriting Improvement Classes for Kids',
-    subtitle: 'Neat Writing for Better Exam Scores',
-    description: 'Transform your child\'s handwriting into a neat, legible, and impressive script with our specialized course.',
-    targetAge: '5+ Years',
-    duration: '15 Sessions',
-    classFormat: 'Offline / Online',
-    price: 'Contact for Pricing',
-    image: 'https://images.pexels.com/photos/5088188/pexels-photo-5088188.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    sections: [
-      {
-        title: 'Why Handwriting Still Matters in Exams',
-        content: 'Despite the digital age, exams are still handwritten. Legible handwriting ensures that examiners can read and grade answers correctly. It also reflects clarity of thought and discipline.'
-      },
-      {
-        title: 'How Our Handwriting Program Works',
-        content: 'We focus on grip correction, letter formation, spacing, slant, and speed. We use scientifically designed practice sheets to build muscle memory for good handwriting.'
-      },
-      {
-        title: 'Age Group, Duration and Materials',
-        content: 'Suitable for children aged 5 years and above. The course typically spans 15 sessions. All practice materials are provided.'
-      },
-      {
-        title: 'Before and After Improvements Parents See',
-        content: 'Parents notice a significant difference in legibility and neatness. Children also report less hand fatigue and improved writing speed.'
-      },
-      {
-        title: 'FAQs on Handwriting Training',
-        content: [
-          'Q: Can bad handwriting be fixed? A: Yes, with the right technique and practice, anyone can improve.',
-          'Q: Do you teach cursive? A: Yes, we teach both print and cursive styles.'
-        ]
-      }
+  'quantum-speed-reading': {
+    title: 'Quantum Speed Reading',
+    subtitle: 'Revolutionary Reading Technique',
+    description: 'Advanced speed reading technique using quantum methods for rapid comprehension',
+    longDescription: 'Quantum Speed Reading is an advanced technique that goes beyond traditional speed reading. It involves training the brain to process information at quantum speeds while maintaining complete comprehension. This method activates the right brain\'s ability to process visual information rapidly.',
+    targetAge: '8+ years',
+    duration: '15 Sessions (6 weeks)',
+    classFormat: 'Small Groups (Max 8 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Ultra-fast reading speeds',
+      'Complete comprehension retention',
+      'Enhanced information processing',
+      'Improved academic efficiency',
+      'Better exam preparation',
+      'Increased learning capacity'
+    ],
+    structure: [
+      'Reading speed assessment',
+      'Right brain activation exercises',
+      'Quantum reading techniques',
+      'Comprehension building activities',
+      'Speed practice sessions',
+      'Final assessment and certification'
+    ],
+    results: [
+      '1000+ words per minute reading speed',
+      '95% comprehension retention',
+      'Dramatic improvement in study efficiency',
+      'Enhanced academic performance'
     ],
     testimonials: [
-      { name: 'Mrs. Reddy', role: 'Parent', content: 'My son\'s teacher praised his handwriting improvement. Thank you Smart Brains!', rating: 5 }
+      {
+        name: 'Arjun Singh',
+        role: 'Parent of 14-year-old',
+        content: 'My son can now read entire chapters in minutes with perfect understanding. This program has revolutionized his study habits and academic performance.',
+        rating: 5
+      }
     ]
   },
-  'drawing-skill-development': {
-    title: 'Drawing & Skill Development Classes',
-    subtitle: 'Build Creativity and Confidence in Kids',
-    description: 'Nurture your child\'s artistic talents and fine motor skills with our structured drawing and skill development program.',
-    targetAge: '4+ Years',
-    duration: '20 Sessions',
-    classFormat: 'Offline / Online',
-    price: 'Contact for Pricing',
-    image: 'https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    sections: [
-      {
-        title: 'Why Creative Skills Matter for Brain Development',
-        content: 'Art engages the right brain, fostering creativity, emotional expression, and problem-solving skills. It also improves fine motor coordination and focus.'
-      },
-      {
-        title: 'What Children Learn in Our Drawing & Skill Program',
-        content: 'They learn various techniques like sketching, shading, coloring, and painting. We also include activities for hand-eye coordination and observation skills.'
-      },
-      {
-        title: 'Age Groups and Batch Options',
-        content: 'We have batches for different age groups starting from 4 years. Classes are held on weekends and weekdays.'
-      },
-      {
-        title: 'Benefits Parents Notice at Home and School',
-        content: 'Children become more patient, observant, and expressive. Their ability to visualize concepts improves, which helps in other subjects too.'
-      },
-      {
-        title: 'FAQs on Drawing and Creativity Classes',
-        content: [
-          'Q: Do you provide materials? A: Yes, basic materials are provided for offline classes.',
-          'Q: Is it a hobby class? A: It is a skill development course with a structured curriculum.'
-        ]
-      }
+  'vedic-math': {
+    title: 'Vedic Math',
+    subtitle: 'Ancient Mathematical Techniques',
+    description: 'Learn ancient Vedic mathematical techniques for faster calculations',
+    longDescription: 'Vedic Mathematics is based on ancient Indian mathematical principles that provide simple, fast, and efficient methods for solving mathematical problems. These techniques help students perform complex calculations mentally with speed and accuracy.',
+    targetAge: '8+ years',
+    duration: '12 Sessions (6 weeks)',
+    classFormat: 'Small Groups (Max 10 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Faster mathematical calculations',
+      'Improved numerical ability',
+      'Enhanced logical thinking',
+      'Better problem-solving skills',
+      'Increased mathematical confidence',
+      'Reduced calculation errors'
+    ],
+    structure: [
+      'Introduction to Vedic principles',
+      'Basic calculation techniques',
+      'Advanced multiplication methods',
+      'Division and square techniques',
+      'Algebraic applications',
+      'Practice and mastery sessions'
+    ],
+    results: [
+      '400% improvement in calculation speed',
+      'Enhanced mathematical confidence',
+      'Better performance in competitive exams',
+      'Improved logical reasoning'
     ],
     testimonials: [
-      { name: 'Swathi', role: 'Parent', content: 'My daughter loves the drawing class. It is her favorite time of the week.', rating: 5 }
+      {
+        name: 'Lakshmi Devi',
+        role: 'Parent of 11-year-old',
+        content: 'Vedic Math has transformed my child\'s approach to mathematics. She now solves complex problems with ease and has developed a genuine love for math.',
+        rating: 5
+      }
+    ]
+  },
+  'speed-reading': {
+    title: 'Speed Reading',
+    subtitle: 'Rapid Reading Skills',
+    description: 'Develop speed reading skills while maintaining comprehension and retention',
+    longDescription: 'Our Speed Reading program teaches students to read faster while maintaining excellent comprehension and retention. Students learn to eliminate subvocalization, improve eye movement patterns, and develop better reading strategies.',
+    targetAge: '8+ years',
+    duration: '10 Sessions (5 weeks)',
+    classFormat: 'Small Groups (Max 10 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Increased reading speed',
+      'Better comprehension skills',
+      'Improved time management',
+      'Enhanced study efficiency',
+      'Better exam preparation',
+      'Increased knowledge absorption'
+    ],
+    structure: [
+      'Reading speed baseline test',
+      'Eye movement training',
+      'Subvocalization elimination',
+      'Comprehension techniques',
+      'Practice with various texts',
+      'Final speed and comprehension test'
+    ],
+    results: [
+      '300% increase in reading speed',
+      'Maintained 90%+ comprehension',
+      'Improved academic performance',
+      'Better time management skills'
+    ],
+    testimonials: [
+      {
+        name: 'Ravi Kumar',
+        role: 'Parent of 13-year-old',
+        content: 'The Speed Reading program has been incredible. My son now finishes his reading assignments in half the time with better understanding.',
+        rating: 5
+      }
+    ]
+  },
+  'handwriting': {
+    title: 'Handwriting',
+    subtitle: 'Beautiful & Legible Writing',
+    description: 'Improve handwriting skills, speed, and legibility for better academic performance',
+    longDescription: 'Our Handwriting program focuses on developing beautiful, legible handwriting while improving writing speed. Students learn proper posture, grip, letter formation, and develop their own distinctive writing style.',
+    targetAge: '5+ years',
+    duration: '15 Sessions (8 weeks)',
+    classFormat: 'Small Groups (Max 8 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Neat and legible handwriting',
+      'Improved writing speed',
+      'Better academic grades',
+      'Enhanced fine motor skills',
+      'Increased writing confidence',
+      'Proper writing posture'
+    ],
+    structure: [
+      'Handwriting assessment',
+      'Proper grip and posture training',
+      'Letter formation practice',
+      'Word and sentence writing',
+      'Speed building exercises',
+      'Personal style development'
+    ],
+    results: [
+      'Significant improvement in legibility',
+      '50% increase in writing speed',
+      'Better grades in written exams',
+      'Improved confidence in writing'
+    ],
+    testimonials: [
+      {
+        name: 'Sunita Sharma',
+        role: 'Parent of 7-year-old',
+        content: 'My daughter\'s handwriting has improved dramatically. Her teachers now compliment her neat writing, and her confidence has grown tremendously.',
+        rating: 5
+      }
+    ]
+  },
+  'midbrain-adults': {
+    title: 'Midbrain for Adults',
+    subtitle: 'Adult Cognitive Enhancement',
+    description: 'Midbrain activation program specially designed for adults and professionals',
+    longDescription: 'Our Adult Midbrain Activation program is specifically designed for working professionals and adults who want to enhance their cognitive abilities, improve decision-making skills, and reduce stress. This program helps activate dormant brain potential.',
+    targetAge: '18+ years',
+    duration: '3 Days Intensive Workshop',
+    classFormat: 'Small Groups (Max 12 adults)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Enhanced intuitive abilities',
+      'Better decision-making skills',
+      'Improved stress management',
+      'Increased creativity at work',
+      'Better work-life balance',
+      'Enhanced problem-solving abilities'
+    ],
+    structure: [
+      'Adult brain assessment',
+      'Stress reduction techniques',
+      'Intuition development exercises',
+      'Decision-making enhancement',
+      'Creative thinking workshops',
+      'Integration and practice sessions'
+    ],
+    results: [
+      'Improved workplace performance',
+      'Better stress management',
+      'Enhanced creative thinking',
+      'Improved decision-making confidence'
+    ],
+    testimonials: [
+      {
+        name: 'Dr. Ramesh Gupta',
+        role: 'Corporate Executive',
+        content: 'The Adult Midbrain program has significantly improved my decision-making abilities and reduced my work stress. I feel more confident and creative in my professional life.',
+        rating: 5
+      }
+    ]
+  },
+  'drawing-skills': {
+    title: 'Drawing & Skill Development',
+    subtitle: 'Artistic & Motor Skills',
+    description: 'Develop artistic abilities and fine motor skills through structured drawing programs',
+    longDescription: 'Our Drawing & Skill Development program combines artistic training with fine motor skill development. Students learn various drawing techniques while improving hand-eye coordination, creativity, and self-expression.',
+    targetAge: '4+ years',
+    duration: '20 Sessions (10 weeks)',
+    classFormat: 'Small Groups (Max 8 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Enhanced artistic abilities',
+      'Improved fine motor skills',
+      'Better hand-eye coordination',
+      'Increased creativity and imagination',
+      'Improved focus and patience',
+      'Enhanced self-expression'
+    ],
+    structure: [
+      'Basic drawing techniques',
+      'Shape and form understanding',
+      'Shading and texture work',
+      'Color theory and application',
+      'Creative composition',
+      'Portfolio development'
+    ],
+    results: [
+      'Significant improvement in artistic skills',
+      'Enhanced fine motor development',
+      'Increased creative confidence',
+      'Better academic performance in art subjects'
+    ],
+    testimonials: [
+      {
+        name: 'Kavitha Reddy',
+        role: 'Parent of 6-year-old',
+        content: 'My son\'s artistic abilities have flourished in this program. His drawings are now detailed and creative, and his fine motor skills have improved significantly.',
+        rating: 5
+      }
     ]
   }
 };
@@ -368,62 +479,134 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { program: string } }): Promise<Metadata> {
-  const slug = params.program;
-  const seo = programsSEO[slug];
+  const data = programsData[params.program];
+  const readable = params.program.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  const programTitle = data?.title || readable;
+  const title = `${programTitle} Training in Hyderabad & Vizianagaram | Smart Brains India`;
+  const description = `${data?.longDescription || data?.description || 'Brain training program'} offered by Smart Brains India in Hyderabad and Vizianagaram. ${data?.targetAge ? `For ${data.targetAge}.` : ''} ${data?.duration ? `Duration: ${data.duration}.` : ''} Book free demo: +91 7396447470 or +91 7386209090.`;
+  const url = `https://www.smartbrainsindia.com/programs/${params.program}`;
 
-  if (!seo) {
-    return {
-      title: 'Program Not Found | Smart Brains India',
-      description: 'The requested program could not be found.',
-    };
-  }
+  const keywords = [
+    programTitle.toLowerCase(),
+    `${programTitle} training`,
+    `${programTitle} course`,
+    `${programTitle} in Hyderabad`,
+    `${programTitle} in Vizianagaram`,
+    'brain training',
+    'cognitive development',
+    data?.targetAge ? `${programTitle} for ${data.targetAge}` : '',
+  ].filter(Boolean);
 
   return {
-    title: seo.metaTitle,
-    description: seo.metaDescription,
-    keywords: seo.keywords,
+    title,
+    description,
+    keywords,
+    alternates: { canonical: url },
     openGraph: {
-      title: seo.metaTitle,
-      description: seo.metaDescription,
-      url: `https://www.smartbrainsindia.com/programs/${slug}`,
+      url,
+      title,
+      description,
+      type: 'website',
       siteName: 'Smart Brains India',
-      images: [
-        {
-          url: programsData[slug]?.image || 'https://www.smartbrainsindia.com/og-default.jpg',
-          width: 1200,
-          height: 630,
-          alt: programsData[slug]?.title || 'Smart Brains India Program'
-        }
-      ],
+      images: data?.image ? [{
+        url: data.image,
+        width: 1200,
+        height: 630,
+        alt: `${programTitle} - Smart Brains India`
+      }] : undefined,
       locale: 'en_IN',
-      type: 'website'
     },
     twitter: {
       card: 'summary_large_image',
-      title: seo.metaTitle,
-      description: seo.metaDescription,
-      images: [programsData[slug]?.image || 'https://www.smartbrainsindia.com/og-default.jpg']
-    }
+      title,
+      description,
+      images: data?.image ? [data.image] : undefined
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 
 export default function ProgramPage({ params }: { params: { program: string } }) {
-  const slug = params.program;
-  const data = programsData[slug];
-
-  if (!data) {
+  if (!validSlugs.includes(params.program)) {
     notFound();
   }
 
-  // Find related programs (exclude current one)
-  const relatedPrograms = Object.entries(programsData)
-    .filter(([key]) => key !== slug)
-    .slice(0, 3)
-    .map(([key, value]) => ({
-      slug: key,
-      title: value.title,
-      description: value.subtitle
-    }));
+  const programData = programsData[params.program];
 
-  return <ProgramDetailsView programData={data} relatedPrograms={relatedPrograms} />;
+  if (!programData) {
+    notFound();
+  }
+
+  // Define related programs
+  const relatedProgramsMap: Record<string, Array<{ slug: string; title: string; description: string }>> = {
+    'dmit': [
+      { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'Enhance intuitive abilities' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Develop perfect recall' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall cognitive development' }
+    ],
+    'midbrain-activation': [
+      { slug: 'dmit', title: 'DMIT Assessment', description: 'Understand learning potential' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Enhance memory skills' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Comprehensive brain development' }
+    ],
+    'photographic-memory': [
+      { slug: 'speed-reading', title: 'Speed Reading', description: 'Read faster with comprehension' },
+      { slug: 'dmit', title: 'DMIT Assessment', description: 'Identify learning style' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall cognitive boost' }
+    ],
+    'enhancement': [
+      { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'Enhance intuition' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Perfect memory recall' },
+      { slug: 'dmit', title: 'DMIT Assessment', description: 'Discover potential' }
+    ],
+    'quantum-speed-reading': [
+      { slug: 'speed-reading', title: 'Speed Reading', description: 'Traditional speed reading' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Enhance memory' },
+      { slug: 'abacus-math', title: 'Abacus Math', description: 'Mental mathematics' }
+    ],
+    'abacus-math': [
+      { slug: 'vedic-math', title: 'Vedic Math', description: 'Ancient calculation techniques' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall development' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Memory improvement' }
+    ],
+    'vedic-math': [
+      { slug: 'abacus-math', title: 'Abacus Math', description: 'Mental math mastery' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Cognitive development' },
+      { slug: 'speed-reading', title: 'Speed Reading', description: 'Reading skills' }
+    ],
+    'speed-reading': [
+      { slug: 'quantum-speed-reading', title: 'Quantum Speed Reading', description: 'Advanced reading technique' },
+      { slug: 'photographic-memory', title: 'Photographic Memory', description: 'Memory enhancement' },
+      { slug: 'handwriting', title: 'Handwriting', description: 'Writing skills' }
+    ],
+    'handwriting': [
+      { slug: 'drawing-skills', title: 'Drawing & Skill Development', description: 'Artistic skills' },
+      { slug: 'speed-reading', title: 'Speed Reading', description: 'Reading improvement' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall development' }
+    ],
+    'midbrain-adults': [
+      { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'For children and teens' },
+      { slug: 'dmit', title: 'DMIT Assessment', description: 'Career guidance' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Cognitive boost' }
+    ],
+    'drawing-skills': [
+      { slug: 'handwriting', title: 'Handwriting', description: 'Writing skills' },
+      { slug: 'enhancement', title: 'Enhancement Program', description: 'Overall development' },
+      { slug: 'midbrain-activation', title: 'Midbrain Activation', description: 'Creativity boost' }
+    ]
+  };
+
+  const relatedPrograms = relatedProgramsMap[params.program] || [];
+
+  return <ProgramDetailsView programData={programData} relatedPrograms={relatedPrograms} />;
 }

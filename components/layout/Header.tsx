@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Brain, ChevronDown } from 'lucide-react';
+import { Menu, X, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
@@ -14,17 +14,17 @@ import {
 } from '@/components/ui/navigation-menu';
 
 const programs = [
-  { name: 'DMIT', href: '/programs/dmit' },
+  { name: 'DMIT Test', href: '/programs/dmit' },
   { name: 'Midbrain Activation', href: '/programs/midbrain-activation' },
   { name: 'Photographic Memory', href: '/programs/photographic-memory' },
-  { name: 'Enhancement', href: '/programs/enhancement' },
-  { name: 'Quantum Speed Reading', href: '/programs/quantum-speed-reading' },
   { name: 'Abacus Math', href: '/programs/abacus-math' },
   { name: 'Vedic Math', href: '/programs/vedic-math' },
+  { name: 'Enhancement', href: '/programs/enhancement' },
+  { name: 'Quantum Speed Reading', href: '/programs/quantum-speed-reading' },
   { name: 'Speed Reading', href: '/programs/speed-reading' },
   { name: 'Handwriting', href: '/programs/handwriting' },
   { name: 'Midbrain for Adults', href: '/programs/midbrain-adults' },
-  { name: 'Drawing & Skill Development', href: '/programs/drawing-skills' },
+  { name: 'Drawing & Skills', href: '/programs/drawing-skills' },
 ];
 
 export function Header() {
@@ -49,7 +49,7 @@ export function Header() {
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              
+
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link href="/about" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50">

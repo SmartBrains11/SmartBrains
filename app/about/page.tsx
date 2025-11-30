@@ -35,7 +35,7 @@ const trainers = [
     specialization: 'DMIT, Midbrain Activation, Parenting Guidance',
     experience: '6+ years',
     image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400',
-    bio: 'Co‑founder of Smart Brains, Jayalakshmi brings a mother’s intuition and years of hands‑on experience in helping children unlock their potential. Inspired by her own son’s growth through brain training, she has dedicated her life to guiding parents and empowering children through personalized learning techniques.',
+    bio: 'Co‑founder of Smart Brains, Jayalakshmi brings a mother's intuition and years of hands‑on experience in helping children unlock their potential.Inspired by her own son's growth through brain training, she has dedicated her life to guiding parents and empowering children through personalized learning techniques.',
     certifications: [
       'Certified DMIT Analyst',
       'Midbrain Activation Specialist',
@@ -76,10 +76,43 @@ const values = [
   { icon: Users, title: 'Community', description: 'We believe in building a supportive community of learners, parents, and educators.' },
 ];
 
+const galleryImages = [
+  {
+    url: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Interactive Learning Sessions',
+    description: 'Students engaged in hands-on brain training activities'
+  },
+  {
+    url: 'https://images.pexels.com/photos/5905704/pexels-photo-5905704.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Midbrain Activation Workshop',
+    description: 'Children participating in our popular midbrain activation program'
+  },
+  {
+    url: 'https://images.pexels.com/photos/4144224/pexels-photo-4144224.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Memory Training',
+    description: 'Photographic memory techniques in action'
+  },
+  {
+    url: 'https://images.pexels.com/photos/4145047/pexels-photo-4145047.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Abacus Math Classes',
+    description: 'Students mastering mental calculation with abacus'
+  },
+  {
+    url: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'One-on-One Coaching',
+    description: 'Personalized attention for every student'
+  },
+  {
+    url: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Happy Learning Environment',
+    description: 'Creating joyful learning experiences'
+  }
+];
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+      {/* 1. Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center max-w-6xl mx-auto">
@@ -101,52 +134,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Who We Are */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 lg:px-16">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Who We Are</h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed text-center">
-              Founded in 2019 by Lakkoju Jayalakshmi, a certified brain training expert, Smart Brains India was born from a mother's journey. Witnessing the transformative power of brain training on her own son, she dedicated her life to bringing these scientific methods to children across India. Today, we are a team of expert trainers committed to nurturing the next generation of geniuses.
-            </p>
-
-            {/* Founder Image & Bio */}
-            <div className="flex flex-col md:flex-row items-center gap-8 bg-blue-50 p-8 rounded-2xl">
-              <div className="w-48 h-48 flex-shrink-0">
-                <img
-                  src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400"
-                  alt="Lakkoju Jayalakshmi"
-                  className="w-full h-full object-cover rounded-full shadow-lg"
-                />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Lakkoju Jayalakshmi</h3>
-                <p className="text-blue-600 font-medium mb-4">Founder & Senior Trainer</p>
-                <p className="text-gray-600 italic">
-                  "Smart Brains was founded with a simple belief - every child is gifted, they just need the right approach to unlock their potential."
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Teaching Philosophy */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 lg:px-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Teaching Philosophy</h2>
-          <div className="max-w-4xl mx-auto text-lg text-gray-600 leading-relaxed space-y-6 bg-white p-8 rounded-2xl shadow-sm">
-            <p>
-              We believe that every child is born with immense potential, but traditional education often focuses only on rote learning. Our philosophy is rooted in <strong>Whole Brain Development</strong>. We combine ancient wisdom (like Vedic Math) with modern neuroscience (like Midbrain Activation and DMIT) to stimulate both the logical (Left) and creative (Right) hemispheres of the brain.
-            </p>
-            <p>
-              Our classes are designed to be fun, interactive, and stress-free. We don't just teach; we ignite curiosity and confidence. Whether it's through the rhythmic movement of the Abacus or the visualization techniques of Photographic Memory, we ensure learning is a joyful experience.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
+      {/* 2. Mission & Vision */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -161,7 +149,7 @@ export default function AboutPage() {
               <div className="p-6 bg-orange-50 rounded-xl border-l-4 border-orange-600">
                 <h3 className="text-xl font-bold text-orange-900 mb-3">Our Vision</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  To be India’s most trusted brain training center, empowering every child to reach their full potential. We aim to support parents in guiding their kids towards a brighter, more confident future.
+                  To be India's most trusted brain training center, empowering every child to reach their full potential. We aim to support parents in guiding their kids towards a brighter, more confident future.
                 </p>
               </div>
             </div>
@@ -172,31 +160,39 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* What Makes Us Different */}
+      {/* 3. Who We Are - Everything in Card */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">What Makes Us Different</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <div
-                  key={index}
-                  className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
-                    <Icon className="h-8 w-8" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Who We Are</h2>
+          <Card className="max-w-5xl mx-auto shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="p-8 md:p-12">
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed text-center">
+                Founded in 2019 by Lakkoju Jayalakshmi, a certified brain training expert, Smart Brains India was born from a mother's journey. Witnessing the transformative power of brain training on her own son, she dedicated her life to bringing these scientific methods to children across India. Today, we are a team of expert trainers committed to nurturing the next generation of geniuses.
+              </p>
+
+              {/* Founder Image & Bio */}
+              <div className="flex flex-col md:flex-row items-center gap-8 bg-blue-50 p-8 rounded-2xl">
+                <div className="w-48 h-48 flex-shrink-0">
+                  <img
+                    src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="Lakkoju Jayalakshmi"
+                    className="w-full h-full object-cover rounded-full shadow-lg"
+                  />
                 </div>
-              );
-            })}
-          </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Lakkoju Jayalakshmi</h3>
+                  <p className="text-blue-600 font-medium mb-4">Founder & Senior Trainer</p>
+                  <p className="text-gray-600 italic">
+                    "Smart Brains was founded with a simple belief - every child is gifted, they just need the right approach to unlock their potential."
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
-      {/* Trainer Profiles */}
+      {/* 4. Meet Our Expert Trainers */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center mb-12">
@@ -247,6 +243,79 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Our Teaching Philosophy */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 lg:px-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Teaching Philosophy</h2>
+          <div className="max-w-4xl mx-auto text-lg text-gray-600 leading-relaxed space-y-6 bg-white p-8 rounded-2xl shadow-sm">
+            <p>
+              We believe that every child is born with immense potential, but traditional education often focuses only on rote learning. Our philosophy is rooted in <strong>Whole Brain Development</strong>. We combine ancient wisdom (like Vedic Math) with modern neuroscience (like Midbrain Activation and DMIT) to stimulate both the logical (Left) and creative (Right) hemispheres of the brain.
+            </p>
+            <p>
+              Our classes are designed to be fun, interactive, and stress-free. We don't just teach; we ignite curiosity and confidence. Whether it's through the rhythmic movement of the Abacus or the visualization techniques of Photographic Memory, we ensure learning is a joyful experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Gallery / Pictures Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 lg:px-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Learning Environment</h2>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Take a glimpse into our vibrant classrooms and see how we create engaging, fun-filled learning experiences for every child.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              >
+                <div className="aspect-[4/3] relative">
+                  <img
+                    src={image.url}
+                    alt={image.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-lg font-bold mb-2">{image.title}</h3>
+                    <p className="text-sm text-gray-200">{image.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. What Makes Us Different */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 lg:px-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">What Makes Us Different</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <div
+                  key={index}
+                  className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
+                    <Icon className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
