@@ -35,7 +35,7 @@ const trainers = [
     specialization: 'DMIT, Midbrain Activation, Parenting Guidance',
     experience: '6+ years',
     image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400',
-    bio: 'Co‑founder of Smart Brains, Jayalakshmi brings a mother's intuition and years of hands‑on experience in helping children unlock their potential.Inspired by her own son's growth through brain training, she has dedicated her life to guiding parents and empowering children through personalized learning techniques.',
+    bio: 'Co‑founder of Smart Brains, Jayalakshmi brings a mother\'s intuition and years of hands‑on experience in helping children unlock their potential. Inspired by her own son\'s growth through brain training, she has dedicated her life to guiding parents and empowering children through personalized learning techniques.',
     certifications: [
       'Certified DMIT Analyst',
       'Midbrain Activation Specialist',
