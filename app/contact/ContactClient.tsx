@@ -111,7 +111,7 @@ export default function ContactClient() {
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
             <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
-                <div className="container mx-auto px-4 lg:px-16">
+                <div className="container mx-auto px-6 lg:px-20">
                     <div className="text-center max-w-4xl mx-auto">
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
                             Contact Smart Brains India – Brain Training Centres in Hyderabad & Vizianagaram
@@ -125,7 +125,7 @@ export default function ContactClient() {
             </section>
 
             <section className="py-16">
-                <div className="container mx-auto px-4 lg:px-16">
+                <div className="container mx-auto px-6 lg:px-20">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         {/* Contact Form */}
                         <div className="lg:col-span-2">

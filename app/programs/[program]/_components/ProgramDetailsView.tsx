@@ -63,7 +63,7 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
 
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-blue-50 to-orange-50">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <Link href="/programs" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-4">
@@ -103,7 +103,7 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
 
       {/* Program Details */}
       <section className="py-16">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">

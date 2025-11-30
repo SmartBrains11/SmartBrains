@@ -160,7 +160,7 @@ export default function ProgramsPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
               Our Brain Training Programs
@@ -181,7 +181,7 @@ export default function ProgramsPage() {
 
       {/* Programs Grid */}
       <section className="py-16">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program) => {
               const Icon = program.icon;
@@ -253,7 +253,7 @@ export default function ProgramsPage() {
 
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">
-        <div className="container mx-auto px-4 lg:px-16 text-center">
+        <div className="container mx-auto px-6 lg:px-20 text-center">
           <h2 className="text-3xl font-bold mb-6">
             Not Sure Which Program is Right for Your Child?
           </h2>

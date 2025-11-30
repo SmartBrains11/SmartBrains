@@ -11,3 +11,5 @@ dist/
 build/
 .env
 .next
+out/
+tsconfig.tsbuildinfo

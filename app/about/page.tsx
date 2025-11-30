@@ -114,7 +114,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gray-50">
       {/* 1. Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center max-w-6xl mx-auto">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
               About Smart Brains India – Child Brain Development Institute
@@ -136,7 +136,7 @@ export default function AboutPage() {
 
       {/* 2. Mission & Vision */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Mission & Vision</h2>
@@ -162,7 +162,7 @@ export default function AboutPage() {
 
       {/* 3. Who We Are - Everything in Card */}
       <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Who We Are</h2>
           <Card className="max-w-5xl mx-auto shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardContent className="p-8 md:p-12">
@@ -194,7 +194,7 @@ export default function AboutPage() {
 
       {/* 4. Meet Our Expert Trainers */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Expert Trainers</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
@@ -249,7 +249,7 @@ export default function AboutPage() {
 
       {/* 5. Our Teaching Philosophy */}
       <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Teaching Philosophy</h2>
           <div className="max-w-4xl mx-auto text-lg text-gray-600 leading-relaxed space-y-6 bg-white p-8 rounded-2xl shadow-sm">
             <p>
@@ -264,7 +264,7 @@ export default function AboutPage() {
 
       {/* 6. Gallery / Pictures Section */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Learning Environment</h2>
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
@@ -298,7 +298,7 @@ export default function AboutPage() {
 
       {/* 7. What Makes Us Different */}
       <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">What Makes Us Different</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
