@@ -160,14 +160,14 @@ export default function ProgramsPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
               Our Brain Training Programs
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay">
-              Discover our comprehensive range of scientifically designed programs 
-              that cater to different age groups and learning objectives. Each program 
+              Discover our comprehensive range of scientifically designed programs
+              that cater to different age groups and learning objectives. Each program
               is crafted to unlock specific cognitive abilities and enhance overall brain function.
             </p>
             <div className="flex justify-center">
@@ -181,15 +181,15 @@ export default function ProgramsPage() {
 
       {/* Programs Grid */}
       <section className="py-16">
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program) => {
               const Icon = program.icon;
               const colorClass = colorClasses[program.color as keyof typeof colorClasses];
 
               return (
-                <Card 
-                  key={program.id} 
+                <Card
+                  key={program.id}
                   className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-blue-200 transform hover:-translate-y-3 animate-slide-in-up"
                   style={{ animationDelay: `${programs.indexOf(program) * 100}ms` }}
                 >
@@ -204,12 +204,12 @@ export default function ProgramsPage() {
                       {program.subtitle}
                     </CardDescription>
                   </CardHeader>
-                  
+
                   <CardContent className="pt-0 flex flex-col h-[calc(100%-150px)]">
                     <p className="text-gray-600 mb-4 text-center leading-relaxed">
                       {program.description}
                     </p>
-                    
+
                     <div className="space-y-3 mb-6">
                       <div className="flex justify-between text-sm">
                         <span className="font-medium">Age Group:</span>
@@ -238,10 +238,10 @@ export default function ProgramsPage() {
                     </div>
 
                     <div className="mt-auto">
-                        <Button asChild className="w-full group-hover:bg-blue-700 transition-all duration-300 transform group-hover:scale-105">
-                           {/* FIX: Uncommented the Link and added text */}
-                           <Link href={program.href}>Learn More</Link>
-                        </Button>
+                      <Button asChild className="w-full group-hover:bg-blue-700 transition-all duration-300 transform group-hover:scale-105">
+                        {/* FIX: Uncommented the Link and added text */}
+                        <Link href={program.href}>Learn More</Link>
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -253,12 +253,12 @@ export default function ProgramsPage() {
 
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">
-        <div className="container mx-auto px-4 lg:px-16 text-center">
+        <div className="container mx-auto px-6 lg:px-20 text-center">
           <h2 className="text-3xl font-bold mb-6">
             Not Sure Which Program is Right for Your Child?
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Our experts can help you choose the perfect program based on your child's 
+            Our experts can help you choose the perfect program based on your child's
             age, interests, and learning goals. Book a free consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

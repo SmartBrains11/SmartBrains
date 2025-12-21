@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+import Image from 'next/image';
+
 const testimonials = [
   {
     id: 1,
@@ -39,12 +41,14 @@ const testimonials = [
   }
 ];
 
+
+
 export function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
@@ -61,13 +65,25 @@ export function TestimonialSlider() {
   };
 
   return (
-    <section className="py-20 bg-blue-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section className="py-16 relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Happy student learning"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-blue-900/60" />
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-20 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             What Parents Say About Us
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-blue-100">
             Real experiences from parents who have seen the transformation in their children.
           </p>
         </div>
@@ -75,7 +91,7 @@ export function TestimonialSlider() {
         <div className="relative max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <Quote className="h-12 w-12 text-blue-600 mb-6" />
-            
+
             <div className="mb-6">
               <div className="flex mb-4">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
@@ -97,13 +113,13 @@ export function TestimonialSlider() {
                   Program: {testimonials[currentIndex].program}
                 </div>
               </div>
-              
+
               <div className="flex space-x-2">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={goToPrevious}
-                  className="rounded-full"
+                  className="rounded-full hover:bg-gray-100"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </Button>
@@ -111,7 +127,7 @@ export function TestimonialSlider() {
                   variant="outline"
                   size="sm"
                   onClick={goToNext}
-                  className="rounded-full"
+                  className="rounded-full hover:bg-gray-100"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </Button>
@@ -119,14 +135,13 @@ export function TestimonialSlider() {
             </div>
           </div>
 
-          {/* Dots indicator */}
-          <div className="flex justify-center space-x-2 mt-6">
+          {/* Dots indicator - Updated for dark background */}
+          <div className="flex justify-center space-x-2 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  currentIndex === index ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
+                className={`w-3 h-3 rounded-full transition-colors ${currentIndex === index ? 'bg-white' : 'bg-white/40'
+                  }`}
                 onClick={() => setCurrentIndex(index)}
               />
             ))}

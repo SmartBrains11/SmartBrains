@@ -6,8 +6,8 @@ import { Brain, Eye, Calculator, BookOpen } from 'lucide-react';
 const featuredPrograms = [
   {
     id: 'dmit',
-    title: 'DMIT',
-    description: 'Dermatoglyphics Multiple Intelligence Test to understand your child\'s innate potential',
+    title: 'DMIT Test',
+    description: 'DMIT (Dermatoglyphics Multiple Intelligence Test) is a scientific fingerprint analysis that reveals a child\'s inborn potential, personality, and learning style. Suitable for all ages, it helps parents understand their child\'s strengths and weaknesses. Benefits include personalized learning strategies and career guidance.',
     icon: Brain,
     color: 'blue',
     ages: 'All ages',
@@ -16,7 +16,7 @@ const featuredPrograms = [
   {
     id: 'midbrain-activation',
     title: 'Midbrain Activation',
-    description: 'Enhance intuition, creativity, and mental abilities through midbrain stimulation',
+    description: 'Midbrain Activation is a specialized training program for children aged 5-15 years designed to stimulate the middle brain. This course enhances intuitive abilities, improves focus, and balances the left and right brain. Key benefits include better concentration, increased creativity, and emotional stability.',
     icon: Eye,
     color: 'purple',
     ages: '5-15 years',
@@ -25,7 +25,7 @@ const featuredPrograms = [
   {
     id: 'photographic-memory',
     title: 'Photographic Memory',
-    description: 'Help your child remember and recall information instantly and boosts exam performance.',
+    description: 'Our Photographic Memory training helps children aged 6+ years develop the ability to recall information instantly and accurately. By mastering visualization techniques, students can remember lessons faster and retain them longer. This program significantly boosts exam performance and academic confidence.',
     icon: BookOpen,
     color: 'green',
     ages: '6+ years',
@@ -34,7 +34,7 @@ const featuredPrograms = [
   {
     id: 'abacus-math',
     title: 'Abacus Math',
-    description: 'Master mental mathematics and improve calculation speed with abacus training',
+    description: 'Abacus Math is a brain development program for children aged 4-14 years that uses the ancient abacus tool to teach mental calculations. It improves speed, accuracy, and concentration. Students gain a strong foundation in mathematics, enhanced memory, and superior logical thinking skills.',
     icon: Calculator,
     color: 'orange',
     ages: '4-14 years',
@@ -44,14 +44,14 @@ const featuredPrograms = [
 
 export function ProgramsShowcase() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-6 lg:px-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our Featured Programs
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Discover Smart Brains India’s scientifically proven brain training courses, designed to unlock potential and boost memory, focus, math skills, and creativity for all ages.
+            Discover Smart Brains India's scientifically proven brain training courses, designed to unlock potential and boost memory, focus, math skills, and creativity for all ages.
           </p>
         </div>
 
@@ -84,25 +84,25 @@ export function ProgramsShowcase() {
                 key={program.id}
                 className={`bg-gradient-to-br ${gradientBg[program.color as keyof typeof gradientBg]} 
                   rounded-xl shadow-sm ring-1 ring-transparent ${ringColor[program.color as keyof typeof ringColor]} 
-                  transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 group`}
+                  transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 group h-full flex flex-col`}
               >
                 <CardHeader className="text-center">
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full ${colorClasses[program.color as keyof typeof colorClasses]} mb-4`}>
-                    <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-105" />
+                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-full ${colorClasses[program.color as keyof typeof colorClasses]} mb-4`}>
+                    <Icon className="h-7 w-7 transition-transform duration-300 group-hover:scale-105" />
                   </div>
-                  <CardTitle className="text-xl">{program.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold">{program.title}</CardTitle>
                   <CardDescription className="text-sm text-gray-500">
                     Age: {program.ages}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4 text-center">
+                <CardContent className="flex-1 flex flex-col">
+                  <p className="text-gray-600 mb-4 text-center text-base line-clamp-4 flex-1">
                     {program.description}
                   </p>
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full hover:bg-gray-50"
+                    className="w-full hover:bg-gray-50 mt-auto"
                   >
                     <Link href={program.href}>Learn More</Link>
                   </Button>

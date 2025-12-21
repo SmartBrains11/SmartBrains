@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Users, MapPin, TrendingUp, Award, CheckCircle, Star, 
+import {
+  Users, MapPin, TrendingUp, Award, CheckCircle, Star,
   Phone, Mail, Calendar, Building, Target, Heart,
   BookOpen, Handshake, DollarSign, BarChart3
 } from 'lucide-react';
@@ -62,43 +62,43 @@ const franchisePackages = [
 const benefits = [
   {
     icon: TrendingUp,
-    title: 'Growing Market',
-    description: 'Brain training industry growing at 25% annually with increasing awareness among parents.'
+    title: 'High Demand Sector',
+    description: 'Join the rapidly growing child development market tailored for modern parents.'
   },
   {
     icon: Award,
-    title: 'Proven Programs',
-    description: 'Scientifically backed programs with 95% success rate and thousands of satisfied students.'
+    title: 'Proven Curriculum',
+    description: 'Access our scientifically designed, time-tested syllabus that delivers real results.'
   },
   {
     icon: Users,
-    title: 'Complete Support',
-    description: 'Comprehensive training, marketing support, and ongoing guidance for franchise success.'
+    title: '360° Business Support',
+    description: 'From setup to marketing, we hold your hand at every step of your journey.'
   },
   {
     icon: Building,
-    title: 'Low Investment',
-    description: 'Start your own brain training center with minimal investment and maximum returns.'
+    title: 'Smart Investment',
+    description: 'A scalable business model designed for high ROI and steady long-term growth.'
   },
   {
     icon: Target,
-    title: 'Exclusive Territory',
-    description: 'Protected territory rights ensuring no competition from other Smart Brains centers.'
+    title: 'Authority in Your Area',
+    description: 'Be the exclusive Smart Brains partner in your designated location.'
   },
   {
     icon: Heart,
     title: 'Social Impact',
-    description: 'Make a meaningful difference in children\'s lives while building a profitable business.'
+    description: 'Empower the next generation while building your own lasting legacy.'
   }
 ];
 
 const requirements = [
-  'Minimum 1000 sq ft space in commercial area',
-  'Educational background preferred',
-  'Passion for child development and education',
-  'Basic computer and communication skills',
-  'Commitment to maintain quality standards',
-  'Local market knowledge and connections'
+  'Have a commercially viable space (or ability to lease one)',
+  'Passionate about education and child growth',
+  'Eager to build a business with purpose',
+  'Willing to follow a proven system',
+  'Committed to quality and student success',
+  'Well-connected in your local community'
 ];
 
 const support = [
@@ -148,22 +148,22 @@ export default function FranchisePage() {
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
-              Join India’s No.1 Brain Training Franchise Network
+              Start Your Profitable Brain Development Center with India’s Most Trusted Brand
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay leading-relaxed ">
-              Partner with Smart Brains, India’s leading brain development institute with 12+ years of expertise, a 95% student success rate, and 1000+ lives transformed. Build a profitable business while making a lasting impact on children’s futures.
+              Build a rewarding business in the booming education sector. With Smart Brains, you get a proven curriculum, comprehensive training, and step-by-step guidance to ensure your success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
                 <Link href="#franchise-inquiry" className="flex items-center space-x-2">
                   <Handshake className="h-5 w-5" />
-                  <span>Become a Partner</span>
+                  <span>Apply for Franchise</span>
                 </Link>
               </Button>
               <Button variant="outline" size="lg">
                 <Link href="tel:+917396447470" className="flex items-center space-x-2">
                   <Phone className="h-5 w-5" />
-                  <span>Call for Details</span>
+                  <span>Talk to Franchise Advisor</span>
                 </Link>
               </Button>
             </div>
@@ -176,18 +176,19 @@ export default function FranchisePage() {
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
-              Why Choose Smart Brains Franchise?
+              Why Partner with Smart Brains?
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-delay max-w-4xl mx-auto">
-              Join a proven business model backed by neuroscience, cognitive psychology, and education research. Get complete training, marketing support, and protected territory rights.            </p>
+              We don't just sell you a franchise; we partner in your success. Enjoy a proven model backed by research and a dedicated support team.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <Card 
-                  key={index} 
+                <Card
+                  key={index}
                   className="hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
@@ -221,8 +222,8 @@ export default function FranchisePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {franchisePackages.map((pkg, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className={`hover:shadow-xl transition-all duration-500 transform hover:-translate-y-3 animate-fade-in-up ${index === 1 ? 'border-2 border-blue-500 relative' : ''}`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
@@ -247,7 +248,7 @@ export default function FranchisePage() {
                       <span className="text-gray-600">{pkg.support}</span>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2 mb-6">
                     <h4 className="font-semibold">Included Features:</h4>
                     {pkg.features.map((feature, featureIndex) => (
@@ -259,8 +260,9 @@ export default function FranchisePage() {
                   </div>
 
                   <Button className="w-full hover:scale-105 transition-transform duration-300" variant={index === 1 ? "default" : "outline"}>
-                    Get Details
+                    Request Detailed Plan
                   </Button>
+                  <p className="text-xs text-center text-gray-400 mt-2">Clear roadmap provided for growth</p>
                 </CardContent>
               </Card>
             ))}
@@ -274,13 +276,12 @@ export default function FranchisePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Franchise Requirements
+                Who This Franchise Is Ideal For
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                We're looking for passionate partners who share our vision of transforming 
-                children's lives through quality brain training programs.
+                You don't need to be an expert. We are looking for partners who are:
               </p>
-              
+
               <div className="space-y-4">
                 {requirements.map((requirement, index) => (
                   <div key={index} className="flex items-start space-x-3 hover:text-gray-900 transition-colors duration-300">
@@ -307,17 +308,17 @@ export default function FranchisePage() {
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
-              Comprehensive Franchise Support
+              We Support You Every Step of the Way
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-delay">
-              We provide end-to-end support to ensure your franchise success from day one.
+              You are never alone. Our centralized team acts as your extended workforce.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {support.map((category, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
@@ -345,10 +346,10 @@ export default function FranchisePage() {
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
-              Franchise Success Stories
+              Real Partners. Real Growth.
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-delay">
-              Hear from our successful franchise partners across India.
+              Hear from our successful franchise partners across India who made the right choice.
             </p>
           </div>
 
@@ -374,8 +375,8 @@ export default function FranchisePage() {
                   ))}
                 </div>
                 <p className="text-gray-700 italic leading-relaxed">
-                  "Starting Smart Brains franchise was the best decision I made. In just 18 months, 
-                  we've trained over 200 students and achieved break-even. The support from headquarters 
+                  "Starting Smart Brains franchise was the best decision I made. In just 18 months,
+                  we've trained over 200 students and achieved break-even. The support from headquarters
                   has been exceptional."
                 </p>
               </CardContent>
@@ -402,8 +403,8 @@ export default function FranchisePage() {
                   ))}
                 </div>
                 <p className="text-gray-700 italic leading-relaxed">
-                  "The comprehensive training and ongoing support made it easy to establish our center. 
-                  Parents trust the Smart Brains brand, and we're seeing amazing results in children's 
+                  "The comprehensive training and ongoing support made it easy to establish our center.
+                  Parents trust the Smart Brains brand, and we're seeing amazing results in children's
                   cognitive development."
                 </p>
               </CardContent>
@@ -416,18 +417,17 @@ export default function FranchisePage() {
       <section id="franchise-inquiry" className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4 lg:px-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your Smart Brains Franchise?
+            Not Sure Which Model Fits You?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90 leading-relaxed">
-            Take the first step towards building a rewarding business that makes a real 
-            difference in children's lives. Contact us today for detailed information.
+            Every successful center started with a simple conversation. Let’s discuss your goals and find the perfect match.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
               <Link href="/contact" className="flex items-center space-x-2">
                 <Calendar className="h-5 w-5" />
-                <span>Schedule Meeting</span>
+                <span>Schedule Free Consultation</span>
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="bg-white text-blue-600 hover:bg-gray-100">
@@ -441,7 +441,7 @@ export default function FranchisePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
               <Phone className="h-8 w-8 mx-auto mb-2 opacity-80" />
-              <div className="text-sm opacity-80">Call for Franchise Details</div>
+              <div className="text-sm opacity-80">Direct Helpline</div>
               <div className="font-semibold">+91 7396447470</div>
             </div>
             <div className="text-center">
@@ -499,6 +499,6 @@ export default function FranchisePage() {
           animation: slide-in-right 0.8s ease-out;
         }
       `}</style>
-    </div>
+    </div >
   );
 }

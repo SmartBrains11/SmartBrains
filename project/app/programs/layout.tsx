@@ -17,7 +17,22 @@ export const metadata: Metadata = {
     'Hyderabad brain training',
     'Vizianagaram brain training',
     'kids brain development',
-    'adult brain training'
+    'adult brain training',
+    'brain training programs Vizianagaram',
+    'brain development courses Hyderabad',
+    'DMIT test center near me',
+    'complete brain training package',
+    'child learning programs Andhra Pradesh',
+    'professional brain trainers',
+    'certified cognitive development programs',
+    'brain gym exercises for kids',
+    'whole brain development Vizianagaram',
+    'IQ improvement programs',
+    'EQ development for children',
+    'talent identification through fingerprint',
+    'scientific brain training methods',
+    '11 brain development programs',
+    'comprehensive cognitive training',
   ],
   openGraph: {
     title: 'Brain Training Programs | Smart Brains India',
@@ -77,67 +92,43 @@ export default function ProgramsLayout({
                 '@type': 'ListItem',
                 position: 1,
                 name: 'DMIT - Dermatoglyphics Multiple Intelligence Test',
-                url: 'https://www.smartbrainsindia.com/programs/dmit'
+                url: 'https://www.smartbrainsindia.com/programs/dmit-test-kids'
               },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Midbrain Activation',
-                url: 'https://www.smartbrainsindia.com/programs/midbrain-activation'
+                url: 'https://www.smartbrainsindia.com/programs/midbrain-activation-kids'
               },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: 'Photographic Memory',
-                url: 'https://www.smartbrainsindia.com/programs/photographic-memory'
+                url: 'https://www.smartbrainsindia.com/programs/photographic-memory-training'
               },
               {
                 '@type': 'ListItem',
                 position: 4,
-                name: 'Enhancement Program',
-                url: 'https://www.smartbrainsindia.com/programs/enhancement'
+                name: 'Abacus & Vedic Math',
+                url: 'https://www.smartbrainsindia.com/programs/abacus-vedic-math-classes'
               },
               {
                 '@type': 'ListItem',
                 position: 5,
-                name: 'Quantum Speed Reading',
-                url: 'https://www.smartbrainsindia.com/programs/quantum-speed-reading'
+                name: 'Speed Reading',
+                url: 'https://www.smartbrainsindia.com/programs/speed-reading-course'
               },
               {
                 '@type': 'ListItem',
                 position: 6,
-                name: 'Abacus Math',
-                url: 'https://www.smartbrainsindia.com/programs/abacus-math'
+                name: 'Handwriting Improvement',
+                url: 'https://www.smartbrainsindia.com/programs/handwriting-improvement'
               },
               {
                 '@type': 'ListItem',
                 position: 7,
-                name: 'Vedic Math',
-                url: 'https://www.smartbrainsindia.com/programs/vedic-math'
-              },
-              {
-                '@type': 'ListItem',
-                position: 8,
-                name: 'Speed Reading',
-                url: 'https://www.smartbrainsindia.com/programs/speed-reading'
-              },
-              {
-                '@type': 'ListItem',
-                position: 9,
-                name: 'Handwriting',
-                url: 'https://www.smartbrainsindia.com/programs/handwriting'
-              },
-              {
-                '@type': 'ListItem',
-                position: 10,
-                name: 'Midbrain for Adults',
-                url: 'https://www.smartbrainsindia.com/programs/midbrain-adults'
-              },
-              {
-                '@type': 'ListItem',
-                position: 11,
                 name: 'Drawing & Skill Development',
-                url: 'https://www.smartbrainsindia.com/programs/drawing-skills'
+                url: 'https://www.smartbrainsindia.com/programs/drawing-skill-development'
               }
             ]
           })
@@ -147,4 +138,3 @@ export default function ProgramsLayout({
     </>
   );
 }
-

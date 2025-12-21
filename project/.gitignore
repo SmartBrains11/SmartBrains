@@ -10,3 +10,6 @@ yarn-error.log*
 dist/
 build/
 .env
+.next
+out/
+tsconfig.tsbuildinfo

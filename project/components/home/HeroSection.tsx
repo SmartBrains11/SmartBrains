@@ -19,7 +19,7 @@ type Slide = {
 const slides: Slide[] = [
   {
     id: 1,
-    title: 'Play · Learn · Grow',
+    title: 'Brain Training & Memory Development Classes for Kids in Hyderabad & Vizianagaram',
     subtitle: 'Interactive programs to boost memory, focus, creativity and confidence.',
     img: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=1600',
     cta: { text: 'Book Free Demo', href: '/contact' },
@@ -203,13 +203,13 @@ export default function HeroSection() {
                 animate="show"
                 exit="hidden"
                 variants={contentVariants}
-                className="max-w-3xl text-white pl-2 sm:pl-4 pr-6 sm:pr-12 lg:pr-20"
+                className="max-w-4xl text-white pl-2 sm:pl-4 pr-6 sm:pr-12 lg:pr-20"
               >
                 <p className="inline-block bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium mb-4">
                   SmartBrains India — Hyderabad & Vizianagaram
                 </p>
 
-                <h1 className="mt-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                <h1 className="mt-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
                   <motion.span
                     key={slides[index].title}
                     initial={{ opacity: 0, y: 8 }}

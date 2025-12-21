@@ -1,28 +1,35 @@
+# Smart Brains India - Robots.txt
+# Updated for optimal SEO
+
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
-
-# Allow important pages
-Allow: /
-Allow: /programs
-Allow: /contact
-Allow: /programs/*
-
-# Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Sitemap location
+# Sitemap
 Sitemap: https://www.smartbrainsindia.com/sitemap.xml
 
-# Google-specific
+# Google Bot
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
+Disallow: /api/
+Disallow: /_next/
+Crawl-delay: 0.5
 
-# Bing-specific
+# Bing Bot
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
 Crawl-delay: 1
 
+# Block AI Scrapers (Optional - Protect Content)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /

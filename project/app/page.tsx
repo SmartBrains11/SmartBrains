@@ -5,36 +5,27 @@ import { WhySmartBrains } from '../components/home/WhySmartBrains';
 import { TestimonialSlider } from '../components/home/TestimonialSlider';
 import { CTASection } from '../components/home/CTASection';
 import { MediaGallery } from '../components/home/MediaGallery';
+import { MapPin, Phone } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Smart Brains India | Brain Training & Cognitive Development in Hyderabad & Vizianagaram',
-  description: 'Leading brain training institute in Hyderabad & Vizianagaram. Expert-led programs: DMIT test, Midbrain Activation, Photographic Memory, Speed Reading, Abacus Math, Vedic Math for kids, teens & adults. Book free demo: +91 7396447470',
+  title: 'Brain Training & Memory Classes for Kids in Hyderabad & Vizianagaram | Smart Brains India',
+  description: 'Smart Brains India - #1 Brain Training Institute in Vizianagaram & Hyderabad | DMIT, Midbrain Activation, Speed Reading, Abacus & Vedic Math | ✓1000+ Students ✓Certified Trainers ✓Proven Results | FREE Demo: +91 7396447470',
   keywords: [
-    'Smart Brains India',
-    'brain training institute',
-    'brain training center Hyderabad',
-    'brain training center Vizianagaram',
-    'DMIT test',
-    'DMIT assessment',
-    'Midbrain Activation',
-    'Photographic Memory',
-    'Speed Reading',
-    'Abacus Math',
-    'Vedic Math',
-    'brain development programs',
-    'cognitive development',
+    'brain training for kids',
+    'brain development classes',
     'memory improvement',
-    'kids brain training',
-    'adult brain training',
+    'abacus classes',
     'Hyderabad',
     'Vizianagaram',
-    'Kondapur',
-    'brain training near me',
-    'best brain training institute',
+    'Smart Brains India',
+    'midbrain activation',
+    'photographic memory',
+    'child development'
   ],
   openGraph: {
-    title: 'Smart Brains India | Brain Training & Cognitive Development',
-    description: 'DMIT, Midbrain Activation, Photographic Memory, Speed Reading, Abacus & Vedic Math. Centers in Hyderabad & Vizianagaram.',
+    title: 'Brain Training & Memory Classes for Kids in Hyderabad & Vizianagaram | Smart Brains India',
+    description: 'Smart Brains India offers brain development, memory, abacus, midbrain activation and photographic memory classes for kids in Hyderabad and Vizianagaram.',
     url: 'https://www.smartbrainsindia.com',
     siteName: 'Smart Brains India',
     images: [
@@ -54,10 +45,11 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@smartbrainsindia',
-    title: 'Smart Brains India | Brain Training & Cognitive Development',
-    description: 'DMIT, Midbrain Activation, Photographic Memory, Speed Reading, Abacus & Vedic Math. Centers in Hyderabad & Vizianagaram.',
+    title: 'Brain Training & Memory Classes for Kids in Hyderabad & Vizianagaram',
+    description: 'Boost focus, confidence and exam performance with scientific brain training programs.',
     images: ['https://www.smartbrainsindia.com/og-default.jpg']
   },
+  robots: { index: true, follow: true }
 };
 
 export default function Home() {
@@ -103,11 +95,110 @@ export default function Home() {
           })
         }}
       />
+
       <HeroSection />
+
+      {/* Hidden SEO Content for Search Engines */}
+      <section className="sr-only" aria-label="SEO Rich Content">
+        <h2>Brain Training Institute in Vizianagaram and Hyderabad</h2>
+        <p>
+          Smart Brains India is the premier brain development and skill training institute
+          serving Vizianagaram, Hyderabad, and all of Andhra Pradesh. Founded in 2019 by
+          certified brain training expert Lakkoju Jayalakshmi, we have successfully trained
+          over 1000 students in cognitive development programs.
+        </p>
+        <p>
+          Our Vizianagaram center is located at Dakkini Street, Backside of Ramamandir,
+          3-1/4-12/2, Vizianagaram-535002, Andhra Pradesh. Contact us at +91 7396447470 for
+          DMIT test, Midbrain Activation, Photographic Memory training, Quantum Speed Reading,
+          Abacus Math classes, Vedic Math, Handwriting Improvement, and Drawing Skill Development.
+        </p>
+        <p>
+          Our Hyderabad branch is at Prasanth Nagar Colony, Kondapur, Hyderabad-500084, Telangana.
+          Phone: +91 7386209090. We serve students from Vizianagaram, Srikakulam, Visakhapatnam,
+          Vijayawada, Guntur, Rajahmundry, Hyderabad, Kondapur, and surrounding areas.
+        </p>
+        <p>
+          Specializing in Dermatoglyphics Multiple Intelligence Test (DMIT) for identifying inborn
+          talents, Midbrain Activation for enhancing intuitive abilities in children aged 5-15 years,
+          Advanced Midbrain programs for adults, Photographic Memory techniques for perfect recall,
+          and comprehensive brain development programs backed by scientific research.
+        </p>
+      </section>
       <ProgramsShowcase />
       <MediaGallery />
       <WhySmartBrains />
       <TestimonialSlider />
+
+      {/* Centres in Hyderabad & Vizianagaram Block */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6 lg:px-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Centres in Hyderabad & Vizianagaram
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Visit our centres to experience our world-class brain training facilities.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Hyderabad Centre */}
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                <MapPin className="w-6 h-6 text-blue-600 mr-2" />
+                Hyderabad Centre
+              </h3>
+              <div className="space-y-4 text-gray-600">
+                <p className="font-medium">Smart Brains India</p>
+                <p>Prasanth Nagar Colony, Kondapur</p>
+                <p>Hyderabad, Telangana - 500084</p>
+                <div className="flex items-center pt-2">
+                  <Phone className="w-5 h-5 text-blue-600 mr-2" />
+                  <a href="tel:+917386209090" className="hover:text-blue-600 font-medium">+91 7386209090</a>
+                </div>
+                <div className="pt-4">
+                  <Link
+                    href="https://maps.google.com/?q=Smart+Brains+India+Hyderabad"
+                    target="_blank"
+                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 hover:underline"
+                  >
+                    View location on map &rarr;
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Vizianagaram Centre */}
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                <MapPin className="w-6 h-6 text-orange-600 mr-2" />
+                Vizianagaram Centre
+              </h3>
+              <div className="space-y-4 text-gray-600">
+                <p className="font-medium">Smart Brains India</p>
+                <p>Dakkini Street, Backside of Ramamandir</p>
+                <p>3-1/4-12/2, Vizianagaram - 535002</p>
+                <p>Andhra Pradesh</p>
+                <div className="flex items-center pt-2">
+                  <Phone className="w-5 h-5 text-orange-600 mr-2" />
+                  <a href="tel:+917396447470" className="hover:text-orange-600 font-medium">+91 7396447470</a>
+                </div>
+                <div className="pt-4">
+                  <Link
+                    href="https://maps.google.com/?q=Smart+Brains+India+Vizianagaram"
+                    target="_blank"
+                    className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 hover:underline"
+                  >
+                    View location on map &rarr;
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <CTASection />
 
       {/* JSON-LD: FAQPage */}
