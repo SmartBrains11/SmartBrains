@@ -44,11 +44,11 @@ const featuredPrograms = [
 
 export function ProgramsShowcase() {
   return (
-    <section className="py-28 bg-white">
-      <div className="container mx-auto px-6 lg:px-20">
+    <section className="py-8 sm:py-12 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Featured Programs
+           Programs to Boost Brain Power
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
             Discover Smart Brains India's scientifically proven brain training courses, designed to unlock potential and boost memory, focus, math skills, and creativity for all ages.
@@ -84,7 +84,7 @@ export function ProgramsShowcase() {
                 key={program.id}
                 className={`bg-gradient-to-br ${gradientBg[program.color as keyof typeof gradientBg]} 
                   rounded-xl shadow-sm ring-1 ring-transparent ${ringColor[program.color as keyof typeof ringColor]} 
-                  transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 group`}
+                  transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 group h-full flex flex-col`}
               >
                 <CardHeader className="text-center">
                   <div className={`inline-flex items-center justify-center w-14 h-14 rounded-full ${colorClasses[program.color as keyof typeof colorClasses]} mb-4`}>
@@ -95,14 +95,14 @@ export function ProgramsShowcase() {
                     Age: {program.ages}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4 text-center text-base">
+                <CardContent className="flex-1 flex flex-col">
+                  <p className="text-gray-600 mb-4 text-center text-base line-clamp-4 flex-1">
                     {program.description}
                   </p>
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full hover:bg-gray-50"
+                    className="w-full hover:bg-gray-50 mt-auto"
                   >
                     <Link href={program.href}>Learn More</Link>
                   </Button>

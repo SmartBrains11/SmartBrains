@@ -110,31 +110,30 @@ export default function ContactClient() {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
-                <div className="container mx-auto px-6 lg:px-20">
+            <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-24">
+                <div className="container mx-auto px-6 lg:px-24">
                     <div className="text-center max-w-4xl mx-auto">
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
-                            Contact Smart Brains India – Brain Training Centres in Hyderabad & Vizianagaram
+                            Let’s Talk About Your Child’s Learning Journey
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay leading-relaxed">
-                            Ready to unlock your child's potential? Get in touch with us for a free consultation
-                            and discover the perfect program for your child's cognitive development.
+                            We’re here to listen, guide, and help you find the right path for your child’s growth.
+                            Book a free consultation or simply drop us a message.
                         </p>
                     </div>
                 </div>
             </section>
 
-            <section className="py-16">
-                <div className="container mx-auto px-6 lg:px-20">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <section className="py-24">
+                <div className="container mx-auto px-6 lg:px-24">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
                         {/* Contact Form */}
                         <div className="lg:col-span-2">
                             <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
                                 <CardHeader>
-                                    <CardTitle>Book a Free Demo Session</CardTitle>
+                                    <CardTitle>Book a Free Consultation Session</CardTitle>
                                     <CardDescription>
-                                        Fill out the form below and we'll get back to you within 24 hours to schedule
-                                        your free demo session.
+                                        Share a few details below and our team will reach out to guide you personally.
                                     </CardDescription>
                                 </CardHeader>
                                 <CardContent>
@@ -183,7 +182,7 @@ export default function ContactClient() {
                                                     value={formData.city}
                                                     onChange={(e) => handleChange('city', e.target.value)}
                                                     required
-                                                    placeholder="Your city"
+                                                    placeholder="Your current city"
                                                 />
                                             </div>
                                         </div>
@@ -196,7 +195,7 @@ export default function ContactClient() {
                                                     onValueChange={(value) => handleChange('program', value)}
                                                 >
                                                     <SelectTrigger>
-                                                        <SelectValue placeholder="Select a program" />
+                                                        <SelectValue placeholder="Which program are you exploring?" />
                                                     </SelectTrigger>
                                                     <SelectContent>
                                                         <SelectItem value="dmit">DMIT</SelectItem>
@@ -241,37 +240,105 @@ export default function ContactClient() {
                                                 id="query"
                                                 value={formData.query}
                                                 onChange={(e) => handleChange('query', e.target.value)}
-                                                placeholder="Tell us about your child's learning goals or any specific questions you have..."
+                                                placeholder="Tell us a little about your child’s needs (e.g., focus, memory, confidence)..."
                                                 rows={4}
                                             />
                                         </div>
 
                                         <Button type="submit" size="lg" className="w-full" disabled={submitting}>
-                                            {submitting ? 'Sending…' : 'Book Free Demo Session'}
+                                            {submitting ? 'Sending…' : 'Book Free Consultation Session'}
                                         </Button>
+                                        <p className="text-sm text-center text-gray-500 mt-4">No pressure. Just honest guidance for your child.</p>
                                     </form>
+                                </CardContent>
+                            </Card>
+
+                            {/* Section 1: What Happens After You Contact Us? */}
+                            <Card className="mt-8 hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                                <CardHeader>
+                                    <CardTitle>What Happens After You Contact Us?</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="space-y-6">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div className="flex items-start space-x-3">
+                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">1</div>
+                                                <div>
+                                                    <h4 className="font-medium text-gray-900">We Reach Out Personally</h4>
+                                                    <p className="text-sm text-gray-600 mt-1">Our team contacts you within 24 hours to understand your child’s needs.</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start space-x-3">
+                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">2</div>
+                                                <div>
+                                                    <h4 className="font-medium text-gray-900">We Listen & Guide</h4>
+                                                    <p className="text-sm text-gray-600 mt-1">We listen carefully and suggest the most suitable programs.</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start space-x-3">
+                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">3</div>
+                                                <div>
+                                                    <h4 className="font-medium text-gray-900">Free Demo or Consultation</h4>
+                                                    <p className="text-sm text-gray-600 mt-1">You can attend a free demo or consultation with no obligation.</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start space-x-3">
+                                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">4</div>
+                                                <div>
+                                                    <h4 className="font-medium text-gray-900">Clear Next Steps</h4>
+                                                    <p className="text-sm text-gray-600 mt-1">You decide what’s best for your child — no pressure, just clarity.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p className="text-sm text-gray-500 italic border-t pt-4 mt-4">
+                                            “Your information is safe with us. We respect your privacy and your decision.”
+                                        </p>
+                                    </div>
+                                </CardContent>
+                            </Card>
+
+                            {/* Section 2: Stay Connected with Smart Brains on WhatsApp */}
+                            <Card className="mt-8 hover:shadow-lg transition-shadow duration-300 animate-fade-in-up bg-green-50 border-green-100" style={{ animationDelay: '200ms' }}>
+                                <CardContent className="pt-6">
+                                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                                        <div className="space-y-2">
+                                            <CardTitle className="text-green-800">Stay Connected with Smart Brains on WhatsApp</CardTitle>
+                                            <p className="text-green-700">
+                                                Join our official WhatsApp Channel for brain development tips, parenting guidance, and workshop announcements.
+                                            </p>
+                                            <p className="text-xs text-green-600/80 font-medium">
+                                                “No spam. No calls. You can leave anytime.”
+                                            </p>
+                                        </div>
+                                        <Button asChild className="bg-[#25D366] hover:bg-[#128C7E] text-white shrink-0">
+                                            <a href="https://whatsapp.com/channel/0029VbBdHLHLikgD42Ld4306" target="_blank" rel="noopener noreferrer">
+                                                <MessageCircle className="w-4 h-4 mr-2" />
+                                                Join WhatsApp Channel
+                                            </a>
+                                        </Button>
+                                    </div>
                                 </CardContent>
                             </Card>
                         </div>
 
                         {/* Contact Information */}
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                             <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                                 <CardHeader>
-                                    <CardTitle>Quick Contact</CardTitle>
+                                    <CardTitle>Prefer to talk directly? We’re happy to help.</CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <a href="tel:+917396447470" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                                         <Phone className="h-5 w-5" />
                                         <div>
-                                            <div className="font-medium">Call Us</div>
+                                            <div className="font-medium">Call Us (Vizianagaram)</div>
                                             <div className="text-sm text-gray-600">+91 7396447470</div>
                                         </div>
                                     </a>
                                     <a href="tel:+917386209090" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                                         <Phone className="h-5 w-5" />
                                         <div>
-                                            <div className="font-medium">Call Us</div>
+                                            <div className="font-medium">Call Us (Hyderabad)</div>
                                             <div className="text-sm text-gray-600">+91 7386209090</div>
                                         </div>
                                     </a>
@@ -305,6 +372,7 @@ export default function ContactClient() {
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
+                                    <p className="text-sm text-gray-500 mb-4">Our team responds to all queries as quickly as possible.</p>
                                     <div className="space-y-2 text-sm">
                                         <div className="flex justify-between"><span>Monday - Friday</span><span className="font-medium">9:00 AM - 5:00 PM</span></div>
                                         <div className="flex justify-between"><span>Saturday</span><span className="font-medium">9:00 AM - 7:00 PM</span></div>
@@ -320,8 +388,8 @@ export default function ContactClient() {
                                         Our Locations
                                     </CardTitle>
                                 </CardHeader>
-                                <CardContent className="space-y-4">
-
+                                <CardContent className="space-y-8 pb-8">
+                                    <p className="text-sm text-gray-500 mb-4">Visit us for in-person consultations and demo sessions.</p>
                                     <div>
                                         <h4 className="font-medium text-gray-900 mb-2">Vizianagaram Center</h4>
                                         <p className="text-sm text-gray-600">
@@ -344,11 +412,11 @@ export default function ContactClient() {
                     </div>
 
                     {/* Maps Section */}
-                    <div className="mt-12">
+                    <div className="mt-24">
                         <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
                             <CardHeader>
-                                <CardTitle>Find Us on Map</CardTitle>
-                                <CardDescription>Visit our centers for in-person consultations and demo sessions</CardDescription>
+                                <CardTitle>Visit Our Centers</CardTitle>
+                                <CardDescription>Feel free to drop in or get directions to the nearest center.</CardDescription>
                             </CardHeader>
                             <CardContent>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -415,8 +483,6 @@ export default function ContactClient() {
                     </div>
                 </div>
             </section>
-
-
         </div>
     );
 }

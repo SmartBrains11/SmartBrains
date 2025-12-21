@@ -48,8 +48,8 @@ const galleryItems = [
 
 export function MediaGallery() {
   return (
-    <section className="py-28 bg-slate-50">
-      <div className="container mx-auto px-6">
+    <section className="py-8 sm:py-12 bg-slate-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">Gallery</span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-slate-900">

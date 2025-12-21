@@ -1,8 +1,0 @@
-// Add this function after line 13 (after the validSlugs array closing bracket)
-// and before line 15 (before the interface ProgramSEO line)
-
-export async function generateStaticParams() {
-  return validSlugs.map((slug) => ({
-    program: slug,
-  }));
-}

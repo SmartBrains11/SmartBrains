@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { Brain, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Brain, Phone, Mail, MapPin, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-6 lg:px-24 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
@@ -16,10 +16,18 @@ export function Footer() {
               Empowering minds through structured brain training programs for all ages.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
-              <Twitter className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
-              <Instagram className="h-5 w-5 text-gray-400 hover:text-pink-400 cursor-pointer transition-colors" />
-              <Youtube className="h-5 w-5 text-gray-400 hover:text-red-400 cursor-pointer transition-colors" />
+              <a href="https://www.facebook.com/profile.php?id=61583366865848" target="_blank" rel="noopener noreferrer">
+                <Facebook className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
+              </a>
+              <a href="https://wa.me/917386209090" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5 text-gray-400 hover:text-green-400 cursor-pointer transition-colors" />
+              </a>
+              <a href="https://www.instagram.com/smartbrains_india/?next=%2F&hl=en" target="_blank" rel="noopener noreferrer">
+                <Instagram className="h-5 w-5 text-gray-400 hover:text-pink-400 cursor-pointer transition-colors" />
+              </a>
+              <a href="https://www.youtube.com/@Smartbrainsindia-11" target="_blank" rel="noopener noreferrer">
+                <Youtube className="h-5 w-5 text-gray-400 hover:text-red-400 cursor-pointer transition-colors" />
+              </a>
             </div>
           </div>
 
@@ -79,8 +87,8 @@ export function Footer() {
               © 2024 Smart Brains. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms & Conditions</Link>
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+              <Link href="/terms-and-conditions" className="text-gray-400 hover:text-white text-sm transition-colors">Terms & Conditions</Link>
               <Link href="/data-usage" className="text-gray-400 hover:text-white text-sm transition-colors">Data Usage</Link>
             </div>
           </div>
