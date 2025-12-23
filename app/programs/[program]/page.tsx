@@ -4,62 +4,21 @@ import { ProgramDetailsView, ProgramData } from './_components/ProgramDetailsVie
 
 // Valid program slugs - now 11 programs
 const validSlugs = [
-  'dmit',
   'midbrain-activation',
   'photographic-memory',
   'enhancement',
   'quantum-speed-reading',
+  'dmit',
+  'midbrain-adults',
   'abacus-math',
   'vedic-math',
   'speed-reading',
-  'handwriting',
-  'midbrain-adults',
-  'drawing-skills'
+  'drawing-skills',
+  'handwriting'
 ];
 
-// Program data with new structure
+// Program data with new structure - ordered as requested
 const programsData: Record<string, ProgramData> = {
-  'dmit': {
-    title: 'DMIT',
-    subtitle: 'Dermatoglyphics Multiple Intelligence Test',
-    description: 'A scientific method of understanding human potential through fingerprint analysis',
-    longDescription: 'DMIT (Dermatoglyphics Multiple Intelligence Test) is a scientific study of fingerprint patterns that helps identify an individual\'s potential, personality traits, and learning styles. This assessment provides valuable insights into the best career paths, learning methods, and areas for development.',
-    targetAge: 'All ages (Children, Teens, Adults)',
-    duration: '1 Session + Detailed Consultation',
-    classFormat: 'Individual Assessment',
-    price: 'Contact for pricing',
-    image: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
-    benefits: [
-      'Identify innate talents and potential',
-      'Understand learning styles and preferences',
-      'Get career guidance and suggestions',
-      'Discover personality traits',
-      'Optimize educational approaches',
-      'Improve parent-child relationships'
-    ],
-    structure: [
-      'Fingerprint collection and analysis',
-      'Brain mapping assessment',
-      'Personality profiling',
-      'Learning style identification',
-      'Career guidance consultation',
-      'Detailed report with recommendations'
-    ],
-    results: [
-      '95% accuracy in personality assessment',
-      'Clear career path identification',
-      'Improved academic performance',
-      'Better understanding of child\'s needs'
-    ],
-    testimonials: [
-      {
-        name: 'Dr. Venkat Rao',
-        role: 'Pediatrician & Parent',
-        content: 'DMIT provided incredible insights into my child\'s potential. The career guidance was spot-on and helped us make informed decisions about his education path.',
-        rating: 5
-      }
-    ]
-  },
   'midbrain-activation': {
     title: 'Midbrain Activation',
     subtitle: 'Enhance Intuitive Abilities',
@@ -69,7 +28,8 @@ const programsData: Record<string, ProgramData> = {
     duration: '2 Days Intensive Workshop',
     classFormat: 'Group Workshop (Max 15 students)',
     price: 'Contact for pricing',
-    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/midbrain-activation.jpg',
+    imageAlt: 'Midbrain Activation training session for kids ages 5-15 in Hyderabad and Vizianagaram',
     benefits: [
       'Enhanced intuitive abilities',
       'Improved concentration and focus',
@@ -142,47 +102,6 @@ const programsData: Record<string, ProgramData> = {
       }
     ]
   },
-  'abacus-math': {
-    title: 'Abacus Math',
-    subtitle: 'Mental Mathematics Mastery',
-    description: 'Master mental mathematics and improve calculation speed with abacus training',
-    longDescription: 'The Abacus Math program teaches children to perform complex mathematical calculations mentally using visualization of the abacus. This ancient tool, when properly learned, develops incredible mental math abilities and enhances overall cognitive function.',
-    targetAge: '4-14 years',
-    duration: '8 Levels Program (2 years)',
-    classFormat: 'Small Groups (Max 10 students)',
-    price: 'Contact for pricing',
-    image: 'https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=800',
-    benefits: [
-      'Lightning-fast mental calculations',
-      'Enhanced number sense',
-      'Improved concentration',
-      'Better problem-solving skills',
-      'Increased mathematical confidence',
-      'Enhanced memory and visualization'
-    ],
-    structure: [
-      'Basic abacus introduction',
-      'Fundamental operations',
-      'Mental abacus visualization',
-      'Speed calculation training',
-      'Competition preparation',
-      'Advanced calculation techniques'
-    ],
-    results: [
-      '500% improvement in calculation speed',
-      '92% students excel in math exams',
-      'Enhanced logical thinking',
-      'Improved academic performance overall'
-    ],
-    testimonials: [
-      {
-        name: 'Rajesh Kumar',
-        role: 'Parent of 10-year-old',
-        content: 'The Abacus Math program has transformed my son\'s relationship with mathematics. He now solves complex calculations mentally and actually enjoys math class!',
-        rating: 5
-      }
-    ]
-  },
   'enhancement': {
     title: 'Enhancement',
     subtitle: 'Overall Cognitive Development',
@@ -192,7 +111,8 @@ const programsData: Record<string, ProgramData> = {
     duration: '30 Sessions (3 months)',
     classFormat: 'Small Groups (Max 12 students)',
     price: 'Contact for pricing',
-    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/enhancment.jpeg',
+    imageAlt: 'Enhancement Program for Better Brain Power in children in Hyderabad and Vizianagaram',
     benefits: [
       'Improved focus and concentration',
       'Enhanced problem-solving abilities',
@@ -261,6 +181,129 @@ const programsData: Record<string, ProgramData> = {
         name: 'Arjun Singh',
         role: 'Parent of 14-year-old',
         content: 'My son can now read entire chapters in minutes with perfect understanding. This program has revolutionized his study habits and academic performance.',
+        rating: 5
+      }
+    ]
+  },
+  'dmit': {
+    title: 'DMIT',
+    subtitle: 'Dermatoglyphics Multiple Intelligence Test',
+    description: 'A scientific method of understanding human potential through fingerprint analysis',
+    longDescription: 'DMIT (Dermatoglyphics Multiple Intelligence Test) is a scientific study of fingerprint patterns that helps identify an individual\'s potential, personality traits, and learning styles. This assessment provides valuable insights into the best career paths, learning methods, and areas for development.',
+    targetAge: 'All ages (Children, Teens, Adults)',
+    duration: '1 Session + Detailed Consultation',
+    classFormat: 'Individual Assessment',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Identify innate talents and potential',
+      'Understand learning styles and preferences',
+      'Get career guidance and suggestions',
+      'Discover personality traits',
+      'Optimize educational approaches',
+      'Improve parent-child relationships'
+    ],
+    structure: [
+      'Fingerprint collection and analysis',
+      'Brain mapping assessment',
+      'Personality profiling',
+      'Learning style identification',
+      'Career guidance consultation',
+      'Detailed report with recommendations'
+    ],
+    results: [
+      '95% accuracy in personality assessment',
+      'Clear career path identification',
+      'Improved academic performance',
+      'Better understanding of child\'s needs'
+    ],
+    testimonials: [
+      {
+        name: 'Dr. Venkat Rao',
+        role: 'Pediatrician & Parent',
+        content: 'DMIT provided incredible insights into my child\'s potential. The career guidance was spot-on and helped us make informed decisions about his education path.',
+        rating: 5
+      }
+    ]
+  },
+  'midbrain-adults': {
+    title: 'Midbrain for Adults',
+    subtitle: 'Adult Cognitive Enhancement',
+    description: 'Midbrain activation program specially designed for adults and professionals',
+    longDescription: 'Our Adult Midbrain Activation program is specifically designed for working professionals and adults who want to enhance their cognitive abilities, improve decision-making skills, and reduce stress. This program helps activate dormant brain potential.',
+    targetAge: '18+ years',
+    duration: '3 Days Intensive Workshop',
+    classFormat: 'Small Groups (Max 12 adults)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Enhanced intuitive abilities',
+      'Better decision-making skills',
+      'Improved stress management',
+      'Increased creativity at work',
+      'Better work-life balance',
+      'Enhanced problem-solving abilities'
+    ],
+    structure: [
+      'Adult brain assessment',
+      'Stress reduction techniques',
+      'Intuition development exercises',
+      'Decision-making enhancement',
+      'Creative thinking workshops',
+      'Integration and practice sessions'
+    ],
+    results: [
+      'Improved workplace performance',
+      'Better stress management',
+      'Enhanced creative thinking',
+      'Improved decision-making confidence'
+    ],
+    testimonials: [
+      {
+        name: 'Dr. Ramesh Gupta',
+        role: 'Corporate Executive',
+        content: 'The Adult Midbrain program has significantly improved my decision-making abilities and reduced my work stress. I feel more confident and creative in my professional life.',
+        rating: 5
+      }
+    ]
+  },
+  'abacus-math': {
+    title: 'Abacus Math',
+    subtitle: 'Mental Mathematics Mastery',
+    description: 'Master mental mathematics and improve calculation speed with abacus training',
+    longDescription: 'The Abacus Math program teaches children to perform complex mathematical calculations mentally using visualization of the abacus. This ancient tool, when properly learned, develops incredible mental math abilities and enhances overall cognitive function.',
+    targetAge: '4-14 years',
+    duration: '8 Levels Program (2 years)',
+    classFormat: 'Small Groups (Max 10 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Lightning-fast mental calculations',
+      'Enhanced number sense',
+      'Improved concentration',
+      'Better problem-solving skills',
+      'Increased mathematical confidence',
+      'Enhanced memory and visualization'
+    ],
+    structure: [
+      'Basic abacus introduction',
+      'Fundamental operations',
+      'Mental abacus visualization',
+      'Speed calculation training',
+      'Competition preparation',
+      'Advanced calculation techniques'
+    ],
+    results: [
+      '500% improvement in calculation speed',
+      '92% students excel in math exams',
+      'Enhanced logical thinking',
+      'Improved academic performance overall'
+    ],
+    testimonials: [
+      {
+        name: 'Rajesh Kumar',
+        role: 'Parent of 10-year-old',
+        content: 'The Abacus Math program has transformed my son\'s relationship with mathematics. He now solves complex calculations mentally and actually enjoys math class!',
         rating: 5
       }
     ]
@@ -347,88 +390,6 @@ const programsData: Record<string, ProgramData> = {
       }
     ]
   },
-  'handwriting': {
-    title: 'Handwriting',
-    subtitle: 'Beautiful & Legible Writing',
-    description: 'Improve handwriting skills, speed, and legibility for better academic performance',
-    longDescription: 'Our Handwriting program focuses on developing beautiful, legible handwriting while improving writing speed. Students learn proper posture, grip, letter formation, and develop their own distinctive writing style.',
-    targetAge: '5+ years',
-    duration: '15 Sessions (8 weeks)',
-    classFormat: 'Small Groups (Max 8 students)',
-    price: 'Contact for pricing',
-    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
-    benefits: [
-      'Neat and legible handwriting',
-      'Improved writing speed',
-      'Better academic grades',
-      'Enhanced fine motor skills',
-      'Increased writing confidence',
-      'Proper writing posture'
-    ],
-    structure: [
-      'Handwriting assessment',
-      'Proper grip and posture training',
-      'Letter formation practice',
-      'Word and sentence writing',
-      'Speed building exercises',
-      'Personal style development'
-    ],
-    results: [
-      'Significant improvement in legibility',
-      '50% increase in writing speed',
-      'Better grades in written exams',
-      'Improved confidence in writing'
-    ],
-    testimonials: [
-      {
-        name: 'Sunita Sharma',
-        role: 'Parent of 7-year-old',
-        content: 'My daughter\'s handwriting has improved dramatically. Her teachers now compliment her neat writing, and her confidence has grown tremendously.',
-        rating: 5
-      }
-    ]
-  },
-  'midbrain-adults': {
-    title: 'Midbrain for Adults',
-    subtitle: 'Adult Cognitive Enhancement',
-    description: 'Midbrain activation program specially designed for adults and professionals',
-    longDescription: 'Our Adult Midbrain Activation program is specifically designed for working professionals and adults who want to enhance their cognitive abilities, improve decision-making skills, and reduce stress. This program helps activate dormant brain potential.',
-    targetAge: '18+ years',
-    duration: '3 Days Intensive Workshop',
-    classFormat: 'Small Groups (Max 12 adults)',
-    price: 'Contact for pricing',
-    image: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
-    benefits: [
-      'Enhanced intuitive abilities',
-      'Better decision-making skills',
-      'Improved stress management',
-      'Increased creativity at work',
-      'Better work-life balance',
-      'Enhanced problem-solving abilities'
-    ],
-    structure: [
-      'Adult brain assessment',
-      'Stress reduction techniques',
-      'Intuition development exercises',
-      'Decision-making enhancement',
-      'Creative thinking workshops',
-      'Integration and practice sessions'
-    ],
-    results: [
-      'Improved workplace performance',
-      'Better stress management',
-      'Enhanced creative thinking',
-      'Improved decision-making confidence'
-    ],
-    testimonials: [
-      {
-        name: 'Dr. Ramesh Gupta',
-        role: 'Corporate Executive',
-        content: 'The Adult Midbrain program has significantly improved my decision-making abilities and reduced my work stress. I feel more confident and creative in my professional life.',
-        rating: 5
-      }
-    ]
-  },
   'drawing-skills': {
     title: 'Drawing & Skill Development',
     subtitle: 'Artistic & Motor Skills',
@@ -466,6 +427,47 @@ const programsData: Record<string, ProgramData> = {
         name: 'Kavitha Reddy',
         role: 'Parent of 6-year-old',
         content: 'My son\'s artistic abilities have flourished in this program. His drawings are now detailed and creative, and his fine motor skills have improved significantly.',
+        rating: 5
+      }
+    ]
+  },
+  'handwriting': {
+    title: 'Handwriting',
+    subtitle: 'Beautiful & Legible Writing',
+    description: 'Improve handwriting skills, speed, and legibility for better academic performance',
+    longDescription: 'Our Handwriting program focuses on developing beautiful, legible handwriting while improving writing speed. Students learn proper posture, grip, letter formation, and develop their own distinctive writing style.',
+    targetAge: '5+ years',
+    duration: '15 Sessions (8 weeks)',
+    classFormat: 'Small Groups (Max 8 students)',
+    price: 'Contact for pricing',
+    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+    benefits: [
+      'Neat and legible handwriting',
+      'Improved writing speed',
+      'Better academic grades',
+      'Enhanced fine motor skills',
+      'Increased writing confidence',
+      'Proper writing posture'
+    ],
+    structure: [
+      'Handwriting assessment',
+      'Proper grip and posture training',
+      'Letter formation practice',
+      'Word and sentence writing',
+      'Speed building exercises',
+      'Personal style development'
+    ],
+    results: [
+      'Significant improvement in legibility',
+      '50% increase in writing speed',
+      'Better grades in written exams',
+      'Improved confidence in writing'
+    ],
+    testimonials: [
+      {
+        name: 'Sunita Sharma',
+        role: 'Parent of 7-year-old',
+        content: 'My daughter\'s handwriting has improved dramatically. Her teachers now compliment her neat writing, and her confidence has grown tremendously.',
         rating: 5
       }
     ]

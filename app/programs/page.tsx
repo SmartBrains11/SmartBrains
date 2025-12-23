@@ -8,18 +8,6 @@ import { Brain, Eye, BookOpen, Calculator, Zap, PenTool, Users, Palette, Clock, 
 
 const programs = [
   {
-    id: 'dmit',
-    title: 'DMIT',
-    subtitle: 'Dermatoglyphics Multiple Intelligence Test',
-    description: 'Scientific fingerprint analysis to understand innate potential and learning styles',
-    icon: Brain,
-    color: 'blue',
-    ages: 'All ages',
-    duration: '1 session + consultation',
-    benefits: ['Identify learning style', 'Career guidance', 'Personality insights'],
-    href: '/programs/dmit'
-  },
-  {
     id: 'midbrain-activation',
     title: 'Midbrain Activation',
     subtitle: 'Enhance Intuitive Abilities',
@@ -68,6 +56,30 @@ const programs = [
     href: '/programs/quantum-speed-reading'
   },
   {
+    id: 'dmit',
+    title: 'DMIT',
+    subtitle: 'Dermatoglyphics Multiple Intelligence Test',
+    description: 'Scientific fingerprint analysis to understand innate potential and learning styles',
+    icon: Brain,
+    color: 'blue',
+    ages: 'All ages',
+    duration: '1 session + consultation',
+    benefits: ['Identify learning style', 'Career guidance', 'Personality insights'],
+    href: '/programs/dmit'
+  },
+  {
+    id: 'midbrain-adults',
+    title: 'Midbrain for Adults',
+    subtitle: 'Adult Cognitive Enhancement',
+    description: 'Midbrain activation program specially designed for adults and professionals',
+    icon: Users,
+    color: 'gray',
+    ages: '18+ years',
+    duration: '3 days workshop + 6 Follow up',
+    benefits: ['Enhanced intuition', 'Better decision making', 'Stress reduction'],
+    href: '/programs/midbrain-adults'
+  },
+  {
     id: 'abacus-math',
     title: 'Abacus Math',
     subtitle: 'Mental Mathematics Mastery',
@@ -104,30 +116,6 @@ const programs = [
     href: '/programs/speed-reading'
   },
   {
-    id: 'handwriting',
-    title: 'Handwriting',
-    subtitle: 'Beautiful & Legible Writing',
-    description: 'Improve handwriting skills, speed, and legibility for better academic performance',
-    icon: PenTool,
-    color: 'pink',
-    ages: '5+ years',
-    duration: '15 sessions',
-    benefits: ['Neat handwriting', 'Improved speed', 'Better grades'],
-    href: '/programs/handwriting'
-  },
-  {
-    id: 'midbrain-adults',
-    title: 'Midbrain for Adults',
-    subtitle: 'Adult Cognitive Enhancement',
-    description: 'Midbrain activation program specially designed for adults and professionals',
-    icon: Users,
-    color: 'gray',
-    ages: '18+ years',
-    duration: '3 days workshop + 6 Follow up',
-    benefits: ['Enhanced intuition', 'Better decision making', 'Stress reduction'],
-    href: '/programs/midbrain-adults'
-  },
-  {
     id: 'drawing-skills',
     title: 'Drawing & Skill Development',
     subtitle: 'Artistic & Motor Skills',
@@ -138,6 +126,18 @@ const programs = [
     duration: '20 sessions',
     benefits: ['Artistic skills', 'Motor development', 'Creative expression'],
     href: '/programs/drawing-skills'
+  },
+  {
+    id: 'handwriting',
+    title: 'Handwriting',
+    subtitle: 'Beautiful & Legible Writing',
+    description: 'Improve handwriting skills, speed, and legibility for better academic performance',
+    icon: PenTool,
+    color: 'pink',
+    ages: '5+ years',
+    duration: '15 sessions',
+    benefits: ['Neat handwriting', 'Improved speed', 'Better grades'],
+    href: '/programs/handwriting'
   }
 ];
 

@@ -28,6 +28,7 @@ export interface ProgramData {
   classFormat: string;
   price: string;
   image: string;
+  imageAlt?: string;
   testimonials: Array<{
     name: string;
     role: string;
@@ -93,7 +94,7 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
             <div className="animate-slide-in-right">
               <img
                 src={programData.image}
-                alt={programData.title}
+                alt={programData.imageAlt || programData.title}
                 className="w-full h-96 object-cover rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300"
               />
             </div>

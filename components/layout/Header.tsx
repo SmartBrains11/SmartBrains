@@ -15,17 +15,17 @@ import {
 } from '@/components/ui/navigation-menu';
 
 const programs = [
-  { name: 'DMIT Test', href: '/programs/dmit' },
   { name: 'Midbrain Activation', href: '/programs/midbrain-activation' },
   { name: 'Photographic Memory', href: '/programs/photographic-memory' },
-  { name: 'Abacus Math', href: '/programs/abacus-math' },
-  { name: 'Vedic Math', href: '/programs/vedic-math' },
   { name: 'Enhancement', href: '/programs/enhancement' },
   { name: 'Quantum Speed Reading', href: '/programs/quantum-speed-reading' },
-  { name: 'Speed Reading', href: '/programs/speed-reading' },
-  { name: 'Handwriting', href: '/programs/handwriting' },
+  { name: 'DMIT Test', href: '/programs/dmit' },
   { name: 'Midbrain for Adults', href: '/programs/midbrain-adults' },
+  { name: 'Abacus Math', href: '/programs/abacus-math' },
+  { name: 'Vedic Math', href: '/programs/vedic-math' },
+  { name: 'Speed Reading', href: '/programs/speed-reading' },
   { name: 'Drawing & Skills', href: '/programs/drawing-skills' },
+  { name: 'Handwriting', href: '/programs/handwriting' },
 ];
 
 export function Header() {
@@ -37,7 +37,7 @@ export function Header() {
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center space-x-3">
             <Image
-              src="/logo.png"
+              src="/smartbrains-india.jpg"
               alt="Smart Brains Logo"
               width={60}
               height={60}
