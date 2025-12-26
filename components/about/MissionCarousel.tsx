@@ -26,14 +26,6 @@ const missionImages = [
     {
         src: 'https://images.pexels.com/photos/4145047/pexels-photo-4145047.jpeg?auto=compress&cs=tinysrgb&w=800',
         alt: 'Group activity'
-    },
-    {
-        src: 'https://images.pexels.com/photos/4144224/pexels-photo-4144224.jpeg?auto=compress&cs=tinysrgb&w=800',
-        alt: 'Creative learning'
-    },
-    {
-        src: 'https://images.pexels.com/photos/4144291/pexels-photo-4144291.jpeg?auto=compress&cs=tinysrgb&w=800',
-        alt: 'Teacher guiding student'
     }
 ];
 

@@ -34,14 +34,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto px-6 lg:px-16">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-3">
             <Image
-              src="/smartbrains-india.jpg"
+              src="/images/smartbrains-india.jpg"
               alt="Smart Brains Logo"
               width={60}
               height={60}
-              className="h-14 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
             <span className="font-bold text-xl text-gray-900">Smart Brains</span>
           </Link>
