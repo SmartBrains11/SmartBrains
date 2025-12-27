@@ -21,7 +21,7 @@ const slides: Slide[] = [
     id: 1,
     title: 'Brain Training & Memory Development Classes for Kids in Hyderabad & Vizianagaram',
     subtitle: 'Interactive programs to boost memory, focus, creativity and confidence.',
-    img: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: '/images/hero1.1.png',
     cta: { text: 'Book Free Demo', href: '/contact' },
     meta: 'Hyderabad & Vizianagaram',
     objectPosition: '50% 36%',
@@ -64,6 +64,34 @@ const slides: Slide[] = [
   },
 ];
 
+// Custom hook for animated counter
+function useAnimatedCounter(target: number, duration: number = 2000) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTime: number;
+    let animationFrame: number;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(easeOutQuart * target));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [target, duration]);
+
+  return count;
+}
+
 export default function HeroSection() {
   const [index, setIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
@@ -71,6 +99,11 @@ export default function HeroSection() {
   const [loaded, setLoaded] = useState<Record<number, boolean>>({});
 
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Animated counters for stats
+  const studentsCount = useAnimatedCounter(30000, 2500);
+  const coachesCount = useAnimatedCounter(120, 2000);
+  const successRate = useAnimatedCounter(96, 2200);
 
   const prefersReducedMotion =
     typeof window !== 'undefined' &&
@@ -180,8 +213,10 @@ export default function HeroSection() {
               >
                 {/* @ts-ignore - spreading conditional props */}
                 <Image {...(imageProps as any)} />
-                {/* overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/8 to-black/50 pointer-events-none" />
+                {/* Subtle gradient overlay - only on left side where text is */}
+                <div className="absolute inset-0 pointer-events-none" style={{
+                  background: 'linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 30%, transparent 45%)'
+                }} />
               </motion.div>
             );
           })}
@@ -205,11 +240,13 @@ export default function HeroSection() {
                 variants={contentVariants}
                 className="max-w-4xl text-white pl-2 sm:pl-4 pr-6 sm:pr-12 lg:pr-20"
               >
-                <p className="inline-block bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium mb-4">
+                <p className="inline-block bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-sm font-medium mb-4
+drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                   SmartBrains India — Hyderabad & Vizianagaram
                 </p>
 
-                <h1 className="mt-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
+                <h1 className="mt-1 text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-tight tracking-tight
+drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
                   <motion.span
                     key={slides[index].title}
                     initial={{ opacity: 0, y: 8 }}
@@ -225,7 +262,8 @@ export default function HeroSection() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.06, duration: 0.36 }}
-                  className="mt-4 text-sm md:text-base text-white/90 max-w-lg pr-4"
+                  className="mt-4 text-sm md:text-base lg:text-lg text-white max-w-lg pr-4
+drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
                 >
                   {slides[index].subtitle}
                 </motion.p>
@@ -239,14 +277,14 @@ export default function HeroSection() {
                   <Link
                     href={slides[index].cta.href}
                     aria-label={slides[index].cta.text}
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-md hover:brightness-105 transition"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:brightness-110 transition"
                   >
                     {slides[index].cta.text}
                   </Link>
 
                   <a
                     href="tel:7396447470"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white/10 text-white font-medium border border-white/20 hover:bg-white/5 transition"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white/20 backdrop-blur-sm text-white font-semibold border border-white/30 hover:bg-white/30 transition shadow-lg"
                   >
                     Call 7396447470
                   </a>
@@ -256,21 +294,28 @@ export default function HeroSection() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.18, duration: 0.42 }}
-                  className="mt-8 flex flex-wrap gap-4 items-center"
+                  className="mt-8 flex flex-wrap gap-6 items-center"
                 >
                   <div className="min-w-[120px]">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-extrabold">30k+</div>
-                    <div className="text-xs md:text-sm text-white/80">Students Trained</div>
+                    <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold
+drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      {studentsCount >= 1000 ? `${Math.floor(studentsCount / 1000)}k+` : `${studentsCount}+`}
+                    </div>
+                    <div className="text-sm md:text-base font-medium text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Students Trained</div>
                   </div>
 
                   <div className="min-w-[120px]">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-amber-500">120+</div>
-                    <div className="text-xs md:text-sm text-white/80">Coaches</div>
+                    <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-amber-400 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      {coachesCount}+
+                    </div>
+                    <div className="text-sm md:text-base font-medium text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Coaches</div>
                   </div>
 
                   <div className="min-w-[140px]">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-emerald-400">96%</div>
-                    <div className="text-xs md:text-sm text-white/80">Success Rate</div>
+                    <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-emerald-400 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      {successRate}%
+                    </div>
+                    <div className="text-sm md:text-base font-medium text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Success Rate</div>
                   </div>
                 </motion.div>
               </motion.div>
