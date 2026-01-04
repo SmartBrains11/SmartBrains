@@ -5,7 +5,22 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  images: { unoptimized: true },
+  images: {
+    // Enable image optimization for better performance
+    unoptimized: process.env.NODE_ENV === 'production' && process.env.STATIC_EXPORT === 'true',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+        pathname: '/photos/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+        pathname: '/vi/**',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

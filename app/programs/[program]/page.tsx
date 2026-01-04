@@ -28,7 +28,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '2 Days Intensive Workshop',
     classFormat: 'Group Workshop (Max 15 students)',
     price: 'Contact for pricing',
-    image: '/images/midbrain-activation.jpg',
+    image: '/images/midbrain-activation.webp',
     imageAlt: 'Midbrain Activation training session for kids ages 5-15 in Hyderabad and Vizianagaram',
     benefits: [
       'Enhanced intuitive abilities',
@@ -70,7 +70,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '20 Sessions (2 months)',
     classFormat: 'Small Groups (Max 8 students)',
     price: 'Contact for pricing',
-    image: '/images/photograhic-memory.jpeg',
+    image: '/images/photograhic-memory.webp',
     imageAlt: 'Photographic Memory training and eidetic memory development course for students in Hyderabad and Vizianagaram',
     benefits: [
       'Near-perfect memory recall',
@@ -112,7 +112,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '30 Sessions (3 months)',
     classFormat: 'Small Groups (Max 12 students)',
     price: 'Contact for pricing',
-    image: '/images/enhancment.jpg',
+    image: '/images/enhancment.webp',
     imageAlt: 'Enhancement Program for Better Brain Power in children in Hyderabad and Vizianagaram',
     benefits: [
       'Improved focus and concentration',
@@ -154,7 +154,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '15 Sessions (6 weeks)',
     classFormat: 'Small Groups (Max 8 students)',
     price: 'Contact for pricing',
-    image: '/images/quantumspeed-reading.jpeg',
+    image: '/images/quantumspeed-reading.webp',
     imageAlt: 'Quantum Speed Reading program for rapid information processing and brain development in Hyderabad and Vizianagaram',
     benefits: [
       'Ultra-fast reading speeds',
@@ -196,7 +196,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '1 Session + Detailed Consultation',
     classFormat: 'Individual Assessment',
     price: 'Contact for pricing',
-    image: '/images/DMIT.jpg',
+    image: '/images/DMIT.webp',
     imageAlt: 'DMIT (Dermatoglyphics Multiple Intelligence Test) assessment for identifying child potential in Hyderabad and Vizianagaram',
     benefits: [
       'Identify innate talents and potential',
@@ -238,7 +238,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '3 Days Intensive Workshop',
     classFormat: 'Small Groups (Max 12 adults)',
     price: 'Contact for pricing',
-    image: '/images/midbrain-adult.jpg',
+    image: '/images/midbrain-adult.webp',
     imageAlt: 'Midbrain Activation workshop for adults to enhance intuition and stress management in Hyderabad and Vizianagaram',
     benefits: [
       'Enhanced intuitive abilities',
@@ -280,7 +280,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '8 Levels Program (2 years)',
     classFormat: 'Small Groups (Max 10 students)',
     price: 'Contact for pricing',
-    image: '/images/abacus.jpg',
+    image: '/images/abacus.webp',
     imageAlt: 'Abacus Math classes and mental arithmetic training for kids to improve calculation speed in Hyderabad and Vizianagaram',
     benefits: [
       'Lightning-fast mental calculations',
@@ -322,7 +322,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '12 Sessions (6 weeks)',
     classFormat: 'Small Groups (Max 10 students)',
     price: 'Contact for pricing',
-    image: '/images/vedic-maths.jpeg',
+    image: '/images/vedic-maths.webp',
     imageAlt: 'Vedic Maths Course for fast mental calculations and mathematical mastery for students in Vizianagaram and Hyderabad',
     benefits: [
       'Faster mathematical calculations',
@@ -364,7 +364,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '10 Sessions (5 weeks)',
     classFormat: 'Small Groups (Max 10 students)',
     price: 'Contact for pricing',
-    image: '/images/speed-reading.jpeg',
+    image: '/images/speed-reading.webp',
     imageAlt: 'Speed Reading skills development for better academic performance and retention in Hyderabad and Vizianagaram',
     benefits: [
       'Increased reading speed',
@@ -406,7 +406,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '20 Sessions (10 weeks)',
     classFormat: 'Small Groups (Max 8 students)',
     price: 'Contact for pricing',
-    image: '/images/drawing.jpg',
+    image: '/images/drawing.webp',
     imageAlt: 'Drawing and Skill Development program for kids to enhance creativity and fine motor skills in Vizianagaram and Hyderabad',
     benefits: [
       'Enhanced artistic abilities',
@@ -448,7 +448,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '15 Sessions (8 weeks)',
     classFormat: 'Small Groups (Max 8 students)',
     price: 'Contact for pricing',
-    image: '/images/handwriting.jpeg',
+    image: '/images/handwriting.webp',
     imageAlt: 'Handwriting improvement classes for legible and beautiful writing for students in Hyderabad and Vizianagaram',
     benefits: [
       'Neat and legible handwriting',

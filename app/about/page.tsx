@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -80,7 +81,7 @@ const values = [
 
 const galleryImages = [
   {
-    url: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: '/images/about2.webp',
     title: 'Interactive Learning',
     description: 'Hands-on learning experiences'
   },
@@ -183,10 +184,13 @@ export default function AboutPage() {
               <div className="flex flex-col md:flex-row items-center gap-10 bg-gradient-to-r from-blue-50 to-white p-8 rounded-2xl mb-10 border border-blue-100">
                 <div className="w-56 h-56 flex-shrink-0 relative">
                   <div className="absolute inset-0 bg-blue-200 rounded-full blur-xl opacity-50 transform translate-y-4"></div>
-                  <img
+                  <Image
                     src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400"
                     alt="Lakkoju Jayalakshmi"
-                    className="w-full h-full object-cover rounded-full shadow-lg relative z-10 border-4 border-white"
+                    width={224}
+                    height={224}
+                    className="object-cover rounded-full shadow-lg relative z-10 border-4 border-white"
+                    loading="lazy"
                   />
                   <div className="absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-md z-20">
                     <Quote className="h-6 w-6 text-blue-600 fill-current" />
@@ -233,10 +237,13 @@ export default function AboutPage() {
                 className="hover:shadow-xl transition-all duration-300 border-gray-100 flex flex-col h-full transform hover:-translate-y-2"
               >
                 <CardHeader className="text-center">
-                  <img
+                  <Image
                     src={trainer.image}
                     alt={trainer.name}
-                    className="w-24 h-24 object-cover rounded-full mx-auto mb-4 hover:scale-110 transition-transform duration-300 border-2 border-blue-50"
+                    width={96}
+                    height={96}
+                    className="object-cover rounded-full mx-auto mb-4 hover:scale-110 transition-transform duration-300 border-2 border-blue-50"
+                    loading="lazy"
                   />
                   <CardTitle className="text-xl">{trainer.name}</CardTitle>
                   <CardDescription className="font-medium text-blue-600">{trainer.role}</CardDescription>
@@ -373,10 +380,13 @@ export default function AboutPage() {
                 className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500"
               >
                 <div className="aspect-[4/3] relative">
-                  <img
+                  <Image
                     src={image.url}
                     alt={image.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">

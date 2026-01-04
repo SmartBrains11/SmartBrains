@@ -48,7 +48,7 @@ const slides: Slide[] = [
     id: 4,
     title: 'Quantum Speed Reading',
     subtitle: 'Read faster with better comprehension — transform study time.',
-    img: 'https://images.pexels.com/photos/4145047/pexels-photo-4145047.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: '/images/hero2.jpg',
     cta: { text: 'Start Free Trial', href: '/signup' },
     meta: 'Day 1 Results',
     objectPosition: '50% 36%',

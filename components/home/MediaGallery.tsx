@@ -1,11 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import { LiteYouTubeEmbed } from '@/components/shared/LiteYouTubeEmbed';
 
 const galleryItems = [
   {
     type: 'image' as const,
-    src: '/images/Workshops.jpg',
+    src: '/images/Workshops.webp',
     alt: 'Students working together during a Smart Brains workshop',
     title: 'Hands-on Workshops',
     description:
@@ -13,14 +14,14 @@ const galleryItems = [
   },
   {
     type: 'video' as const,
-    src: 'https://www.youtube.com/embed/rsuf3F612DQ',
+    videoId: 'r-5tJ-7LRxQ',
     title: 'Inside Smart Brains',
     description:
       'Take a quick tour of our classrooms and discover how we make learning exciting for every child.',
   },
   {
     type: 'image' as const,
-    src: '/images/mentor.jpeg',
+    src: '/images/mentor.webp',
     alt: 'Instructor guiding a student through an activity',
     title: 'Expert Mentorship',
     description:
@@ -28,14 +29,14 @@ const galleryItems = [
   },
   {
     type: 'video' as const,
-    src: 'https://www.youtube.com/embed/3E7hkPZ-HTk',
-    title: 'Parent Testimonials',
+    videoId: '3GmIpatp42g',
+    title: 'Doctor Parent Testimonials',
     description:
       'Hear from parents on how Smart Brains programs transformed their child’s focus and confidence.',
   },
   {
     type: 'image' as const,
-    src: '/images/achivements.jpg', // ✅ LOCAL IMAGE – WILL SHOW NOW
+    src: '/images/achivements.webp',
     alt: 'Smart Brains students celebrating achievements with trophies and medals',
     title: 'Celebrating Wins',
     description:
@@ -43,7 +44,7 @@ const galleryItems = [
   },
   {
     type: 'image' as const,
-    src: '/images/active-learning.jpeg',
+    src: '/images/active-learning.webp',
     alt: 'Group activity focused on memory training',
     title: 'Active Learning',
     description:
@@ -82,16 +83,15 @@ export function MediaGallery() {
                   width={1200}
                   height={800}
                   className="w-full h-[260px] object-cover"
-                  priority={index === 0}
+                  loading={index === 0 ? undefined : 'lazy'}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               ) : (
                 <div className="w-full h-[260px]">
-                  <iframe
-                    src={`${item.src}?rel=0`}
+                  <LiteYouTubeEmbed
+                    videoId={item.videoId}
                     title={item.title}
-                    className="h-full w-full border-0"
-                    allowFullScreen
-                    loading="lazy"
+                    className="w-full h-full"
                   />
                 </div>
               )}

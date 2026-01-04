@@ -1,0 +1,226 @@
+[
+  {
+    "original": "images\\abacus.jpg",
+    "webp": "images\\abacus.webp",
+    "originalSize": 143764,
+    "newSize": 33972,
+    "savings": "76.4",
+    "category": "section"
+  },
+  {
+    "original": "images\\about1.jpg",
+    "webp": "images\\about1.webp",
+    "originalSize": 81092,
+    "newSize": 48256,
+    "savings": "40.5",
+    "category": "section"
+  },
+  {
+    "original": "images\\about2.jpeg",
+    "webp": "images\\about2.webp",
+    "originalSize": 233103,
+    "newSize": 123110,
+    "savings": "47.2",
+    "category": "section"
+  },
+  {
+    "original": "images\\about3.jpeg",
+    "webp": "images\\about3.webp",
+    "originalSize": 223670,
+    "newSize": 116570,
+    "savings": "47.9",
+    "category": "section"
+  },
+  {
+    "original": "images\\about4.jpeg",
+    "webp": "images\\about4.webp",
+    "originalSize": 184144,
+    "newSize": 93240,
+    "savings": "49.4",
+    "category": "section"
+  },
+  {
+    "original": "images\\about5.jpeg",
+    "webp": "images\\about5.webp",
+    "originalSize": 235450,
+    "newSize": 87918,
+    "savings": "62.7",
+    "category": "section"
+  },
+  {
+    "original": "images\\achivements.jpg",
+    "webp": "images\\achivements.webp",
+    "originalSize": 81043,
+    "newSize": 81546,
+    "savings": "-0.6",
+    "category": "section"
+  },
+  {
+    "original": "images\\active-learning.jpeg",
+    "webp": "images\\active-learning.webp",
+    "originalSize": 106305,
+    "newSize": 68390,
+    "savings": "35.7",
+    "category": "section"
+  },
+  {
+    "original": "images\\DMIT.jpg",
+    "webp": "images\\DMIT.webp",
+    "originalSize": 93102,
+    "newSize": 51546,
+    "savings": "44.6",
+    "category": "section"
+  },
+  {
+    "original": "images\\drawing.jpg",
+    "webp": "images\\drawing.webp",
+    "originalSize": 106438,
+    "newSize": 69554,
+    "savings": "34.7",
+    "category": "section"
+  },
+  {
+    "original": "images\\enhancment.jpg",
+    "webp": "images\\enhancment.webp",
+    "originalSize": 62165,
+    "newSize": 58742,
+    "savings": "5.5",
+    "category": "section"
+  },
+  {
+    "original": "images\\first-batch.jpeg",
+    "webp": "images\\first-batch.webp",
+    "originalSize": 928982,
+    "newSize": 118050,
+    "savings": "87.3",
+    "category": "section"
+  },
+  {
+    "original": "images\\handwriting.jpeg",
+    "webp": "images\\handwriting.webp",
+    "originalSize": 81628,
+    "newSize": 68490,
+    "savings": "16.1",
+    "category": "section"
+  },
+  {
+    "original": "images\\happy-environment.jpeg",
+    "webp": "images\\happy-environment.webp",
+    "originalSize": 255602,
+    "newSize": 148796,
+    "savings": "41.8",
+    "category": "section"
+  },
+  {
+    "original": "images\\hero1.1.png",
+    "webp": "images\\hero1.1.webp",
+    "originalSize": 2151798,
+    "newSize": 141410,
+    "savings": "93.4",
+    "category": "hero"
+  },
+  {
+    "original": "images\\hero1.jpg",
+    "webp": "images\\hero1.webp",
+    "originalSize": 2236521,
+    "newSize": 156836,
+    "savings": "93.0",
+    "category": "hero"
+  },
+  {
+    "original": "images\\hero2.jpg",
+    "webp": "images\\hero2.webp",
+    "originalSize": 128500,
+    "newSize": 91194,
+    "savings": "29.0",
+    "category": "hero"
+  },
+  {
+    "original": "images\\Interactive-Learning.jpeg",
+    "webp": "images\\Interactive-Learning.webp",
+    "originalSize": 81981,
+    "newSize": 24884,
+    "savings": "69.6",
+    "category": "section"
+  },
+  {
+    "original": "images\\mentor.jpeg",
+    "webp": "images\\mentor.webp",
+    "originalSize": 308836,
+    "newSize": 123882,
+    "savings": "59.9",
+    "category": "section"
+  },
+  {
+    "original": "images\\midbrain-activation.jpg",
+    "webp": "images\\midbrain-activation.webp",
+    "originalSize": 182718,
+    "newSize": 93318,
+    "savings": "48.9",
+    "category": "section"
+  },
+  {
+    "original": "images\\midbrain-adult.jpg",
+    "webp": "images\\midbrain-adult.webp",
+    "originalSize": 101918,
+    "newSize": 63412,
+    "savings": "37.8",
+    "category": "section"
+  },
+  {
+    "original": "images\\midbrain-workshop.jpeg",
+    "webp": "images\\midbrain-workshop.webp",
+    "originalSize": 264923,
+    "newSize": 146542,
+    "savings": "44.7",
+    "category": "section"
+  },
+  {
+    "original": "images\\photograhic-memory.jpeg",
+    "webp": "images\\photograhic-memory.webp",
+    "originalSize": 58606,
+    "newSize": 25958,
+    "savings": "55.7",
+    "category": "section"
+  },
+  {
+    "original": "images\\quantumspeed-reading.jpeg",
+    "webp": "images\\quantumspeed-reading.webp",
+    "originalSize": 38187,
+    "newSize": 29894,
+    "savings": "21.7",
+    "category": "section"
+  },
+  {
+    "original": "images\\smartbrains-india.jpg",
+    "webp": "images\\smartbrains-india.webp",
+    "originalSize": 94847,
+    "newSize": 21842,
+    "savings": "77.0",
+    "category": "section"
+  },
+  {
+    "original": "images\\speed-reading.jpeg",
+    "webp": "images\\speed-reading.webp",
+    "originalSize": 82008,
+    "newSize": 68282,
+    "savings": "16.7",
+    "category": "section"
+  },
+  {
+    "original": "images\\vedic-maths.jpeg",
+    "webp": "images\\vedic-maths.webp",
+    "originalSize": 72953,
+    "newSize": 63702,
+    "savings": "12.7",
+    "category": "section"
+  },
+  {
+    "original": "images\\Workshops.jpg",
+    "webp": "images\\Workshops.webp",
+    "originalSize": 89081,
+    "newSize": 91308,
+    "savings": "-2.5",
+    "category": "section"
+  }
+]
