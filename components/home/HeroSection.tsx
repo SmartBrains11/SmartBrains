@@ -30,7 +30,7 @@ const slides: Slide[] = [
     id: 2,
     title: 'Build Confidence Through Play',
     subtitle: 'Short sessions, measurable progress — learning that kids love.',
-    img: 'https://images.pexels.com/photos/5905704/pexels-photo-5905704.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: '/images/banner-3.png',
     cta: { text: 'Explore Programs', href: '/programs' },
     meta: '1000+ Students',
     objectPosition: '50% 38%',
@@ -39,7 +39,7 @@ const slides: Slide[] = [
     id: 3,
     title: 'Memory & Focus Training',
     subtitle: 'Photographic Memory, Midbrain Activation, Vedic & Abacus courses.',
-    img: 'https://images.pexels.com/photos/4144224/pexels-photo-4144224.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: '/images/hero-4.png',
     cta: { text: 'See Programs', href: '/programs#courses' },
     meta: '120+ Certified Coaches',
     objectPosition: '50% 34%',
@@ -57,7 +57,7 @@ const slides: Slide[] = [
     id: 5,
     title: 'Learn with Expert Coaches',
     subtitle: 'Certified trainers, weekly progress reports and parent-friendly tracking.',
-    img: 'https://images.pexels.com/photos/4144291/pexels-photo-4144291.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: '/images/hero-5.png',
     cta: { text: 'Book Free Demo', href: '/contact' },
     meta: 'Call 7396447470',
     objectPosition: '50% 36%',
@@ -65,7 +65,7 @@ const slides: Slide[] = [
 ];
 
 // Custom hook for animated counter
-function useAnimatedCounter(target: number, duration: number = 2000) {
+function useAnimatedCounter(target: number, duration: number = 1000) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -101,9 +101,9 @@ export default function HeroSection() {
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Animated counters for stats
-  const studentsCount = useAnimatedCounter(30000, 2500);
-  const coachesCount = useAnimatedCounter(120, 2000);
-  const successRate = useAnimatedCounter(96, 2200);
+  const studentsCount = useAnimatedCounter(1000, 1500);
+  const trainersCount = useAnimatedCounter(10, 1000);
+  const successRate = useAnimatedCounter(96, 1500);
 
   const prefersReducedMotion =
     typeof window !== 'undefined' &&
@@ -123,20 +123,29 @@ export default function HeroSection() {
   // autoplay
   useEffect(() => {
     if (prefersReducedMotion) return;
+
     if (!isPaused) {
-      if (autoplayRef.current) clearInterval(autoplayRef.current);
       autoplayRef.current = setInterval(() => {
-        setPrevIndex(index);
-        setIndex((i) => (i + 1) % slides.length);
+        setIndex((prevIndex) => {
+          const newIndex = (prevIndex + 1) % slides.length;
+          setPrevIndex(prevIndex);
+          return newIndex;
+        });
       }, 5000);
+    } else {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current);
+        autoplayRef.current = null;
+      }
     }
+
     return () => {
       if (autoplayRef.current) {
         clearInterval(autoplayRef.current);
         autoplayRef.current = null;
       }
     };
-  }, [isPaused, index, prefersReducedMotion]);
+  }, [isPaused, prefersReducedMotion]);
 
   const goTo = (i: number) => {
     if (i === index) return;
@@ -299,16 +308,16 @@ drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
                   <div className="min-w-[120px]">
                     <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold
 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                      {studentsCount >= 1000 ? `${Math.floor(studentsCount / 1000)}k+` : `${studentsCount}+`}
+                      {studentsCount.toLocaleString()}+
                     </div>
                     <div className="text-sm md:text-base font-medium text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Students Trained</div>
                   </div>
 
                   <div className="min-w-[120px]">
                     <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-amber-400 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                      {coachesCount}+
+                      {trainersCount}+
                     </div>
-                    <div className="text-sm md:text-base font-medium text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Coaches</div>
+                    <div className="text-sm md:text-base font-medium text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Certified Trainers</div>
                   </div>
 
                   <div className="min-w-[140px]">

@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Star, Quote, Play, Users, Award, Heart, MapPin } from 'lucide-react';
 import Link from "next/link";
-import { SuccessGalleryCarousel } from '@/components/testimonials/SuccessGalleryCarousel';
 import { LiteYouTubeEmbed } from '@/components/shared/LiteYouTubeEmbed';
 
 const testimonialCategories = [
@@ -330,22 +329,6 @@ export default function TestimonialsClient() {
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
-
-            {/* Gallery Section */}
-            <section className="py-16 bg-white">
-                <div className="container mx-auto px-4 lg:px-16">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Moments of Success
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Capturing the joy, achievements, and special moments from our training sessions and workshops.
-                        </p>
-                    </div>
-
-                    <SuccessGalleryCarousel />
                 </div>
             </section>
 

@@ -237,14 +237,16 @@ export default function AboutPage() {
                 className="hover:shadow-xl transition-all duration-300 border-gray-100 flex flex-col h-full transform hover:-translate-y-2"
               >
                 <CardHeader className="text-center">
-                  <Image
-                    src={trainer.image}
-                    alt={trainer.name}
-                    width={96}
-                    height={96}
-                    className="object-cover rounded-full mx-auto mb-4 hover:scale-110 transition-transform duration-300 border-2 border-blue-50"
-                    loading="lazy"
-                  />
+                  <div className="w-24 h-24 mx-auto mb-4">
+                    <Image
+                      src={trainer.image}
+                      alt={trainer.name}
+                      width={96}
+                      height={96}
+                      className="object-cover rounded-full w-full h-full hover:scale-110 transition-transform duration-300 border-2 border-blue-50"
+                      loading="lazy"
+                    />
+                  </div>
                   <CardTitle className="text-xl">{trainer.name}</CardTitle>
                   <CardDescription className="font-medium text-blue-600">{trainer.role}</CardDescription>
                 </CardHeader>

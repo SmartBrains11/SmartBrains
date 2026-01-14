@@ -8,23 +8,23 @@ import { cn } from '@/lib/utils';
 
 const missionImages = [
     {
-        src: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800',
+        src: '/images/about-carousal1.png',
         alt: 'Children learning together'
     },
     {
-        src: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800',
+        src: '/images/first-batch.webp',
         alt: 'Student focused on study'
     },
     {
-        src: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
+        src: '/images/about-carousel2.jpg',
         alt: 'Brain training session'
     },
     {
-        src: 'https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=800',
+        src: '/images/about-carousel4.jpg',
         alt: 'Abacus practice'
     },
     {
-        src: 'https://images.pexels.com/photos/4145047/pexels-photo-4145047.jpeg?auto=compress&cs=tinysrgb&w=800',
+        src: '/images/about-carousel3.jpg',
         alt: 'Group activity'
     }
 ];
@@ -42,7 +42,7 @@ export function MissionCarousel() {
 
     // Auto-advance
     React.useEffect(() => {
-        const timer = setInterval(nextSlide, 5000);
+        const timer = setInterval(nextSlide, 2000);
         return () => clearInterval(timer);
     }, [nextSlide]);
 
