@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.smartbrainsindia.com'),
+  metadataBase: new URL('https://www.smartbrainsindia.in'),
   title: {
     default: 'Smart Brains India | Brain Training & Cognitive Development in Hyderabad & Vizianagaram',
     template: '%s | Smart Brains India'
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     title: 'Smart Brains India | Brain Training & Cognitive Development',
     description:
       'DMIT, Midbrain Activation, Photographic Memory, Speed Reading, Abacus & Vedic Math. Centers in Hyderabad & Vizianagaram.',
-    url: 'https://www.smartbrainsindia.com',
+    url: 'https://www.smartbrainsindia.in',
     siteName: 'Smart Brains India',
     images: [
       {
@@ -114,7 +114,7 @@ export const metadata: Metadata = {
     type: 'website'
   },
   alternates: {
-    canonical: 'https://www.smartbrainsindia.com'
+    canonical: 'https://www.smartbrainsindia.in'
   },
   twitter: {
     card: 'summary_large_image',

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-const baseUrl = 'https://www.smartbrainsindia.com';
+const baseUrl = 'https://www.smartbrainsindia.in';
 
 const programs = [
   'dmit',
