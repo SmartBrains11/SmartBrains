@@ -406,7 +406,7 @@ const programsData: Record<string, ProgramData> = {
     duration: '20 Sessions (10 weeks)',
     classFormat: 'Small Groups (Max 8 students)',
     price: 'Contact for pricing',
-    image: '/images/drawing.webp',
+    image: '/images/drawing.webup',
     imageAlt: 'Drawing and Skill Development program for kids to enhance creativity and fine motor skills in Vizianagaram and Hyderabad',
     benefits: [
       'Enhanced artistic abilities',
