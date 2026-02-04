@@ -49,7 +49,7 @@ const trainers = [
     role: 'Co-Founder & Chief Trainer',
     specialization: 'Photographic Memory, Speed Reading',
     experience: '5+ years',
-    image: 'https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: '/images/lakkoju-priyanka.jpg',
     bio: 'Priyanka leads the training programs at Smart Brains with a passion for helping children achieve academic success and personal growth. She specializes in advanced learning methods like photographic memory and speed reading, making education engaging, fun, and impactful for every student.',
     certifications: [
       'Certified Brain Training Expert',

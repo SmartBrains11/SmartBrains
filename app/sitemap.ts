@@ -8,12 +8,12 @@ const programs = [
   'photographic-memory',
   'enhancement',
   'quantum-speed-reading',
-  'abacus',
+  'abacus-math',
   'vedic-math',
   'speed-reading',
   'handwriting',
-  'midbrain-for-adults',
-  'drawing-and-skill-development'
+  'midbrain-adults',
+  'drawing-skills'
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
