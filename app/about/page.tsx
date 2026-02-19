@@ -36,7 +36,7 @@ const trainers = [
     role: 'Founder & Senior Trainer',
     specialization: 'DMIT, Midbrain Activation',
     experience: '6+ years',
-    image: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: '/images/Jaya-lakshmi.png',
     bio: 'Jayalakshmi brings a mother\'s intuition and years of hands‑on experience in helping children unlock their potential. Inspired by her own son\'s growth through brain training, she has dedicated her life to guiding parents and empowering children through personalized learning techniques.',
     certifications: [
       'Certified DMIT Analyst',
@@ -62,7 +62,7 @@ const trainers = [
     role: 'Management Head & Support Trainer',
     specialization: 'Institution Management',
     experience: '3+ years',
-    image: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: '/images/Sekhar.jpg',
     bio: 'Sekhar oversees the management and operations of Smart Brains, ensuring smooth scheduling, quality control, and parent support. He also participates in training sessions, providing additional guidance to students when needed.',
     certifications: [
       'Program Management',
@@ -86,27 +86,27 @@ const galleryImages = [
     description: 'Hands-on learning experiences'
   },
   {
-    url: 'https://images.pexels.com/photos/5905704/pexels-photo-5905704.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: '/images/midbrain-workshop.jpeg',
     title: 'Midbrain Workshop',
     description: 'Interactive and joyful classrooms'
   },
   {
-    url: 'https://images.pexels.com/photos/4144224/pexels-photo-4144224.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: '/images/Memory-Focus.jpg',
     title: 'Memory Focus',
     description: 'Personal attention for every child'
   },
   {
-    url: 'https://images.pexels.com/photos/4145047/pexels-photo-4145047.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: '/images/Abacus-Practice.png',
     title: 'Abacus Practice',
     description: 'Building mental math skills'
   },
   {
-    url: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: '/images/One-on-One.png',
     title: 'One-on-One',
     description: 'Focused guidance for growth'
   },
   {
-    url: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: '/images/Happy-Environment.png',
     title: 'Happy Environment',
     description: 'Creating confident learners'
   }
@@ -185,7 +185,7 @@ export default function AboutPage() {
                 <div className="w-56 h-56 flex-shrink-0 relative">
                   <div className="absolute inset-0 bg-blue-200 rounded-full blur-xl opacity-50 transform translate-y-4"></div>
                   <Image
-                    src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    src="/images/Jaya-lakshmi.png"
                     alt="Lakkoju Jayalakshmi"
                     width={224}
                     height={224}
