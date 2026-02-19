@@ -390,10 +390,10 @@ export default function AboutPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-lg font-bold mb-1">{image.title}</h3>
-                    <p className="text-sm text-gray-200 opacity-90">{image.description}</p>
+                    <h3 className="text-lg font-bold mb-1" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>{image.title}</h3>
+                    <p className="text-sm text-gray-100" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>{image.description}</p>
                   </div>
                 </div>
               </div>
