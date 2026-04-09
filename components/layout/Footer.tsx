@@ -10,7 +10,7 @@ export function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Brain className="h-8 w-8 text-blue-400" />
-              <span className="font-bold text-xl">Smart Brains</span>
+              <span className="font-black text-xl">Smart Brains</span>
             </div>
             <p className="text-gray-300 mb-4">
               Empowering minds through structured brain training programs for all ages.
@@ -84,7 +84,7 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Smart Brains. All rights reserved.
+              © 2026 Smart Brains India. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Link href="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>

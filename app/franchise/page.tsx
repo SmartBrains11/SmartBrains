@@ -147,7 +147,7 @@ export default function FranchisePage() {
       <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 animate-fade-in">
               Start Your Profitable Brain Development Center with India’s Most Trusted Brand
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay leading-relaxed ">
@@ -175,7 +175,7 @@ export default function FranchisePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
+            <h2 className="text-3xl font-black text-gray-900 mb-4 animate-fade-in">
               Why Partner with Smart Brains?
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-delay max-w-4xl mx-auto">
@@ -212,7 +212,7 @@ export default function FranchisePage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
+            <h2 className="text-3xl font-black text-gray-900 mb-4 animate-fade-in">
               Franchise Investment Options
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-delay">
@@ -234,7 +234,7 @@ export default function FranchisePage() {
                 )}
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl mb-2">{pkg.name}</CardTitle>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">{pkg.investment}</div>
+                  <div className="text-3xl font-black text-blue-600 mb-2">{pkg.investment}</div>
                   <CardDescription className="text-lg">{pkg.coverage}</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -275,7 +275,7 @@ export default function FranchisePage() {
         <div className="container mx-auto px-4 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-black text-gray-900 mb-6">
                 Who This Franchise Is Ideal For
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -307,7 +307,7 @@ export default function FranchisePage() {
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
+            <h2 className="text-3xl font-black text-gray-900 mb-4 animate-fade-in">
               We Support You Every Step of the Way
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-delay">
@@ -345,7 +345,7 @@ export default function FranchisePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
+            <h2 className="text-3xl font-black text-gray-900 mb-4 animate-fade-in">
               Real Partners. Real Growth.
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-delay">
@@ -416,7 +416,7 @@ export default function FranchisePage() {
       {/* CTA Section */}
       <section id="franchise-inquiry" className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4 lg:px-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-black mb-6">
             Not Sure Which Model Fits You?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90 leading-relaxed">

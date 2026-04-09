@@ -12,24 +12,24 @@ export default function DataUsagePage() {
     <div className="min-h-screen bg-gray-50 py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 text-center">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-8 text-center">
             Data Usage Policy
           </h1>
           <p className="text-sm text-gray-500 mb-8 text-center">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 
           <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 space-y-8">
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Overview</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">1. Overview</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 This Data Usage Policy explains how Smart Brains India collects, uses, stores, and protects data collected through our website, services, and programs. This policy should be read in conjunction with our Privacy Policy.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Types of Data We Collect</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">2. Types of Data We Collect</h2>
               <div className="text-gray-600 leading-relaxed space-y-4">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">2.1 Personal Data</h3>
+                  <h3 className="text-xl font-black text-gray-900 mb-2">2.1 Personal Data</h3>
                   <ul className="list-disc list-inside space-y-2 ml-4">
                     <li>Name, contact information (email, phone, address)</li>
                     <li>Student information (age, grade, educational background)</li>
@@ -38,7 +38,7 @@ export default function DataUsagePage() {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">2.2 Program Data</h3>
+                  <h3 className="text-xl font-black text-gray-900 mb-2">2.2 Program Data</h3>
                   <ul className="list-disc list-inside space-y-2 ml-4">
                     <li>Enrollment information and program preferences</li>
                     <li>Assessment results (DMIT test results, progress reports)</li>
@@ -47,7 +47,7 @@ export default function DataUsagePage() {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">2.3 Technical Data</h3>
+                  <h3 className="text-xl font-black text-gray-900 mb-2">2.3 Technical Data</h3>
                   <ul className="list-disc list-inside space-y-2 ml-4">
                     <li>IP address and device information</li>
                     <li>Browser type and version</li>
@@ -59,7 +59,7 @@ export default function DataUsagePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">3. How We Use Your Data</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">3. How We Use Your Data</h2>
               <div className="text-gray-600 leading-relaxed space-y-3">
                 <p>We use collected data for the following purposes:</p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
@@ -75,7 +75,7 @@ export default function DataUsagePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Data Storage and Security</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">4. Data Storage and Security</h2>
               <div className="text-gray-600 leading-relaxed space-y-3">
                 <p>We implement security measures to protect your data:</p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
@@ -92,7 +92,7 @@ export default function DataUsagePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Sharing and Disclosure</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">5. Data Sharing and Disclosure</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 We do not sell your personal data. We may share data only in the following circumstances:
               </p>
@@ -105,7 +105,7 @@ export default function DataUsagePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Children's Data</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">6. Children's Data</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 We take special care with children's data:
               </p>
@@ -118,7 +118,7 @@ export default function DataUsagePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Your Rights and Choices</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">7. Your Rights and Choices</h2>
               <p className="text-gray-600 leading-relaxed mb-4">You have the right to:</p>
               <ul className="list-disc list-inside space-y-2 ml-4 text-gray-600">
                 <li>Access your personal data</li>
@@ -132,35 +132,35 @@ export default function DataUsagePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Cookies and Tracking Technologies</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">8. Cookies and Tracking Technologies</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Our website uses cookies and similar technologies to enhance user experience, analyze usage patterns, and improve our services. You can control cookie preferences through your browser settings.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Data Retention</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">9. Data Retention</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 We retain personal data only for as long as necessary to fulfill the purposes for which it was collected, comply with legal obligations, resolve disputes, and enforce our agreements. Assessment results and progress data may be retained longer for educational and analytical purposes.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">10. International Data Transfers</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">10. International Data Transfers</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Your data is primarily stored and processed in India. If data is transferred internationally, we ensure appropriate safeguards are in place to protect your data in accordance with applicable data protection laws.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Updates to This Policy</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">11. Updates to This Policy</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 We may update this Data Usage Policy from time to time. We will notify you of significant changes by posting the updated policy on our website and updating the "Last updated" date.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Contact Us</h2>
+              <h2 className="text-2xl font-black text-gray-900 mb-4">12. Contact Us</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 If you have questions about this Data Usage Policy or wish to exercise your rights, please contact us:
               </p>

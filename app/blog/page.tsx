@@ -468,7 +468,7 @@ const BlogPostCard = ({ post, onReadMore }: { post: BlogPost; onReadMore: (post:
             {post.readTime}
         </div>
       </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-3 flex-grow group-hover:text-blue-600 transition-colors">
+      <h3 className="text-xl font-black text-gray-900 mb-3 flex-grow group-hover:text-blue-600 transition-colors">
         {post.title}
       </h3>
       <p className="text-gray-600 leading-relaxed mb-4 text-sm">
@@ -519,7 +519,7 @@ const BlogArticleSheet = ({ post, isOpen, onClose }: { post: BlogPost | null; is
                  <span className="inline-block bg-blue-100 text-blue-800 font-semibold px-4 py-1.5 rounded-full mb-4">
                      {post.category}
                  </span>
-                 <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+                 <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight">
                      {post.title}
                  </h2>
                  <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-base text-gray-500 mt-6 font-medium">
@@ -605,7 +605,7 @@ export default function BlogPage() {
         {/* Hero Section */}
         <section className="py-20 text-center bg-white">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4">Knowledge Hub</h1>
+            <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-4">Knowledge Hub</h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Discover insights, tips, and scientific knowledge about brain training, child development, and learning enhancement.
             </p>
@@ -626,7 +626,7 @@ export default function BlogPage() {
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Featured Articles</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900">Featured Articles</h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {isLoading
@@ -642,7 +642,7 @@ export default function BlogPage() {
         <section id="latest-articles" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest Articles</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Latest Articles</h2>
               <div className="flex flex-wrap justify-center gap-3 mt-8">
                 {categories.map((category) => {
                   const Icon = categoryIcons[category];
@@ -687,7 +687,7 @@ export default function BlogPage() {
             ) : (
               <div className="text-center py-16">
                 <BookOpen className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-2xl font-semibold text-gray-700 mb-2">No Articles Found</h3>
+                <h3 className="text-2xl font-black text-gray-700 mb-2">No Articles Found</h3>
                 <p className="text-gray-500">Try adjusting your search or clearing the category filter.</p>
               </div>
             )}

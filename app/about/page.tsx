@@ -119,7 +119,7 @@ export default function AboutPage() {
       <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center max-w-6xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 animate-fade-in">
               About Smart Brains India – Child Brain Development Institute
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay leading-relaxed">
@@ -153,15 +153,15 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Our Mission & Vision</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-8">Our Mission & Vision</h2>
               <div className="mb-8 p-8 bg-blue-50 rounded-2xl border-l-4 border-blue-600 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-bold text-blue-900 mb-4">Our Mission</h3>
+                <h3 className="text-2xl font-black text-blue-900 mb-4">Our Mission</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Our mission is to make brain development accessible, joyful, and effective for every child. We aim to help children grow academically, emotionally, and confidently through proven brain training methods.
                 </p>
               </div>
               <div className="p-8 bg-orange-50 rounded-2xl border-l-4 border-orange-600 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-bold text-orange-900 mb-4">Our Vision</h3>
+                <h3 className="text-2xl font-black text-orange-900 mb-4">Our Vision</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Our vision is to become India’s most trusted child brain development institute, empowering parents and guiding children toward a brighter, more confident future.
                 </p>
@@ -177,7 +177,7 @@ export default function AboutPage() {
       {/* 3. Who We Are */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Who We Are</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Who We Are</h2>
           <Card className="max-w-5xl mx-auto shadow-xl hover:shadow-2xl transition-shadow duration-300 border-0 overflow-hidden">
             <CardContent className="p-8 md:p-12">
               {/* Founder Image & Bio - Moved to Top */}
@@ -197,7 +197,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="text-center md:text-left">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-2">Lakkoju Jayalakshmi</h3>
+                  <h3 className="text-3xl font-black text-gray-900 mb-2">Lakkoju Jayalakshmi</h3>
                   <p className="text-blue-600 font-medium text-lg mb-6">Founder & Senior Trainer</p>
                   <blockquote className="relative max-w-xl">
                     <p className="text-xl text-gray-600 italic leading-relaxed font-serif">
@@ -224,7 +224,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Meet Our Expert Trainers</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">Meet Our Expert Trainers</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
               Our team consists of certified professionals who are passionate about child development.
             </p>
@@ -302,7 +302,7 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Our Teaching Philosophy</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Our Teaching Philosophy</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
@@ -311,7 +311,7 @@ export default function AboutPage() {
                     <Target className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Whole Brain Development</h3>
+                    <h3 className="text-xl font-black text-gray-900 mb-2">Whole Brain Development</h3>
                     <p className="text-gray-600 leading-relaxed">
                       We focus on stimulating both the logical (Left) and creative (Right) hemispheres of the brain to unlock full cognitive potential.
                     </p>
@@ -325,7 +325,7 @@ export default function AboutPage() {
                     <BookOpen className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Tradition Meets Science</h3>
+                    <h3 className="text-xl font-black text-gray-900 mb-2">Tradition Meets Science</h3>
                     <p className="text-gray-600 leading-relaxed">
                       A unique combination of ancient wisdom (like Vedic Math) and modern neuroscience (like Midbrain Activation) for holistic growth.
                     </p>
@@ -339,7 +339,7 @@ export default function AboutPage() {
                     <Heart className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Stress-Free Learning</h3>
+                    <h3 className="text-xl font-black text-gray-900 mb-2">Stress-Free Learning</h3>
                     <p className="text-gray-600 leading-relaxed">
                       Our classes are designed to be fun, interactive, and pressure-free. We don't just teach; we ignite curiosity and joy.
                     </p>
@@ -353,7 +353,7 @@ export default function AboutPage() {
                     <Star className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Child-Centric Approach</h3>
+                    <h3 className="text-xl font-black text-gray-900 mb-2">Child-Centric Approach</h3>
                     <p className="text-gray-600 leading-relaxed">
                       Building confidence is our priority. Every child progresses at their own pace in a supportive and encouraging environment.
                     </p>
@@ -369,7 +369,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Learning Environment</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">Our Learning Environment</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
               Take a glimpse into our vibrant classrooms and see how we create engaging, fun-filled learning experiences for every child.
             </p>
@@ -406,7 +406,7 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What Makes Us Different</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">What Makes Us Different</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
               We go beyond traditional tutoring to holistic brain development.
             </p>
@@ -423,7 +423,7 @@ export default function AboutPage() {
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                     <Icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
+                  <h3 className="text-xl font-black text-gray-900 mb-4">{value.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               );

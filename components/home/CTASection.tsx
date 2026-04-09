@@ -24,12 +24,15 @@ export function CTASection() {
       <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-600/80 to-purple-600/80" />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      <div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 text-center">
+        <span className="text-sm font-semibold tracking-wide text-white/80 uppercase mb-6 block">
+          Getting Started
+        </span>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 tracking-tight">
           Ready to Unlock Your Child&apos;s Potential?
         </h2>
 
-        <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+        <p className="mt-4 text-lg md:text-xl mb-12 max-w-2xl mx-auto text-blue-50">
           Join thousands of families who have already experienced the transformation.
           Book a free demo session today and see the difference our programs can make.
         </p>

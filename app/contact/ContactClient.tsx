@@ -113,7 +113,7 @@ export default function ContactClient() {
             <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-24">
                 <div className="container mx-auto px-6 lg:px-24">
                     <div className="text-center max-w-4xl mx-auto">
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 animate-fade-in">
                             Let’s Talk About Your Child’s Learning Journey
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay leading-relaxed">

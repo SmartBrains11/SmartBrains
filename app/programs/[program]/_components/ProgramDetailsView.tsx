@@ -71,7 +71,7 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Programs
               </Link>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in">
+              <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 animate-fade-in">
                 {programData.title}
               </h1>
               <p className="text-xl text-blue-600 font-medium mb-6 animate-fade-in-delay">

@@ -60,7 +60,7 @@ export default function FAQPage() {
         <div className="min-h-screen bg-gray-50 py-16">
             <div className="container mx-auto px-4 lg:px-16">
                 <div className="max-w-4xl mx-auto">
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 text-center animate-fade-in">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-8 text-center animate-fade-in">
                         Brain Training FAQs – Midbrain, DMIT, Memory, Abacus & More
                     </h1>
                     <p className="text-xl text-gray-600 mb-12 text-center animate-fade-in-delay">

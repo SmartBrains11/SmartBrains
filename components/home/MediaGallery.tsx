@@ -15,7 +15,7 @@ const galleryItems = [
   {
     type: 'video' as const,
     videoId: 'r-5tJ-7LRxQ',
-    title: 'Inside Smart Brains',
+    title: 'Inside Our ClassRoom',
     description:
       'Take a quick tour of our classrooms and discover how we make learning exciting for every child.',
   },
@@ -60,11 +60,11 @@ export function MediaGallery() {
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
             Gallery
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-slate-900">
+          <h2 className="mt-4 text-3xl md:text-4xl font-black text-slate-900">
             Learning in Action
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Step inside Smart Brains classrooms with a glimpse of our vibrant
+            Step Inside Our ClassRoom classrooms with a glimpse of our vibrant
             sessions and joyful moments.
           </p>
         </div>

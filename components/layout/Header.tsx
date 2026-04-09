@@ -43,7 +43,7 @@ export function Header() {
               height={60}
               className="h-12 w-auto object-contain"
             />
-            <span className="font-bold text-xl text-gray-900">Smart Brains</span>
+            <span className="font-black text-xl text-gray-900">Smart Brains</span>
           </Link>
 
           {/* Desktop Navigation */}

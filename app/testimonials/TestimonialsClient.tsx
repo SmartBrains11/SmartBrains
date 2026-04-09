@@ -189,7 +189,7 @@ export default function TestimonialsClient() {
             <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
                 <div className="container mx-auto px-4 lg:px-16">
                     <div className="text-center max-w-4xl mx-auto">
-                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 animate-fade-in">
                             Parent Reviews & Student Success Stories – Smart Brains India
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay leading-relaxed">
@@ -198,15 +198,15 @@ export default function TestimonialsClient() {
                         </p>
                         <div className="flex justify-center space-x-8">
                             <div className="text-center">
-                                <div className="text-3xl font-bold text-blue-600">1000+</div>
+                                <div className="text-3xl font-black text-blue-600">1000+</div>
                                 <div className="text-gray-600">Happy Students</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-3xl font-bold text-orange-600">95%</div>
+                                <div className="text-3xl font-black text-orange-600">95%</div>
                                 <div className="text-gray-600">Success Rate</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-3xl font-bold text-green-600">500+</div>
+                                <div className="text-3xl font-black text-green-600">500+</div>
                                 <div className="text-gray-600">Parent Reviews</div>
                             </div>
                         </div>
@@ -239,7 +239,7 @@ export default function TestimonialsClient() {
             <section className="py-16 bg-gradient-to-b from-white to-gray-50">
                 <div className="container mx-auto px-4 lg:px-16">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
                             Video Testimonials
                         </h2>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -336,7 +336,7 @@ export default function TestimonialsClient() {
             <section className="py-16 bg-blue-600 text-white">
                 <div className="container mx-auto px-4 lg:px-16">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4">Our Impact in Numbers</h2>
+                        <h2 className="text-3xl font-black mb-4">Our Impact in Numbers</h2>
                         <p className="text-xl opacity-90 leading-relaxed">
                             These numbers represent real transformations in children's lives
                         </p>
@@ -345,22 +345,22 @@ export default function TestimonialsClient() {
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <div className="text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                             <Users className="h-12 w-12 mx-auto mb-4 opacity-80 hover:scale-110 transition-transform duration-300" />
-                            <div className="text-3xl font-bold mb-2">1000+</div>
+                            <div className="text-3xl font-black mb-2">1000+</div>
                             <div className="opacity-90">Students Trained</div>
                         </div>
                         <div className="text-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                             <Award className="h-12 w-12 mx-auto mb-4 opacity-80 hover:scale-110 transition-transform duration-300" />
-                            <div className="text-3xl font-bold mb-2">95%</div>
+                            <div className="text-3xl font-black mb-2">95%</div>
                             <div className="opacity-90">Success Rate</div>
                         </div>
                         <div className="text-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                             <Heart className="h-12 w-12 mx-auto mb-4 opacity-80 hover:scale-110 transition-transform duration-300" />
-                            <div className="text-3xl font-bold mb-2">500+</div>
+                            <div className="text-3xl font-black mb-2">500+</div>
                             <div className="opacity-90">Happy Families</div>
                         </div>
                         <div className="text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
                             <Star className="h-12 w-12 mx-auto mb-4 opacity-80 hover:scale-110 transition-transform duration-300" />
-                            <div className="text-3xl font-bold mb-2">4.9/5</div>
+                            <div className="text-3xl font-black mb-2">4.9/5</div>
                             <div className="opacity-90">Average Rating</div>
                         </div>
                     </div>
@@ -371,7 +371,7 @@ export default function TestimonialsClient() {
             <section className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4 lg:px-16">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
                             Parent Reviews & Testimonials
                         </h2>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -434,7 +434,7 @@ export default function TestimonialsClient() {
             {/* CTA Section */}
             <section className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4 lg:px-16 text-center">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    <h2 className="text-3xl font-black text-gray-900 mb-6">
                         Ready to Create Your Own Success Story?
                     </h2>
                     <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
