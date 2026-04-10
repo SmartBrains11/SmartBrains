@@ -173,7 +173,7 @@ export default function RootLayout({
                     height: 512
                   },
                   sameAs: [
-                    'https://www.facebook.com/',
+                    'https://www.facebook.com/profile.php?id=61583366865848',
                     'https://www.instagram.com/',
                     'https://www.youtube.com/'
                   ],

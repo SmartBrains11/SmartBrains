@@ -8,58 +8,64 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type Slide = {
   id: number;
+  badge: string;
   title: string;
   subtitle: string;
   img: string;
   cta: { text: string; href: string };
-  meta?: string;
+  cta2?: { text: string; href: string };
   objectPosition?: string;
 };
 
 const slides: Slide[] = [
   {
     id: 1,
-    title: 'Brain Training & Memory Development Classes for Kids in Hyderabad & Vizianagaram',
-    subtitle: 'Interactive programs to boost memory, focus, creativity and confidence.',
+    badge: 'Hyderabad & Vizianagaram · Online & Offline',
+    title: 'Brain Training Academy for Kids Aged 5–16',
+    subtitle: 'SmartBrains India builds memory power, sharp concentration and natural intuition in children — through structured, expert-led programs your child will actually enjoy.',
     img: '/images/hero1.1.png',
-    cta: { text: 'Book Free Demo', href: '/contact' },
-    meta: 'Hyderabad & Vizianagaram',
+    cta: { text: 'Book a Free Demo', href: '/contact' },
+    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
   },
   {
     id: 2,
-    title: 'Build Confidence Through Play',
-    subtitle: 'Short sessions, measurable progress — learning that kids love.',
+    badge: 'Abacus · Vedic Maths · Midbrain Activation · Speed Reading',
+    title: 'Programs That Build Sharper, Smarter Minds',
+    subtitle: 'Every course strengthens memory retention, improves concentration and awakens intuitive thinking in children aged 5 to 16.',
     img: '/images/banner-3.png',
-    cta: { text: 'Explore Programs', href: '/programs' },
-    meta: '1000+ Students',
+    cta: { text: 'Explore Our Programs', href: '/programs' },
+    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 38%',
   },
   {
     id: 3,
-    title: 'Memory & Focus Training',
-    subtitle: 'Photographic Memory, Midbrain Activation, Vedic & Abacus courses.',
+    badge: "The Skills Schools Don't Teach",
+    title: 'Better Memory. Deeper Focus. Stronger Intuition.',
+    subtitle: 'Academic pressure starts early and schools rarely teach children how to think. SmartBrains gives kids the mental tools to absorb faster, recall better and build natural intuition before the pressure peaks.',
     img: '/images/hero-4.png',
-    cta: { text: 'See Programs', href: '/programs#courses' },
-    meta: '120+ Certified Coaches',
+    cta: { text: 'See How It Works', href: '/programs#courses' },
+    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 34%',
   },
   {
     id: 4,
-    title: 'Quantum Speed Reading',
-    subtitle: 'Read faster with better comprehension — transform study time.',
+    badge: 'Flexible · Online & Offline · Hyderabad & Vizianagaram',
+    title: 'Learn at Our Centre or From Home',
+    subtitle: 'Join live sessions at our Hyderabad or Vizianagaram centres or attend online from home. Same certified trainers, same proven methods and weekly progress reports shared directly with parents.',
     img: '/images/hero2.jpg',
-    cta: { text: 'Start Free Trial', href: '/signup' },
-    meta: 'Day 1 Results',
+    cta: { text: 'Choose Your Mode', href: '/programs' },
+    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
   },
   {
     id: 5,
-    title: 'Learn with Expert Coaches',
-    subtitle: 'Certified trainers, weekly progress reports and parent-friendly tracking.',
+    badge: '1,000+ Students · 10+ Trainers · 96% Success Rate',
+    title: 'Certified Trainers. Real Results. Proud Parents.',
+    subtitle: 'Our certified coaches use proven methods to build memory power, concentration and confidence in kids aged 5 to 16 — with progress parents can see every week.',
     img: '/images/hero-5.png',
-    cta: { text: 'Book Free Demo', href: '/contact' },
-    meta: 'Call 7396447470',
+    cta: { text: 'Book a Free Demo', href: '/contact' },
+    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
   },
 ];
@@ -75,7 +81,7 @@ export default function HeroSection() {
 
   // Stats
   const studentsCount = 1000;
-  const trainersCount = 120; // Updated from slide 3 meta: 120+ Certified Coaches
+  const trainersCount = 120; // Updated from slide 3 meta: 10+ Certified Coaches
   const successRate = 96;
 
   const prefersReducedMotion =
@@ -223,17 +229,17 @@ export default function HeroSection() {
                 >
                   <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
                   <span className="text-xs font-semibold tracking-wide text-white uppercase">
-                    SmartBrains India — Hyderabad & Vizianagaram
+                    {slides[index].badge}
                   </span>
                 </motion.div>
 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-[1.2] tracking-tight text-white drop-shadow-md">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-tight tracking-tight text-white drop-shadow-md">
                   <motion.span
                     key={slides[index].title}
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="block"
+                    className="block whitespace-nowrap"
                   >
                     {slides[index].title}
                   </motion.span>
@@ -263,10 +269,10 @@ export default function HeroSection() {
                   </Link>
 
                   <a
-                    href="tel:7396447470"
+                    href={slides[index].cta2?.href || "tel:7396447470"}
                     className="flex items-center justify-center px-7 py-3.5 rounded-full bg-transparent text-white font-semibold text-base border border-white/40 hover:bg-white/10 backdrop-blur-sm transition-all active:scale-95"
                   >
-                    Call 7396447470
+                    {slides[index].cta2?.text || "Call 7396447470"}
                   </a>
                 </motion.div>
 
@@ -301,6 +307,15 @@ export default function HeroSection() {
                     </div>
                     <div className="text-xs font-semibold text-gray-200 uppercase tracking-widest">
                       Success Rate
+                    </div>
+                  </div>
+
+                  <div className="hidden lg:block">
+                    <div className="text-2xl md:text-3xl font-black text-white mb-1 drop-shadow-md">
+                      Online & Offline
+                    </div>
+                    <div className="text-xs font-semibold text-gray-200 uppercase tracking-widest">
+                      Learning Modes
                     </div>
                   </div>
                 </motion.div>

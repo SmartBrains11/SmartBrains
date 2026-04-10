@@ -94,8 +94,8 @@ export function TestimonialSlider() {
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
             Success Stories
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-            Voices of Our Parents
+          <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 mb-6 tracking-tight leading-none uppercase">
+            VOICES OF OUR PARENTS
           </h2>
           <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
             Real feedback from families who have seen incredible growth in their children's abilities and confidence.

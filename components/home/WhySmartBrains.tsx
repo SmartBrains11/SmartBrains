@@ -13,7 +13,7 @@ const reasons = [
   {
     icon: Target,
     title: 'Proven Methods',
-    description: 'Scientifically backed training methods that have shown consistent results across all age groups.',
+    description: 'Programs used by 500+ institutes across India. Which have shown consistent results across all age groups.',
     color: 'orange'
   },
   {
@@ -63,8 +63,8 @@ export function WhySmartBrains() {
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.5, ease: "easeOut" }
     }
@@ -79,7 +79,7 @@ export function WhySmartBrains() {
       </div>
 
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -88,16 +88,16 @@ export function WhySmartBrains() {
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
             The Smart Brains Edge
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-            Why Choose Smart Brains?
+          <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
+            WHY CHOOSE SMART BRAINS?
           </h2>
           <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            We don't just teach; we transform. Our holistic approach combines scientific research 
+            We don't just teach; we transform. Our holistic approach combines scientific research
             with nurturing care to unlock every child's full potential.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -107,8 +107,8 @@ export function WhySmartBrains() {
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 variants={itemVariants}
                 className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 ease-out group relative overflow-hidden"
               >
@@ -118,7 +118,7 @@ export function WhySmartBrains() {
                 <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 transition-all duration-300 ${colorVariants[reason.color as keyof typeof colorVariants].split(' ')[0]} ${colorVariants[reason.color as keyof typeof colorVariants].split(' ')[1]}`}>
                   <Icon className="h-10 w-10 transition-transform duration-300" />
                 </div>
-                
+
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight group-hover:text-blue-600 transition-colors">
                   {reason.title}
                 </h3>

@@ -22,7 +22,7 @@ export function Footer() {
               <a href="https://wa.me/917386209090" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 text-gray-400 hover:text-green-400 cursor-pointer transition-colors" />
               </a>
-              <a href="https://www.instagram.com/smartbrains_india/?next=%2F&hl=en" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/smartbrainsindia.in/?next=%2F&hl=en" target="_blank" rel="noopener noreferrer">
                 <Instagram className="h-5 w-5 text-gray-400 hover:text-pink-400 cursor-pointer transition-colors" />
               </a>
               <a href="https://www.youtube.com/@Smartbrainsindia-11" target="_blank" rel="noopener noreferrer">

@@ -161,7 +161,6 @@ export default function ProgramsPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
         <div className="container mx-auto px-6 lg:px-20">
-          <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 animate-fade-in">
               Our Brain Training Programs
             </h1>
@@ -176,7 +175,6 @@ export default function ProgramsPage() {
               </Badge>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Programs Grid */}

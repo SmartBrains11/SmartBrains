@@ -55,13 +55,13 @@ const galleryItems = [
 export function MediaGallery() {
   return (
     <section className="py-12 bg-slate-50">
-      <div className="container mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
             Gallery
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-black text-slate-900">
-            Learning in Action
+          <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
+            LEARNING IN ACTION
           </h2>
           <p className="mt-4 text-lg text-slate-600">
             Step Inside Our ClassRoom classrooms with a glimpse of our vibrant

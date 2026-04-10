@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import HeroSection from '../components/home/HeroSection';
 import { ProgramsShowcase } from '../components/home/ProgramsShowcase';
+import { FounderTeaser } from '../components/home/FounderTeaser';
 import { WhySmartBrains } from '../components/home/WhySmartBrains';
+import { InstagramShowcase } from '../components/home/InstagramShowcase';
 import { TestimonialSlider } from '../components/home/TestimonialSlider';
 import { CTASection } from '../components/home/CTASection';
 import { MediaGallery } from '../components/home/MediaGallery';
+import { ContactPopup } from '../components/home/ContactPopup';
 import { MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
 
@@ -66,8 +69,8 @@ export default function Home() {
             url: 'https://www.smartbrainsindia.com',
             logo: 'https://www.smartbrainsindia.com/logo.png',
             sameAs: [
-              'https://www.facebook.com/',
-              'https://www.instagram.com/',
+              'https://www.facebook.com/profile.php?id=61583366865848',
+              'https://www.instagram.com/smartbrainsindia.in/',
               'https://www.youtube.com/'
             ],
             address: [
@@ -97,6 +100,7 @@ export default function Home() {
       />
 
       <HeroSection />
+      <ContactPopup />
 
       {/* Hidden SEO Content for Search Engines */}
       <section className="sr-only" aria-label="SEO Rich Content">
@@ -126,8 +130,10 @@ export default function Home() {
         </p>
       </section>
       <ProgramsShowcase />
+      <FounderTeaser />
       <MediaGallery />
       <WhySmartBrains />
+      <InstagramShowcase />
       <TestimonialSlider />
 
       {/* Centres in Hyderabad & Vizianagaram Block */}
@@ -137,8 +143,8 @@ export default function Home() {
             <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
               Find Us
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-              Centres in Hyderabad & Vizianagaram
+            <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
+              CENTRES IN HYDERABAD & VIZIANAGARAM
             </h2>
             <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Visit our centres to experience our world-class brain training facilities.

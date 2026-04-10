@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Award, Users, Target, Heart, BookOpen, Star, Quote, CheckCircle } from 'lucide-react';
+import { Award, Users, Target, Heart, BookOpen, Star, Quote, CheckCircle, Facebook, Instagram, Phone } from 'lucide-react';
 import { MissionCarousel } from '@/components/about/MissionCarousel';
 
 export const metadata: Metadata = {
@@ -119,7 +119,7 @@ export default function AboutPage() {
       <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center max-w-6xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-6 animate-fade-in">
+            <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 animate-fade-in">
               About Smart Brains India – Child Brain Development Institute
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay leading-relaxed">
@@ -177,7 +177,7 @@ export default function AboutPage() {
       {/* 3. Who We Are */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-20">
-          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Who We Are</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Meet Our Founder</h2>
           <Card className="max-w-5xl mx-auto shadow-xl hover:shadow-2xl transition-shadow duration-300 border-0 overflow-hidden">
             <CardContent className="p-8 md:p-12">
               {/* Founder Image & Bio - Moved to Top */}
@@ -207,13 +207,104 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="max-w-3xl mx-auto text-lg text-gray-600 leading-loose space-y-6 text-center md:text-left">
-                <p>
-                  Smart Brains India was founded in 2019 by <strong>Lakkoju Jayalakshmi</strong>, a certified brain training expert and mother who personally witnessed the transformation brain training can bring in a child’s life.
-                </p>
-                <p>
-                  Inspired by her own journey as a parent, she dedicated herself to bringing scientifically proven brain development programs to children across India. Today, Smart Brains India is supported by a passionate team of expert trainers committed to nurturing the next generation of confident learners.
-                </p>
+              <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-start">
+                
+                {/* --- Left Column --- */}
+                <div className="flex flex-col gap-8">
+                  {/* Her Story */}
+                  <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                      <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
+                        <BookOpen className="w-5 h-5" />
+                      </div>
+                      Her Story
+                    </h4>
+                    <div className="text-gray-600 leading-relaxed text-lg space-y-4">
+                      <p>
+                        Jayalakshmi's journey began not as an expert — but as a mother. When she witnessed firsthand how the right brain training approach transformed her own child's confidence and learning ability, she knew she had found her calling.
+                      </p>
+                      <p>
+                        She pursued certification as a brain training expert, studied globally proven methodologies, and in 2019 founded Smart Brains India — bringing scientifically backed programs to children across the country.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Expertise */}
+                  <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                      <div className="p-2 bg-orange-100 rounded-lg text-orange-500">
+                        <Award className="w-5 h-5" />
+                      </div>
+                      Expertise
+                    </h4>
+                    <ul className="space-y-4">
+                      {[
+                        "Certified Brain Training Expert",
+                        "Specialist in Abacus & Mental Arithmetic",
+                        "Memory Techniques & Vedic Mathematics",
+                        "5+ years training children aged 5–15",
+                        "Founder & Head Curriculum Designer"
+                      ].map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+                          <span className="text-gray-700 font-medium text-lg">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* --- Right Column --- */}
+                <div className="flex flex-col gap-8">
+                  {/* Her Philosophy */}
+                  <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                      <div className="p-2 bg-red-100 rounded-lg text-red-500">
+                        <Heart className="w-5 h-5" />
+                      </div>
+                      Her Philosophy
+                    </h4>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      She believes intelligence is not fixed. With the right stimulation during a child's early years, focus, memory, confidence, and speed can all be developed — and she has built every Smart Brains program around that belief.
+                    </p>
+                  </div>
+
+                  {/* Her Impact */}
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border border-blue-100 relative overflow-hidden group">
+                    <div className="absolute right-0 bottom-0 opacity-10 transform translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform duration-500">
+                      <Target className="w-40 h-40 text-blue-600" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3 relative z-10">
+                      <div className="p-2 bg-white rounded-lg text-blue-600 shadow-sm border border-blue-100">
+                        <Target className="w-5 h-5" />
+                      </div>
+                      Her Impact
+                    </h4>
+                    <p className="text-gray-700 leading-relaxed text-lg relative z-10">
+                      Since 2019, she has personally trained hundreds of children, built a certified trainer network across multiple cities, and made Smart Brains India a trusted name in holistic child development.
+                    </p>
+                  </div>
+
+                  {/* Connecting Social Block */}
+                  <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h4 className="text-xl font-bold text-gray-900 mb-4">Connect with Smart Brains</h4>
+                    <p className="text-gray-600 mb-6">
+                      Join our growing community of parents and stay instantly updated with our latest programs and success stories.
+                    </p>
+                    <div className="flex gap-4">
+                      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-3 bg-pink-50 text-pink-600 rounded-full hover:bg-pink-600 hover:text-white transition-colors duration-300 shadow-sm">
+                        <Instagram className="w-6 h-6" />
+                      </a>
+                      <a href="https://www.facebook.com/profile.php?id=61583366865848" target="_blank" rel="noopener noreferrer" className="p-3 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-colors duration-300 shadow-sm">
+                        <Facebook className="w-6 h-6" />
+                      </a>
+                      <a href="tel:+910000000000" className="p-3 bg-green-50 text-green-600 rounded-full hover:bg-green-600 hover:text-white transition-colors duration-300 shadow-sm">
+                        <Phone className="w-6 h-6" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </CardContent>
           </Card>
@@ -406,7 +497,7 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">What Makes Us Different</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6 font-black">What Makes Us Different</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
               We go beyond traditional tutoring to holistic brain development.
             </p>

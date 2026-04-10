@@ -80,7 +80,7 @@ Find line 178 and replace the hero section with:
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href="#training-programs">Explore Programs</Link>
+                <Link href="#training-programs">Explore Our Programs</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="bg-white/10 text-white border-white/30 hover:bg-white/20">
                 <Link href="/contact">Get Information</Link>

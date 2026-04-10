@@ -28,8 +28,8 @@ export function CTASection() {
         <span className="text-sm font-semibold tracking-wide text-white/80 uppercase mb-6 block">
           Getting Started
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 tracking-tight">
-          Ready to Unlock Your Child&apos;s Potential?
+        <h2 className="text-lg sm:text-2xl md:text-4xl font-black mb-6 tracking-tight leading-none uppercase">
+          READY TO UNLOCK YOUR CHILD&apos;S POTENTIAL?
         </h2>
 
         <p className="mt-4 text-lg md:text-xl mb-12 max-w-2xl mx-auto text-blue-50">

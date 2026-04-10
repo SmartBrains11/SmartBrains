@@ -50,8 +50,8 @@ export function ProgramsShowcase() {
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
             Curriculum
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-            Programs to Boost Brain Power
+          <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
+            PROGRAMS TO BOOST BRAIN POWER
           </h2>
           <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Discover Smart Brains India's scientifically proven brain training courses, designed to unlock potential and boost memory, focus, math skills, and creativity for all ages.
