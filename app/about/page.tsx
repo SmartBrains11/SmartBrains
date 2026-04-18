@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Award, Users, Target, Heart, BookOpen, Star, Quote, CheckCircle, Facebook, Instagram, Phone } from 'lucide-react';
+import { Award, Users, Target, Heart, BookOpen, Star, Quote, CheckCircle, Facebook, Instagram, Phone, Eye, Compass, HelpCircle } from 'lucide-react';
 import { MissionCarousel } from '@/components/about/MissionCarousel';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
   title: 'About Smart Brains India | Child Brain Development Institute for Kids',
@@ -102,7 +103,7 @@ const galleryImages = [
   },
   {
     url: '/images/One-on-One.png',
-    title: 'One-on-One',
+    title: 'Every child gets personal attention',
     description: 'Focused guidance for growth'
   },
   {
@@ -120,16 +121,16 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 lg:px-20">
           <div className="text-center max-w-6xl mx-auto">
             <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 animate-fade-in">
-              About Smart Brains India – Child Brain Development Institute
+              Helping Children Think Faster, Focus Better & Grow Confident
             </h1>
             <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay leading-relaxed">
-              Smart Brains India is a premier child brain development institute with over 6 years of experience in empowering children. We have successfully trained over 1000+ students in Hyderabad and Vizianagaram, helping them unlock their full potential through scientific brain training programs.
+              Trusted by 1,000+ families across Hyderabad and Vizianagaram — Smart Brains India uses scientifically proven brain training programs to help children aged 5–15 build sharper memory, stronger focus, and real confidence that lasts.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-8">
-                <Link href="/programs" className="flex items-center space-x-2">
-                  <BookOpen className="h-5 w-5" />
-                  <span>Explore Our Programs</span>
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-8 shadow-lg shadow-blue-200">
+                <Link href="/contact" className="flex items-center space-x-2">
+                  <Phone className="h-5 w-5" />
+                  <span>Book a Free Demo</span>
                 </Link>
               </Button>
               <Button
@@ -148,21 +149,63 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Metric Cards Section */}
+      <section className="relative z-10 -mt-12 px-6 lg:px-20 mb-16">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-white p-6 rounded-2xl shadow-[0_15px_40px_rgba(8,112,184,0.08)] flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 border border-blue-50/50">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-4 group-hover:scale-110 transition-transform">
+                <Users className="w-6 h-6" />
+              </div>
+              <h3 className="text-3xl font-black text-gray-900 mb-1">1,000+</h3>
+              <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Students Trained</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-[0_15px_40px_rgba(8,112,184,0.08)] flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 border border-blue-50/50">
+              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-4">
+                <Award className="w-6 h-6" />
+              </div>
+              <h3 className="text-3xl font-black text-gray-900 mb-1">6+</h3>
+              <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Years Experience</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-[0_15px_40px_rgba(8,112,184,0.08)] flex flex-col items-center text-center transform hover:-translate-y-1 transition-all duration-300 border border-blue-50/50">
+              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-4">
+                <Target className="w-6 h-6" />
+              </div>
+              <h3 className="text-3xl font-black text-gray-900 mb-1">2 Cities</h3>
+              <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px] mb-1">Online Classes</p>
+              <Badge className="bg-green-50 text-green-600 hover:bg-green-50 border-none px-2 py-0.5 text-[8px] font-black uppercase tracking-tighter">Everywhere</Badge>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. Mission & Vision */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-8">Our Mission & Vision</h2>
-              <div className="mb-8 p-8 bg-blue-50 rounded-2xl border-l-4 border-blue-600 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-black text-blue-900 mb-4">Our Mission</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+              <div className="mb-8 p-8 bg-blue-50/50 rounded-3xl border border-blue-100 shadow-sm hover:shadow-md transition-all group overflow-hidden relative">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 bg-blue-600 rounded-2xl text-white">
+                    <Target className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-black text-blue-900">Our Mission</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed relative z-10">
                   Our mission is to make brain development accessible, joyful, and effective for every child. We aim to help children grow academically, emotionally, and confidently through proven brain training methods.
                 </p>
               </div>
-              <div className="p-8 bg-orange-50 rounded-2xl border-l-4 border-orange-600 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-black text-orange-900 mb-4">Our Vision</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+              <div className="p-8 bg-orange-50/50 rounded-3xl border border-orange-100 shadow-sm hover:shadow-md transition-all group overflow-hidden relative">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 bg-orange-600 rounded-2xl text-white">
+                    <Eye className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-black text-orange-900">Our Vision</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed relative z-10">
                   Our vision is to become India’s most trusted child brain development institute, empowering parents and guiding children toward a brighter, more confident future.
                 </p>
               </div>
@@ -208,7 +251,7 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-start">
-                
+
                 {/* --- Left Column --- */}
                 <div className="flex flex-col gap-8">
                   {/* Her Story */}
@@ -519,6 +562,68 @@ export default function AboutPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6 lg:px-20">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-bold uppercase tracking-widest mb-4">
+                <HelpCircle className="w-4 h-4" />
+                Got Questions?
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">Frequently Asked Questions</h2>
+              <p className="text-xl text-gray-600">Everything you need to know about our programs and enrollment</p>
+            </div>
+
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {[
+                {
+                  q: "What age group do you train?",
+                  a: "We work with children aged 5 to 15 years. Our programs are designed to match each child's developmental stage — younger children (5–8) focus on foundational brain stimulation, while older children (9–15) work on advanced memory, speed, and academic performance techniques."
+                },
+                {
+                  q: "How long is one program / batch?",
+                  a: "Most programs run for 3 to 6 months, with one session per week lasting 1 to 1.5 hours. Some intensive workshops (like Midbrain Activation) are completed in a weekend. We'll recommend the right duration based on your child's age and goal."
+                },
+                {
+                  q: "Do you offer online classes?",
+                  a: "Yes! We offer both in-person classes at our centers in Hyderabad and Vizianagaram, and live online sessions for families who cannot attend physically. Online classes follow the same curriculum and trainer quality as in-person batches."
+                },
+                {
+                  q: "How much do the programs cost?",
+                  a: "Program fees vary based on the course and duration. We offer flexible payment options and occasional batch discounts. The best way to get accurate pricing is to book a free demo session — our team will explain all options with no pressure."
+                },
+                {
+                  q: "When will I see results in my child?",
+                  a: "Most parents notice visible improvement in focus, confidence, and memory within 4 to 8 weeks. Academic improvements like better grades and faster mental math typically show up within one school term. Every child progresses at their own pace, and we track progress monthly."
+                },
+                {
+                  q: "How do I enroll my child?",
+                  a: "Simply book a free demo session — no commitment, no fee. Your child attends one trial class, and our trainer will assess their learning style and recommend the best program. You can book by calling us, messaging on WhatsApp, or clicking the button on our website."
+                },
+                {
+                  q: "What programs do you offer?",
+                  a: "We currently offer Abacus & Mental Arithmetic, Midbrain Activation, Photographic Memory, Speed Reading, DMIT (Dermatoglyphics Multiple Intelligence Test), and Vedic Mathematics. Each program targets different brain skills and can be taken individually or combined based on your child's needs."
+                },
+                {
+                  q: "Is there a batch size limit?",
+                  a: "Yes — we intentionally keep batches small (maximum 10 students) so every child receives direct attention from the trainer. We do not run large classroom-style sessions. Quality over quantity is our firm policy."
+                }
+              ].map((faq, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="border rounded-2xl px-6 bg-gray-50/50 hover:bg-white transition-colors">
+                  <AccordionTrigger className="text-left text-lg font-bold text-gray-900 py-6 hover:no-underline">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 text-lg leading-relaxed pb-6">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>

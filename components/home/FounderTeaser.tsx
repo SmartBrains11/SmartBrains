@@ -21,7 +21,7 @@ export const FounderTeaser = () => {
                 {/* Decorative frames */}
                 <div className="absolute -inset-4 border-2 border-blue-100 rounded-[2.5rem] transform rotate-3" />
                 <div className="absolute -inset-4 border-2 border-orange-100 rounded-[2.5rem] transform -rotate-3" />
-                
+
                 <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
                   <Image
                     src="/images/Jaya-lakshmi.png"
@@ -34,14 +34,14 @@ export const FounderTeaser = () => {
 
                 {/* Badge/Overlay */}
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl max-w-[200px] border border-gray-100 animate-bounce-subtle">
-                   <div className="flex items-center gap-2 mb-2">
-                     {[1, 2, 3, 4, 5].map((s) => (
-                       <svg key={s} className="w-4 h-4 text-orange-400 fill-current" viewBox="0 0 20 20">
-                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                       </svg>
-                     ))}
-                   </div>
-                   <p className="text-xs font-bold text-gray-900 uppercase tracking-wider">Trusted by 1000+ Parents</p>
+                  <div className="flex items-center gap-2 mb-2">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <svg key={s} className="w-4 h-4 text-orange-400 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-xs font-bold text-gray-900 uppercase tracking-wider">Trusted by 1000+ Parents</p>
                 </div>
               </div>
             </div>
@@ -55,14 +55,14 @@ export const FounderTeaser = () => {
                 </span>
                 The Heart Behind Smart Brains India
               </div>
-              
+
               <h2 className="text-lg sm:text-2xl md:text-4xl font-black text-slate-900 mb-2 tracking-tight leading-none uppercase">
                 LAKKOJU JAYALAKSHMI
               </h2>
               <p className="text-xl text-blue-600 font-bold mb-8">
                 Founder & Certified Brain Training Expert
               </p>
-              
+
               <div className="relative mb-10">
                 <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
                   A mother turned mission-maker. Jayalakshmi founded Smart Brains India in 2019 after personally witnessing the life-changing power of brain training in her own child's journey. With deep expertise, a mother's heart, and a scientist's curiosity, she has dedicated her life to unlocking the hidden genius in every child she meets.
@@ -70,27 +70,27 @@ export const FounderTeaser = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
-                <Link 
-                  href="/about" 
+                <Link
+                  href="/about"
                   className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-200 transition-all font-bold group"
                 >
                   Read More
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                
+
                 <div className="flex -space-x-4">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="w-12 h-12 rounded-full border-2 border-white bg-gray-100 overflow-hidden relative">
-                       <Image 
-                         src={`/images/about${i}.webp`} 
-                         alt="Student" 
-                         fill
-                         className="object-cover"
-                         onError={(e) => {
-                           // Fallback if image doesn't exist
-                           (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${i}`;
-                         }}
-                       />
+                      <Image
+                        src={`/images/about${i}.webp`}
+                        alt="Student"
+                        fill
+                        className="object-cover"
+                        onError={(e) => {
+                          // Fallback if image doesn't exist
+                          (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${i}`;
+                        }}
+                      />
                     </div>
                   ))}
                   <div className="w-12 h-12 rounded-full border-2 border-white bg-blue-50 flex items-center justify-center text-blue-600 text-xs font-bold relative">

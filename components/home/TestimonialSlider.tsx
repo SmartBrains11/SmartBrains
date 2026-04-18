@@ -142,7 +142,7 @@ export function TestimonialSlider() {
                         <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                       ))}
                     </div>
-                    
+
                     <p className="text-xl md:text-2xl lg:text-3xl text-slate-800 font-medium leading-relaxed italic mb-8">
                       "{testimonials[currentIndex].content}"
                     </p>

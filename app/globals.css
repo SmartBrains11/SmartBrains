@@ -161,3 +161,8 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Hide scrollbar for horizontal carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

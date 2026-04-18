@@ -34,18 +34,10 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       {/* Announcement Bar */}
-      <div className="bg-slate-900 text-white py-2 px-4 border-b border-white/5">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-2 px-4 border-b border-blue-950/40">
         <div className="container mx-auto">
-          <p className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-3">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-            </span>
+          <p className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center">
             Summer offer started! Limited seats per batch
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-            </span>
           </p>
         </div>
       </div>

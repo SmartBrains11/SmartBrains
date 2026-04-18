@@ -13,62 +13,24 @@ interface ReelCardProps {
   onPlay: () => void;
 }
 
-function ReelCard({ title, postId, thumbnail, isPlaying, onPlay }: ReelCardProps) {
+function ReelCard({ title, postId }: ReelCardProps) {
   return (
-    <div
-      className="relative w-full rounded-2xl overflow-hidden bg-slate-50 shadow-xl group cursor-pointer border border-slate-100"
-      style={{ aspectRatio: '9/16' }}
-      onClick={onPlay}
-    >
-      {!isPlaying ? (
-        <>
-          <Image
-            src={thumbnail}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-          />
-          {/* Modern Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:from-black/90" />
-
-          {/* Subtle Play Icon (Modern) */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileHover={{ scale: 1, opacity: 1 }}
-              className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-2xl"
-            >
-              <Play className="w-6 h-6 text-white fill-white translate-x-0.5" />
-            </motion.div>
-          </div>
-
-          {/* Top Badge */}
-          <div className="absolute top-3 right-3">
-            <div className="p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/10">
-              <Instagram className="w-4 h-4 text-white" />
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="absolute inset-0 overflow-hidden bg-slate-50">
-          <iframe
-            src={`https://www.instagram.com/reel/${postId}/embed/?hidecaption=true&autoplay=1`}
-            className="absolute border-0"
-            style={{
-              width: '100%',
-              height: '130%', // More aggressive crop to hide UI
-              top: '-15%',    // Shift more to hide header/footer
-              left: 0,
-            }}
-            allowFullScreen
-            allow="autoplay; fullscreen; encrypted-media"
-            sandbox="allow-scripts allow-same-origin allow-presentation"
-            scrolling="no"
-            title={title}
-          />
-        </div>
-      )}
+    <div className="relative w-full overflow-hidden rounded-2xl shadow-xl h-[380px] bg-slate-900 border border-slate-100">
+      <iframe
+        src={`https://www.instagram.com/reel/${postId}/embed/?hidecaption=true`}
+        className="absolute border-0"
+        style={{
+          width: '130%',
+          height: 'calc(100% + 500px)',
+          top: '-60px',
+          left: '-15%',
+        }}
+        allowFullScreen
+        allow="encrypted-media"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
+        scrolling="no"
+        title={title}
+      />
     </div>
   );
 }

@@ -61,14 +61,14 @@ export function ProgramsShowcase() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 xl:gap-8 mb-16">
           {featuredPrograms.map((program) => {
             const Icon = program.icon;
-            
+
             const colorTokens = {
               blue: { bg: 'bg-blue-50', text: 'text-blue-600', hoverBg: 'group-hover:bg-blue-100', hoverText: 'group-hover:text-blue-950' },
               purple: { bg: 'bg-purple-50', text: 'text-purple-600', hoverBg: 'group-hover:bg-purple-100', hoverText: 'group-hover:text-purple-950' },
               green: { bg: 'bg-emerald-50', text: 'text-emerald-600', hoverBg: 'group-hover:bg-emerald-100', hoverText: 'group-hover:text-emerald-950' },
               orange: { bg: 'bg-orange-50', text: 'text-orange-600', hoverBg: 'group-hover:bg-orange-100', hoverText: 'group-hover:text-orange-950' }
             } as const;
-            
+
             const tokens = colorTokens[program.color as keyof typeof colorTokens];
 
             return (
@@ -90,7 +90,7 @@ export function ProgramsShowcase() {
                     {program.description}
                   </p>
                 </div>
-                
+
                 <div className="p-8 pt-6 mt-auto">
                   <Button
                     asChild

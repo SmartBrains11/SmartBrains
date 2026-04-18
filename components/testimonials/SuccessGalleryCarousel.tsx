@@ -22,7 +22,7 @@ const galleryImages = [
     {
         id: 'gallery-3',
         src: 'https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=800',
-        alt: 'One-on-one mentoring',
+        alt: 'Every child gets personal attention mentoring',
         title: 'Personal Mentoring'
     },
     {

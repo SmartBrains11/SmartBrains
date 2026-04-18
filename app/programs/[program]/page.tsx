@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProgramDetailsView, ProgramData } from './_components/ProgramDetailsView';
+import MidbrainActivationPage from './_components/MidbrainActivationPage';
 
 // Valid program slugs - now 11 programs
 const validSlugs = [
@@ -618,6 +619,10 @@ export default function ProgramPage({ params }: { params: { program: string } })
   };
 
   const relatedPrograms = relatedProgramsMap[params.program] || [];
+
+  if (params.program === 'midbrain-activation') {
+    return <MidbrainActivationPage />;
+  }
 
   return <ProgramDetailsView programData={programData} relatedPrograms={relatedPrograms} />;
 }
