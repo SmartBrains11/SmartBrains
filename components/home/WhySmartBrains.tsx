@@ -89,7 +89,7 @@ export function WhySmartBrains() {
             The Smart Brains Edge
           </span>
           <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
-            WHY CHOOSE SMART BRAINS?
+            WHY CHOOSE Smart Brains?
           </h2>
           <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             We don't just teach; we transform. Our holistic approach combines scientific research

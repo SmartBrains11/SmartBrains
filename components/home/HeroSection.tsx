@@ -23,7 +23,7 @@ const slides: Slide[] = [
     badge: 'Hyderabad & Vizianagaram · Online & Offline',
     title: 'Brain Training Academy for Kids Aged 5–16',
     subtitle: 'SmartBrains India builds memory power, sharp concentration and natural intuition in children — through structured, expert-led programs your child will actually enjoy.',
-    img: '/images/hero1.1.png',
+    img: '/images/hero1.1.webp',
     cta: { text: 'Book a Free Demo', href: '/contact' },
     cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
@@ -33,7 +33,7 @@ const slides: Slide[] = [
     badge: 'Abacus · Vedic Maths · Midbrain Activation · Speed Reading',
     title: 'Programs That Build Sharper, Smarter Minds',
     subtitle: 'Every course strengthens memory retention, improves concentration and awakens intuitive thinking in children aged 5 to 16.',
-    img: '/images/banner-3.png',
+    img: '/images/banner-3.webp',
     cta: { text: 'Explore Our Programs', href: '/programs' },
     cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 38%',
@@ -43,7 +43,7 @@ const slides: Slide[] = [
     badge: "The Skills Schools Don't Teach",
     title: 'Better Memory. Deeper Focus. Stronger Intuition.',
     subtitle: 'Academic pressure starts early and schools rarely teach children how to think. SmartBrains gives kids the mental tools to absorb faster, recall better and build natural intuition before the pressure peaks.',
-    img: '/images/hero-4.png',
+    img: '/images/hero-4.webp',
     cta: { text: 'See How It Works', href: '/programs#courses' },
     cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 34%',
@@ -53,7 +53,7 @@ const slides: Slide[] = [
     badge: 'Flexible · Online & Offline · Hyderabad & Vizianagaram',
     title: 'Learn at Our Centre or From Home',
     subtitle: 'Join live sessions at our Hyderabad or Vizianagaram centres or attend online from home. Same certified trainers, same proven methods and weekly progress reports shared directly with parents.',
-    img: '/images/hero2.jpg',
+    img: '/images/hero2.webp',
     cta: { text: 'Choose Your Mode', href: '/programs' },
     cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
@@ -63,7 +63,7 @@ const slides: Slide[] = [
     badge: '1,000+ Students · 10+ Trainers · 96% Success Rate',
     title: 'Certified Trainers. Real Results. Proud Parents.',
     subtitle: 'Our certified coaches use proven methods to build memory power, concentration and confidence in kids aged 5 to 16 — with progress parents can see every week.',
-    img: '/images/hero-5.png',
+    img: '/images/hero-5.webp',
     cta: { text: 'Book a Free Demo', href: '/contact' },
     cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
@@ -89,15 +89,9 @@ export default function HeroSection() {
     window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Preload images and mark loaded
-  useEffect(() => {
-    slides.forEach((s) => {
-      const img = new window.Image();
-      img.src = s.img;
-      img.onload = () => setLoaded((p) => ({ ...p, [s.id]: true }));
-      img.onerror = () => setLoaded((p) => ({ ...p, [s.id]: true }));
-    });
-  }, []);
+  // We rely on Next.js Image component for preloading and priority
+  // The manual preloading is removed to avoid bandwidth competition during initial load
+
 
   // autoplay
   useEffect(() => {
@@ -161,23 +155,32 @@ export default function HeroSection() {
           {slides.map((slide, i) => {
             const isCurrent = i === index;
             const isPrev = prevIndex === i;
-            if (!isCurrent && !isPrev) return null;
+            const isNext = (index + 1) % slides.length === i;
 
+            // Always render current and previous for transitions. 
+            // Also render next slide to trigger pre-fetching.
+            if (!isCurrent && !isPrev && !isNext) return null;
+
+            // Priority for the first image and current visible one
+            const isPriority = i === 0 && index === 0;
+            
+            // Allow immediate showing of slide 0 to avoid LCP delay
             const isLoaded = !!loaded[slide.id];
-            const showCurrent = isCurrent && isLoaded;
-
-            const isPriority = i === 0;
-            const loadingProp = isPriority ? undefined : isCurrent ? 'eager' as const : 'lazy' as const;
+            const showCurrent = isCurrent && (isLoaded || isPriority);
 
             const imageProps = {
               src: slide.img,
               alt: slide.title,
               fill: true,
               sizes: '100vw',
-              style: { objectFit: 'cover', objectPosition: slide.objectPosition || '50% 36%' },
+              style: { 
+                objectFit: 'cover', 
+                objectPosition: slide.objectPosition || '50% 36%',
+              },
               onLoadingComplete: () => setLoaded((p: Record<number, boolean>) => ({ ...p, [slide.id]: true })),
-              priority: isPriority ? true : undefined,
-              ...(loadingProp ? { loading: loadingProp } : {}),
+              priority: isPriority,
+              // If not priority, use eager for current/next to start loading immediately
+              loading: (!isPriority && (isCurrent || isNext)) ? 'eager' as const : undefined,
             };
 
             const initial = isPrev ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.05 };
@@ -190,6 +193,7 @@ export default function HeroSection() {
                 animate={animate}
                 transition={{ duration: crossfadeDuration, ease: "easeInOut" }}
                 className="absolute inset-0"
+                style={{ zIndex: isCurrent ? 1 : 0 }}
                 onAnimationComplete={() => {
                   if (isPrev && !showCurrent) {
                     setPrevIndex((p) => (p === i ? null : p));
@@ -208,6 +212,7 @@ export default function HeroSection() {
             );
           })}
         </div>
+
 
         {/* CONTENT */}
         <div className="absolute inset-0 z-10 flex items-center">

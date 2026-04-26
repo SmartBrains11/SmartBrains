@@ -34,7 +34,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       {/* Announcement Bar */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-2 px-4 border-b border-blue-950/40">
+      <div className="bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-white py-2 px-4 border-b border-white/10">
         <div className="container mx-auto">
           <p className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center">
             Summer offer started! Limited seats per batch
@@ -51,7 +51,7 @@ export function Header() {
               height={60}
               className="h-12 w-auto object-contain"
             />
-            <span className="font-black text-xl text-gray-900">Smart Brains</span>
+            <span className="font-black text-xl text-gray-900 tracking-tight">Smart Brains India</span>
           </Link>
 
           {/* Desktop Navigation */}

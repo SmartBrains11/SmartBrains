@@ -1,6 +1,7 @@
 'use client';
 
-import Link from 'next/link'; // <--- FIX: Import the Link component
+import Image from 'next/image';
+import Link from 'next/link'; 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -17,7 +18,8 @@ const programs = [
     ages: '5-15 years',
     duration: '2 days workshop + 6 Follow ups',
     benefits: ['Enhanced intuition', 'Better concentration', 'Improved creativity'],
-    href: '/programs/midbrain-activation'
+    href: '/programs/midbrain-activation',
+    image: '/images/midbrain-activation.webp'
   },
   {
     id: 'photographic-memory',
@@ -29,7 +31,8 @@ const programs = [
     ages: '6+ years',
     duration: '20 sessions',
     benefits: ['Perfect recall', 'Better academic performance', 'Increased confidence'],
-    href: '/programs/photographic-memory'
+    href: '/programs/photographic-memory',
+    image: '/images/photograhic-memory.webp'
   },
   {
     id: 'enhancement',
@@ -41,7 +44,8 @@ const programs = [
     ages: '5-16 years',
     duration: '2 days workshop + 6 Follow up sessions',
     benefits: ['Improved focus', 'Better problem solving', 'Enhanced learning'],
-    href: '/programs/enhancement'
+    href: '/programs/enhancement',
+    image: '/images/enhancment.webp'
   },
   {
     id: 'quantum-speed-reading',
@@ -53,7 +57,8 @@ const programs = [
     ages: '8+ years',
     duration: '15 sessions',
     benefits: ['Ultra-fast reading', 'Complete comprehension', 'Information processing'],
-    href: '/programs/quantum-speed-reading'
+    href: '/programs/quantum-speed-reading',
+    image: '/images/quantumspeed-reading.webp'
   },
   {
     id: 'dmit',
@@ -65,7 +70,8 @@ const programs = [
     ages: 'All ages',
     duration: '1 session + consultation',
     benefits: ['Identify learning style', 'Career guidance', 'Personality insights'],
-    href: '/programs/dmit'
+    href: '/programs/dmit',
+    image: '/images/DMIT.webp'
   },
   {
     id: 'midbrain-adults',
@@ -77,7 +83,8 @@ const programs = [
     ages: '18+ years',
     duration: '3 days workshop + 6 Follow up',
     benefits: ['Enhanced intuition', 'Better decision making', 'Stress reduction'],
-    href: '/programs/midbrain-adults'
+    href: '/programs/midbrain-adults',
+    image: '/images/midbrain-adult.webp'
   },
   {
     id: 'abacus-math',
@@ -89,7 +96,8 @@ const programs = [
     ages: '4-14 years',
     duration: '8 levels program',
     benefits: ['Mental calculation', 'Number sense', 'Mathematical confidence'],
-    href: '/programs/abacus-math'
+    href: '/programs/abacus-math',
+    image: '/images/abacus.webp'
   },
   {
     id: 'vedic-math',
@@ -101,7 +109,8 @@ const programs = [
     ages: '8+ years',
     duration: '12 sessions',
     benefits: ['Faster calculations', 'Mathematical tricks', 'Improved accuracy'],
-    href: '/programs/vedic-math'
+    href: '/programs/vedic-math',
+    image: '/images/vedic-maths.webp'
   },
   {
     id: 'speed-reading',
@@ -113,7 +122,8 @@ const programs = [
     ages: '8+ years',
     duration: '10 sessions',
     benefits: ['Faster reading', 'Better comprehension', 'Time efficiency'],
-    href: '/programs/speed-reading'
+    href: '/programs/speed-reading',
+    image: '/images/speed-reading.webp'
   },
   {
     id: 'drawing-skills',
@@ -125,7 +135,8 @@ const programs = [
     ages: '4+ years',
     duration: '20 sessions',
     benefits: ['Artistic skills', 'Motor development', 'Creative expression'],
-    href: '/programs/drawing-skills'
+    href: '/programs/drawing-skills',
+    image: '/images/drawing.webp'
   },
   {
     id: 'handwriting',
@@ -137,9 +148,11 @@ const programs = [
     ages: '5+ years',
     duration: '15 sessions',
     benefits: ['Neat handwriting', 'Improved speed', 'Better grades'],
-    href: '/programs/handwriting'
+    href: '/programs/handwriting',
+    image: '/images/handwriting.webp'
   }
 ];
+
 
 const colorClasses = {
   blue: 'text-blue-600 bg-blue-50 border-blue-200',
@@ -159,22 +172,25 @@ export default function ProgramsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-16">
-        <div className="container mx-auto px-6 lg:px-20">
-            <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 animate-fade-in">
-              Our Brain Training Programs
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 animate-fade-in-delay">
-              Discover our comprehensive range of scientifically designed programs
-              that cater to different age groups and learning objectives. Each program
-              is crafted to unlock specific cognitive abilities and enhance overall brain function.
-            </p>
-            <div className="flex justify-center">
-              <Badge variant="secondary" className="text-sm animate-fade-in-delay-2">
-                11 Specialized Programs Available
-              </Badge>
-            </div>
+      <section className="bg-gradient-to-br from-blue-100 via-white to-orange-100 py-20">
+        <div className="container mx-auto px-6 lg:px-20 text-center">
+          <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 animate-fade-in tracking-tight">
+            Our Brain Training Programs
+          </h1>
+          <p className="text-xl text-gray-600 mb-10 animate-fade-in-delay max-w-3xl mx-auto leading-relaxed">
+            Discover our comprehensive range of scientifically designed programs
+            that cater to different age groups and learning objectives. Each program
+            is crafted to unlock specific cognitive abilities and enhance overall brain function.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-delay-2">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-7 rounded-full text-lg shadow-xl hover:shadow-blue-200 transition-all">
+              <Link href="/contact">Book Free Consultation</Link>
+            </Button>
+            <Badge variant="secondary" className="text-sm px-4 py-2 rounded-full border-gray-200 uppercase tracking-widest font-bold">
+              11 Specialized Programs Available
+            </Badge>
           </div>
+        </div>
       </section>
 
       {/* Programs Grid */}
@@ -188,11 +204,22 @@ export default function ProgramsPage() {
               return (
                 <Card
                   key={program.id}
-                  className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-blue-200 transform hover:-translate-y-3 animate-slide-in-up"
+                  className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-blue-200 transform hover:-translate-y-3 animate-slide-in-up overflow-hidden bg-white rounded-3xl h-full flex flex-col"
                   style={{ animationDelay: `${programs.indexOf(program) * 100}ms` }}
                 >
-                  <CardHeader className="text-center pb-4">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${colorClass} mb-4 mx-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                  {/* Image Section */}
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={program.image}
+                      alt={program.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+
+                  <CardHeader className="text-center pb-4 pt-10 relative">
+                    <div className={`absolute -top-8 left-1/2 -translate-x-1/2 inline-flex items-center justify-center w-16 h-16 rounded-full ${colorClass} mb-4 mx-auto transition-transform duration-300 group-hover:scale-110 shadow-lg border-4 border-white`}>
                       <Icon className="h-8 w-8 transition-transform duration-300 group-hover:scale-110" />
                     </div>
                     <CardTitle className="text-xl mb-2 group-hover:text-blue-600 transition-colors duration-300">
@@ -203,7 +230,7 @@ export default function ProgramsPage() {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="pt-0 flex flex-col h-[calc(100%-150px)]">
+                  <CardContent className="pt-0 flex flex-col flex-1">
                     <p className="text-gray-600 mb-4 text-center leading-relaxed">
                       {program.description}
                     </p>
@@ -235,16 +262,19 @@ export default function ProgramsPage() {
                       </ul>
                     </div>
 
-                    <div className="mt-auto">
-                      <Button asChild className="w-full group-hover:bg-blue-700 transition-all duration-300 transform group-hover:scale-105">
-                        {/* FIX: Uncommented the Link and added text */}
-                        <Link href={program.href}>Learn More</Link>
+                    <div className="mt-auto pt-6 border-t border-gray-50">
+                      <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg hover:shadow-blue-200">
+                        <Link href={program.href} className="flex items-center justify-center gap-2">
+                          View Program Details
+                          <span className="text-xl">→</span>
+                        </Link>
                       </Button>
                     </div>
                   </CardContent>
                 </Card>
               );
             })}
+
           </div>
         </div>
       </section>
@@ -256,7 +286,7 @@ export default function ProgramsPage() {
             Not Sure Which Program is Right for Your Child?
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Our experts can help you choose the perfect program based on your child's
+            Our experts can help you choose the perfect program based on your child&apos;s
             age, interests, and learning goals. Book a free consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

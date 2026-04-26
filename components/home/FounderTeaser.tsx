@@ -24,7 +24,7 @@ export const FounderTeaser = () => {
 
                 <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
                   <Image
-                    src="/images/Jaya-lakshmi.png"
+                    src="/images/Jaya-lakshmi.webp"
                     alt="Lakkoju Jayalakshmi - Founder of Smart Brains India"
                     fill
                     className="object-cover"
