@@ -4,7 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, ArrowRight, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 type Slide = {
   id: number;
@@ -25,357 +26,193 @@ const slides: Slide[] = [
     subtitle: 'SmartBrains India builds memory power, sharp concentration and natural intuition in children — through structured, expert-led programs your child will actually enjoy.',
     img: '/images/hero1.1.webp',
     cta: { text: 'Book a Free Demo', href: '/contact' },
-    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
+    cta2: { text: 'Call Support', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
   },
   {
     id: 2,
-    badge: 'Abacus · Vedic Maths · Midbrain Activation · Speed Reading',
+    badge: 'Abacus · Vedic Maths · Midbrain Activation',
     title: 'Programs That Build Sharper, Smarter Minds',
     subtitle: 'Every course strengthens memory retention, improves concentration and awakens intuitive thinking in children aged 5 to 16.',
     img: '/images/banner-3.webp',
-    cta: { text: 'Explore Our Programs', href: '/programs' },
-    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
+    cta: { text: 'Explore Programs', href: '/programs' },
+    cta2: { text: 'Call Support', href: 'tel:7396447470' },
     objectPosition: '50% 38%',
   },
   {
     id: 3,
     badge: "The Skills Schools Don't Teach",
     title: 'Better Memory. Deeper Focus. Stronger Intuition.',
-    subtitle: 'Academic pressure starts early and schools rarely teach children how to think. SmartBrains gives kids the mental tools to absorb faster, recall better and build natural intuition before the pressure peaks.',
+    subtitle: 'SmartBrains gives kids the mental tools to absorb faster, recall better and build natural intuition before the pressure peaks.',
     img: '/images/hero-4.webp',
-    cta: { text: 'See How It Works', href: '/programs#courses' },
-    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
+    cta: { text: 'See How It Works', href: '/programs' },
+    cta2: { text: 'Call Support', href: 'tel:7396447470' },
     objectPosition: '50% 34%',
   },
   {
     id: 4,
-    badge: 'Flexible · Online & Offline · Hyderabad & Vizianagaram',
+    badge: 'Flexible · Online & Offline · Centres',
     title: 'Learn at Our Centre or From Home',
-    subtitle: 'Join live sessions at our Hyderabad or Vizianagaram centres or attend online from home. Same certified trainers, same proven methods and weekly progress reports shared directly with parents.',
+    subtitle: 'Join live sessions at our centres or attend online from home. Same certified trainers, same proven methods and weekly progress reports.',
     img: '/images/hero2.webp',
     cta: { text: 'Choose Your Mode', href: '/programs' },
-    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
+    cta2: { text: 'Call Support', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
   },
   {
     id: 5,
-    badge: '1,000+ Students · 10+ Trainers · 96% Success Rate',
+    badge: '1,000+ Students · Certified Trainers',
     title: 'Certified Trainers. Real Results. Proud Parents.',
-    subtitle: 'Our certified coaches use proven methods to build memory power, concentration and confidence in kids aged 5 to 16 — with progress parents can see every week.',
+    subtitle: 'Our certified coaches use proven methods to build memory power, concentration and confidence in kids — with progress parents can see every week.',
     img: '/images/hero-5.webp',
     cta: { text: 'Book a Free Demo', href: '/contact' },
-    cta2: { text: 'Call 7396447470', href: 'tel:7396447470' },
+    cta2: { text: 'Call Support', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
   },
 ];
 
-
 export default function HeroSection() {
   const [index, setIndex] = useState(0);
-  const [prevIndex, setPrevIndex] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
-  const [loaded, setLoaded] = useState<Record<number, boolean>>({});
-
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Stats
-  const studentsCount = 1000;
-  const trainersCount = 120; // Updated from slide 3 meta: 10+ Certified Coaches
-  const successRate = 96;
-
-  const prefersReducedMotion =
-    typeof window !== 'undefined' &&
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // We rely on Next.js Image component for preloading and priority
-  // The manual preloading is removed to avoid bandwidth competition during initial load
-
-
-  // autoplay
   useEffect(() => {
-    if (prefersReducedMotion) return;
-
     if (!isPaused) {
       autoplayRef.current = setInterval(() => {
-        setIndex((prevIndex) => {
-          const newIndex = (prevIndex + 1) % slides.length;
-          setPrevIndex(prevIndex);
-          return newIndex;
-        });
+        setIndex((prev) => (prev + 1) % slides.length);
       }, 5000);
-    } else {
-      if (autoplayRef.current) {
-        clearInterval(autoplayRef.current);
-        autoplayRef.current = null;
-      }
+    } else if (autoplayRef.current) {
+      clearInterval(autoplayRef.current);
     }
-
     return () => {
-      if (autoplayRef.current) {
-        clearInterval(autoplayRef.current);
-        autoplayRef.current = null;
-      }
+      if (autoplayRef.current) clearInterval(autoplayRef.current);
     };
-  }, [isPaused, prefersReducedMotion]);
+  }, [isPaused]);
 
-  const goTo = (i: number) => {
-    if (i === index) return;
-    setPrevIndex(index);
-    setIndex(i);
-  };
-  const prev = () => {
-    setPrevIndex(index);
-    setIndex((i) => (i - 1 + slides.length) % slides.length);
-  };
-  const next = () => {
-    setPrevIndex(index);
-    setIndex((i) => (i + 1) % slides.length);
-  };
-
-  // animation timing
-  const crossfadeDuration = 0.8; // slower for a smoother feel
-
-  // content animation variants
-  const contentVariants = {
-    hidden: { opacity: 0, y: 12 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.42 } },
-  };
+  const next = () => setIndex((i) => (i + 1) % slides.length);
+  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
 
   return (
-    <header
-      className="relative w-full overflow-hidden bg-black"
+    <section 
+      className="relative w-full h-[500px] md:h-[550px] lg:h-[620px] overflow-hidden bg-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="relative w-full h-[95vh] min-h-[600px] md:h-[90vh]">
-        {/* IMAGE LAYER */}
-        <div className="absolute inset-0 z-0">
-          {slides.map((slide, i) => {
-            const isCurrent = i === index;
-            const isPrev = prevIndex === i;
-            const isNext = (index + 1) % slides.length === i;
-
-            // Always render current and previous for transitions. 
-            // Also render next slide to trigger pre-fetching.
-            if (!isCurrent && !isPrev && !isNext) return null;
-
-            // Priority for the first image and current visible one
-            const isPriority = i === 0 && index === 0;
-            
-            // Allow immediate showing of slide 0 to avoid LCP delay
-            const isLoaded = !!loaded[slide.id];
-            const showCurrent = isCurrent && (isLoaded || isPriority);
-
-            const imageProps = {
-              src: slide.img,
-              alt: slide.title,
-              fill: true,
-              sizes: '100vw',
-              style: { 
-                objectFit: 'cover', 
-                objectPosition: slide.objectPosition || '50% 36%',
-              },
-              onLoadingComplete: () => setLoaded((p: Record<number, boolean>) => ({ ...p, [slide.id]: true })),
-              priority: isPriority,
-              // If not priority, use eager for current/next to start loading immediately
-              loading: (!isPriority && (isCurrent || isNext)) ? 'eager' as const : undefined,
-            };
-
-            const initial = isPrev ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.05 };
-            const animate = showCurrent ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.02 };
-
-            return (
-              <motion.div
-                key={slide.id}
-                initial={initial}
-                animate={animate}
-                transition={{ duration: crossfadeDuration, ease: "easeInOut" }}
-                className="absolute inset-0"
-                style={{ zIndex: isCurrent ? 1 : 0 }}
-                onAnimationComplete={() => {
-                  if (isPrev && !showCurrent) {
-                    setPrevIndex((p) => (p === i ? null : p));
-                  }
-                }}
-              >
-                {/* @ts-ignore */}
-                <Image {...(imageProps as any)} />
-                {/* Lighter Gradient Overlay for Better Visibility */}
-                <div className="absolute inset-0 bg-black/10" />
-                <div className="absolute inset-0" style={{
-                  background: 'linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)'
-                }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70" />
-              </motion.div>
-            );
-          })}
-        </div>
-
-
-        {/* CONTENT */}
-        <div className="absolute inset-0 z-10 flex items-center">
-          <div className="container mx-auto px-12 md:px-20 lg:px-24 pt-12">
-            <AnimatePresence initial={false} mode="wait">
-              <motion.div
-                key={slides[index].id + '-' + index}
-                initial="hidden"
-                animate="show"
-                exit="hidden"
-                variants={contentVariants}
-                className="max-w-4xl text-white md:mt-0"
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-6"
-                >
-                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                  <span className="text-xs font-semibold tracking-wide text-white uppercase">
-                    {slides[index].badge}
-                  </span>
-                </motion.div>
-
-                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-black leading-tight tracking-tight text-white drop-shadow-md">
-                  <motion.span
-                    key={slides[index].title}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="block whitespace-nowrap"
-                  >
-                    {slides[index].title}
-                  </motion.span>
-                </h1>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  className="mt-5 text-base sm:text-lg md:text-xl text-gray-100 font-normal max-w-2xl leading-relaxed drop-shadow-sm"
-                >
-                  {slides[index].subtitle}
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                  className="mt-8 flex flex-col sm:flex-row gap-4 items-start"
-                >
-                  <Link
-                    href={slides[index].cta.href}
-                    aria-label={slides[index].cta.text}
-                    className="flex items-center justify-center px-7 py-3.5 rounded-full bg-white text-black font-semibold text-base hover:bg-gray-100 transition-all active:scale-95 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                  >
-                    {slides[index].cta.text}
-                  </Link>
-
-                  <a
-                    href={slides[index].cta2?.href || "tel:7396447470"}
-                    className="flex items-center justify-center px-7 py-3.5 rounded-full bg-transparent text-white font-semibold text-base border border-white/40 hover:bg-white/10 backdrop-blur-sm transition-all active:scale-95"
-                  >
-                    {slides[index].cta2?.text || "Call 7396447470"}
-                  </a>
-                </motion.div>
-
-                {/* PREMIUM STATS ROW */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 0.7 }}
-                  className="mt-10 md:mt-12 inline-flex flex-wrap gap-8 sm:gap-14 border-t border-white/30 pt-6 pb-12 pr-6 md:pr-12"
-                >
-                  <div>
-                    <div className="text-2xl md:text-3xl font-black text-white mb-1 drop-shadow-md">
-                      {studentsCount.toLocaleString()}+
-                    </div>
-                    <div className="text-xs font-semibold text-gray-200 uppercase tracking-widest">
-                      Students Trained
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="text-2xl md:text-3xl font-black text-white mb-1 drop-shadow-md">
-                      {trainersCount}+
-                    </div>
-                    <div className="text-xs font-semibold text-gray-200 uppercase tracking-widest">
-                      Certified Trainers
-                    </div>
-                  </div>
-
-                  <div className="hidden sm:block">
-                    <div className="text-2xl md:text-3xl font-black text-white mb-1 drop-shadow-md">
-                      {successRate}%
-                    </div>
-                    <div className="text-xs font-semibold text-gray-200 uppercase tracking-widest">
-                      Success Rate
-                    </div>
-                  </div>
-
-                  <div className="hidden lg:block">
-                    <div className="text-2xl md:text-3xl font-black text-white mb-1 drop-shadow-md">
-                      Online & Offline
-                    </div>
-                    <div className="text-xs font-semibold text-gray-200 uppercase tracking-widest">
-                      Learning Modes
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-
-        {/* LEFT NAV BUTTON */}
-        <div className="absolute left-2 md:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20">
-          <button
-            onClick={prev}
-            aria-label="Previous slide"
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md flex items-center justify-center hover:bg-white/30 transition-all"
+      {/* BACKGROUND IMAGE SLIDER */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0"
           >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-        </div>
+            <Image
+              src={slides[index].img}
+              alt={slides[index].title}
+              fill
+              priority
+              className="object-cover"
+              style={{ objectPosition: slides[index].objectPosition || '50% 36%' }}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
-        {/* RIGHT NAV BUTTON */}
-        <div className="absolute right-2 md:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20">
-          <button
-            onClick={next}
-            aria-label="Next slide"
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md flex items-center justify-center hover:bg-white/30 transition-all"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
-
-        {/* INDICATORS */}
-        <div className="absolute left-0 right-0 bottom-6 md:bottom-8 z-20 flex justify-center pointer-events-auto">
-          <div className="flex flex-col md:flex-row items-center gap-4 bg-black/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10">
-            <div className="flex items-center gap-3">
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goTo(i)}
-                  aria-label={`Go to slide ${i + 1}`}
-                  className={`transition-all rounded-full ${i === index ? 'w-8 h-2 bg-white' : 'w-2 h-2 bg-white/40 hover:bg-white/60'
-                    }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={() => setIsPaused((p) => !p)}
-              aria-label={isPaused ? 'Resume autoplay' : 'Pause autoplay'}
-              className="px-3 py-1 rounded-full bg-white/10 text-white hover:bg-white/20 text-xs font-semibold uppercase tracking-wider transition-colors"
+      {/* REFINED GRADIENT OVERLAY (Subtle white opacity) */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-white/90 via-white/60 to-transparent md:w-[75%] lg:w-[65%]" />
+      
+      {/* CONTENT AREA */}
+      <div className="relative z-20 h-full container mx-auto px-6 lg:px-16 flex items-center">
+        <div className="max-w-2xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="space-y-5 md:space-y-6"
             >
-              {isPaused ? 'Resume' : 'Pause'}
-            </button>
-          </div>
+              <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-blue-50/80 backdrop-blur-sm border border-blue-100">
+                <span className="flex h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+                <span className="text-[10px] md:text-xs font-bold tracking-wider text-blue-700 uppercase">
+                  {slides[index].badge}
+                </span>
+              </div>
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight tracking-tight">
+                {slides[index].title}
+              </h1>
+
+              <p className="text-base md:text-lg text-slate-600 max-w-lg leading-relaxed">
+                {slides[index].subtitle}
+              </p>
+
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Button asChild size="lg" className="rounded-full px-6 py-6 text-base font-bold bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all active:scale-95">
+                  <Link href={slides[index].cta.href}>
+                    <span className="flex items-center gap-2">
+                      {slides[index].cta.text}
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-full px-6 py-6 text-base font-bold border-2 border-slate-200 bg-white/40 backdrop-blur-sm hover:bg-white transition-all active:scale-95">
+                  <Link href={slides[index].cta2?.href || '#'}>
+                    <span className="flex items-center gap-2">
+                      <Phone className="w-4 h-4" />
+                      {slides[index].cta2?.text}
+                    </span>
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Trust markers */}
+              <div className="flex items-center gap-6 md:gap-10 pt-6 mt-4 border-t border-slate-200">
+                <div className="flex flex-col">
+                  <span className="text-xl md:text-2xl font-bold text-slate-800">1,000+</span>
+                  <span className="text-[10px] md:text-xs font-medium text-slate-500 uppercase tracking-wide mt-0.5">Students</span>
+                </div>
+                <div className="h-8 w-px bg-slate-200" />
+                <div className="flex flex-col">
+                  <span className="text-xl md:text-2xl font-bold text-blue-600">Day 1</span>
+                  <span className="text-[10px] md:text-xs font-medium text-slate-500 uppercase tracking-wide mt-0.5">Results</span>
+                </div>
+                <div className="h-8 w-px bg-slate-200" />
+                <div className="flex flex-col">
+                  <span className="text-xl md:text-2xl font-bold text-slate-800">15+</span>
+                  <span className="text-[10px] md:text-xs font-medium text-slate-500 uppercase tracking-wide mt-0.5">Trainers</span>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
-    </header>
+
+      {/* SLIDER CONTROLS */}
+      <div className="absolute bottom-8 right-6 lg:right-16 z-30 flex items-center gap-4">
+        <div className="flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`w-1.5 h-1.5 rounded-full transition-all ${i === index ? 'w-6 bg-blue-600' : 'bg-slate-300'}`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+        <div className="flex gap-2">
+          <button onClick={prev} className="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button onClick={next} className="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    </section>
   );
 }

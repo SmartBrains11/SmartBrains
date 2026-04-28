@@ -5,6 +5,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Transpile tailwind-merge to avoid vendor-chunks issue
+  transpilePackages: ['tailwind-merge'],
+
   images: {
     // Enable image optimization for better performance
     unoptimized: process.env.NODE_ENV === 'production' && process.env.STATIC_EXPORT === 'true',
@@ -22,6 +25,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
         pathname: '/**',
       },
     ],

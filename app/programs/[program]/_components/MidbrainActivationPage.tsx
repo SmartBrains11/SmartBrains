@@ -488,7 +488,7 @@ export default function MidbrainActivationPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-12 lg:items-start">
 
             {/* LEFT COLUMN: Main Content */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-8 flex flex-col">
 
               {/* Key Benefits Card */}
               <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.02)] transition-all hover:shadow-[0_4px_30px_rgba(0,0,0,0.04)]">
@@ -597,7 +597,7 @@ export default function MidbrainActivationPage() {
 
 
               {/* Expected Results */}
-              <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.02)] transition-all hover:shadow-[0_4px_30px_rgba(0,0,0,0.04)]">
+              <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.02)] transition-all hover:shadow-[0_4px_30px_rgba(0,0,0,0.04)] flex-1">
                 <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-8 tracking-tight">Expected Results</h3>
                 <ul className="space-y-4">
                   {[
@@ -617,7 +617,7 @@ export default function MidbrainActivationPage() {
             </div>
 
             {/* RIGHT COLUMN: Sticky Sidebar */}
-            <div className="space-y-6 lg:sticky lg:top-8 self-start">
+            <div className="space-y-6 lg:sticky lg:top-8 flex flex-col h-full">
 
               {/* Program Details Card */}
               <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.02)]">
@@ -691,23 +691,22 @@ export default function MidbrainActivationPage() {
               </div>
 
               {/* Instagram Video Embed */}
-              <div className="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.02)] overflow-hidden">
+              <div className="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.02)] overflow-hidden flex flex-col flex-1">
                 <div className="flex items-center justify-between p-7 pb-4">
                   <h3 className="text-[1.35rem] font-bold text-gray-900 tracking-tight">Watch in Action</h3>
-                  <div className="bg-gradient-to-tr from-pink-500 to-orange-500 p-1.5 rounded-lg flex-shrink-0">
-                    <Instagram className="w-4 h-4 text-white" />
-                  </div>
+                  <Link 
+                    href="https://www.instagram.com/smartbrainsindia.in/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-gradient-to-tr from-pink-500 to-orange-500 p-2 rounded-lg flex-shrink-0 hover:scale-110 transition-transform shadow-md"
+                  >
+                    <Instagram className="w-5 h-5 text-white" />
+                  </Link>
                 </div>
-                <div className="relative w-full overflow-hidden h-[380px] bg-slate-900 group border-t border-slate-100">
+                <div className="relative w-full overflow-hidden flex-1 bg-white border-t border-slate-50 min-h-[550px]">
                   <iframe
-                    src="https://www.instagram.com/p/DWVMZ7IE-sx/embed/?hidecaption=true&autoplay=0"
-                    className="absolute border-0"
-                    style={{
-                      width: '130%',
-                      height: 'calc(100% + 500px)',
-                      top: '-60px',
-                      left: '-15%',
-                    }}
+                    src="https://www.instagram.com/p/DWVMZ7IE-sx/embed/"
+                    className="absolute inset-0 w-full h-full border-0"
                     allowFullScreen
                     allow="encrypted-media"
                     sandbox="allow-scripts allow-same-origin allow-presentation"

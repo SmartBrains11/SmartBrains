@@ -2,6 +2,10 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProgramDetailsView, ProgramData } from './_components/ProgramDetailsView';
 import MidbrainActivationPage from './_components/MidbrainActivationPage';
+import PhotographicMemoryPage from './_components/PhotographicMemoryPage';
+import EnhancementPage from './_components/EnhancementPage';
+import QuantumSpeedReadingPage from './_components/QuantumSpeedReadingPage';
+import SpeedReadingPage from './_components/SpeedReadingPage';
 
 // Valid program slugs - now 11 programs
 const validSlugs = [
@@ -549,11 +553,14 @@ export async function generateMetadata({ params }: { params: { program: string }
 }
 
 export default function ProgramPage({ params }: { params: { program: string } }) {
-  if (!validSlugs.includes(params.program)) {
+  // Normalize slug to handle spaces or underscores in URLs
+  const normalizedSlug = params.program.toLowerCase().replace(/[\s_]/g, '-');
+  
+  if (!validSlugs.includes(normalizedSlug)) {
     notFound();
   }
 
-  const programData = programsData[params.program];
+  const programData = programsData[normalizedSlug];
 
   if (!programData) {
     notFound();
@@ -620,8 +627,24 @@ export default function ProgramPage({ params }: { params: { program: string } })
 
   const relatedPrograms = relatedProgramsMap[params.program] || [];
 
-  if (params.program === 'midbrain-activation') {
+  if (normalizedSlug === 'midbrain-activation') {
     return <MidbrainActivationPage />;
+  }
+
+  if (normalizedSlug === 'photographic-memory') {
+    return <PhotographicMemoryPage />;
+  }
+
+  if (normalizedSlug === 'enhancement') {
+    return <EnhancementPage />;
+  }
+
+  if (normalizedSlug === 'quantum-speed-reading') {
+    return <QuantumSpeedReadingPage />;
+  }
+
+  if (normalizedSlug === 'speed-reading') {
+    return <SpeedReadingPage />;
   }
 
   return <ProgramDetailsView programData={programData} relatedPrograms={relatedPrograms} />;
