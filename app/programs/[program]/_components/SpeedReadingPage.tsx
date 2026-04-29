@@ -156,6 +156,252 @@ function TestimonialsCarousel() {
   );
 }
 
+/* ─── WPM Calculator Widget ─── */
+const PASSAGE = `The human brain is one of the most extraordinary organs in the known universe. Despite weighing just about three pounds, it contains roughly eighty-six billion neurons, each connected to thousands of others, creating a network of staggering complexity. Every thought you have, every memory you hold, every skill you have ever learned — all of it lives within this remarkable structure. Scientists have spent centuries trying to understand how the brain works, and yet we are still only beginning to scratch the surface of its true capabilities. One of the most fascinating discoveries in recent decades is the concept of neuroplasticity — the brain's ability to rewire and reshape itself throughout a person's entire life. This means that with the right training and practice, anyone can develop new cognitive abilities at any age.`;
+const WORD_COUNT = 130;
+
+function WpmCalculator({ featuredProgram }: { featuredProgram: 'speed-reading' | 'qsr' }) {
+  const [step, setStep] = useState<'intro' | 'reading' | 'results'>('intro');
+  const [elapsed, setElapsed] = useState(0);
+  const [wpm, setWpm] = useState(0);
+  const [barsVisible, setBarsVisible] = useState(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startReading = () => {
+    setElapsed(0);
+    setStep('reading');
+    intervalRef.current = setInterval(() => {
+      setElapsed(prev => prev + 0.5);
+    }, 500);
+  };
+
+  const doneReading = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    const calculated = elapsed > 0 ? Math.round((WORD_COUNT / elapsed) * 60) : 0;
+    setWpm(calculated);
+    setStep('results');
+    setTimeout(() => setBarsVisible(true), 100);
+  };
+
+  const reset = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    setStep('intro');
+    setElapsed(0);
+    setWpm(0);
+    setBarsVisible(false);
+  };
+
+  const getResultMessage = (w: number) => {
+    if (w < 150) return { title: 'Below Average Speed', body: 'Your reading speed is below average. Speed Reading training at SmartBrains can help you reach 600–800 WPM — cutting your study or work reading time by more than half.' };
+    if (w <= 300) return { title: 'Average Reader', body: 'You read at an average pace. With Speed Reading training, students at your level typically reach 700–900 WPM within 15 sessions — that is 3–4x faster than you read today.' };
+    if (w <= 500) return { title: 'Faster-Than-Average', body: 'You are already a faster-than-average reader. Speed Reading training can push you to 800–1000+ WPM — and Quantum Speed Reading opens a completely different level.' };
+    return { title: 'Already a Fast Reader', body: 'You are already a fast reader. Quantum Speed Reading — the Vivekananda-inspired book absorption technique — might be the next extraordinary skill to explore.' };
+  };
+
+  const maxBarWpm = 800;
+  const yourBarPct = Math.min((wpm / maxBarWpm) * 85, 85);
+  const bars = [
+    { label: 'You', value: wpm > 0 ? `${wpm} WPM` : '—', pct: barsVisible ? yourBarPct : 0, color: '#185FA5' },
+    { label: 'Average Adult', value: '200 WPM', pct: barsVisible ? Math.round((200 / maxBarWpm) * 85) : 0, color: '#B4B2A9' },
+    { label: 'After Training', value: '800+ WPM', pct: barsVisible ? 85 : 0, color: '#1D9E75' },
+    { label: 'Quantum Speed Reading', value: 'Whole book in mins', pct: barsVisible ? 100 : 0, color: '#7F77DD' },
+  ];
+
+  const result = step === 'results' ? getResultMessage(wpm) : null;
+
+  return (
+    <div className="relative w-full">
+      {/* Section Heading */}
+      <div className="text-center mb-10 mt-4">
+        <span className="inline-flex items-center gap-2 bg-cyan-50 text-cyan-700 font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+          <Gauge className="w-3.5 h-3.5" /> Takes less than 60 seconds
+        </span>
+        <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight uppercase mb-3">
+          What&apos;s Your Reading Speed?
+        </h2>
+        <p className="text-slate-500 text-lg max-w-xl mx-auto">
+          Find out in 60 seconds — then see what training can unlock.
+        </p>
+      </div>
+
+      {/* Widget Box */}
+      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden relative">
+
+          {/* Step 1 — Intro */}
+          {step === 'intro' && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-8 md:p-12">
+              <p className="text-slate-600 font-medium text-center mb-8 text-lg">
+                Read the passage below at your normal pace. Press <strong>Start Reading</strong> when ready.
+              </p>
+              <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm mb-8">
+                <p className="text-slate-700 leading-[1.9] text-base md:text-lg font-medium select-none">
+                  {PASSAGE}
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <Button onClick={startReading} size="lg" className="bg-cyan-600 hover:bg-cyan-700 h-14 px-12 rounded-2xl font-black text-base shadow-lg shadow-cyan-100 uppercase tracking-wider group">
+                  Start Reading <Zap className="ml-2 w-4 h-4 group-hover:scale-125 transition-transform" />
+                </Button>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Step 2 — Reading */}
+          {step === 'reading' && (
+            <div className="relative">
+              {/* Progress bar */}
+              <div className="h-1.5 bg-slate-200 w-full">
+                <div
+                  className="h-full bg-cyan-500 transition-all duration-500"
+                  style={{ width: `${Math.min((elapsed / 120) * 100, 100)}%` }}
+                />
+              </div>
+              <div className="p-8 md:p-12">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs font-black text-cyan-600 uppercase tracking-widest">Reading…</span>
+                  <span className="text-2xl font-black text-slate-900 tabular-nums">{elapsed.toFixed(1)}s</span>
+                </div>
+                <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm mb-8 relative">
+                  <div className="absolute top-4 right-4 w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <p className="text-slate-700 leading-[1.9] text-base md:text-lg font-medium select-none">
+                    {PASSAGE}
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <Button onClick={doneReading} size="lg" className="bg-slate-900 hover:bg-black h-14 px-12 rounded-2xl font-black text-base shadow-lg uppercase tracking-wider">
+                    Done Reading ✓
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Step 3 — Results */}
+          {step === 'results' && (
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="p-8 md:p-12">
+              {/* Stat Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+                <div className="bg-white rounded-2xl border-2 border-[#185FA5] p-6 text-center shadow-sm">
+                  <div className="text-3xl font-black text-[#185FA5] mb-1">{wpm}</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Your Speed (WPM)</div>
+                </div>
+                <div className="bg-white rounded-2xl border border-slate-200 p-6 text-center shadow-sm">
+                  <div className="text-3xl font-black text-slate-700 mb-1">200</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Average Adult (WPM)</div>
+                </div>
+                <div className="bg-white rounded-2xl border border-[#1D9E75] p-6 text-center shadow-sm">
+                  <div className="text-3xl font-black text-[#1D9E75] mb-1">800+</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">After Training (WPM)</div>
+                </div>
+              </div>
+
+              {/* Bar Chart */}
+              <div className="bg-white rounded-2xl border border-slate-100 p-6 md:p-8 mb-8 shadow-sm">
+                <div className="space-y-4">
+                  {bars.map((bar) => (
+                    <div key={bar.label} className="flex items-center gap-3">
+                      <div className="w-40 shrink-0 text-right">
+                        <span className="text-xs font-bold text-slate-500">{bar.label}</span>
+                      </div>
+                      <div className="flex-1 h-8 bg-slate-50 rounded-lg overflow-hidden relative border border-slate-100">
+                        <div
+                          className="h-full rounded-lg flex items-center pl-3 transition-all duration-1000 ease-out"
+                          style={{ width: `${bar.pct}%`, backgroundColor: bar.color }}
+                        >
+                          {bar.pct > 15 && (
+                            <span className="text-white text-[11px] font-black whitespace-nowrap">{bar.value}</span>
+                          )}
+                        </div>
+                        {bar.pct <= 15 && (
+                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[11px] font-black text-slate-400">{bar.value}</span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Result Message */}
+              {result && (
+                <div className="bg-cyan-50/60 border border-cyan-100 rounded-2xl p-6 mb-8">
+                  <h4 className="font-black text-slate-900 text-lg uppercase mb-2 tracking-tight">{result.title}</h4>
+                  <p className="text-slate-600 leading-relaxed">{result.body}</p>
+                </div>
+              )}
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-cyan-600 hover:bg-cyan-700 h-14 px-10 rounded-2xl font-black uppercase tracking-wider shadow-lg shadow-cyan-100">
+                  <Link href="/contact">Enquire About the Program</Link>
+                </Button>
+                <Button variant="outline" onClick={reset} size="lg" className="h-14 px-10 rounded-2xl font-black uppercase tracking-wider border-slate-200">
+                  Test Again
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </div>
+
+        {/* Program Comparison Callout */}
+        <div className="mt-16 pt-16 border-t border-slate-100">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">
+              Not sure which program is right for you?
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Speed Reading — featured on SR page */}
+            <div className={`bg-white rounded-2xl p-8 flex flex-col ${featuredProgram === 'speed-reading' ? 'border-2 border-[#185FA5] shadow-md' : 'border border-slate-200 shadow-sm'}`}>
+              <span className="text-[10px] font-black text-[#185FA5] bg-blue-50 px-3 py-1 rounded-full uppercase tracking-widest self-start mb-4">
+                Measurable WPM gains
+              </span>
+              <h4 className="text-lg font-black text-slate-900 uppercase mb-3">Speed Reading</h4>
+              <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
+                Train your eyes and brain to read faster with full comprehension. Perfect if your child spends too long studying or you want a faster reading habit for work or college.
+              </p>
+              <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">15 sessions · ₹8,000 · All ages</div>
+              <Button asChild variant="outline" className="border-[#185FA5] text-[#185FA5] hover:bg-blue-50 font-black uppercase text-xs h-10 rounded-xl">
+                <Link href="/programs/speed-reading" className="flex items-center justify-center gap-2">
+                  View Speed Reading Program <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </Button>
+            </div>
+
+            {/* QSR — featured on QSR page */}
+            <div className={`bg-white rounded-2xl p-8 flex flex-col ${featuredProgram === 'qsr' ? 'border-2 border-[#7F77DD] shadow-md' : 'border border-slate-200 shadow-sm'}`}>
+              <span className="text-[10px] font-black text-[#7F77DD] bg-purple-50 px-3 py-1 rounded-full uppercase tracking-widest self-start mb-4">
+                Intuitive absorption
+              </span>
+              <h4 className="text-lg font-black text-slate-900 uppercase mb-3">Quantum Speed Reading</h4>
+              <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
+                Inspired by Swami Vivekananda — absorb an entire book by fanning through it. Right brain dominant. A completely different skill from conventional reading.
+              </p>
+              <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">2-day intensive · ₹10,000 · Age 5–17</div>
+              <Button asChild variant="outline" className="border-[#7F77DD] text-[#7F77DD] hover:bg-purple-50 font-black uppercase text-xs h-10 rounded-xl">
+                <Link href="/programs/quantum-speed-reading" className="flex items-center justify-center gap-2">
+                  View QSR Program <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-slate-500 font-medium mb-4">Still unsure? Call us and we&apos;ll guide you to the right program.</p>
+            <div className="flex flex-wrap justify-center gap-6 font-bold text-slate-800">
+              <Link href="tel:+917396447470" className="flex items-center gap-2 hover:text-cyan-600 transition-colors">
+                <span className="text-lg">📞</span> +91 7396447470
+              </Link>
+              <Link href="https://wa.me/917386209090" target="_blank" className="flex items-center gap-2 hover:text-emerald-600 transition-colors">
+                <span className="text-lg">💬</span> WhatsApp us
+              </Link>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  );
+}
+
 export default function SpeedReadingPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
@@ -291,6 +537,8 @@ export default function SpeedReadingPage() {
                   ))}
                 </div>
               </div>
+              {/* WPM Calculator Widget */}
+              <WpmCalculator featuredProgram="speed-reading" />
 
               {/* Structure */}
               <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">

@@ -240,18 +240,18 @@ function MemoryTest() {
 
   if (step === 1) {
     return (
-      <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-teal-50 text-center">
-        <div className="w-20 h-20 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-8">
-          <Eye className="w-10 h-10 text-teal-600" />
+      <div className="bg-white rounded-3xl p-6 md:p-12 shadow-xl border border-blue-50 text-center">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8">
+          <Eye className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600" />
         </div>
-        <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">How many can you remember?</h3>
-        <p className="text-slate-600 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 mb-3 sm:mb-4 uppercase tracking-tight">How many can you remember?</h3>
+        <p className="text-slate-600 text-sm sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed">
           You will see 12 items for just 10 seconds. Then they disappear. Select every item you remember from a larger set. This is the gap Photographic Memory training closes.
         </p>
-        <div className="text-sm text-slate-400 mb-8 font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+        <div className="text-xs sm:text-sm text-slate-400 mb-6 sm:mb-8 font-bold uppercase tracking-widest flex items-center justify-center gap-2">
           <Clock className="w-4 h-4" /> Takes about 60 seconds
         </div>
-        <Button onClick={startTest} className="bg-teal-600 hover:bg-teal-700 h-14 px-10 rounded-2xl text-lg font-black uppercase tracking-wider">Start the test</Button>
+        <Button onClick={startTest} className="bg-blue-600 hover:bg-blue-700 h-12 sm:h-14 px-8 sm:px-10 rounded-xl sm:rounded-2xl text-base sm:text-lg font-black uppercase tracking-wider">Start the test</Button>
       </div>
     );
   }
@@ -259,29 +259,29 @@ function MemoryTest() {
   if (step === 2) {
     const shownItems = items.filter(i => shownIds.includes(i.id));
     return (
-      <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-teal-50">
-        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-          <h3 className="text-xl font-black text-slate-900 uppercase">Memorise these 12 items — {timeLeft}s remaining</h3>
+      <div className="bg-white rounded-3xl p-6 md:p-12 shadow-xl border border-blue-50">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 sm:mb-8 gap-4">
+          <h3 className="text-base sm:text-xl font-black text-slate-900 uppercase">Memorise these 12 items — {timeLeft}s remaining</h3>
           <div className="w-full md:w-64 h-2 bg-slate-100 rounded-full overflow-hidden">
             <motion.div 
               initial={{ width: '100%' }}
               animate={{ width: '0%' }}
               transition={{ duration: 10, ease: 'linear' }}
-              className="h-full bg-green-500"
+              className="h-full bg-blue-500"
             />
           </div>
         </div>
-        <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 sm:gap-4 mb-8 sm:mb-10">
           {shownItems.map((item) => (
-            <div key={item.id} className="aspect-square rounded-2xl flex flex-col items-center justify-center p-4 transition-transform hover:scale-105" style={{ backgroundColor: item.color.bg }}>
-              <item.icon className="w-10 h-10 mb-2" style={{ color: item.color.text }} />
-              <span className="text-[10px] font-black uppercase tracking-tighter" style={{ color: item.color.text }}>{item.label}</span>
+            <div key={item.id} className="aspect-square rounded-xl sm:rounded-2xl flex flex-col items-center justify-center p-2 sm:p-4 transition-transform hover:scale-105" style={{ backgroundColor: item.color.bg }}>
+              <item.icon className="w-6 h-6 sm:w-8 sm:h-8 mb-1 sm:mb-2" style={{ color: item.color.text }} />
+              <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-tighter text-center leading-none" style={{ color: item.color.text }}>{item.label}</span>
             </div>
           ))}
         </div>
-        <div className="bg-blue-50 p-4 rounded-xl flex items-center gap-3 border border-blue-100">
+        <div className="bg-blue-50 p-3 sm:p-4 rounded-xl flex items-center gap-3 border border-blue-100">
           <Brain className="w-5 h-5 text-blue-600 shrink-0" />
-          <p className="text-sm text-blue-700 font-bold leading-tight">Look carefully. Don&apos;t write anything down. Use only your memory.</p>
+          <p className="text-xs sm:text-sm text-blue-700 font-bold leading-tight">Look carefully. Don&apos;t write anything down. Use only your memory.</p>
         </div>
       </div>
     );
@@ -289,51 +289,51 @@ function MemoryTest() {
 
   if (step === 3) {
     return (
-      <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-teal-50">
-        <div className="mb-8">
-          <h3 className="text-xl font-black text-slate-900 uppercase">Now recall — select every item you saw</h3>
-          <div className="mt-4 bg-teal-50 p-4 rounded-xl flex items-center justify-between border border-teal-100">
-            <p className="text-sm text-teal-700 font-bold">Tap everything you remember seeing.</p>
-            <span className="bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-black">{selectedIds.length} SELECTED</span>
+      <div className="bg-white rounded-3xl p-6 md:p-12 shadow-xl border border-blue-50">
+        <div className="mb-6 sm:mb-8">
+          <h3 className="text-base sm:text-xl font-black text-slate-900 uppercase">Now recall — select every item you saw</h3>
+          <div className="mt-4 bg-blue-50 p-3 sm:p-4 rounded-xl flex items-center justify-between border border-blue-100">
+            <p className="text-xs sm:text-sm text-blue-700 font-bold">Tap everything you remember seeing.</p>
+            <span className="bg-blue-600 text-white px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-black">{selectedIds.length} SELECTED</span>
           </div>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 sm:gap-4 mb-8 sm:mb-10">
           {items.map((item) => (
             <button 
               key={item.id} 
               onClick={() => toggleSelect(item.id)}
-              className={`aspect-square rounded-2xl flex flex-col items-center justify-center p-4 border-4 transition-all ${selectedIds.includes(item.id) ? 'border-teal-500 scale-105 shadow-lg' : 'border-transparent hover:bg-slate-50'}`} 
+              className={`aspect-square rounded-xl sm:rounded-2xl flex flex-col items-center justify-center p-2 sm:p-4 border-2 sm:border-4 transition-all ${selectedIds.includes(item.id) ? 'border-blue-500 scale-105 shadow-md sm:shadow-lg' : 'border-transparent hover:bg-slate-50'}`} 
               style={{ backgroundColor: item.color.bg }}
             >
-              <item.icon className="w-10 h-10 mb-2" style={{ color: item.color.text }} />
-              <span className="text-[10px] font-black uppercase tracking-tighter" style={{ color: item.color.text }}>{item.label}</span>
+              <item.icon className="w-6 h-6 sm:w-8 sm:h-8 mb-1 sm:mb-2" style={{ color: item.color.text }} />
+              <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-tighter text-center leading-none" style={{ color: item.color.text }}>{item.label}</span>
             </button>
           ))}
         </div>
-        <Button onClick={() => setStep(4)} className="w-full bg-teal-600 hover:bg-teal-700 h-14 rounded-2xl text-lg font-black uppercase tracking-wider shadow-lg shadow-teal-100">Submit my answers</Button>
+        <Button onClick={() => setStep(4)} className="w-full bg-blue-600 hover:bg-blue-700 h-12 sm:h-14 rounded-xl sm:rounded-2xl text-base sm:text-lg font-black uppercase tracking-wider shadow-md sm:shadow-lg shadow-blue-100">Submit my answers</Button>
       </div>
     );
   }
 
   const results = getResults();
   return (
-    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-teal-50">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div className="bg-teal-50 p-6 rounded-2xl border border-teal-100 text-center">
-          <div className="text-3xl font-black text-teal-600 mb-1">{results.recalled}/12</div>
-          <div className="text-[10px] font-black text-teal-700 uppercase tracking-widest">You Recalled</div>
+    <div className="bg-white rounded-3xl p-6 md:p-12 shadow-xl border border-blue-50">
+      <div className="grid grid-cols-3 gap-2 sm:gap-6 mb-8 sm:mb-12">
+        <div className="bg-blue-50 p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-blue-100 text-center flex flex-col justify-center">
+          <div className="text-xl sm:text-3xl font-black text-blue-600 mb-1">{results.recalled}/12</div>
+          <div className="text-[8px] sm:text-[10px] font-black text-blue-700 uppercase tracking-widest">You Recalled</div>
         </div>
-        <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
-          <div className="text-3xl font-black text-slate-400 mb-1">5–6/12</div>
-          <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Average Untrained</div>
+        <div className="bg-slate-50 p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-100 text-center flex flex-col justify-center">
+          <div className="text-xl sm:text-3xl font-black text-slate-400 mb-1">5–6/12</div>
+          <div className="text-[8px] sm:text-[10px] font-black text-slate-500 uppercase tracking-widest">Average Untrained</div>
         </div>
-        <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 text-center">
-          <div className="text-3xl font-black text-indigo-600 mb-1">11–12</div>
-          <div className="text-[10px] font-black text-indigo-700 uppercase tracking-widest">After Training</div>
+        <div className="bg-indigo-50 p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-indigo-100 text-center flex flex-col justify-center">
+          <div className="text-xl sm:text-3xl font-black text-indigo-600 mb-1">11–12</div>
+          <div className="text-[8px] sm:text-[10px] font-black text-indigo-700 uppercase tracking-widest">After Training</div>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 sm:gap-4 mb-6 sm:mb-8">
         {items.map((item) => {
           const isShown = shownIds.includes(item.id);
           const isSelected = selectedIds.includes(item.id);
@@ -343,83 +343,83 @@ function MemoryTest() {
 
           if (isShown && isSelected) {
             statusStyle = "opacity-100";
-            borderStyle = "border-[#1D9E75] border-4";
+            borderStyle = "border-[#1D9E75] border-2 sm:border-4";
             bgColor = "#E1F5EE";
           } else if (!isShown && isSelected) {
             statusStyle = "opacity-100";
-            borderStyle = "border-[#E24B4A] border-4";
+            borderStyle = "border-[#E24B4A] border-2 sm:border-4";
             bgColor = "#FCEBEB";
           } else if (isShown && !isSelected) {
             statusStyle = "opacity-100";
-            borderStyle = "border-[#EF9F27] border-4";
+            borderStyle = "border-[#EF9F27] border-2 sm:border-4";
             bgColor = "#FAEEDA";
           }
 
           return (
             <div 
               key={item.id} 
-              className={`aspect-square rounded-2xl flex flex-col items-center justify-center p-4 ${statusStyle} ${borderStyle}`} 
+              className={`aspect-square rounded-xl sm:rounded-2xl flex flex-col items-center justify-center p-2 sm:p-4 ${statusStyle} ${borderStyle}`} 
               style={{ backgroundColor: bgColor }}
             >
-              <item.icon className="w-10 h-10 mb-2" style={{ color: item.color.text }} />
-              <span className="text-[10px] font-black uppercase tracking-tighter" style={{ color: item.color.text }}>{item.label}</span>
+              <item.icon className="w-6 h-6 sm:w-8 sm:h-8 mb-1 sm:mb-2" style={{ color: item.color.text }} />
+              <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-tighter text-center leading-none" style={{ color: item.color.text }}>{item.label}</span>
             </div>
           );
         })}
       </div>
 
-      <div className="flex flex-wrap justify-center gap-6 mb-12 text-[10px] font-black uppercase tracking-widest text-slate-500">
-        <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-[#E1F5EE] border border-[#1D9E75]" /> Correct</div>
-        <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-[#FCEBEB] border border-[#E24B4A]" /> Wrong Pick</div>
-        <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-[#FAEEDA] border border-[#EF9F27]" /> Missed</div>
-        <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-slate-100" /> Not Shown</div>
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-8 sm:mb-12 text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-slate-500">
+        <div className="flex items-center gap-1.5 sm:gap-2"><div className="w-2 h-2 sm:w-3 sm:h-3 rounded bg-[#E1F5EE] border border-[#1D9E75]" /> Correct</div>
+        <div className="flex items-center gap-1.5 sm:gap-2"><div className="w-2 h-2 sm:w-3 sm:h-3 rounded bg-[#FCEBEB] border border-[#E24B4A]" /> Wrong Pick</div>
+        <div className="flex items-center gap-1.5 sm:gap-2"><div className="w-2 h-2 sm:w-3 sm:h-3 rounded bg-[#FAEEDA] border border-[#EF9F27]" /> Missed</div>
+        <div className="flex items-center gap-1.5 sm:gap-2"><div className="w-2 h-2 sm:w-3 sm:h-3 rounded bg-slate-100" /> Not Shown</div>
       </div>
 
-      <div className="bg-slate-900 text-white p-8 rounded-3xl mb-12 relative overflow-hidden text-center">
+      <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl mb-8 sm:mb-12 relative overflow-hidden text-center">
         <Sparkles className="absolute -top-6 -right-6 w-24 h-24 opacity-10" />
-        <p className="text-lg md:text-xl font-medium leading-relaxed relative z-10">{results.message}</p>
+        <p className="text-sm sm:text-lg md:text-xl font-medium leading-relaxed relative z-10">{results.message}</p>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 mb-20">
-        <Button asChild className="flex-1 bg-teal-600 hover:bg-teal-700 h-16 rounded-2xl text-lg font-black uppercase tracking-wider shadow-lg shadow-teal-100"><Link href="/contact">Book a free demo</Link></Button>
-        <Button onClick={() => setStep(1)} variant="outline" className="flex-1 border-slate-200 hover:bg-slate-50 h-16 rounded-2xl text-lg font-black uppercase tracking-wider">Try again</Button>
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 sm:mb-20">
+        <Button asChild className="flex-1 bg-blue-600 hover:bg-blue-700 h-12 sm:h-16 rounded-xl sm:rounded-2xl text-base sm:text-lg font-black uppercase tracking-wider shadow-md sm:shadow-lg shadow-blue-100"><Link href="/contact">Book a free demo</Link></Button>
+        <Button onClick={() => setStep(1)} variant="outline" className="flex-1 border-slate-200 hover:bg-slate-50 h-12 sm:h-16 rounded-xl sm:rounded-2xl text-base sm:text-lg font-black uppercase tracking-wider">Try again</Button>
       </div>
 
       {/* Program Callout */}
-      <div className="border-t border-slate-100 pt-16">
-        <h4 className="text-center text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-8">Explore programs</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-3xl p-8 border-2 border-teal-500/30 shadow-xl relative overflow-hidden group">
-            <div className="absolute top-4 right-4 bg-teal-50 text-teal-600 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Memory & recall</div>
-            <h5 className="text-xl font-black text-slate-900 mb-4 uppercase mt-2">Photographic Memory</h5>
-            <p className="text-slate-600 text-sm leading-relaxed mb-6">20 sessions of visualization, memory palace and association techniques — see once, recall forever.</p>
-            <div className="flex items-center gap-4 text-[10px] font-black uppercase text-teal-600 bg-teal-50/50 p-3 rounded-xl w-fit">
-              <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> 20 sessions</div>
-              <div className="w-1 h-1 rounded-full bg-teal-200" />
-              <div className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5" /> Age 5–17</div>
+      <div className="border-t border-slate-100 pt-10 sm:pt-16">
+        <h4 className="text-center text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-6 sm:mb-8">Explore programs</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border-2 border-blue-500/30 shadow-xl relative overflow-hidden group">
+            <div className="absolute top-4 right-4 bg-blue-50 text-blue-600 text-[8px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Memory & recall</div>
+            <h5 className="text-lg sm:text-xl font-black text-slate-900 mb-2 sm:mb-4 uppercase mt-2">Photographic Memory</h5>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">20 sessions of visualization, memory palace and association techniques — see once, recall forever.</p>
+            <div className="flex items-center gap-3 sm:gap-4 text-[8px] sm:text-[10px] font-black uppercase text-blue-600 bg-blue-50/50 p-2 sm:p-3 rounded-lg sm:rounded-xl w-fit">
+              <div className="flex items-center gap-1.5"><Calendar className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> 20 sessions</div>
+              <div className="w-1 h-1 rounded-full bg-blue-200" />
+              <div className="flex items-center gap-1.5"><Users className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> Age 5–17</div>
             </div>
           </div>
 
-          <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 relative group transition-colors hover:bg-white hover:border-blue-200">
-            <div className="absolute top-4 right-4 bg-slate-200 text-slate-500 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider group-hover:bg-blue-50 group-hover:text-blue-600">Intuition & sensing</div>
-            <h5 className="text-xl font-black text-slate-900 mb-4 uppercase mt-2">Midbrain Activation</h5>
-            <p className="text-slate-600 text-sm leading-relaxed mb-6">2-day workshop that awakens the right brain — blindfold sensing, sixth sense and whole-brain learning.</p>
-            <div className="flex items-center gap-4 text-[10px] font-black uppercase text-slate-500 group-hover:text-blue-600 bg-slate-100 group-hover:bg-blue-50/50 p-3 rounded-xl w-fit">
-              <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> 2 days</div>
+          <div className="bg-slate-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-200 relative group transition-colors hover:bg-white hover:border-blue-200">
+            <div className="absolute top-4 right-4 bg-slate-200 text-slate-500 text-[8px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider group-hover:bg-blue-50 group-hover:text-blue-600">Intuition & sensing</div>
+            <h5 className="text-lg sm:text-xl font-black text-slate-900 mb-2 sm:mb-4 uppercase mt-2">Midbrain Activation</h5>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">2-day workshop that awakens the right brain — blindfold sensing, sixth sense and whole-brain learning.</p>
+            <div className="flex items-center gap-3 sm:gap-4 text-[8px] sm:text-[10px] font-black uppercase text-slate-500 group-hover:text-blue-600 bg-slate-100 group-hover:bg-blue-50/50 p-2 sm:p-3 rounded-lg sm:rounded-xl w-fit">
+              <div className="flex items-center gap-1.5"><Calendar className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> 2 days</div>
               <div className="w-1 h-1 rounded-full bg-slate-200" />
-              <div className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5" /> Age 5–17</div>
+              <div className="flex items-center gap-1.5"><Users className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> Age 5–17</div>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-8 sm:mt-12 text-center">
           <p className="text-slate-400 font-bold uppercase text-[10px] tracking-widest mb-4">Book a free demo or call us</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link href="tel:+917396447470" className="text-slate-900 font-black text-lg flex items-center gap-3 hover:text-blue-600 transition-colors">
-              <Phone className="w-5 h-5 text-blue-600" /> +91 7396447470
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <Link href="tel:+917396447470" className="text-slate-900 font-black text-base sm:text-lg flex items-center gap-2 sm:gap-3 hover:text-blue-600 transition-colors">
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" /> +91 7396447470
             </Link>
-            <Link href="https://wa.me/917386209090" target="_blank" className="text-slate-900 font-black text-lg flex items-center gap-3 hover:text-green-600 transition-colors">
-              <Zap className="w-5 h-5 text-green-500" /> WhatsApp Now
+            <Link href="https://wa.me/917386209090" target="_blank" className="text-slate-900 font-black text-base sm:text-lg flex items-center gap-2 sm:gap-3 hover:text-green-600 transition-colors">
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" /> WhatsApp Now
             </Link>
           </div>
         </div>
@@ -654,7 +654,7 @@ export default function PhotographicMemoryPage() {
               </div>
 
               {/* Instagram Video Embed */}
-              <div className="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.02)] overflow-hidden flex flex-col flex-1">
+              <div className="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.02)] overflow-hidden flex flex-col">
                 <div className="flex items-center justify-between p-7 pb-4">
                   <h3 className="text-[1.35rem] font-bold text-gray-900 tracking-tight">Watch in Action</h3>
                   <Link 
@@ -666,16 +666,52 @@ export default function PhotographicMemoryPage() {
                     <Instagram className="w-5 h-5 text-white" />
                   </Link>
                 </div>
-                <div className="relative w-full overflow-hidden flex-1 bg-white border-t border-slate-50 min-h-[550px]">
+                <div className="relative w-full aspect-[4/5] sm:aspect-square overflow-hidden bg-[#111] border-t border-slate-50">
                   <iframe
                     src="https://www.instagram.com/p/DNWKnNSzN_3/embed/"
-                    className="absolute inset-0 w-full h-full border-0"
+                    className="absolute top-[-54px] left-[-2px] w-[calc(100%+4px)] h-[800px] border-0"
                     allowFullScreen
                     allow="encrypted-media"
                     sandbox="allow-scripts allow-same-origin allow-presentation"
                     scrolling="no"
                     title="Instagram Live Demo"
                   />
+                  {/* Overlay to blend bottom crop */}
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#111] to-transparent pointer-events-none" />
+                </div>
+              </div>
+
+              {/* Related Programs */}
+              <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.02)] flex-1 flex flex-col justify-between">
+                <h3 className="text-[1.35rem] font-bold text-gray-900 tracking-tight mb-4">Related Programs</h3>
+                <div className="space-y-4 flex-1 flex flex-col justify-center">
+                  <Link href="/programs/speed-reading" className="block group">
+                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 group-hover:bg-blue-50 group-hover:border-blue-200 transition-colors h-full">
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">Speed Reading</h4>
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                      </div>
+                      <p className="text-xs text-slate-500 mt-1">Read faster with comprehension</p>
+                    </div>
+                  </Link>
+                  <Link href="/programs/dmit" className="block group">
+                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 group-hover:bg-blue-50 group-hover:border-blue-200 transition-colors h-full">
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">DMIT Assessment</h4>
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                      </div>
+                      <p className="text-xs text-slate-500 mt-1">Identify learning style</p>
+                    </div>
+                  </Link>
+                  <Link href="/programs/enhancement" className="block group">
+                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 group-hover:bg-blue-50 group-hover:border-blue-200 transition-colors h-full">
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">Enhancement Program</h4>
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                      </div>
+                      <p className="text-xs text-slate-500 mt-1">Overall cognitive boost</p>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -684,13 +720,13 @@ export default function PhotographicMemoryPage() {
       </section>
 
       {/* 5. Memory Test Activity - Full Width */}
-      <section className="py-24 bg-white border-y border-slate-100 overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-20">
+      <section className="py-16 sm:py-24 bg-white border-y border-slate-100 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-20">
           <div className="max-w-4xl mx-auto">
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
+            <div className="mb-8 sm:mb-12 text-center">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
                 How many can you remember?<br />
-                <span className="text-teal-600 mt-4 block">Test your memory — then see what training unlocks.</span>
+                <span className="text-blue-600 mt-2 sm:mt-4 block text-lg sm:text-3xl">Test your memory — then see what training unlocks.</span>
               </h2>
             </div>
             <MemoryTest />

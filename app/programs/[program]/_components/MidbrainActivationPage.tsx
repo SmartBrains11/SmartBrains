@@ -7,7 +7,7 @@ import { motion, Variants } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, Brain, Target, Shield, Clock, MapPin, Monitor, Star, ArrowRight, Play, Users, Calendar, ArrowLeft, Heart, BookOpen, Quote, Phone, HelpCircle, Eye, Award, Mail, ChevronLeft, ChevronRight, Instagram } from 'lucide-react';
+import { CheckCircle, Brain, Target, Shield, Clock, MapPin, Monitor, Star, ArrowRight, Play, Users, Calendar, ArrowLeft, Heart, BookOpen, Quote, Phone, HelpCircle, Eye, Award, Mail, ChevronLeft, ChevronRight, Instagram, Diamond, Circle, Triangle } from 'lucide-react';
 
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -242,6 +242,284 @@ function TestimonialsCarousel() {
         </div>
       </div>
     </section>
+  );
+}
+
+const SYMBOLS = [
+  { name: 'Diamond', bg: '#EEEDFE', color: '#534AB7', Icon: Diamond },
+  { name: 'Star', bg: '#FAEEDA', color: '#854F0B', Icon: Star },
+  { name: 'Heart', bg: '#FBEAF0', color: '#993556', Icon: Heart },
+  { name: 'Circle', bg: '#E1F5EE', color: '#0F6E56', Icon: Circle },
+  { name: 'Triangle', bg: '#E6F1FB', color: '#185FA5', Icon: Triangle }
+];
+
+function SensingChallenge() {
+  const [step, setStep] = useState(1);
+  const [round, setRound] = useState(0);
+  const [score, setScore] = useState(0);
+  const [history, setHistory] = useState<boolean[]>([]);
+  const [hiddenIdx, setHiddenIdx] = useState(0);
+  const [pickedIdx, setPickedIdx] = useState<number | null>(null);
+
+  const startChallenge = () => {
+    setRound(0);
+    setScore(0);
+    setHistory([]);
+    setHiddenIdx(Math.floor(Math.random() * 5));
+    setPickedIdx(null);
+    setStep(2);
+  };
+
+  const handlePick = (idx: number) => {
+    if (step !== 2) return;
+    setPickedIdx(idx);
+    const isCorrect = idx === hiddenIdx;
+    if (isCorrect) setScore(s => s + 1);
+    setHistory(h => [...h, isCorrect]);
+    setStep(3);
+  };
+
+  const nextRound = () => {
+    if (round < 4) {
+      setRound(r => r + 1);
+      setHiddenIdx(Math.floor(Math.random() * 5));
+      setPickedIdx(null);
+      setStep(2);
+    } else {
+      setStep(4);
+    }
+  };
+
+  const renderDots = () => (
+    <div className="flex gap-2 justify-center my-6">
+      {[...Array(5)].map((_, i) => (
+        <div 
+          key={i} 
+          className={`w-2.5 h-2.5 rounded-full ${i < history.length ? (history[i] ? 'bg-[#1D9E75]' : 'bg-[#E24B4A]') : i === round && step !== 4 ? 'bg-[#534AB7]' : 'bg-slate-200'}`} 
+        />
+      ))}
+    </div>
+  );
+
+  if (step === 1) {
+    return (
+      <div className="bg-white rounded-3xl p-6 md:p-12 shadow-xl border border-purple-50 text-center max-w-4xl mx-auto">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 animate-pulse">
+          <Eye className="w-8 h-8 sm:w-10 sm:h-10 text-[#534AB7]" />
+        </div>
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 mb-3 sm:mb-4 uppercase tracking-tight">Can your brain sense the hidden card?</h3>
+        <p className="text-slate-600 text-sm sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed">
+          5 cards are placed face down. One hides a secret symbol. Close your eyes, breathe, and trust your intuition. This is exactly what children experience in the Midbrain Activation workshop — except they do it blindfolded.
+        </p>
+        <Button onClick={startChallenge} className="bg-[#534AB7] hover:bg-[#433b97] h-12 sm:h-14 px-8 sm:px-10 rounded-xl sm:rounded-2xl text-base sm:text-lg font-black uppercase tracking-wider text-white">Begin the challenge</Button>
+        <p className="text-xs sm:text-sm text-slate-400 mt-6 sm:mt-8 font-bold max-w-md mx-auto leading-relaxed">
+          In the real workshop, trained children identify colours, numbers and objects with a blindfold on — a result that has to be seen to be believed.
+        </p>
+      </div>
+    );
+  }
+
+  const currentSymbol = SYMBOLS[round];
+
+  if (step === 2) {
+    return (
+      <div className="bg-white rounded-3xl p-6 md:p-12 shadow-xl border border-purple-50 max-w-4xl mx-auto">
+        <div className="text-center mb-6 sm:mb-8">
+          <h3 className="text-lg sm:text-xl font-black text-slate-900 uppercase">Round {round + 1} of 5 — which card hides the symbol?</h3>
+        </div>
+        
+        <div className="bg-[#534AB7] p-4 sm:p-6 rounded-xl sm:rounded-2xl mb-8 sm:mb-10 shadow-lg text-center">
+          <p className="text-white text-sm sm:text-base font-medium leading-relaxed">Eyes closed. Breathe slowly. One of the five cards below holds a hidden symbol. Don&apos;t think — feel. Let your right brain guide your choice.</p>
+        </div>
+
+        <div className="grid grid-cols-5 gap-2 sm:gap-4 mb-6 sm:mb-8">
+          {[...Array(5)].map((_, i) => (
+            <button 
+              key={i} 
+              onClick={() => handlePick(i)}
+              className="aspect-[3/4] sm:h-28 h-20 rounded-xl border-2 border-slate-200 bg-slate-50 flex items-center justify-center hover:scale-[1.04] hover:border-[#534AB7] transition-all"
+            >
+              <span className="text-slate-400 text-2xl sm:text-3xl font-black">?</span>
+            </button>
+          ))}
+        </div>
+        
+        {renderDots()}
+      </div>
+    );
+  }
+
+  if (step === 3) {
+    const isCorrect = pickedIdx === hiddenIdx;
+    return (
+      <div className="bg-white rounded-3xl p-6 md:p-12 shadow-xl border border-purple-50 max-w-4xl mx-auto">
+        <div className="grid grid-cols-5 gap-2 sm:gap-4 mb-6 sm:mb-8" style={{ perspective: '1000px' }}>
+          {[...Array(5)].map((_, i) => {
+            const isHidden = i === hiddenIdx;
+            const isPicked = i === pickedIdx;
+            
+            let content = <span className="text-slate-300 font-bold opacity-50">—</span>;
+            let border = "border-slate-100";
+            let bg = "bg-slate-50";
+            let label = "";
+
+            if (isHidden && isPicked) {
+              content = <currentSymbol.Icon className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: currentSymbol.color }} />;
+              border = "border-[#1D9E75]";
+              bg = currentSymbol.bg;
+              label = "Your pick — correct!";
+            } else if (isHidden && !isPicked) {
+              content = <currentSymbol.Icon className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: currentSymbol.color }} />;
+              border = "border-[#1D9E75]";
+              bg = currentSymbol.bg;
+              label = "Hidden here";
+            } else if (!isHidden && isPicked) {
+              content = <span className="text-[#E24B4A] font-black text-2xl sm:text-3xl">X</span>;
+              border = "border-[#E24B4A]";
+              bg = "#FCEBEB";
+              label = "Your pick";
+            }
+
+            return (
+              <div key={i} className="flex flex-col items-center gap-2">
+                <div 
+                  className={`w-full aspect-[3/4] sm:h-28 h-20 rounded-xl border-2 flex items-center justify-center`}
+                  style={{ 
+                    transformStyle: 'preserve-3d',
+                    transform: 'rotateY(180deg)',
+                    animation: `flipIn 0.55s cubic-bezier(.4,0,.2,1) forwards`,
+                    animationDelay: `${i * 80}ms`,
+                    borderColor: border === 'border-[#1D9E75]' ? '#1D9E75' : border === 'border-[#E24B4A]' ? '#E24B4A' : '#f1f5f9',
+                    backgroundColor: bg !== 'bg-slate-50' ? bg : '#f8fafc'
+                  }}
+                >
+                  <div style={{ transform: 'rotateY(180deg)' }}>
+                    {content}
+                  </div>
+                </div>
+                {label && <span className={`text-[8px] sm:text-[10px] font-black uppercase text-center leading-tight ${isHidden ? 'text-[#1D9E75]' : 'text-[#E24B4A]'}`}>{label}</span>}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="text-center mb-8">
+          <h4 className={`text-xl sm:text-2xl font-black uppercase mb-2 ${isCorrect ? 'text-[#1D9E75]' : 'text-slate-400'}`}>
+            {isCorrect ? "Your intuition was right!" : "Not this time."}
+          </h4>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
+            {isCorrect 
+              ? "Your right brain sensed the hidden card. This is exactly the faculty Midbrain Activation training strengthens — until children do this consistently, not just occasionally."
+              : "The symbol was hiding elsewhere. With Midbrain Activation training, children develop the ability to sense this on demand — not by luck, but through structured right brain training."}
+          </p>
+        </div>
+
+        {renderDots()}
+
+        <Button onClick={nextRound} className="w-full bg-[#534AB7] hover:bg-[#433b97] h-12 sm:h-14 rounded-xl sm:rounded-2xl text-base sm:text-lg font-black uppercase tracking-wider text-white shadow-lg">
+          {round < 4 ? "Next card" : "See my final result"}
+        </Button>
+
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes flipIn {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(180deg); }
+          }
+        `}} />
+      </div>
+    );
+  }
+
+  // Step 4: Result
+  let resultTitle = "";
+  let resultBody = "";
+  if (score >= 4) {
+    resultTitle = `Remarkable — ${score} out of 5!`;
+    resultBody = "Your intuitive sensing is already strong. Imagine what 2 days of structured Midbrain Activation training could unlock — children who score like this often become the star of the workshop.";
+  } else if (score === 3) {
+    resultTitle = "Strong result — 3 out of 5.";
+    resultBody = "You sensed more than chance would predict. This latent ability exists in every child — Midbrain Activation brings it forward consistently, not just occasionally.";
+  } else if (score === 2) {
+    resultTitle = "2 out of 5 — above chance.";
+    resultBody = "Twice what pure luck would give. The right brain is listening — it just needs training to speak clearly. That is exactly what the 2-day workshop does.";
+  } else {
+    resultTitle = `${score} out of 5 this time.`;
+    resultBody = "Even the sharpest intuition needs training before it works on demand. Every child in our workshop starts without this ability — and every child leaves with it.";
+  }
+
+  return (
+    <div className="bg-white rounded-3xl p-6 md:p-12 shadow-xl border border-purple-50 max-w-4xl mx-auto">
+      <div className="grid grid-cols-3 gap-2 sm:gap-6 mb-8 sm:mb-10">
+        <div className="bg-purple-50 p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-purple-100 text-center flex flex-col justify-center">
+          <div className="text-xl sm:text-3xl font-black text-[#534AB7] mb-1">{score}/5</div>
+          <div className="text-[8px] sm:text-[10px] font-black text-purple-700 uppercase tracking-widest">Your Score</div>
+        </div>
+        <div className="bg-slate-50 p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-100 text-center flex flex-col justify-center">
+          <div className="text-xl sm:text-3xl font-black text-slate-400 mb-1">1</div>
+          <div className="text-[8px] sm:text-[10px] font-black text-slate-500 uppercase tracking-widest">Chance alone</div>
+        </div>
+        <div className="bg-indigo-50 p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-indigo-100 text-center flex flex-col justify-center">
+          <div className="text-xl sm:text-3xl font-black text-indigo-600 mb-1">4–5</div>
+          <div className="text-[8px] sm:text-[10px] font-black text-indigo-700 uppercase tracking-widest">Trained Children</div>
+        </div>
+      </div>
+
+      {renderDots()}
+
+      <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl mb-8 sm:mb-10 text-center">
+        <h4 className="text-xl sm:text-2xl font-black uppercase mb-3">{resultTitle}</h4>
+        <p className="text-sm sm:text-base font-medium leading-relaxed opacity-90">{resultBody}</p>
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 sm:mb-16">
+        <Button asChild className="flex-1 bg-[#534AB7] hover:bg-[#433b97] h-12 sm:h-14 rounded-xl sm:rounded-2xl text-base sm:text-lg font-black uppercase tracking-wider shadow-md text-white">
+          <Link href="/contact">Tell me about the workshop</Link>
+        </Button>
+        <Button onClick={startChallenge} variant="outline" className="flex-1 border-slate-200 hover:bg-slate-50 h-12 sm:h-14 rounded-xl sm:rounded-2xl text-base sm:text-lg font-black uppercase tracking-wider">
+          Try again
+        </Button>
+      </div>
+
+      {/* Explore Programs */}
+      <div className="border-t border-slate-100 pt-8 sm:pt-12">
+        <h4 className="text-center text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-6 sm:mb-8">Explore programs</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border-2 border-[#534AB7]/30 shadow-xl relative overflow-hidden group">
+            <div className="absolute top-4 right-4 bg-purple-50 text-[#534AB7] text-[8px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Intuition & sensing</div>
+            <h5 className="text-lg sm:text-xl font-black text-slate-900 mb-2 sm:mb-4 uppercase mt-2">Midbrain Activation</h5>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">Blindfold sensing, sixth sense training and whole-brain activation in a 2-day workshop.</p>
+            <div className="flex items-center gap-3 sm:gap-4 text-[8px] sm:text-[10px] font-black uppercase text-[#534AB7] bg-purple-50/50 p-2 sm:p-3 rounded-lg sm:rounded-xl w-fit">
+              <div className="flex items-center gap-1.5"><Calendar className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> 2 days</div>
+              <div className="w-1 h-1 rounded-full bg-purple-200" />
+              <div className="flex items-center gap-1.5"><Users className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> Age 5–17</div>
+            </div>
+          </div>
+
+          <div className="bg-slate-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-200 relative group transition-colors hover:bg-white hover:border-blue-200">
+            <div className="absolute top-4 right-4 bg-slate-200 text-slate-500 text-[8px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider group-hover:bg-blue-50 group-hover:text-blue-600">Memory & recall</div>
+            <h5 className="text-lg sm:text-xl font-black text-slate-900 mb-2 sm:mb-4 uppercase mt-2">Photographic Memory</h5>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">See once, remember forever — 20 sessions of structured memory technique training.</p>
+            <div className="flex items-center gap-3 sm:gap-4 text-[8px] sm:text-[10px] font-black uppercase text-slate-500 group-hover:text-blue-600 bg-slate-100 group-hover:bg-blue-50/50 p-2 sm:p-3 rounded-lg sm:rounded-xl w-fit">
+              <div className="flex items-center gap-1.5"><Calendar className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> 20 sessions</div>
+              <div className="w-1 h-1 rounded-full bg-slate-200" />
+              <div className="flex items-center gap-1.5"><Users className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> Age 5–17</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 sm:mt-12 text-center">
+          <p className="text-slate-400 font-bold uppercase text-[10px] tracking-widest mb-4">Book a free demo or call us</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <Link href="tel:+917396447470" className="text-slate-900 font-black text-base sm:text-lg flex items-center gap-2 sm:gap-3 hover:text-blue-600 transition-colors">
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" /> +91 7396447470
+            </Link>
+            <Link href="https://wa.me/917386209090" target="_blank" className="text-slate-900 font-black text-base sm:text-lg flex items-center gap-2 sm:gap-3 hover:text-green-600 transition-colors">
+              <span className="text-green-500">WhatsApp Now</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -719,6 +997,13 @@ export default function MidbrainActivationPage() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* Sensing Challenge Widget */}
+      <section className="py-12 sm:py-16 bg-white border-y border-slate-100 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-20">
+          <SensingChallenge />
         </div>
       </section>
 
