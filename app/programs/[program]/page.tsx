@@ -6,6 +6,8 @@ import PhotographicMemoryPage from './_components/PhotographicMemoryPage';
 import EnhancementPage from './_components/EnhancementPage';
 import QuantumSpeedReadingPage from './_components/QuantumSpeedReadingPage';
 import SpeedReadingPage from './_components/SpeedReadingPage';
+import DmitPage from './_components/DmitPage';
+import AdultMidbrainPage from './_components/AdultMidbrainPage';
 
 // Valid program slugs - now 11 programs
 const validSlugs = [
@@ -645,6 +647,14 @@ export default function ProgramPage({ params }: { params: { program: string } })
 
   if (normalizedSlug === 'speed-reading') {
     return <SpeedReadingPage />;
+  }
+
+  if (normalizedSlug === 'dmit') {
+    return <DmitPage />;
+  }
+
+  if (normalizedSlug === 'midbrain-adults') {
+    return <AdultMidbrainPage />;
   }
 
   return <ProgramDetailsView programData={programData} relatedPrograms={relatedPrograms} />;

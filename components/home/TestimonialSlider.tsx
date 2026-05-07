@@ -6,42 +6,43 @@ import { ChevronLeft, ChevronRight, Quote, Star, CheckCircle2 } from 'lucide-rea
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
+
 const testimonials = [
   {
     id: 1,
-    name: 'Priya Sharma',
-    role: 'Parent of 8-year-old',
-    content: "My daughter's memory and concentration have improved dramatically after joining the Photographic Memory program. She now remembers her lessons effortlessly and her confidence has soared.",
+    name: 'Sravanthi',
+    role: 'Parent of 11-year-old',
+    content: "My Two Son's memory and concentration have improved dramatically after joining the Photographic Memory program. She now remembers her lessons effortlessly and her confidence has soared.",
     rating: 5,
     program: 'Photographic Memory',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&h=200&auto=format&fit=crop'
+    image: '/images/Parent1.jpeg'
   },
   {
     id: 2,
-    name: 'Rajesh Kumar',
+    name: 'Asha',
     role: 'Parent of 10-year-old',
     content: 'The Abacus Math program has transformed my son\'s relationship with mathematics. He now solves complex calculations mentally and actually enjoys math class!',
     rating: 5,
     program: 'Abacus Math',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop'
+    image: '/images/Parent2.jpeg'
   },
   {
     id: 3,
     name: 'Anitha Reddy',
     role: 'Parent of twins (6 years)',
-    content: 'Both my children completed the Midbrain Activation program and the results are amazing. Their intuition, creativity, and problem-solving skills have improved significantly.',
+    content: 'Both my children completed the Midbrain Activation program and the results are amazing.',
     rating: 5,
     program: 'Midbrain Activation',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&h=200&auto=format&fit=crop'
+    image: '/images/Parent3.jpeg'
   },
   {
     id: 4,
-    name: 'Dr. Venkat Rao',
+    name: 'Dr. Chintu',
     role: 'Pediatrician & Parent',
-    content: 'As a doctor and a parent, I was initially skeptical. But the DMIT assessment provided valuable insights into my child\'s potential, and the subsequent programs have been highly beneficial.',
+    content: 'As a doctor and a parent, I was initially skeptical.',
     rating: 5,
     program: 'DMIT',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&h=200&auto=format&fit=crop'
+    image: '/images/Parent4.jpeg'
   }
 ];
 
