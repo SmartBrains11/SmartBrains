@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export function CTASection() {
   return (
-    <section className="relative py-8 sm:py-12 text-white overflow-hidden">
+    <section className="relative py-10 sm:py-8 sm:py-12 text-white overflow-hidden">
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -28,23 +28,23 @@ export function CTASection() {
         <span className="text-sm font-semibold tracking-wide text-white/80 uppercase mb-6 block">
           Getting Started
         </span>
-        <h2 className="text-lg sm:text-2xl md:text-4xl font-black mb-6 tracking-tight leading-none uppercase">
+        <h2 className="text-lg sm:text-2xl md:text-4xl font-black mb-4 sm:mb-6 tracking-tight leading-none uppercase">
           READY TO UNLOCK YOUR CHILD&apos;S POTENTIAL?
         </h2>
 
-        <p className="mt-4 text-lg md:text-xl mb-12 max-w-2xl mx-auto text-blue-50">
+        <p className="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto text-blue-50">
           Join thousands of families who have already experienced the transformation.
           Book a free demo session today and see the difference our programs can make.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 sm:mb-12">
           <Button
             asChild
             size="lg"
             variant="secondary"
-            className="bg-white text-blue-700 hover:bg-gray-100"
+            className="w-full sm:w-auto bg-white text-blue-700 hover:bg-gray-100"
           >
-            <Link href="/contact" className="flex items-center space-x-2">
+            <Link href="/contact" className="flex items-center justify-center space-x-2">
               <Calendar className="h-5 w-5" />
               <span>Book Free Demo</span>
             </Link>
@@ -53,27 +53,27 @@ export function CTASection() {
           <Button
             asChild
             size="lg"
-            className="bg-white text-blue-700 hover:bg-gray-100"
+            className="w-full sm:w-auto bg-white text-blue-700 hover:bg-gray-100"
           >
-            <Link href="/programs/dmit" className="flex items-center space-x-2">
+            <Link href="/programs/dmit" className="flex items-center justify-center space-x-2">
               <Phone className="h-5 w-5" />
               <span>Start with DMIT</span>
             </Link>
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+        <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto">
           <div className="text-center">
-            <Users className="h-8 w-8 mx-auto mb-2 opacity-80" />
-            <div className="text-sm opacity-80">Free Demo Session</div>
+            <Users className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-1 sm:mb-2 opacity-80" />
+            <div className="text-xs sm:text-sm opacity-80">Free Demo Session</div>
           </div>
           <div className="text-center">
-            <Calendar className="h-8 w-8 mx-auto mb-2 opacity-80" />
-            <div className="text-sm opacity-80">Flexible Scheduling</div>
+            <Calendar className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-1 sm:mb-2 opacity-80" />
+            <div className="text-xs sm:text-sm opacity-80">Flexible Scheduling</div>
           </div>
           <div className="text-center">
-            <Phone className="h-8 w-8 mx-auto mb-2 opacity-80" />
-            <div className="text-sm opacity-80">Instant Support</div>
+            <Phone className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-1 sm:mb-2 opacity-80" />
+            <div className="text-xs sm:text-sm opacity-80">Instant Support</div>
           </div>
         </div>
       </div>

@@ -85,26 +85,26 @@ export function TestimonialSlider() {
   };
 
   return (
-    <section className="py-24 sm:py-32 bg-slate-50 relative overflow-hidden">
+    <section className="py-14 sm:py-24 sm:py-32 bg-slate-50 relative overflow-hidden">
       {/* Decorative background gradients */}
       <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-100/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-orange-100/30 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 sm:mb-20">
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
             Success Stories
           </span>
-          <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 mb-6 tracking-tight leading-none uppercase">
+          <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-4xl font-black text-slate-900 mb-4 sm:mb-6 tracking-tight leading-none uppercase">
             VOICES OF OUR PARENTS
           </h2>
-          <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-            Real feedback from families who have seen incredible growth in their children's abilities and confidence.
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+            Real feedback from families who have seen incredible growth in their children&apos;s abilities and confidence.
           </p>
         </div>
 
         <div className="relative max-w-5xl mx-auto" onMouseEnter={() => setIsAutoPlaying(false)} onMouseLeave={() => setIsAutoPlaying(true)}>
-          <div className="relative bg-white rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 p-8 md:p-16 lg:p-20 overflow-hidden min-h-[500px] flex items-center">
+          <div className="relative bg-white rounded-2xl sm:rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 p-5 sm:p-8 md:p-16 lg:p-20 overflow-hidden min-h-[380px] sm:min-h-[500px] flex items-center">
             {/* Quote decoration */}
             <Quote className="absolute top-12 left-12 h-24 w-24 text-slate-50 pointer-events-none" />
 
@@ -122,9 +122,9 @@ export function TestimonialSlider() {
                 }}
                 className="w-full"
               >
-                <div className="flex flex-col lg:flex-row items-center gap-12">
+                <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-12">
                   <div className="relative flex-shrink-0">
-                    <div className="w-32 h-32 md:w-48 md:h-48 rounded-3xl overflow-hidden ring-8 ring-blue-50 shadow-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500">
+                    <div className="w-20 h-20 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-2xl sm:rounded-3xl overflow-hidden ring-4 sm:ring-8 ring-blue-50 shadow-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500">
                       <Image
                         src={testimonials[currentIndex].image}
                         alt={testimonials[currentIndex].name}
@@ -144,29 +144,29 @@ export function TestimonialSlider() {
                       ))}
                     </div>
 
-                    <p className="text-xl md:text-2xl lg:text-3xl text-slate-800 font-medium leading-relaxed italic mb-8">
+                    <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-slate-800 font-medium leading-relaxed italic mb-5 sm:mb-8">
                       "{testimonials[currentIndex].content}"
                     </p>
 
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-100 pt-8 mt-8">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 border-t border-slate-100 pt-5 sm:pt-8 mt-5 sm:mt-8">
                       <div className="flex items-center gap-4">
-                        <div className="text-left">
+                        <div className="text-center sm:text-left">
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-slate-900 text-xl">
+                            <span className="font-bold text-slate-900 text-base sm:text-xl">
                               {testimonials[currentIndex].name}
                             </span>
                             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-50 text-[10px] font-bold text-blue-600 uppercase tracking-wider">
                               <CheckCircle2 className="w-3 h-3" />
-                              Verified Parent
+                              Verified
                             </span>
                           </div>
-                          <div className="text-slate-500 font-medium">{testimonials[currentIndex].role}</div>
+                          <div className="text-slate-500 font-medium text-sm">{testimonials[currentIndex].role}</div>
                         </div>
                       </div>
 
-                      <div className="px-6 py-2 rounded-2xl bg-slate-50 border border-slate-100">
-                        <span className="text-slate-400 text-sm font-medium">Program: </span>
-                        <span className="text-blue-600 font-bold">{testimonials[currentIndex].program}</span>
+                      <div className="px-4 sm:px-6 py-2 rounded-2xl bg-slate-50 border border-slate-100">
+                        <span className="text-slate-400 text-xs sm:text-sm font-medium">Program: </span>
+                        <span className="text-blue-600 font-bold text-xs sm:text-sm">{testimonials[currentIndex].program}</span>
                       </div>
                     </div>
                   </div>
@@ -175,22 +175,22 @@ export function TestimonialSlider() {
             </AnimatePresence>
 
             {/* Navigation buttons */}
-            <div className="absolute bottom-8 right-8 flex gap-3">
+            <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 flex gap-2 sm:gap-3">
               <Button
                 variant="outline"
                 size="icon"
                 onClick={goToPrevious}
-                className="h-12 w-12 rounded-2xl border-slate-200 hover:border-blue-500 hover:text-blue-600 transition-all shadow-sm"
+                className="h-9 w-9 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl border-slate-200 hover:border-blue-500 hover:text-blue-600 transition-all shadow-sm"
               >
-                <ChevronLeft className="h-6 w-6" />
+                <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
               </Button>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={goToNext}
-                className="h-12 w-12 rounded-2xl border-slate-200 hover:border-blue-500 hover:text-blue-600 transition-all shadow-sm"
+                className="h-9 w-9 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl border-slate-200 hover:border-blue-500 hover:text-blue-600 transition-all shadow-sm"
               >
-                <ChevronRight className="h-6 w-6" />
+                <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
               </Button>
             </div>
           </div>

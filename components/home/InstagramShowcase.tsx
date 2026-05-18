@@ -137,7 +137,7 @@ export const InstagramShowcase = () => {
   };
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-14 sm:py-24 bg-white relative overflow-hidden">
       {/* Premium Background Accents */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-50/50 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[120px]" />
@@ -147,15 +147,15 @@ export const InstagramShowcase = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-20"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-50 border border-pink-100 text-pink-600 text-sm font-bold uppercase tracking-wider">
             <Instagram className="w-4 h-4" /> SmartBrains Live
           </span>
-          <h2 className="mt-6 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
+          <h2 className="mt-4 sm:mt-6 text-xl sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
             EXTRAORDINARY RESULTS
           </h2>
-          <p className="mt-6 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="mt-4 sm:mt-6 text-base sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
             Watch our students showcase incredible mental abilities.
             <span className="block text-slate-400 text-sm mt-2 font-normal">Tap any card to play the video.</span>
           </p>
@@ -222,13 +222,13 @@ export const InstagramShowcase = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="mt-24 text-center"
+          className="mt-12 sm:mt-24 text-center"
         >
           <a
             href="https://www.instagram.com/smartbrainsindia.in/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 px-10 py-5 bg-slate-900 text-white rounded-full font-black text-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:scale-105 transition-all duration-300 group"
+            className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-10 py-4 sm:py-5 bg-slate-900 text-white rounded-full font-black text-sm sm:text-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:scale-105 transition-all duration-300 group"
           >
             JOIN OUR COMMUNITY ON INSTAGRAM
             <div className="bg-gradient-to-tr from-pink-500 to-orange-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">

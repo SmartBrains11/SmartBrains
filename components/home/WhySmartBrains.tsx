@@ -71,7 +71,7 @@ export function WhySmartBrains() {
   };
 
   return (
-    <section className="py-24 sm:py-32 bg-white relative overflow-hidden">
+    <section className="py-14 sm:py-24 sm:py-32 bg-white relative overflow-hidden">
       {/* Premium background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-blue-50/50 rounded-full blur-[100px]" />
@@ -88,12 +88,12 @@ export function WhySmartBrains() {
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
             The Smart Brains Edge
           </span>
-          <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
+          <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
             WHY CHOOSE Smart Brains?
           </h2>
-          <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            We don't just teach; we transform. Our holistic approach combines scientific research
-            with nurturing care to unlock every child's full potential.
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            We don&apos;t just teach; we transform. Our holistic approach combines scientific research
+            with nurturing care to unlock every child&apos;s full potential.
           </p>
         </motion.div>
 
@@ -102,7 +102,7 @@ export function WhySmartBrains() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-10"
         >
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
@@ -110,19 +110,19 @@ export function WhySmartBrains() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 ease-out group relative overflow-hidden"
+                className="bg-white rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-10 border border-gray-100 shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 ease-out group relative overflow-hidden"
               >
                 {/* Subtle hover background decoration */}
-                <div className={`absolute top-0 right-0 w-32 h-32 -translate-y-16 translate-x-16 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 ${colorVariants[reason.color as keyof typeof colorVariants].split(' ')[1].replace('text-', 'bg-')}`} />
+                <div className={`absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 -translate-y-16 translate-x-16 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 ${colorVariants[reason.color as keyof typeof colorVariants].split(' ')[1].replace('text-', 'bg-')}`} />
 
-                <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 transition-all duration-300 ${colorVariants[reason.color as keyof typeof colorVariants].split(' ')[0]} ${colorVariants[reason.color as keyof typeof colorVariants].split(' ')[1]}`}>
-                  <Icon className="h-10 w-10 transition-transform duration-300" />
+                <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl mb-4 sm:mb-8 transition-all duration-300 ${colorVariants[reason.color as keyof typeof colorVariants].split(' ')[0]} ${colorVariants[reason.color as keyof typeof colorVariants].split(' ')[1]}`}>
+                  <Icon className="h-6 w-6 sm:h-10 sm:w-10 transition-transform duration-300" />
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight group-hover:text-blue-600 transition-colors">
+                <h3 className="text-base sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-4 tracking-tight group-hover:text-blue-600 transition-colors">
                   {reason.title}
                 </h3>
-                <p className="text-gray-500 leading-relaxed text-base group-hover:text-gray-600 transition-colors">
+                <p className="text-gray-500 leading-relaxed text-xs sm:text-base group-hover:text-gray-600 transition-colors">
                   {reason.description}
                 </p>
               </motion.div>

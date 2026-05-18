@@ -94,7 +94,7 @@ export default function HeroSection() {
 
   return (
     <section 
-      className="relative w-full h-[500px] md:h-[550px] lg:h-[620px] overflow-hidden bg-white"
+      className="relative w-full h-[480px] sm:h-[500px] md:h-[550px] lg:h-[620px] overflow-hidden bg-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -121,11 +121,11 @@ export default function HeroSection() {
         </AnimatePresence>
       </div>
 
-      {/* REFINED GRADIENT OVERLAY (Subtle white opacity) */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-white/90 via-white/60 to-transparent md:w-[75%] lg:w-[65%]" />
+      {/* REFINED GRADIENT OVERLAY */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-white/95 via-white/80 to-white/30 sm:from-white/90 sm:via-white/60 sm:to-transparent md:w-[75%] lg:w-[65%]" />
       
       {/* CONTENT AREA */}
-      <div className="relative z-20 h-full container mx-auto px-6 lg:px-16 flex items-center">
+      <div className="relative z-20 h-full container mx-auto px-4 sm:px-6 lg:px-16 flex items-center">
         <div className="max-w-2xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -136,23 +136,23 @@ export default function HeroSection() {
               transition={{ duration: 0.4 }}
               className="space-y-5 md:space-y-6"
             >
-              <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-blue-50/80 backdrop-blur-sm border border-blue-100">
-                <span className="flex h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
-                <span className="text-[10px] md:text-xs font-bold tracking-wider text-blue-700 uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/80 backdrop-blur-sm border border-blue-100 max-w-[85vw] sm:max-w-none overflow-hidden">
+                <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+                <span className="text-[9px] sm:text-[10px] md:text-xs font-bold tracking-wider text-blue-700 uppercase truncate">
                   {slides[index].badge}
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight tracking-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight tracking-tight">
                 {slides[index].title}
               </h1>
 
-              <p className="text-base md:text-lg text-slate-600 max-w-lg leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-lg leading-relaxed line-clamp-3 sm:line-clamp-none">
                 {slides[index].subtitle}
               </p>
 
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Button asChild size="lg" className="rounded-full px-6 py-6 text-base font-bold bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all active:scale-95">
+              <div className="flex flex-wrap gap-2 sm:gap-3 pt-1 sm:pt-2">
+                <Button asChild size="lg" className="rounded-full px-4 sm:px-6 py-4 sm:py-6 text-sm sm:text-base font-bold bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all active:scale-95">
                   <Link href={slides[index].cta.href}>
                     <span className="flex items-center gap-2">
                       {slides[index].cta.text}
@@ -160,7 +160,7 @@ export default function HeroSection() {
                     </span>
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-full px-6 py-6 text-base font-bold border-2 border-slate-200 bg-white/40 backdrop-blur-sm hover:bg-white transition-all active:scale-95">
+                <Button asChild variant="outline" size="lg" className="rounded-full px-4 sm:px-6 py-4 sm:py-6 text-sm sm:text-base font-bold border-2 border-slate-200 bg-white/40 backdrop-blur-sm hover:bg-white transition-all active:scale-95">
                   <Link href={slides[index].cta2?.href || '#'}>
                     <span className="flex items-center gap-2">
                       <Phone className="w-4 h-4" />
@@ -171,20 +171,20 @@ export default function HeroSection() {
               </div>
 
               {/* Trust markers */}
-              <div className="flex items-center gap-6 md:gap-10 pt-6 mt-4 border-t border-slate-200">
+              <div className="flex items-center gap-4 sm:gap-6 md:gap-10 pt-3 sm:pt-6 mt-2 sm:mt-4 border-t border-slate-200">
                 <div className="flex flex-col">
-                  <span className="text-xl md:text-2xl font-bold text-slate-800">1,000+</span>
-                  <span className="text-[10px] md:text-xs font-medium text-slate-500 uppercase tracking-wide mt-0.5">Students</span>
+                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800">1,000+</span>
+                  <span className="text-[9px] sm:text-[10px] md:text-xs font-medium text-slate-500 uppercase tracking-wide mt-0.5">Students</span>
                 </div>
-                <div className="h-8 w-px bg-slate-200" />
+                <div className="h-6 sm:h-8 w-px bg-slate-200" />
                 <div className="flex flex-col">
-                  <span className="text-xl md:text-2xl font-bold text-blue-600">Day 1</span>
-                  <span className="text-[10px] md:text-xs font-medium text-slate-500 uppercase tracking-wide mt-0.5">Results</span>
+                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-blue-600">Day 1</span>
+                  <span className="text-[9px] sm:text-[10px] md:text-xs font-medium text-slate-500 uppercase tracking-wide mt-0.5">Results</span>
                 </div>
-                <div className="h-8 w-px bg-slate-200" />
+                <div className="h-6 sm:h-8 w-px bg-slate-200" />
                 <div className="flex flex-col">
-                  <span className="text-xl md:text-2xl font-bold text-slate-800">15+</span>
-                  <span className="text-[10px] md:text-xs font-medium text-slate-500 uppercase tracking-wide mt-0.5">Trainers</span>
+                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800">15+</span>
+                  <span className="text-[9px] sm:text-[10px] md:text-xs font-medium text-slate-500 uppercase tracking-wide mt-0.5">Trainers</span>
                 </div>
               </div>
             </motion.div>
@@ -193,23 +193,23 @@ export default function HeroSection() {
       </div>
 
       {/* SLIDER CONTROLS */}
-      <div className="absolute bottom-8 right-6 lg:right-16 z-30 flex items-center gap-4">
+      <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-6 lg:right-16 z-30 flex items-center gap-2 sm:gap-4">
         <div className="flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
-              className={`w-1.5 h-1.5 rounded-full transition-all ${i === index ? 'w-6 bg-blue-600' : 'bg-slate-300'}`}
+              className={`h-1.5 rounded-full transition-all ${i === index ? 'w-5 sm:w-6 bg-blue-600' : 'w-1.5 bg-slate-300'}`}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
         </div>
-        <div className="flex gap-2">
-          <button onClick={prev} className="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
-            <ChevronLeft className="w-5 h-5" />
+        <div className="flex gap-1.5 sm:gap-2">
+          <button onClick={prev} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
-          <button onClick={next} className="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
-            <ChevronRight className="w-5 h-5" />
+          <button onClick={next} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
       </div>

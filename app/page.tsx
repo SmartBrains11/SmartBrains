@@ -137,30 +137,30 @@ export default function Home() {
       <TestimonialSlider />
 
       {/* Centres in Hyderabad & Vizianagaram Block */}
-      <section className="py-20 sm:py-28 bg-[#fafafa]">
+      <section className="py-12 sm:py-20 sm:py-28 bg-[#fafafa]">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16 lg:mb-20">
             <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
               Find Us
             </span>
-            <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
+            <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
               CENTRES IN HYDERABAD & VIZIANAGARAM
             </h2>
-            <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Visit our centres to experience our world-class brain training facilities.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
             {/* Hyderabad Centre */}
-            <div className="bg-white p-8 lg:p-12 rounded-[2.5rem] border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.08)] transition-all duration-400 group">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 mb-8 group-hover:scale-110 transition-transform duration-300">
-                <MapPin className="w-8 h-8" />
+            <div className="bg-white p-6 sm:p-8 lg:p-12 rounded-2xl sm:rounded-[2.5rem] border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.08)] transition-all duration-400 group">
+              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-blue-50 text-blue-600 mb-5 sm:mb-8 group-hover:scale-110 transition-transform duration-300">
+                <MapPin className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6 tracking-tight">
+              <h3 className="text-xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight">
                 Hyderabad Centre
               </h3>
-              <div className="space-y-4 text-gray-500 text-lg">
+              <div className="space-y-2 sm:space-y-4 text-gray-500 text-base sm:text-lg">
                 <p className="font-semibold text-gray-900">Smart Brains India</p>
                 <p>Prasanth Nagar Colony, Kondapur</p>
                 <p>Hyderabad, Telangana - 500084</p>
@@ -182,14 +182,14 @@ export default function Home() {
             </div>
 
             {/* Vizianagaram Centre */}
-            <div className="bg-white p-8 lg:p-12 rounded-[2.5rem] border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(234,88,12,0.08)] transition-all duration-400 group flex flex-col">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange-50 text-orange-600 mb-8 group-hover:scale-110 transition-transform duration-300">
-                <MapPin className="w-8 h-8" />
+            <div className="bg-white p-6 sm:p-8 lg:p-12 rounded-2xl sm:rounded-[2.5rem] border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(234,88,12,0.08)] transition-all duration-400 group flex flex-col">
+              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-orange-50 text-orange-600 mb-5 sm:mb-8 group-hover:scale-110 transition-transform duration-300">
+                <MapPin className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6 tracking-tight">
+              <h3 className="text-xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight">
                 Vizianagaram Centre
               </h3>
-              <div className="space-y-4 text-gray-500 text-lg flex-1">
+              <div className="space-y-2 sm:space-y-4 text-gray-500 text-base sm:text-lg flex-1">
                 <p className="font-semibold text-gray-900">Smart Brains India</p>
                 <p>Dakkini Street, Backside of Ramamandir</p>
                 <p>3-1/4-12/2, Vizianagaram - 535002, AP</p>

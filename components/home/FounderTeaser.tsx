@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 
 export const FounderTeaser = () => {
   return (
-    <section className="py-24 bg-white overflow-hidden relative">
+    <section className="py-14 sm:py-24 bg-white overflow-hidden relative">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-60" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-60" />
@@ -18,11 +18,11 @@ export const FounderTeaser = () => {
             {/* Image side with creative framing */}
             <div className="w-full lg:w-2/5 flex justify-center">
               <div className="relative">
-                {/* Decorative frames */}
-                <div className="absolute -inset-4 border-2 border-blue-100 rounded-[2.5rem] transform rotate-3" />
-                <div className="absolute -inset-4 border-2 border-orange-100 rounded-[2.5rem] transform -rotate-3" />
+                {/* Decorative frames — hidden on mobile to avoid overflow */}
+                <div className="hidden sm:block absolute -inset-4 border-2 border-blue-100 rounded-[2.5rem] transform rotate-3" />
+                <div className="hidden sm:block absolute -inset-4 border-2 border-orange-100 rounded-[2.5rem] transform -rotate-3" />
 
-                <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
+                <div className="relative w-52 h-52 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
                   <Image
                     src="/images/Jaya-lakshmi.webp"
                     alt="Lakkoju Jayalakshmi - Founder of Smart Brains India"
@@ -33,7 +33,7 @@ export const FounderTeaser = () => {
                 </div>
 
                 {/* Badge/Overlay */}
-                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl max-w-[200px] border border-gray-100 animate-bounce-subtle">
+                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white p-3 sm:p-6 rounded-2xl shadow-xl max-w-[140px] sm:max-w-[200px] border border-gray-100 animate-bounce-subtle">
                   <div className="flex items-center gap-2 mb-2">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <svg key={s} className="w-4 h-4 text-orange-400 fill-current" viewBox="0 0 20 20">
@@ -56,15 +56,15 @@ export const FounderTeaser = () => {
                 The Heart Behind Smart Brains India
               </div>
 
-              <h2 className="text-lg sm:text-2xl md:text-4xl font-black text-slate-900 mb-2 tracking-tight leading-none uppercase">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-black text-slate-900 mb-2 tracking-tight leading-none uppercase">
                 LAKKOJU JAYALAKSHMI
               </h2>
-              <p className="text-xl text-blue-600 font-bold mb-8">
-                Founder & Certified Brain Training Expert
+              <p className="text-base sm:text-xl text-blue-600 font-bold mb-5 sm:mb-8">
+                Founder &amp; Certified Brain Training Expert
               </p>
 
-              <div className="relative mb-10">
-                <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
+              <div className="relative mb-6 sm:mb-10">
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-medium line-clamp-4 sm:line-clamp-none">
                   A mother turned mission-maker. Jayalakshmi founded Smart Brains India in 2019 after personally witnessing the life-changing power of brain training in her own child's journey. With deep expertise, a mother's heart, and a scientist's curiosity, she has dedicated her life to unlocking the hidden genius in every child she meets.
                 </p>
               </div>

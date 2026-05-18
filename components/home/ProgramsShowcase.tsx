@@ -49,21 +49,62 @@ const featuredPrograms = [
 
 export function ProgramsShowcase() {
   return (
-    <section className="py-20 sm:py-28 bg-[#fafafa]">
+    <section className="py-12 sm:py-20 sm:py-28 bg-[#fafafa]">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+        <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16 lg:mb-20">
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
             Curriculum
           </span>
-          <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
+          <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
             PROGRAMS TO BOOST BRAIN POWER
           </h2>
-          <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Discover Smart Brains India&apos;s scientifically proven brain training courses, designed to unlock potential and boost memory, focus, math skills, and creativity for all ages.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 xl:gap-8 mb-16">
+        {/* Mobile: horizontal snap-scroll carousel */}
+        <div className="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 mb-8">
+          {featuredPrograms.map((program) => {
+            const Icon = program.icon;
+            const colorTokens = {
+              blue: { bg: 'bg-blue-50', text: 'text-blue-600' },
+              purple: { bg: 'bg-purple-50', text: 'text-purple-600' },
+              green: { bg: 'bg-emerald-50', text: 'text-emerald-600' },
+              orange: { bg: 'bg-orange-50', text: 'text-orange-600' },
+            } as const;
+            const tokens = colorTokens[program.color as keyof typeof colorTokens];
+            return (
+              <div
+                key={program.id}
+                className="flex-shrink-0 w-[78vw] snap-start bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col"
+              >
+                <div className="relative h-36 w-full">
+                  <Image src={program.image} alt={program.title} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-black/10" />
+                  <div className={`absolute -bottom-5 left-5 inline-flex items-center justify-center w-10 h-10 rounded-xl ${tokens.bg} ${tokens.text} shadow-md border-2 border-white z-10`}>
+                    <Icon className="h-5 w-5" />
+                  </div>
+                </div>
+                <div className="p-4 pt-7">
+                  <h3 className="text-base font-bold text-gray-900 mb-1">{program.title}</h3>
+                  <div className="inline-block px-2 py-0.5 rounded-md bg-gray-100 text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-2">Age: {program.ages}</div>
+                  <p className="text-gray-500 text-xs leading-relaxed line-clamp-3">{program.description}</p>
+                </div>
+                <div className="p-4 pt-2 mt-auto">
+                  <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-10 rounded-xl text-sm">
+                    <Link href={program.href} className="flex items-center justify-center gap-1">
+                      View Details <span>→</span>
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: 4-column grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 xl:gap-8 mb-16">
           {featuredPrograms.map((program) => {
             const Icon = program.icon;
 
@@ -124,11 +165,11 @@ export function ProgramsShowcase() {
         </div>
 
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button asChild className="px-10 py-7 rounded-full bg-gray-900 hover:bg-black text-white text-lg font-semibold shadow-xl hover:shadow-2xl hover:shadow-gray-900/20 transition-all active:scale-95">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <Button asChild className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-7 rounded-full bg-gray-900 hover:bg-black text-white text-base sm:text-lg font-semibold shadow-xl hover:shadow-2xl hover:shadow-gray-900/20 transition-all active:scale-95">
             <Link href="/programs">View All Programs</Link>
           </Button>
-          <Button asChild variant="outline" className="px-10 py-7 rounded-full border-blue-600 text-blue-600 hover:bg-blue-50 text-lg font-semibold shadow-lg transition-all active:scale-95">
+          <Button asChild variant="outline" className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-7 rounded-full border-blue-600 text-blue-600 hover:bg-blue-50 text-base sm:text-lg font-semibold shadow-lg transition-all active:scale-95">
             <Link href="/contact">Book Free Consultation</Link>
           </Button>
         </div>
@@ -136,3 +177,4 @@ export function ProgramsShowcase() {
     </section>
   );
 }
+

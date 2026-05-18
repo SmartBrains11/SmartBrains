@@ -54,16 +54,16 @@ const galleryItems = [
 
 export function MediaGallery() {
   return (
-    <section className="py-12 bg-slate-50">
+    <section className="py-10 sm:py-12 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16">
           <span className="text-sm font-semibold tracking-wide text-blue-600 uppercase">
             Gallery
           </span>
-          <h2 className="mt-4 text-lg sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
+          <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">
             LEARNING IN ACTION
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-600">
             Step Inside Our ClassRoom classrooms with a glimpse of our vibrant
             sessions and joyful moments.
           </p>
@@ -82,12 +82,12 @@ export function MediaGallery() {
                   alt={item.alt}
                   width={1200}
                   height={800}
-                  className="w-full h-[260px] object-cover"
+                  className="w-full h-[180px] sm:h-[260px] object-cover"
                   loading={index === 0 ? undefined : 'lazy'}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               ) : (
-                <div className="w-full h-[260px]">
+                <div className="w-full h-[180px] sm:h-[260px]">
                   <LiteYouTubeEmbed
                     videoId={item.videoId}
                     title={item.title}
