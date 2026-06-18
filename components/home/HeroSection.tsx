@@ -24,7 +24,7 @@ const slides: Slide[] = [
     badge: 'Hyderabad & Vizianagaram · Online & Offline',
     title: 'Brain Training Academy for Kids Aged 5–16',
     subtitle: 'SmartBrains India builds memory power, sharp concentration and natural intuition in children — through structured, expert-led programs your child will actually enjoy.',
-    img: '/images/hero1.1.webp',
+    img: '/images/hero1.png',
     cta: { text: 'Book a Free Demo', href: '/contact' },
     cta2: { text: 'Call Support', href: 'tel:7396447470' },
     objectPosition: '50% 36%',
@@ -93,7 +93,7 @@ export default function HeroSection() {
   const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
 
   return (
-    <section 
+    <section
       className="relative w-full h-[480px] sm:h-[500px] md:h-[550px] lg:h-[620px] overflow-hidden bg-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -113,7 +113,8 @@ export default function HeroSection() {
               src={slides[index].img}
               alt={slides[index].title}
               fill
-              priority
+              priority={true}
+              fetchPriority="high"
               className="object-cover"
               style={{ objectPosition: slides[index].objectPosition || '50% 36%' }}
             />
@@ -123,7 +124,7 @@ export default function HeroSection() {
 
       {/* REFINED GRADIENT OVERLAY */}
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-white/95 via-white/80 to-white/30 sm:from-white/90 sm:via-white/60 sm:to-transparent md:w-[75%] lg:w-[65%]" />
-      
+
       {/* CONTENT AREA */}
       <div className="relative z-20 h-full container mx-auto px-4 sm:px-6 lg:px-16 flex items-center">
         <div className="max-w-2xl">
@@ -199,16 +200,18 @@ export default function HeroSection() {
             <button
               key={i}
               onClick={() => setIndex(i)}
-              className={`h-1.5 rounded-full transition-all ${i === index ? 'w-5 sm:w-6 bg-blue-600' : 'w-1.5 bg-slate-300'}`}
+              className="p-2 flex items-center justify-center"
               aria-label={`Go to slide ${i + 1}`}
-            />
+            >
+              <span className={`h-1.5 rounded-full transition-all ${i === index ? 'w-5 sm:w-6 bg-blue-600' : 'w-1.5 bg-slate-300'}`} />
+            </button>
           ))}
         </div>
         <div className="flex gap-1.5 sm:gap-2">
-          <button onClick={prev} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
+          <button onClick={prev} aria-label="Previous slide" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
-          <button onClick={next} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
+          <button onClick={next} aria-label="Next slide" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all active:scale-90">
             <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>

@@ -8,18 +8,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Smart Brains India | Brain Training Centres in Hyderabad & Vizianagaram',
     description: 'Get in touch with Smart Brains India to enquire about brain training, memory, abacus, midbrain activation and DMIT programs.',
-    url: 'https://www.smartbrainsindia.com/contact',
+    url: 'https://www.smartbrainsindia.in/contact',
     siteName: 'Smart Brains India',
-    images: [{ url: 'https://www.smartbrainsindia.com/og-contact.jpg', width: 1200, height: 630, alt: 'Contact Smart Brains India' }],
+    images: [{ url: 'https://www.smartbrainsindia.in/og-contact.jpg', width: 1200, height: 630, alt: 'Contact Smart Brains India' }],
     locale: 'en_IN',
     type: 'website'
   },
-  alternates: { canonical: 'https://www.smartbrainsindia.com/contact' },
+  alternates: { canonical: 'https://www.smartbrainsindia.in/contact' },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Smart Brains India | Brain Training Centres in Hyderabad & Vizianagaram',
     description: 'Get in touch with Smart Brains India to enquire about brain training, memory, abacus, midbrain activation and DMIT programs.',
-    images: ['https://www.smartbrainsindia.com/og-contact.jpg']
+    images: ['https://www.smartbrainsindia.in/og-contact.jpg']
   },
   robots: { index: true, follow: true }
 };

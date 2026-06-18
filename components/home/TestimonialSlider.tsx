@@ -223,3 +223,5 @@ export function TestimonialSlider() {
     </section>
   );
 }
+
+export default TestimonialSlider;

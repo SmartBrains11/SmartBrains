@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Us | Smart Brains India',
     description: 'Get in touch with Smart Brains India. Centers in Hyderabad & Vizianagaram. Book a free demo session.',
-    url: 'https://www.smartbrainsindia.com/contact',
+    url: 'https://www.smartbrainsindia.in/contact',
     siteName: 'Smart Brains India',
     images: [
       {
-        url: 'https://www.smartbrainsindia.com/og-contact.jpg',
+        url: 'https://www.smartbrainsindia.in/og-contact.jpg',
         width: 1200,
         height: 630,
         alt: 'Contact Smart Brains India'
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     type: 'website'
   },
   alternates: {
-    canonical: 'https://www.smartbrainsindia.com/contact'
+    canonical: 'https://www.smartbrainsindia.in/contact'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Us | Smart Brains India',
     description: 'Get in touch with Smart Brains India. Book a free demo session for brain training programs.',
-    images: ['https://www.smartbrainsindia.com/og-contact.jpg']
+    images: ['https://www.smartbrainsindia.in/og-contact.jpg']
   },
   robots: {
     index: true,

@@ -176,10 +176,10 @@ Add **Service** schema for each program (after existing FAQPage schema, line 188
     __html: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Service',
-      '@id': 'https://www.smartbrainsindia.com/#services',
+      '@id': 'https://www.smartbrainsindia.in/#services',
       serviceType: 'Brain Training and Cognitive Development',
       provider: {
-        '@id': 'https://www.smartbrainsindia.com/#organization'
+        '@id': 'https://www.smartbrainsindia.in/#organization'
       },
       areaServed: [
         {
@@ -214,7 +214,7 @@ Add **Service** schema for each program (after existing FAQPage schema, line 188
               name: 'DMIT Test - Dermatoglyphics Multiple Intelligence Test',
               description: 'Scientific fingerprint analysis to identify learning styles, personality traits, and career guidance',
               provider: {
-                '@id': 'https://www.smartbrainsindia.com/#organization'
+                '@id': 'https://www.smartbrainsindia.in/#organization'
               }
             }
           },
@@ -386,7 +386,7 @@ Disallow: /_next/
 Disallow: /admin/
 Crawl-delay: 1
 
-Sitemap: https://www.smartbrainsindia.com/sitemap.xml
+Sitemap: https://www.smartbrainsindia.in/sitemap.xml
 
 # Google Bot
 User-agent: Googlebot
@@ -478,7 +478,7 @@ Update `app/layout.tsx` LocalBusiness schemas (lines 148-193):
 ```typescript
 {
   '@type': 'LocalBusiness',
-  '@id': 'https://www.smartbrainsindia.com/#location-vizianagaram',
+  '@id': 'https://www.smartbrainsindia.in/#location-vizianagaram',
   name: 'Smart Brains India - Vizianagaram',
   ...existing fields...,
   
@@ -496,7 +496,7 @@ Update `app/layout.tsx` LocalBusiness schemas (lines 148-193):
     latitude: '18.1124',  // Add actual coordinates
     longitude: '83.3953'
   },
-  image: 'https://www.smartbrainsindia.com/location-vizianagaram.jpg'
+  image: 'https://www.smartbrainsindia.in/location-vizianagaram.jpg'
 }
 ```
 

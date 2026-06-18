@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Brain Training Programs | DMIT, Midbrain Activation & More',
-  description: 'Explore 11 specialized brain training programs in Hyderabad & Vizianagaram. DMIT, Midbrain Activation, Photographic Memory, Speed Reading, Abacus Math, Vedic Math, and more. Expert-led courses for kids, teens, and adults.',
+  title: 'Brain Training Programs | Online Classes across India | Smart Brains India',
+  description: 'Explore 11 specialized brain training programs in Hyderabad & Vizianagaram, and live online across India. DMIT, Midbrain Activation, Photographic Memory, Speed Reading, Abacus, Vedic Math. Expert-led courses for kids, teens, and adults.',
   keywords: [
     'brain training programs',
     'DMIT test',
@@ -33,15 +33,21 @@ export const metadata: Metadata = {
     'scientific brain training methods',
     '11 brain development programs',
     'comprehensive cognitive training',
+    // Additive online keywords
+    'online brain training programs',
+    'online cognitive classes India',
+    'mental math classes online India',
+    'online speed reading course',
+    'dmit test online India'
   ],
   openGraph: {
     title: 'Brain Training Programs | Smart Brains India',
     description: '11 specialized brain training programs in Hyderabad & Vizianagaram. Expert-led courses for cognitive development.',
-    url: 'https://www.smartbrainsindia.com/programs',
+    url: 'https://www.smartbrainsindia.in/programs',
     siteName: 'Smart Brains India',
     images: [
       {
-        url: 'https://www.smartbrainsindia.com/og-programs.jpg',
+        url: 'https://www.smartbrainsindia.in/og-programs.jpg',
         width: 1200,
         height: 630,
         alt: 'Brain Training Programs - Smart Brains India'
@@ -51,13 +57,13 @@ export const metadata: Metadata = {
     type: 'website'
   },
   alternates: {
-    canonical: 'https://www.smartbrainsindia.com/programs'
+    canonical: 'https://www.smartbrainsindia.in/programs'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Brain Training Programs | Smart Brains India',
     description: '11 specialized brain training programs for cognitive development in Hyderabad & Vizianagaram.',
-    images: ['https://www.smartbrainsindia.com/og-programs.jpg']
+    images: ['https://www.smartbrainsindia.in/og-programs.jpg']
   },
   robots: {
     index: true,
@@ -92,43 +98,43 @@ export default function ProgramsLayout({
                 '@type': 'ListItem',
                 position: 1,
                 name: 'DMIT - Dermatoglyphics Multiple Intelligence Test',
-                url: 'https://www.smartbrainsindia.com/programs/dmit-test-kids'
+                url: 'https://www.smartbrainsindia.in/programs/dmit-test-kids'
               },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Midbrain Activation',
-                url: 'https://www.smartbrainsindia.com/programs/midbrain-activation-kids'
+                url: 'https://www.smartbrainsindia.in/programs/midbrain-activation-kids'
               },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: 'Photographic Memory',
-                url: 'https://www.smartbrainsindia.com/programs/photographic-memory-training'
+                url: 'https://www.smartbrainsindia.in/programs/photographic-memory-training'
               },
               {
                 '@type': 'ListItem',
                 position: 4,
                 name: 'Abacus & Vedic Math',
-                url: 'https://www.smartbrainsindia.com/programs/abacus-vedic-math-classes'
+                url: 'https://www.smartbrainsindia.in/programs/abacus-vedic-math-classes'
               },
               {
                 '@type': 'ListItem',
                 position: 5,
                 name: 'Speed Reading',
-                url: 'https://www.smartbrainsindia.com/programs/speed-reading-course'
+                url: 'https://www.smartbrainsindia.in/programs/speed-reading-course'
               },
               {
                 '@type': 'ListItem',
                 position: 6,
                 name: 'Handwriting Improvement',
-                url: 'https://www.smartbrainsindia.com/programs/handwriting-improvement'
+                url: 'https://www.smartbrainsindia.in/programs/handwriting-improvement'
               },
               {
                 '@type': 'ListItem',
                 position: 7,
                 name: 'Drawing & Skill Development',
-                url: 'https://www.smartbrainsindia.com/programs/drawing-skill-development'
+                url: 'https://www.smartbrainsindia.in/programs/drawing-skill-development'
               }
             ]
           })

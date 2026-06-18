@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const baseUrl = 'https://www.smartbrainsindia.com';
+const baseUrl = 'https://www.smartbrainsindia.in';
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(baseUrl),

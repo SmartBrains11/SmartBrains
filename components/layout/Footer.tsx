@@ -5,9 +5,9 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-6 lg:px-24 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Brand */}
-          <div>
+          <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Brain className="h-8 w-8 text-blue-400" />
               <span className="font-black text-xl">Smart Brains</span>
@@ -16,16 +16,16 @@ export function Footer() {
               Empowering minds through structured brain training programs for all ages.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/profile.php?id=61583366865848" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/profile.php?id=61583366865848" target="_blank" rel="noopener noreferrer" aria-label="Facebook Page">
                 <Facebook className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
               </a>
-              <a href="https://wa.me/917386209090" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/917386209090" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact">
                 <MessageCircle className="h-5 w-5 text-gray-400 hover:text-green-400 cursor-pointer transition-colors" />
               </a>
-              <a href="https://www.instagram.com/smartbrainsindia.in/?next=%2F&hl=en" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/smartbrainsindia.in/?next=%2F&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
                 <Instagram className="h-5 w-5 text-gray-400 hover:text-pink-400 cursor-pointer transition-colors" />
               </a>
-              <a href="https://www.youtube.com/@Smartbrainsindia-11" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/@Smartbrainsindia-11" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel">
                 <Youtube className="h-5 w-5 text-gray-400 hover:text-red-400 cursor-pointer transition-colors" />
               </a>
             </div>
@@ -47,12 +47,34 @@ export function Footer() {
           {/* Programs */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Popular Programs</h3>
-            <div className="space-y-2">
+            <div className="space-y-2 mb-8">
               <Link href="/programs/dmit" className="block text-gray-300 hover:text-white transition-colors">DMIT</Link>
               <Link href="/programs/midbrain-activation" className="block text-gray-300 hover:text-white transition-colors">Midbrain Activation</Link>
               <Link href="/programs/photographic-memory" className="block text-gray-300 hover:text-white transition-colors">Photographic Memory</Link>
               <Link href="/programs/abacus-math" className="block text-gray-300 hover:text-white transition-colors">Abacus Math</Link>
               <Link href="/programs/speed-reading" className="block text-gray-300 hover:text-white transition-colors">Speed Reading</Link>
+            </div>
+            
+            <h3 className="font-semibold text-lg mb-4">Online Programs</h3>
+            <div className="space-y-2">
+              <Link href="/online-dmit-india" className="block text-gray-300 hover:text-white transition-colors">Online DMIT India</Link>
+              <Link href="/online-midbrain-activation-india" className="block text-gray-300 hover:text-white transition-colors">Online Midbrain Activation</Link>
+              <Link href="/online-photographic-memory-india" className="block text-gray-300 hover:text-white transition-colors">Online Photographic Memory</Link>
+              <Link href="/online-speed-reading-india" className="block text-gray-300 hover:text-white transition-colors">Online Speed Reading</Link>
+              <Link href="/online-abacus-india" className="block text-gray-300 hover:text-white transition-colors">Online Abacus India</Link>
+              <Link href="/online-vedic-maths-india" className="block text-gray-300 hover:text-white transition-colors">Online Vedic Maths</Link>
+            </div>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Resources</h3>
+            <div className="space-y-2">
+              <Link href="/resources" className="block text-gray-300 hover:text-white transition-colors">Resource Hub</Link>
+              <Link href="/memory-power-for-kids" className="block text-gray-300 hover:text-white transition-colors">Memory Power for Kids</Link>
+              <Link href="/improve-concentration-in-children" className="block text-gray-300 hover:text-white transition-colors">Improve Concentration</Link>
+              <Link href="/brain-development-programs-for-kids" className="block text-gray-300 hover:text-white transition-colors">Brain Programs for Kids</Link>
+              <Link href="/learning-skills-for-students" className="block text-gray-300 hover:text-white transition-colors">Learning Skills</Link>
             </div>
           </div>
 

@@ -1,19 +1,21 @@
 import type { Metadata } from 'next';
 import HeroSection from '../components/home/HeroSection';
-import { ProgramsShowcase } from '../components/home/ProgramsShowcase';
-import { FounderTeaser } from '../components/home/FounderTeaser';
-import { WhySmartBrains } from '../components/home/WhySmartBrains';
-import { InstagramShowcase } from '../components/home/InstagramShowcase';
-import { TestimonialSlider } from '../components/home/TestimonialSlider';
-import { CTASection } from '../components/home/CTASection';
-import { MediaGallery } from '../components/home/MediaGallery';
-import { ContactPopup } from '../components/home/ContactPopup';
+import dynamic from 'next/dynamic';
+
+const ProgramsShowcase = dynamic(() => import('../components/home/ProgramsShowcase'));
+const FounderTeaser = dynamic(() => import('../components/home/FounderTeaser'));
+const WhySmartBrains = dynamic(() => import('../components/home/WhySmartBrains'));
+const InstagramShowcase = dynamic(() => import('../components/home/InstagramShowcase'));
+const TestimonialSlider = dynamic(() => import('../components/home/TestimonialSlider'));
+const CTASection = dynamic(() => import('../components/home/CTASection'));
+const MediaGallery = dynamic(() => import('../components/home/MediaGallery'));
+const ContactPopup = dynamic(() => import('../components/home/ContactPopup'), { ssr: false });
 import { MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Brain Training & Memory Classes for Kids in Hyderabad & Vizianagaram | Smart Brains India',
-  description: 'Smart Brains India - #1 Brain Training Institute in Vizianagaram & Hyderabad | DMIT, Midbrain Activation, Speed Reading, Abacus & Vedic Math | ✓1000+ Students ✓Certified Trainers ✓Proven Results | FREE Demo: +91 7396447470',
+  title: 'Brain Training & Memory Classes for Kids in Hyderabad & Vizianagaram | Online Classes across India | Smart Brains India',
+  description: 'Smart Brains India - #1 Brain Training Institute in Vizianagaram & Hyderabad | Now offering Live Online Classes across India | DMIT, Midbrain Activation, Speed Reading, Abacus & Vedic Math | Book FREE Demo: +91 7396447470',
   keywords: [
     'brain training for kids',
     'brain development classes',
@@ -24,16 +26,24 @@ export const metadata: Metadata = {
     'Smart Brains India',
     'midbrain activation',
     'photographic memory',
-    'child development'
+    'child development',
+    // Pan-India & Online Classes Additions
+    'online brain training',
+    'online abacus classes',
+    'online DMIT test India',
+    'midbrain activation online',
+    'photographic memory training online',
+    'nationwide brain development',
+    'online classes for children'
   ],
   openGraph: {
     title: 'Brain Training & Memory Classes for Kids in Hyderabad & Vizianagaram | Smart Brains India',
     description: 'Smart Brains India offers brain development, memory, abacus, midbrain activation and photographic memory classes for kids in Hyderabad and Vizianagaram.',
-    url: 'https://www.smartbrainsindia.com',
+    url: 'https://www.smartbrainsindia.in',
     siteName: 'Smart Brains India',
     images: [
       {
-        url: 'https://www.smartbrainsindia.com/og-default.jpg',
+        url: 'https://www.smartbrainsindia.in/og-default.jpg',
         width: 1200,
         height: 630,
         alt: 'Smart Brains India - Brain Training Programs'
@@ -43,14 +53,14 @@ export const metadata: Metadata = {
     type: 'website'
   },
   alternates: {
-    canonical: 'https://www.smartbrainsindia.com'
+    canonical: 'https://www.smartbrainsindia.in'
   },
   twitter: {
     card: 'summary_large_image',
     site: '@smartbrainsindia',
     title: 'Brain Training & Memory Classes for Kids in Hyderabad & Vizianagaram',
     description: 'Boost focus, confidence and exam performance with scientific brain training programs.',
-    images: ['https://www.smartbrainsindia.com/og-default.jpg']
+    images: ['https://www.smartbrainsindia.in/og-default.jpg']
   },
   robots: { index: true, follow: true }
 };
@@ -66,8 +76,8 @@ export default function Home() {
             '@context': 'https://schema.org',
             '@type': 'EducationalOrganization',
             name: 'Smart Brains India',
-            url: 'https://www.smartbrainsindia.com',
-            logo: 'https://www.smartbrainsindia.com/logo.png',
+            url: 'https://www.smartbrainsindia.in',
+            logo: 'https://www.smartbrainsindia.in/logo.png',
             sameAs: [
               'https://www.facebook.com/profile.php?id=61583366865848',
               'https://www.instagram.com/smartbrainsindia.in/',
@@ -127,6 +137,12 @@ export default function Home() {
           talents, Midbrain Activation for enhancing intuitive abilities in children aged 5-15 years,
           Advanced Midbrain programs for adults, Photographic Memory techniques for perfect recall,
           and comprehensive brain development programs backed by scientific research.
+        </p>
+        <p>
+          Smart Brains India also provides live, interactive online classes and programs nationwide across India. 
+          Our online cognitive training, mental arithmetic, and brain development courses are tailored to serve 
+          students in major cities including Delhi, Mumbai, Bengaluru, Chennai, Pune, Kolkata, and other regions, 
+          bringing our certified trainers and proven scientific methods directly to your home.
         </p>
       </section>
       <ProgramsShowcase />

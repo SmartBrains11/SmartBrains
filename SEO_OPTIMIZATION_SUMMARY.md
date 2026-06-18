@@ -38,7 +38,7 @@
   - ✅ Dynamic metadata generation
   - ✅ Program-specific keywords
   - ✅ Enhanced descriptions with location and contact info
-  - ✅ All canonical URLs use `https://www.smartbrainsindia.com`
+  - ✅ All canonical URLs use `https://www.smartbrainsindia.in`
 
 ### 4. **Enhanced Structured Data** ✅
 - **Layout.tsx** - Unified `@graph` structure:
@@ -76,7 +76,7 @@
   - ✅ `User-agent: *`
   - ✅ `Allow: /`
   - ✅ `Disallow: /api/`
-  - ✅ `Sitemap: https://www.smartbrainsindia.com/sitemap.xml`
+  - ✅ `Sitemap: https://www.smartbrainsindia.in/sitemap.xml`
   - ✅ Google and Bing bot specific directives
 
 ### 6. **Performance SEO** ✅
@@ -106,7 +106,7 @@
 - [x] `keywords` - Location-specific, program-specific
 - [x] `openGraph` - Complete with images, url, locale
 - [x] `twitter` - Card type, images, descriptions
-- [x] `alternates.canonical` - All use `https://www.smartbrainsindia.com`
+- [x] `alternates.canonical` - All use `https://www.smartbrainsindia.in`
 - [x] `robots` - Proper indexing directives
 - [x] `metadataBase` - Set in root layout
 
@@ -143,7 +143,7 @@
 ### 12. **Canonical Rules** ✅
 
 - [x] All pages have canonical URLs
-- [x] All use `https://www.smartbrainsindia.com` base
+- [x] All use `https://www.smartbrainsindia.in` base
 - [x] No trailing slashes (except root)
 - [x] Consistent URL structure
 
@@ -167,11 +167,11 @@
 
 ### 1. **Google Search Console Setup** (REQUIRED)
 1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Add property: `https://www.smartbrainsindia.com`
+2. Add property: `https://www.smartbrainsindia.in`
 3. Verify ownership:
    - Update verification code in `app/layout.tsx` line 86
    - Replace `'your-google-verification-code'` with actual code
-4. Submit sitemap: `https://www.smartbrainsindia.com/sitemap.xml`
+4. Submit sitemap: `https://www.smartbrainsindia.in/sitemap.xml`
 5. Request indexing for key pages
 
 ### 2. **Google Business Profile**

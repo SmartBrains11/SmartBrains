@@ -880,7 +880,7 @@ export default function QuantumSpeedReadingPage() {
                   <Link href="tel:+917396447470" className="w-full flex items-center justify-center gap-2.5 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-gray-900 px-6 py-3.5 rounded-xl text-sm font-semibold transition-all shadow-sm">
                     <Phone className="w-4 h-4" /> Call Now
                   </Link>
-                  <Link href="mailto:info@smartbrainsindia.com" className="w-full flex items-center justify-center gap-2.5 bg-white border border-transparent hover:bg-slate-50 text-slate-600 py-3 rounded-xl text-sm font-medium transition-all">
+                  <Link href="mailto:info@smartbrainsindia.in" className="w-full flex items-center justify-center gap-2.5 bg-white border border-transparent hover:bg-slate-50 text-slate-600 py-3 rounded-xl text-sm font-medium transition-all">
                     <Mail className="w-4 h-4" /> Email Us
                   </Link>
                 </div>

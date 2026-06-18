@@ -8,6 +8,8 @@ import { Separator } from '@/components/ui/separator';
 import {
   Calendar, Phone, Mail, ArrowLeft, Star, CheckCircle
 } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { programFAQs } from '@/data/faqs';
 
 export interface Section {
   title: string;
@@ -39,6 +41,7 @@ export interface ProgramData {
 
 interface ProgramDetailsViewProps {
   programData: ProgramData;
+  programSlug: string;
   relatedPrograms?: Array<{
     slug: string;
     title: string;
@@ -46,7 +49,8 @@ interface ProgramDetailsViewProps {
   }>;
 }
 
-export function ProgramDetailsView({ programData, relatedPrograms = [] }: ProgramDetailsViewProps) {
+export function ProgramDetailsView({ programData, programSlug, relatedPrograms = [] }: ProgramDetailsViewProps) {
+  const faqs = programFAQs[programSlug] || [];
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -220,6 +224,25 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
                   </CardContent>
                 </Card>
               )}
+
+              {/* FAQs Section */}
+              {faqs.length > 0 && (
+                <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in-up mt-8" style={{ animationDelay: '450ms' }}>
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-gray-900">Frequently Asked Questions</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Accordion type="single" collapsible className="space-y-2">
+                      {faqs.map((faq, i) => (
+                        <AccordionItem key={i} value={`faq-${i}`} className="border rounded-xl px-4 bg-white border-slate-200 shadow-sm overflow-hidden last:border-b-0">
+                          <AccordionTrigger className="text-left font-bold text-slate-850 text-base py-4 hover:no-underline">{faq.q}</AccordionTrigger>
+                          <AccordionContent className="text-slate-600 leading-relaxed pb-4 text-sm">{faq.a}</AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </CardContent>
+                </Card>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -275,7 +298,7 @@ export function ProgramDetailsView({ programData, relatedPrograms = [] }: Progra
                       </Link>
                     </Button>
                     <Button asChild variant="ghost" className="w-full hover:scale-105 transition-transform duration-300">
-                      <Link href="mailto:info@smartbrainsindia.com" className="flex items-center justify-center space-x-2">
+                      <Link href="mailto:info@smartbrainsindia.in" className="flex items-center justify-center space-x-2">
                         <Mail className="h-4 w-4" />
                         <span>Email Us</span>
                       </Link>

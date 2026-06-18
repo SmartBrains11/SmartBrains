@@ -9,7 +9,7 @@ Disallow: /admin/
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://www.smartbrainsindia.com/sitemap.xml
+Sitemap: https://www.smartbrainsindia.in/sitemap.xml
 
 # Google Bot
 User-agent: Googlebot

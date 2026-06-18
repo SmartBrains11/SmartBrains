@@ -15,11 +15,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.smartbrainsindia.in'),
   title: {
-    default: 'Smart Brains India | Brain Training & Cognitive Development in Hyderabad & Vizianagaram',
-    template: '%s | Smart Brains India'
+    default: 'Smart Brains India | Brain Training & Cognitive Development in Hyderabad, Vizianagaram & Online across India',
+    template: '%s | Online & Nationwide in India | Smart Brains India'
   },
   description:
-    'Leading brain training institute in Hyderabad & Vizianagaram. Expert-led programs: DMIT test, Midbrain Activation, Photographic Memory, Speed Reading, Abacus Math, Vedic Math for kids, teens & adults. Book free demo: +91 7396447470',
+    'Leading brain training institute in Hyderabad, Vizianagaram & online across India. Expert-led programs: DMIT test, Midbrain Activation, Photographic Memory, Speed Reading, Abacus Math, Vedic Math. Book free demo: +91 7396447470',
   keywords: [
     'Smart Brains India',
     'brain training institute',
@@ -96,6 +96,20 @@ export const metadata: Metadata = {
     'certified DMIT center',
     'experienced brain trainers',
     '1000+ students trained',
+    // Nationwide & Online Services
+    'online brain training',
+    'online cognitive development India',
+    'remote brain development classes',
+    'online abacus classes India',
+    'online vedic maths training',
+    'online DMIT test India',
+    'online midbrain activation course',
+    'online photographic memory training India',
+    'speed reading online course India',
+    'brain development classes across India',
+    'nationwide brain training classes',
+    'best online classes for kid intelligence',
+    'remote focus improvement programs',
   ],
   openGraph: {
     title: 'Smart Brains India | Brain Training & Cognitive Development',
@@ -163,13 +177,13 @@ export default function RootLayout({
               '@graph': [
                 {
                   '@type': 'Organization',
-                  '@id': 'https://www.smartbrainsindia.com/#organization',
+                  '@id': 'https://www.smartbrainsindia.in/#organization',
                   name: 'Smart Brains India',
-                  url: 'https://www.smartbrainsindia.com',
+                  url: 'https://www.smartbrainsindia.in',
                   logo: {
                     '@type': 'ImageObject',
-                    '@id': 'https://www.smartbrainsindia.com/#logo',
-                    url: 'https://www.smartbrainsindia.com/logo.png',
+                    '@id': 'https://www.smartbrainsindia.in/#logo',
+                    url: 'https://www.smartbrainsindia.in/logo.png',
                     width: 512,
                     height: 512
                   },
@@ -193,14 +207,19 @@ export default function RootLayout({
                       areaServed: 'IN',
                       availableLanguage: ['en', 'hi', 'te']
                     }
+                  ],
+                  'areaServed': [
+                    { '@type': 'Country', 'name': 'India' },
+                    { '@type': 'State', 'name': 'Andhra Pradesh' },
+                    { '@type': 'State', 'name': 'Telangana' }
                   ]
                 },
                 {
                   '@type': 'LocalBusiness',
-                  '@id': 'https://www.smartbrainsindia.com/#location-hyderabad',
+                  '@id': 'https://www.smartbrainsindia.in/#location-hyderabad',
                   name: 'Smart Brains India - Hyderabad',
                   parentOrganization: {
-                    '@id': 'https://www.smartbrainsindia.com/#organization'
+                    '@id': 'https://www.smartbrainsindia.in/#organization'
                   },
                   address: {
                     '@type': 'PostalAddress',
@@ -215,7 +234,7 @@ export default function RootLayout({
                     '@type': 'City',
                     name: 'Hyderabad'
                   },
-                  url: 'https://www.smartbrainsindia.com/contact',
+                  url: 'https://www.smartbrainsindia.in/contact',
                   priceRange: '$$',
                   openingHoursSpecification: [
                     {
@@ -230,14 +249,14 @@ export default function RootLayout({
                     latitude: '17.4569',
                     longitude: '78.3659'
                   },
-                  image: 'https://www.smartbrainsindia.com/logo.png'
+                  image: 'https://www.smartbrainsindia.in/logo.png'
                 },
                 {
                   '@type': 'LocalBusiness',
-                  '@id': 'https://www.smartbrainsindia.com/#location-vizianagaram',
+                  '@id': 'https://www.smartbrainsindia.in/#location-vizianagaram',
                   name: 'Smart Brains India - Vizianagaram',
                   parentOrganization: {
-                    '@id': 'https://www.smartbrainsindia.com/#organization'
+                    '@id': 'https://www.smartbrainsindia.in/#organization'
                   },
                   address: {
                     '@type': 'PostalAddress',
@@ -252,7 +271,7 @@ export default function RootLayout({
                     '@type': 'City',
                     name: 'Vizianagaram'
                   },
-                  url: 'https://www.smartbrainsindia.com/contact',
+                  url: 'https://www.smartbrainsindia.in/contact',
                   priceRange: '$$',
                   openingHoursSpecification: [
                     {
@@ -267,15 +286,15 @@ export default function RootLayout({
                     latitude: '18.1124',
                     longitude: '83.3953'
                   },
-                  image: 'https://www.smartbrainsindia.com/logo.png'
+                  image: 'https://www.smartbrainsindia.in/logo.png'
                 },
                 {
                   '@type': 'EducationalOrganization',
-                  '@id': 'https://www.smartbrainsindia.com/#educational',
+                  '@id': 'https://www.smartbrainsindia.in/#educational',
                   name: 'Smart Brains India',
-                  url: 'https://www.smartbrainsindia.com',
+                  url: 'https://www.smartbrainsindia.in',
                   logo: {
-                    '@id': 'https://www.smartbrainsindia.com/#logo'
+                    '@id': 'https://www.smartbrainsindia.in/#logo'
                   },
                   address: [
                     {
@@ -308,6 +327,11 @@ export default function RootLayout({
                       contactType: 'customer service',
                       areaServed: 'IN'
                     }
+                  ],
+                  'areaServed': [
+                    { '@type': 'Country', 'name': 'India' },
+                    { '@type': 'State', 'name': 'Andhra Pradesh' },
+                    { '@type': 'State', 'name': 'Telangana' }
                   ]
                 }
               ]

@@ -97,6 +97,7 @@ export const ContactPopup = () => {
             <button
               onClick={handleClose}
               className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
+              aria-label="Close dialog"
             >
               <X className="w-6 h-6 text-gray-400" />
             </button>
@@ -114,36 +115,39 @@ export const ContactPopup = () => {
                 <p className="text-slate-600 mb-8 leading-relaxed">
                   Join 1,000+ students in our expert-led brain training programs. Fill the form below to get a <strong>FREE Demo Session</strong>.
                 </p>
-
+ 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input
                       required
                       type="text"
+                      aria-label="Your Full Name"
                       placeholder="Your Full Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder:text-gray-400 font-medium"
                     />
                   </div>
-
+ 
                   <div className="relative">
                     <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input
                       required
                       type="tel"
+                      aria-label="Phone Number"
                       placeholder="Phone Number"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder:text-gray-400 font-medium"
                     />
                   </div>
-
+ 
                   <div className="relative">
                     <MessageSquare className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <select
                       value={formData.interest}
+                      aria-label="Your Interest"
                       onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
                       className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all font-medium appearance-none"
                     >
@@ -188,3 +192,5 @@ export const ContactPopup = () => {
     </AnimatePresence>
   );
 };
+
+export default ContactPopup;

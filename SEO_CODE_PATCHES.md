@@ -146,7 +146,7 @@ geo: {
   latitude: '18.1124',
   longitude: '83.3953'
 },
-image: 'https://www.smartbrainsindia.com/logo.png'
+image: 'https://www.smartbrainsindia.in/logo.png'
 ```
 
 **Do the same for Hyderabad LocalBusiness object (around line 148-170):**
@@ -165,7 +165,7 @@ geo: {
   latitude: '17.4569',
   longitude: '78.3659'
 },
-image: 'https://www.smartbrainsindia.com/logo.png'
+image: 'https://www.smartbrainsindia.in/logo.png'
 ```
 
 **Expected Result:** +50% Google Maps visibility
@@ -229,7 +229,7 @@ Disallow: /admin/
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://www.smartbrainsindia.com/sitemap.xml
+Sitemap: https://www.smartbrainsindia.in/sitemap.xml
 
 # Google Bot
 User-agent: Googlebot
@@ -308,7 +308,7 @@ npm run dev
 
 **A. Google Rich Results Test**
 - URL: https://search.google.com/test/rich-results
-- Test: `https://www.smartbrainsindia.com`
+- Test: `https://www.smartbrainsindia.in`
 - Expected: ✅ All schemas valid
 
 **B. Schema Markup Validator**

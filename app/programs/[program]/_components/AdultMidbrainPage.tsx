@@ -194,9 +194,10 @@ export default function AdultMidbrainPage() {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} className="relative">
               <div className="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white group">
                 <Image
-                  src="/images/midbrain-adults.webp"
+                  src="/images/midbrain-adult.webp"
                   alt="Adult Midbrain Activation Workshop"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 500px"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   priority
                 />
@@ -278,7 +279,7 @@ export default function AdultMidbrainPage() {
 
             <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl hidden lg:block">
               <Image 
-                src="/images/mental-fatigue.webp" 
+                src="/images/Memory-Focus.webp" 
                 alt="Mental Fatigue" 
                 fill 
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
@@ -399,7 +400,6 @@ export default function AdultMidbrainPage() {
 
       {/* 5. Key Benefits Full Width */}
       <section className="py-20 bg-indigo-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5" />
         <div className="container mx-auto px-6 lg:px-20 max-w-6xl relative z-10">
           <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-12 text-center">Key Benefits</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

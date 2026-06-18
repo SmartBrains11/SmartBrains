@@ -7,6 +7,7 @@ import { motion, Variants } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { programFAQs } from '@/data/faqs';
 import { CheckCircle, Brain, Target, Shield, Clock, MapPin, Monitor, Star, ArrowRight, Play, Users, Calendar, ArrowLeft, Heart, BookOpen, Quote, Phone, HelpCircle, Eye, Award, Mail, ChevronLeft, ChevronRight, Instagram, Sparkles, Zap, Timer, Triangle, Circle, Square, Sun, Clover, Moon, Bell, Crown, Leaf, Gem, Diamond, ArrowUp } from 'lucide-react';
 
 const FADE_UP: Variants = {
@@ -745,14 +746,7 @@ export default function PhotographicMemoryPage() {
             <h2 className="text-4xl font-black text-slate-900 tracking-tight leading-none uppercase">Got Questions?</h2>
           </div>
           <Accordion type="single" collapsible className="space-y-4">
-            {[
-              { q: 'What exactly is the Photographic Memory program?', a: 'It is a 20-session structured training course that teaches children proven memory techniques — visualization, association, story linking and memory palace building — combined with brain yoga and meditation to maximise retention and recall.' },
-              { q: 'What age group is this suitable for?', a: 'The program is designed for children aged 5 to 17 years. Techniques are adapted to the child\'s age and learning level within the batch.' },
-              { q: 'How long is each session and what does it include?', a: 'Each session is 1.5 hours and has three parts: a Brain Yoga & Meditation warm-up (20 min), a Memory Technique Training block (40 min), and an applied Improvement Session with real practice (30 min).' },
-              { q: 'How soon will I see results in my child?', a: 'Most parents notice a visible difference in recall and study confidence within the first 4 sessions. By Session 10, measurable improvement in study speed is typically confirmed.' },
-              { q: 'Is the online batch as effective as the offline classes?', a: 'Yes. The same certified trainer, the same structured curriculum and the same session format are used for both modes. Weekly progress is shared with parents regardless of batch type.' },
-              { q: 'What is the fee and what does it include?', a: 'The program fee is ₹10,000 per child for the full 20-session course. This includes all training materials, progress tracking and the completion certificate.' }
-            ].map((faq, i) => (
+            {programFAQs['photographic-memory'].map((faq, i) => (
               <AccordionItem key={i} value={`faq-${i}`} className="border rounded-2xl px-6 bg-slate-50 border-slate-200">
                 <AccordionTrigger className="text-left font-bold text-slate-900 text-lg py-6">{faq.q}</AccordionTrigger>
                 <AccordionContent className="text-slate-600 leading-relaxed pb-6 text-base">{faq.a}</AccordionContent>

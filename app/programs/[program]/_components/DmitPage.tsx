@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { programFAQs } from '@/data/faqs';
 import Image from 'next/image';
 import { 
   CheckCircle, Brain, Target, Star, ArrowLeft, Heart, 
@@ -728,15 +729,7 @@ export default function DmitPage() {
             <p className="text-lg text-slate-600">Everything you need to know about DMIT and the assessment process.</p>
           </div>
           <Accordion type="single" collapsible className="space-y-4">
-            {[
-              { q: 'What exactly is DMIT and how does it work?', a: 'DMIT analyses the ridge patterns on all 10 fingerprints using certified software that maps each pattern to corresponding brain regions. The result is a detailed intelligence and personality profile built on biological data that has been fixed since before birth.' },
-              { q: 'Is this scientifically proven?', a: 'Yes. Dermatoglyphics has been studied for over 100 years and is supported by research in neuroscience, genetics and developmental biology. The connection between fingerprint ridge patterns and brain structure has been documented in peer-reviewed research across multiple countries.' },
-              { q: 'What age is DMIT suitable for?', a: 'DMIT is suitable for all ages — from children as young as 2–3 years (fingerprints are fully formed at birth) through teenagers making subject and career choices, to adults seeking career clarity or self-understanding.' },
-              { q: 'How long does the assessment take?', a: 'The assessment session takes 2–3 hours including fingerprint collection, software analysis, report generation and initial consultation. The follow-up session is 1–1.5 hours and is scheduled 2–4 weeks later.' },
-              { q: 'Is the report personalised or generic?', a: 'Every report is completely personalised to the individual\'s fingerprint data. No two reports are identical. The 68-page report covers brain dominance, all 10 intelligences, learning style, personality type, recommended study methods and career directions.' },
-              { q: 'Can DMIT be done online?', a: 'Yes. Fingerprint collection is done using a certified scanner at our centre or via a home kit we provide. The consultation and follow-up sessions are available both offline at our Hyderabad and Vizianagaram centres and online.' },
-              { q: 'What does ₹5,000 include?', a: 'The full assessment session, certified software analysis, a 68-page personalised report, initial report walkthrough with a certified consultant and one follow-up consultation. No hidden charges.' }
-            ].map((faq, i) => (
+            {programFAQs['dmit'].map((faq, i) => (
               <AccordionItem key={i} value={`faq-${i}`} className="border rounded-2xl px-6 bg-white border-slate-200 shadow-sm overflow-hidden">
                 <AccordionTrigger className="text-left font-bold text-slate-900 text-lg py-6">{faq.q}</AccordionTrigger>
                 <AccordionContent className="text-slate-600 leading-relaxed pb-6 text-base">{faq.a}</AccordionContent>

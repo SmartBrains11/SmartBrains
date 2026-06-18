@@ -7,6 +7,7 @@ import { motion, Variants } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { programFAQs } from '@/data/faqs';
 import { CheckCircle, Brain, Target, Shield, Clock, MapPin, Monitor, Star, ArrowRight, Play, Users, Calendar, ArrowLeft, Heart, BookOpen, Quote, Phone, HelpCircle, Eye, Award, Mail, ChevronLeft, ChevronRight, Instagram, Diamond, Circle, Triangle } from 'lucide-react';
 
 const FADE_UP: Variants = {
@@ -939,7 +940,7 @@ export default function MidbrainActivationPage() {
                   <Link href="tel:+917396447470" className="w-full flex items-center justify-center gap-2.5 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-gray-900 px-6 py-3.5 rounded-xl text-sm font-semibold transition-all shadow-sm">
                     <Phone className="w-4 h-4" /> Call Now
                   </Link>
-                  <Link href="mailto:info@smartbrainsindia.com" className="w-full flex items-center justify-center gap-2.5 bg-white border border-transparent hover:bg-slate-50 text-slate-600 py-3 rounded-xl text-sm font-medium transition-all">
+                  <Link href="mailto:info@smartbrainsindia.in" className="w-full flex items-center justify-center gap-2.5 bg-white border border-transparent hover:bg-slate-50 text-slate-600 py-3 rounded-xl text-sm font-medium transition-all">
                     <Mail className="w-4 h-4" /> Email Us
                   </Link>
                 </div>
@@ -1027,15 +1028,7 @@ export default function MidbrainActivationPage() {
           </div>
 
           <Accordion type="single" collapsible className="w-full space-y-4">
-            {[
-              { q: 'What exactly is Midbrain Activation / Gandhari Vidya?', a: 'It is a scientifically designed 2-day workshop that uses brain gym exercises, sound-based stimulation, meditation and sensory activities to activate the midbrain — the region of the brain that connects the left and right hemispheres. When the brain enters an optimal alpha-theta wave state, children develop heightened intuition, memory, concentration and sensory perception. It is also known as Gandhari Vidya and the Power of Intuition Program.' },
-              { q: 'Is this safe? Are there any religious or supernatural elements?', a: 'Completely safe. This is a 100% science-backed, child-friendly program. There are no religious rituals, magic tricks or supernatural claims involved. All blindfold activities are conducted under the direct supervision of trained facilitators in a controlled environment. The "Gandhari Vidya" name is a cultural reference — the program itself is grounded in neuroscience and brain development research.' },
-              { q: 'My child is young. Are they eligible?', a: 'The program is designed for children between 5 and 17 years of age. This is the window when the brain is most receptive and neuroplasticity is at its peak. Children in this age group show the fastest and most lasting results. Outside this range, results can still be achieved but may take longer.' },
-              { q: 'Are parents allowed inside the workshop?', a: 'Parents are welcome for the opening briefing and the closing ceremony on Day 2. During the actual workshop sessions, we request parents to wait outside — not because of secrecy, but because children concentrate significantly better without parental presence in the room. You will receive a full progress update at the end of each day.' },
-              { q: 'What happens after the 2-day workshop? Will the results last?', a: 'Your investment includes 4 follow-up sessions (one every 2 weeks) to reinforce and stabilize the activation. Think of it like learning to ride a bicycle — the workshop teaches the skill, and daily practice makes it permanent. We advise children to do 15–20 minutes of blindfold practice daily for at least 30 days. After that, the skill becomes natural and long-lasting.' },
-              { q: 'Is the online batch as effective as the offline workshop?', a: 'Yes. Our online batches follow the exact same curriculum and are conducted live by the same trainers. All that is required is a stable internet connection, a laptop, a phone, and a dark, quiet room. Active parental support during online sessions helps maximize results. Many of our successful cases have come from online batches.' },
-              { q: 'What is the fee and what does it include?', a: 'The program fee is ₹10,000 per child. This includes the complete 2-day intensive workshop, all training materials, and all 4 follow-up sessions. There are no hidden charges. Contact us to know about the next available batch dates.' }
-            ].map((faq, idx) => (
+            {programFAQs['midbrain-activation'].map((faq, idx) => (
               <AccordionItem key={idx} value={`item-${idx}`} className="border border-slate-200 rounded-2xl px-6 bg-white hover:bg-slate-50 border-b-0 shadow-sm transition-colors">
                 <AccordionTrigger className="text-left text-lg font-bold text-slate-900 py-6 hover:no-underline hover:text-blue-600 transition-colors">
                   {faq.q}

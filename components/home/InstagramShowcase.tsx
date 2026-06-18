@@ -245,3 +245,5 @@ export const InstagramShowcase = () => {
     </section>
   );
 };
+
+export default InstagramShowcase;

@@ -8,18 +8,18 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Brain Training FAQs | Midbrain Activation, DMIT, Abacus & Memory Classes',
         description: 'Find answers to common questions about midbrain activation safety, DMIT accuracy, brain training benefits.',
-        url: 'https://www.smartbrainsindia.com/faq',
+        url: 'https://www.smartbrainsindia.in/faq',
         siteName: 'Smart Brains India',
-        images: [{ url: 'https://www.smartbrainsindia.com/og-default.jpg', width: 1200, height: 630, alt: 'Smart Brains India FAQs' }],
+        images: [{ url: 'https://www.smartbrainsindia.in/og-default.jpg', width: 1200, height: 630, alt: 'Smart Brains India FAQs' }],
         locale: 'en_IN',
         type: 'website'
     },
-    alternates: { canonical: 'https://www.smartbrainsindia.com/faq' },
+    alternates: { canonical: 'https://www.smartbrainsindia.in/faq' },
     twitter: {
         card: 'summary_large_image',
         title: 'Brain Training FAQs | Midbrain Activation, DMIT, Abacus & Memory Classes',
         description: 'Find answers to common questions about midbrain activation safety, DMIT accuracy, brain training benefits.',
-        images: ['https://www.smartbrainsindia.com/og-default.jpg']
+        images: ['https://www.smartbrainsindia.in/og-default.jpg']
     },
     robots: { index: true, follow: true }
 };

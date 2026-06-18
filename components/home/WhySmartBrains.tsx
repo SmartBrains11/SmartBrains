@@ -133,3 +133,5 @@ export function WhySmartBrains() {
     </section>
   );
 }
+
+export default WhySmartBrains;

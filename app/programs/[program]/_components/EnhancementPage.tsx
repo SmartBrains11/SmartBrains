@@ -194,7 +194,7 @@ export default function EnhancementPage() {
               </motion.div>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }} className="relative">
-              <img src="/images/enhancement.webp" alt="Enhancement Training" className="w-full h-96 object-cover rounded-[2rem] shadow-2xl" />
+              <img src="/images/enhancment.webp" alt="Enhancement Training" className="w-full h-96 object-cover rounded-[2rem] shadow-2xl" />
               <div className="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center"><InfinityIcon className="w-6 h-6 text-blue-600" /></div>
                 <div>

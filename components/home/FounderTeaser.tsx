@@ -27,6 +27,7 @@ export const FounderTeaser = () => {
                     src="/images/Jaya-lakshmi.webp"
                     alt="Lakkoju Jayalakshmi - Founder of Smart Brains India"
                     fill
+                    sizes="(max-width: 768px) 300px, 400px"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent" />
@@ -85,6 +86,7 @@ export const FounderTeaser = () => {
                         src={`/images/about${i}.webp`}
                         alt="Student"
                         fill
+                        sizes="80px"
                         className="object-cover"
                         onError={(e) => {
                           // Fallback if image doesn't exist
@@ -115,3 +117,5 @@ export const FounderTeaser = () => {
     </section>
   );
 };
+
+export default FounderTeaser;

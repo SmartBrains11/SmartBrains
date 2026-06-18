@@ -124,6 +124,14 @@ export function Header() {
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
+                  <Link href="/resources" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                    Resources
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
                   <Link href="/contact" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     Contact
                   </Link>
@@ -142,6 +150,7 @@ export function Header() {
           <button
             className="lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -158,6 +167,7 @@ export function Header() {
               {/* <Link href="/training" className="px-2 py-1 hover:bg-gray-100 rounded">Training</Link> */}
               <Link href="/testimonials" className="px-2 py-1 hover:bg-gray-100 rounded">Testimonials</Link>
               <Link href="/blog" className="px-2 py-1 hover:bg-gray-100 rounded">Blog</Link>
+              <Link href="/resources" className="px-2 py-1 hover:bg-gray-100 rounded">Resources</Link>
               <Link href="/contact" className="px-2 py-1 hover:bg-gray-100 rounded">Contact</Link>
               <Button asChild className="mt-4">
                 <Link href="/contact">Book a Demo</Link>

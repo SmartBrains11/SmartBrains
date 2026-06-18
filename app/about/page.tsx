@@ -15,18 +15,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Smart Brains India | Child Brain Development Institute',
     description: 'Empowering children to unlock their true potential through scientific brain training.',
-    url: 'https://www.smartbrainsindia.com/about',
+    url: 'https://www.smartbrainsindia.in/about',
     siteName: 'Smart Brains India',
-    images: [{ url: 'https://www.smartbrainsindia.com/og-about.jpg', width: 1200, height: 630, alt: 'About Smart Brains India' }],
+    images: [{ url: 'https://www.smartbrainsindia.in/og-about.jpg', width: 1200, height: 630, alt: 'About Smart Brains India' }],
     locale: 'en_IN',
     type: 'website'
   },
-  alternates: { canonical: 'https://www.smartbrainsindia.com/about' },
+  alternates: { canonical: 'https://www.smartbrainsindia.in/about' },
   twitter: {
     card: 'summary_large_image',
     title: 'About Smart Brains India | Child Brain Development Institute',
     description: 'Empowering children to unlock their true potential through scientific brain training.',
-    images: ['https://www.smartbrainsindia.com/og-about.jpg']
+    images: ['https://www.smartbrainsindia.in/og-about.jpg']
   },
   robots: { index: true, follow: true }
 };

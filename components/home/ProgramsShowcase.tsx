@@ -80,7 +80,7 @@ export function ProgramsShowcase() {
                 className="flex-shrink-0 w-[78vw] snap-start bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col"
               >
                 <div className="relative h-36 w-full">
-                  <Image src={program.image} alt={program.title} fill className="object-cover" />
+                  <Image src={program.image} alt={program.title} fill sizes="(max-width: 768px) 100vw, 300px" className="object-cover" />
                   <div className="absolute inset-0 bg-black/10" />
                   <div className={`absolute -bottom-5 left-5 inline-flex items-center justify-center w-10 h-10 rounded-xl ${tokens.bg} ${tokens.text} shadow-md border-2 border-white z-10`}>
                     <Icon className="h-5 w-5" />
@@ -88,7 +88,7 @@ export function ProgramsShowcase() {
                 </div>
                 <div className="p-4 pt-7">
                   <h3 className="text-base font-bold text-gray-900 mb-1">{program.title}</h3>
-                  <div className="inline-block px-2 py-0.5 rounded-md bg-gray-100 text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-2">Age: {program.ages}</div>
+                  <div className="inline-block px-2 py-0.5 rounded-md bg-gray-100 text-[9px] font-bold text-gray-600 uppercase tracking-widest mb-2">Age: {program.ages}</div>
                   <p className="text-gray-500 text-xs leading-relaxed line-clamp-3">{program.description}</p>
                 </div>
                 <div className="p-4 pt-2 mt-auto">
@@ -128,6 +128,7 @@ export function ProgramsShowcase() {
                     src={program.image}
                     alt={program.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-black/10" />
@@ -140,7 +141,7 @@ export function ProgramsShowcase() {
                   <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-tight group-hover:text-blue-600 transition-colors">
                     {program.title}
                   </h3>
-                  <div className="inline-block px-3 py-1 rounded-md bg-gray-100 text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">
+                  <div className="inline-block px-3 py-1 rounded-md bg-gray-100 text-[10px] font-bold text-gray-600 uppercase tracking-widest mb-3">
                     Age: {program.ages}
                   </div>
                   <p className="text-gray-500 leading-relaxed text-sm line-clamp-4">
@@ -177,4 +178,6 @@ export function ProgramsShowcase() {
     </section>
   );
 }
+
+export default ProgramsShowcase;
 

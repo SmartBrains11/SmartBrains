@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ProgramDetailsView, ProgramData } from './_components/ProgramDetailsView';
 import MidbrainActivationPage from './_components/MidbrainActivationPage';
+import { programFAQs } from '@/data/faqs';
 import PhotographicMemoryPage from './_components/PhotographicMemoryPage';
 import EnhancementPage from './_components/EnhancementPage';
 import QuantumSpeedReadingPage from './_components/QuantumSpeedReadingPage';
@@ -500,9 +501,9 @@ export async function generateMetadata({ params }: { params: { program: string }
   const data = programsData[params.program];
   const readable = params.program.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   const programTitle = data?.title || readable;
-  const title = `${programTitle} Training in Hyderabad & Vizianagaram | Smart Brains India`;
-  const description = `${data?.longDescription || data?.description || 'Brain training program'} offered by Smart Brains India in Hyderabad and Vizianagaram. ${data?.targetAge ? `For ${data.targetAge}.` : ''} ${data?.duration ? `Duration: ${data.duration}.` : ''} Book free demo: +91 7396447470 or +91 7386209090.`;
-  const url = `https://www.smartbrainsindia.com/programs/${params.program}`;
+  const title = `${programTitle} Training in Hyderabad & Vizianagaram | Online Classes across India | Smart Brains India`;
+  const description = `${data?.longDescription || data?.description || 'Brain training program'} offered by Smart Brains India in Hyderabad and Vizianagaram. Now available as live online interactive classes across India. ${data?.targetAge ? `For ${data.targetAge}.` : ''} ${data?.duration ? `Duration: ${data.duration}.` : ''} Book free demo: +91 7396447470 or +91 7386209090.`;
+  const url = `https://www.smartbrainsindia.in/programs/${params.program}`;
 
   const keywords = [
     programTitle.toLowerCase(),
@@ -513,6 +514,12 @@ export async function generateMetadata({ params }: { params: { program: string }
     'brain training',
     'cognitive development',
     data?.targetAge ? `${programTitle} for ${data.targetAge}` : '',
+    // Additive online search keywords
+    `${programTitle} online`,
+    `online ${programTitle} classes India`,
+    `best online ${programTitle} course`,
+    `online classes across India`,
+    `online brain development program`
   ].filter(Boolean);
 
   return {
@@ -629,33 +636,111 @@ export default function ProgramPage({ params }: { params: { program: string } })
 
   const relatedPrograms = relatedProgramsMap[params.program] || [];
 
+  // Generate dynamic schemas
+  const faqs = programFAQs[normalizedSlug] || [];
+  const faqSchema = faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': faqs.map(faq => ({
+      '@type': 'Question',
+      'name': faq.q,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.a
+      }
+    }))
+  } : null;
+
+  const courseSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    '@id': `https://www.smartbrainsindia.in/programs/${normalizedSlug}#course`,
+    'name': `${programData.title} Course`,
+    'description': programData.description,
+    'provider': {
+      '@type': 'EducationalOrganization',
+      '@id': 'https://www.smartbrainsindia.in/#educational',
+      'name': 'Smart Brains India',
+      'url': 'https://www.smartbrainsindia.in'
+    },
+    'courseMode': ['online', 'offline'],
+    'educationalLevel': 'Beginner to Advanced',
+    'offers': {
+      '@type': 'Offer',
+      'category': 'Paid Course',
+      'priceCurrency': 'INR',
+      'price': programData.price !== 'Contact for pricing' ? programData.price.replace(/[^\d]/g, '') : '0',
+      'description': 'Online and Offline classes available. Free consultation and demo sessions.'
+    }
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://www.smartbrainsindia.in'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Programs',
+        'item': 'https://www.smartbrainsindia.in/programs'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': programData.title,
+        'item': `https://www.smartbrainsindia.in/programs/${normalizedSlug}`
+      }
+    ]
+  };
+
+  const schemas = (
+    <>
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+    </>
+  );
+
+  let pageContent;
   if (normalizedSlug === 'midbrain-activation') {
-    return <MidbrainActivationPage />;
+    pageContent = <MidbrainActivationPage />;
+  } else if (normalizedSlug === 'photographic-memory') {
+    pageContent = <PhotographicMemoryPage />;
+  } else if (normalizedSlug === 'enhancement') {
+    pageContent = <EnhancementPage />;
+  } else if (normalizedSlug === 'quantum-speed-reading') {
+    pageContent = <QuantumSpeedReadingPage />;
+  } else if (normalizedSlug === 'speed-reading') {
+    pageContent = <SpeedReadingPage />;
+  } else if (normalizedSlug === 'dmit') {
+    pageContent = <DmitPage />;
+  } else if (normalizedSlug === 'midbrain-adults') {
+    pageContent = <AdultMidbrainPage />;
+  } else {
+    pageContent = <ProgramDetailsView programData={programData} programSlug={normalizedSlug} relatedPrograms={relatedPrograms} />;
   }
 
-  if (normalizedSlug === 'photographic-memory') {
-    return <PhotographicMemoryPage />;
-  }
-
-  if (normalizedSlug === 'enhancement') {
-    return <EnhancementPage />;
-  }
-
-  if (normalizedSlug === 'quantum-speed-reading') {
-    return <QuantumSpeedReadingPage />;
-  }
-
-  if (normalizedSlug === 'speed-reading') {
-    return <SpeedReadingPage />;
-  }
-
-  if (normalizedSlug === 'dmit') {
-    return <DmitPage />;
-  }
-
-  if (normalizedSlug === 'midbrain-adults') {
-    return <AdultMidbrainPage />;
-  }
-
-  return <ProgramDetailsView programData={programData} relatedPrograms={relatedPrograms} />;
+  return (
+    <>
+      {schemas}
+      {pageContent}
+    </>
+  );
 }
