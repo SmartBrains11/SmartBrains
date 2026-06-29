@@ -12,6 +12,10 @@ const MediaGallery = dynamic(() => import('../components/home/MediaGallery'));
 const ContactPopup = dynamic(() => import('../components/home/ContactPopup'), { ssr: false });
 import { MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
+import TrustEEAT from '../components/home/TrustEEAT';
+import { MeetExperts } from '../components/home/MeetExperts';
+
+
 
 export const metadata: Metadata = {
   title: 'Brain Training & Memory Classes for Kids in Hyderabad & Vizianagaram | Online Classes across India | Smart Brains India',
@@ -68,6 +72,22 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div>
+      {/* JSON-LD: SearchAction */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            'url': 'https://www.smartbrainsindia.in',
+            'potentialAction': {
+              '@type': 'SearchAction',
+              'target': 'https://www.smartbrainsindia.in/blog?q={search_term_string}',
+              'query-input': 'required name=search_term_string'
+            }
+          })
+        }}
+      />
       {/* JSON-LD: EducationalOrganization */}
       <script
         type="application/ld+json"
@@ -149,6 +169,8 @@ export default function Home() {
       <FounderTeaser />
       <MediaGallery />
       <WhySmartBrains />
+      <TrustEEAT />
+      <MeetExperts />
       <InstagramShowcase />
       <TestimonialSlider />
 

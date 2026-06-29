@@ -873,6 +873,39 @@ export const blogPosts: BlogPost[] = [
     category: "Mathematics",
     tags: ["Vedic Math", "Mathematics", "Mental Calculation", "Academic Success"],
     image: "https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id: 7,
+    title: "How to Improve Child Memory and Concentration Naturally: The Ultimate Parent Guide",
+    slug: "how-to-improve-child-memory-naturally",
+    excerpt: "Discover proven scientific methods, lifestyle adjustments, and targeted brain exercises to dramatically enhance your child's concentration and long-term memory recall.",
+    content: `
+      <p>Every parent desires to see their child excel academically and creatively. However, in today's digital landscape dominated by rapid push notifications and short-form video loops, children face unprecedented concentration struggles. Helping a child focus and build robust memory recall requires understanding the physiological mechanisms of the growing brain.</p>
+
+      <h2>The Science of Memory in Developing Brains</h2>
+      <p>The human brain undergoes massive structural transformations during childhood. Neuroplasticity—the brain's capability to form new neural connections—is at its peak. When we expose a child to targeted cognitive tasks, we reinforce the myelin sheathing around their neural pathways, allowing electrical signals to travel faster. Memory is not a single muscle; it is divided into working memory (short-term) and long-term storage. By utilizing specialized exercises, we can expand both.</p>
+
+      <h2>Top 5 Natural Techniques to Boost Focus</h2>
+      <ol>
+        <li><strong>Hemispheric Balance Exercises:</strong> Simple physical movements like cross-crawls and midline coordination activate both hemispheres across the corpus callosum. This forms the basis of <a href="/programs/midbrain-activation">Midbrain Activation</a> methodologies.</li>
+        <li><strong>Sensory Association:</strong> Rote memorization (repeating text) is highly inefficient. Instead, teach your child to convert numbers, facts, and spellings into vivid, sensory mental codes. This is the cornerstone of <a href="/programs/photographic-memory">Photographic Memory training</a>.</li>
+        <li><strong>Mental Visualization Blocks:</strong> Ask your child to close their eyes and describe a familiar room or object in extreme detail, down to the texture and color. This builds the visual mapping skills required for <a href="/programs/abacus-math">Abacus math calculations</a>.</li>
+        <li><strong>Optimal Reading Guides:</strong> Teach your child to use their finger or a pen as a visual guide while reading. This prevents regression (going back to read sentences) and expands reading speeds. For advanced techniques, explore our <a href="/programs/speed-reading">Speed Reading course</a> details.</li>
+        <li><strong>Stress Mitigation & Sleep Hygiene:</strong> High levels of cortisol (the stress hormone) directly damage cells in the hippocampus—the brain's memory processing center. Establishing consistent sleep routines and daily meditation helps keep stress low and memory retention high.</li>
+      </ol>
+
+      <h2>How Structured Programs Accelerate Growth</h2>
+      <p>While home routines are great, structured training provides compounding results. Programs like Abacus classes build logical calculation speeds, Vedic Maths provides algebraic calculation shortcuts, and Photographic Memory classes build instant recall. Understanding which program matches your child's natural brain dominance is key. We highly recommend conducting a biological <a href="/programs/dmit">DMIT assessment</a> to identify their exact learning style early.</p>
+
+      <h2>Conclusion</h2>
+      <p>Improving concentration is a gradual process requiring consistency, proper cognitive stimulus, and a supportive environment. By incorporating brain gym movements, visual memory association, and structured training programs, you can give your child a lifetime of learning confidence and academic excellence.</p>
+    `,
+    author: "Dr. Priya Sharma",
+    date: "2026-06-25",
+    readTime: "12 min read",
+    category: "Memory Training",
+    tags: ["Memory Improvement", "Concentration", "Brain Training", "Parenting"],
+    image: "https://images.pexels.com/photos/8471886/pexels-photo-8471886.jpeg?auto=compress&cs=tinysrgb&w=800"
   }
 ];
 
@@ -898,3 +931,30 @@ export function getAllCategories(): string[] {
   const categories = blogPosts.map(post => post.category);
   return Array.from(new Set(categories));
 }
+
+export function getRelatedBlogPosts(programSlug: string, limit: number = 3): BlogPost[] {
+  const slugKeywordsMap: Record<string, string[]> = {
+    'abacus-math': ['abacus', 'math', 'arithmetic', 'calculation'],
+    'vedic-math': ['vedic', 'math', 'calculation', 'speed'],
+    'dmit': ['dmit', 'fingerprint', 'personality', 'intelligence'],
+    'midbrain-activation': ['midbrain', 'activation', 'intuition', 'brainwaves'],
+    'photographic-memory': ['memory', 'photographic', 'recall', 'visualization'],
+    'speed-reading': ['reading', 'speed', 'comprehension'],
+    'quantum-speed-reading': ['reading', 'quantum', 'speed', 'right-brain'],
+    'enhancement': ['brain', 'cognitive', 'concentration', 'focus', 'attention'],
+    'handwriting': ['handwriting', 'writing', 'motor'],
+    'drawing-skills': ['drawing', 'art', 'motor', 'creativity'],
+    'midbrain-adults': ['midbrain', 'adult', 'stress', 'decision-making']
+  };
+
+  const keywords = slugKeywordsMap[programSlug] || [];
+  if (keywords.length === 0) return blogPosts.slice(0, limit);
+
+  return blogPosts
+    .filter(post => {
+      const matchInTitle = keywords.some(kw => post.title.toLowerCase().includes(kw));
+      const matchInTags = post.tags.some(tag => keywords.some(kw => tag.toLowerCase().includes(kw)));
+      return matchInTitle || matchInTags;
+    })
+    .slice(0, limit);
+}

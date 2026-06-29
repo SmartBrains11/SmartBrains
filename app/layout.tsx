@@ -1,6 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { AnalyticsTracker } from '@/components/analytics/AnalyticsTracker';
+
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ContactStrip } from '@/components/layout/ContactStrip';
@@ -168,7 +170,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
+      </head>
+      <body className={`${inter.className} bg-slate-50 antialiased`}>
+        <AnalyticsTracker />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

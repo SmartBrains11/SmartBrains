@@ -1,4 +1,8 @@
 import { MetadataRoute } from 'next';
+import { generateLocationList } from '@/data/locations';
+import { comparisons } from '@/data/comparisons';
+import { pillars } from '@/data/pillars';
+import { trainers } from '@/data/trainers';
 
 const baseUrl = 'https://www.smartbrainsindia.in'; // Updated to match metadata.ts
 
@@ -36,7 +40,14 @@ const newSeoPages = [
   'child-intelligence-development-guide',
   
   // Hub
-  'resources'
+  'resources',
+  
+  // Phase 3: Trust & Editorial Pages
+  'disclaimer',
+  'editorial-policy',
+  'cookie-policy',
+  'achievements',
+  'awards'
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -80,6 +91,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...staticPages, ...programPages, ...seoPages];
+  // Localized City Landing Pages
+  const locationList = generateLocationList();
+  const locationPages = locationList.map((loc) => ({
+    url: `${baseUrl}/location/${loc.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  // Program Comparison Pages
+  const comparisonPages = Object.keys(comparisons).map((slug) => ({
+    url: `${baseUrl}/compare/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  // Content Pillar Pages
+  const pillarPages = Object.keys(pillars).map((slug) => ({
+    url: `${baseUrl}/pillar/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+
+  // Trainer Pages
+  const trainerPages = Object.keys(trainers).map((slug) => ({
+    url: `${baseUrl}/trainer/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...programPages, ...seoPages, ...locationPages, ...comparisonPages, ...pillarPages, ...trainerPages];
 }
+
 

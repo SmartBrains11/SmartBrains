@@ -5,6 +5,47 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Info, ChevronRight, User, Calendar } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+
+const ARTICLES_LIST = [
+  {
+    title: 'Top 10 Brain Development Activities for Kids to Boost Intelligence',
+    href: '/brain-development-activities-for-kids',
+    description: 'Explore the best brain development activities for kids to boost memory, logic, and creativity.',
+    image: '/images/abacus.webp'
+  },
+  {
+    title: 'Effective Brain Development Programs for Kids',
+    href: '/brain-development-programs-for-kids',
+    description: 'Learn about structured programs designed to maximize cognitive ability and hemispheric balance.',
+    image: '/images/midbrain-activation.webp'
+  },
+  {
+    title: 'Child Intelligence Development: The Complete Guide',
+    href: '/child-intelligence-development-guide',
+    description: 'A scientifically validated blueprint for understanding and boosting child intelligence.',
+    image: '/images/DMIT.webp'
+  },
+  {
+    title: 'How to Improve Concentration in Children Naturally',
+    href: '/improve-concentration-in-children',
+    description: 'Proven strategies and brain exercises to help distracted children focus on studies.',
+    image: '/images/speed-reading.webp'
+  },
+  {
+    title: 'Essential Learning Skills for Modern Students',
+    href: '/learning-skills-for-students',
+    description: 'Critical cognitive skills students need to absorb, process, and retain information.',
+    image: '/images/photograhic-memory.webp'
+  },
+  {
+    title: 'Boost Memory Power for Kids: Myths vs Reality',
+    href: '/memory-power-for-kids',
+    description: 'Practical tools and visualization exercises to dramatically improve memory retention.',
+    image: '/images/handwriting.webp'
+  }
+];
+
 
 export interface FAQ {
   q: string;
@@ -30,18 +71,7 @@ interface ResourceArticleLayoutProps {
 export function ResourceArticleLayout({ articleData, children }: ResourceArticleLayoutProps) {
   return (
     <div className="min-h-screen bg-white">
-      {/* Breadcrumb */}
-      <div className="bg-gray-50 border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center space-x-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-blue-600">Home</Link>
-            <span>/</span>
-            <span className="text-gray-900">Resources</span>
-            <span>/</span>
-            <span className="text-gray-900 truncate max-w-xs">{articleData.title}</span>
-          </div>
-        </div>
-      </div>
+      <Breadcrumbs items={[{ label: 'Resources', href: '/resources' }, { label: articleData.title }]} />
 
       {/* Article Header */}
       <header className="py-12 lg:py-20 bg-white">
@@ -166,6 +196,25 @@ export function ResourceArticleLayout({ articleData, children }: ResourceArticle
 
         </div>
       </div>
+
+      {/* Parents Also Read */}
+      <section className="bg-slate-50 py-16 border-t border-slate-200">
+        <div className="container mx-auto px-6 lg:px-20 max-w-6xl">
+          <h3 className="text-3xl font-black text-slate-900 uppercase tracking-tight mb-8">Parents Also Read</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {ARTICLES_LIST.filter(art => art.title !== articleData.title).slice(0, 3).map((art, idx) => (
+              <Link key={idx} href={art.href} className="group block bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
+                <img src={art.image} alt={art.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="p-6">
+                  <h4 className="font-bold text-slate-800 group-hover:text-blue-600 transition-colors text-base leading-snug line-clamp-2">{art.title}</h4>
+                  <p className="text-sm text-slate-500 mt-2 line-clamp-2">{art.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

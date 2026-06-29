@@ -20,11 +20,40 @@ export const ContactPopup = () => {
   });
 
   useEffect(() => {
-    // Show after 5 seconds on every refresh
+    const hasShown = sessionStorage.getItem('popupShown');
+    if (hasShown) return;
+
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, 5000);
-    return () => clearTimeout(timer);
+      sessionStorage.setItem('popupShown', 'true');
+    }, 15000);
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const totalHeight = document.documentElement.scrollHeight;
+      if (scrollPosition / totalHeight > 0.5) {
+        setIsOpen(true);
+        sessionStorage.setItem('popupShown', 'true');
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY < 20) {
+        setIsOpen(true);
+        sessionStorage.setItem('popupShown', 'true');
+        document.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
   }, []);
 
   const handleClose = () => {

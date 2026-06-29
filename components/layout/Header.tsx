@@ -151,6 +151,7 @@ export function Header() {
             className="lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>

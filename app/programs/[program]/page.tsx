@@ -9,6 +9,10 @@ import QuantumSpeedReadingPage from './_components/QuantumSpeedReadingPage';
 import SpeedReadingPage from './_components/SpeedReadingPage';
 import DmitPage from './_components/DmitPage';
 import AdultMidbrainPage from './_components/AdultMidbrainPage';
+import { ProgramInternalLinks } from '@/components/programs/ProgramInternalLinks';
+import { LeadMagnet } from '@/components/shared/LeadMagnet';
+
+
 
 // Valid program slugs - now 11 programs
 const validSlugs = [
@@ -741,6 +745,8 @@ export default function ProgramPage({ params }: { params: { program: string } })
     <>
       {schemas}
       {pageContent}
+      <LeadMagnet />
+      <ProgramInternalLinks programSlug={normalizedSlug} relatedPrograms={relatedPrograms} />
     </>
   );
 }

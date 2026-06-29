@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -96,11 +98,16 @@ export function ProgramDetailsView({ programData, programSlug, relatedPrograms =
             </div>
 
             <div className="animate-slide-in-right">
-              <img
-                src={programData.image}
-                alt={programData.imageAlt || programData.title}
-                className="w-full h-96 object-cover rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300"
-              />
+              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                <Image
+                  src={programData.image}
+                  alt={programData.imageAlt || programData.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
